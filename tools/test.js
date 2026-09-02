@@ -217,26 +217,31 @@ for (let i = 1; i < ta.length; i++) {
 ok("sắp xếp học phí tăng dần", sortedOk);
 S.sort = "deadline";
 
-console.log("\n=== 5. Kích hoạt Pro ===");
+console.log("\n=== 5. Kích hoạt Pro (master key) ===");
+const MASTER = "HAIKTSDUHOCY2026";
 ok("mặc định chưa kích hoạt", PRO.active === false);
-ok("key rác bị từ chối", PRO._verifyOffline("AAAA-BBBB-CCCC-DDDD") === false);
-// sinh 1 key hợp lệ đúng thuật toán (đối chiếu với tools/genkey.py)
-const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-function fnv1a(s) { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0; } return h >>> 0; }
-function mkKey(payload) {
-  const h = fnv1a(payload + "|" + CFG.KEY_SALT);
-  let cs = ""; for (let i = 0; i < 4; i++) cs += ALPHABET[(h >>> (i * 5)) & 31];
-  const full = payload + cs;
-  return full.match(/.{4}/g).join("-");
-}
-const goodKey = mkKey("ABCDEFGHJKLM");
-ok("key hợp lệ được chấp nhận", PRO._verifyOffline(goodKey) === true, goodKey);
-ok("key sai 1 ký tự bị từ chối", PRO._verifyOffline(goodKey.slice(0, -1) + (goodKey.slice(-1) === "A" ? "B" : "A")) === false);
-console.log("   key mẫu dùng cho test:", goodKey);
+ok("có cấu hình MASTER_KEY_HASH", !!CFG.MASTER_KEY_HASH);
+ok("key đúng được chấp nhận", PRO._verifyMaster(MASTER) === true);
+ok("chấp nhận chữ thường", PRO._verifyMaster(MASTER.toLowerCase()) === true);
+ok("chấp nhận có dấu gạch", PRO._verifyMaster("HAIK-TSDU-HOCY-2026") === true);
+ok("key sai bị từ chối", PRO._verifyMaster("HAIKTSDUHOCY2027") === false);
+ok("key rỗng bị từ chối", PRO._verifyMaster("") === false);
+ok("key thô KHÔNG lộ trong config.js",
+   !fs.readFileSync(path.join(ROOT, "assets/js/config.js"), "utf8").includes(MASTER));
+ok("key thô KHÔNG lộ trong premium.js",
+   !fs.readFileSync(path.join(ROOT, "assets/js/premium.js"), "utf8").includes(MASTER));
+
+// SHA-256 tự viết phải khớp thư viện chuẩn của Node (kể cả ở biên block 55/56/64)
+const nodeCrypto = require("crypto");
+let shaBad = 0;
+["", "a", "abc", "x".repeat(55), "y".repeat(56), "z".repeat(64), "Tiếng Việt ✓"].forEach((c) => {
+  if (PRO._sha256(c) !== nodeCrypto.createHash("sha256").update(c, "utf8").digest("hex")) shaBad++;
+});
+eq("SHA-256 khớp crypto của Node", shaBad, 0);
 
 console.log("\n=== 6. Xuất file (khi đã có Pro) ===");
 // bật Pro thủ công để test bộ xuất
-PRO.active = true; PRO.info = { key: goodKey, source: "offline" };
+PRO.active = true; PRO.info = { key: MASTER, source: "master" };
 const sample = DATA.programs.slice(0, 25);
 
 function grab(fn, label) {

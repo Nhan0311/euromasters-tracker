@@ -1,0 +1,1410 @@
+{
+ "checkedAt": "2026-09-03",
+ "links": {
+  "https://aarch.dk/en/full-degree-student-admission/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://ai-master.lisn.upsaclay.fr/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://ap-arts.be/en/education/bachelor-and-master-visual-arts": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://apply.mome.hu/courses/course/19-ma-design-ma": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://arba-esa.be/en/admission-et-inscription": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://arch.ethz.ch/en/studium/studienangebot/master-architektur.html": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://arch.kuleuven.be/english/studying/programmes/master-of-architecture": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://arch.rwth-aachen.de/cms/architektur/studium/studiengaenge/~ngc/m-sc-architektur/?lidx=1": {
+   "checked": "2026-09-03",
+   "code": "000",
+   "status": "blocked"
+  },
+  "https://archprog.metu.edu.tr/en/march": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://ase.uva.nl/content/masters/business-economics/application-and-admission/application-and-admission.html": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://beauxartsparis.fr/en/admission/entree-premiere-annee": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://cc.au.dk/uddannelse/evu/curating": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://corsi.unibo.it/2cycle/artificial-intelligence": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://courses.leeds.ac.uk/j929/architecture-march": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://courtauld.ac.uk/explore-our-courses/postgraduate/ma-history-of-art/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://didattica.polito.it/pls/portal30/sviluppo.offerta_formativa.master?p_lang=EN": {
+   "checked": "2026-09-03",
+   "code": "400",
+   "status": "blocked"
+  },
+  "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-public-health-sciences": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://en.lecolededesign.com/formations/orientation/transcultural-design-le-studio-france-150": {
+   "checked": "2026-09-03",
+   "code": "000",
+   "status": "blocked"
+  },
+  "https://ens-paris-saclay.fr/formations/masters/design": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://escp.eu/programmes/master-in-management": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://ethz.ch/en/studies/master/application/faq.html": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://ethz.ch/en/studies/master/master-programmes/engineering-sciences/civil-engineering.html": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://feb.kuleuven.be/eng/prospective-students/master-of-business-economics": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://fel.cvut.cz/en/admissions/admission-procedures": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://gs.ehl.edu/master-in-hospitality-management": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://informatics.tuwien.ac.at/master/data-science/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://internacional.us.es/en/estudiar-en-la-universidad-de-sevilla": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://ir.ceu.edu/ma-international-relations-1-year": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://iro.pk.edu.pl/masters-degree-program/msc-in-architecture-faculty-of-architecture/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://khio.no/en/study-programmes/mabk": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://kkh.se/en/education/masters-program-in-fine-arts/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://lesroches.edu/programs/masters-degrees/master-of-science-in-hospitality-management/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://llm.law.cam.ac.uk/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://masteres.ugr.es/arquitectura/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://masters.au.dk/tuitionfees": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://mau.se/en/study-education/programme/taind/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://mmr.yildiz.edu.tr/en/departments": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://norwichuni.ac.uk/study-at-norwich/courses/ma-fashion/": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://paris-malaquais.archi.fr/etudes/p/admissions/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://programmes.polytechnique.edu/en/master": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://rekrutacja.asp.waw.pl/malarstwo/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://royaldanishacademy.com/en/admission-master": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://royaldanishacademy.com/en/apply-ma-architecture": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://sciences.sorbonne-universite.fr/en/apply/master": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://sheffield.ac.uk/postgraduate/taught/courses/2026/architecture-march": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://sigarra.up.pt/faup/en/web_page.inicial": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://studies.ku.dk/masters/global-health/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://study.ed.ac.uk/programmes/postgraduate-taught/107-artificial-intelligence": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://study.ed.ac.uk/programmes/postgraduate-taught/420-architecture-master-of-arbriba-part-2": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://tu-dresden.de/bu/architektur/studium/studieren-an-der-fakultaet-fachrichtung/diplomstudiengang-architektur": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://ut.ee/en/curriculum/computer-science": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://web.ub.edu/web/estudis/w/masterdegree-m0h02": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.aalto.fi/en/programmes/masters-programme-in-computer-communication-and-information-sciences": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.aalto.fi/en/programmes/masters-programme-in-design": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.aalto.fi/en/study-options/architecture-master-of-science-in-architecture": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.aalto.fi/en/study-options/marketing-master-of-science-economics-and-business-administration": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.aaschool.ac.uk/admissions/postgraduate": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.academy.rwth-aachen.de/en/education-formats/msc-degree-programmes": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.aho.no/english/studies/programmes/master-of-architecture/": {
+   "checked": "2026-09-03",
+   "code": "000",
+   "status": "blocked"
+  },
+  "https://www.akbild.ac.at/en/studies/study-programs": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.alliancembs.manchester.ac.uk/study/masters/msc-marketing/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.arch.kit.edu/english/studium-und-lehre/masterstudiengang_architektur.php": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.arch.ntua.gr/index.php/postgraduate-studies/?lang=en": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.architektur.tu-darmstadt.de/studieren/studieninteressierte/studienangebot/masterstudiengang_architektur/index.en.jsp": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.architettura.uniroma1.it/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.arct.cam.ac.uk/courses/postgraduate/mphil-in-architecture-and-urban-studies": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.art.mmu.ac.uk/postgraduate/ma-graphicdesign/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.arts.ac.uk/subjects/fine-art/postgraduate/ma-fine-art-csm": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.artun.ee/en/admissions/masters/admissions/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.asfa.gr/en/department-of-visual-arts/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.avu.cz/en/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.bath.ac.uk/courses/postgraduate/department-of-architecture-civil-engineering-taught-postgraduate-courses/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.birmingham.ac.uk/study/postgraduate/subjects/urban-and-regional-planning-courses/urban-and-regional-planning-msc": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.breitner.ahk.nl/en/study-programmes/master-of-education-in-arts/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.brighton.ac.uk/courses/study/graphic-design-ma.aspx": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.brookes.ac.uk/courses/postgraduate/march-architecture-part-2": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/master-of-architecture-march": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.cbs.dk/en/study-programmes/master-programmes": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.cbs.dk/en/study-programmes/master-programmes/msc-economics-and-business-administration-finance-and-investments": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.chalmers.se/en/education/find-masters-programme/architecture-and-urban-design-msc/": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.chalmers.se/en/education/find-masters-programme/computer-science-algorithms-languages-and-logic-msc/": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.chalmers.se/en/education/masters-programmes/mechanical-engineering/": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.cit.tum.de/en/cit/studies/degree-programs/master-data-engineering-and-analytics/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.cst.cam.ac.uk/admissions/acs": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.damu.cz/en/department/department-of-stage-design/study-programs/scenography-theatre-scenography-166/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.designacademy.nl/page/451/masters-q-a": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.designskolenkolding.dk/en/study-at-the-school/master/masters-programme-admission-and-requirements": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.dieangewandte.at/programmes": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.domusacademy.com/courses/fashion/master-in-fashion-design/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.dtu.dk/english/education/graduate/find-your-msc-programme/data-science": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.dtu.dk/english/education/graduate/msc-programmes/civil-engineering": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.eca.ed.ac.uk/programme/design-change-ma": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ed.ac.uk/studying/postgraduate/degrees/index.php?r=site/view&edition=2026&id=669": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.edhec.edu/en/programmes/masters-degree/msc-finance": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.en.aau.dk/education/master/architecture": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.en.aau.dk/education/master/signal-processing-computing": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.ensad.fr/fr/en-1ere-annee-de-master": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ensci.com/en/school/admissions": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.epfl.ch/education/master/programs/architecture/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.epfl.ch/education/master/programs/data-science/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.epfl.ch/education/master/programs/electrical-and-electronic-engineering/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.esmod.com/programme/postgraduate-directeur-de-creation-mode-et-industries-creatives/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.essec.edu/en/program/msc-marketing-management-digital/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.essec.edu/en/programs/masters-msc/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.eur.nl/en/master/health-economics-policy-law": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.fa.cvut.cz/en/applicants/admission/tuition-fees": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.fa.ulisboa.pt/index.php/pt/cursos/mestradointegrado/arquitetura": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.falmouth.ac.uk/study/postgraduate/fine-art": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.flsh.unilim.fr/master/creation-contemporaine-et-industries-culturelles/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.frankfurt-school.de/en/study/master/master-of-finance": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.gla.ac.uk/postgraduate/taught/city-planning/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.glion.edu/programs/msc-in-international-hospitality-business/": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.gold.ac.uk/pg/mfa-fine-art/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.graduateinstitute.ch/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.graduateinstitute.ch/international-law-presentation": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.gsa.ac.uk/postgraduate-degrees/master-of-fine-art": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.gu.se/en/study-gothenburg/mfa-programme-in-design-k2den": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.hec.edu/en/master-s-programs/master-international-finance": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.hec.edu/en/master-s-programs/master-marketing": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.hesge.ch/head/en/programs-research/master-arts-media-design": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.hhs.se/en/education/master/": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.hku.nl/en/study-at-hku/fine-art/master-of-fine-art": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.hoart.cam.ac.uk/admissions/graduate-admissions/mphil": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.hu-berlin.de/en/studies/counselling/course-catalogue/programme-descriptions/kubildgesch-en": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.hw.ac.uk/study/postgraduate": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.ied.it/other-pdf/pricelists/eng/IED-Italia-Master-Courses-Pricelist.pdf": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.imd.org/degree/mba/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.imperial.ac.uk/business-school/masters/business-analytics/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.imperial.ac.uk/study/courses/postgraduate-taught/advanced-mechanical-engineering/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-artificial-intelligence-msc/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.imperial.ac.uk/study/courses/postgraduate-taught/public-health-masters/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.intl.kit.edu/istudies/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ip-paris.fr/en/education/masters/computer-science-program/master-year-1-data-and-artificial-intelligence": {
+   "checked": "2026-09-03",
+   "code": "000",
+   "status": "blocked"
+  },
+  "https://www.ip-paris.fr/en/education/masters/urban-planning-program": {
+   "checked": "2026-09-03",
+   "code": "000",
+   "status": "blocked"
+  },
+  "https://www.istitutomarangoni.com/en/fashion-courses/fashion-design/fashion-design-womenswear-menswear": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.iuav.it/en/didattica/lauree-magistrali/architecture": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.jbs.cam.ac.uk/masters-degrees/master-of-finance/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kabk.nl/en/programmes": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kcl.ac.uk/study/postgraduate-taught/courses/international-management-msc": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kcl.ac.uk/study/postgraduate-taught/courses/master-of-laws-llm": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kingston.ac.uk/study/postgraduate/fashion-ma": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.konstfack.se/en/Education/Masters-Degree-Programmes/Fine-Art/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kth.bme.hu/document/818/original/Architecture.pdf": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kth.se/en/studies/master/architecture/msc-architecture-1.48041": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kth.se/en/studies/master/engineering-mechanics": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kth.se/en/studies/master/machine-learning/msc-machine-learning-1.48533": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ku.dk/studies/masters/landscape-architecture": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.kuleuven.be/programmes/master-artificial-intelligence": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kuleuven.be/programmes/master-chemical-engineering": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.kuleuven.be/programmes/master-international-politics": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.lacambre.be/fr/formations/design-industriel": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.lancaster.ac.uk/study/postgraduate/postgraduate-courses/design-management-ma/2026/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.law.ox.ac.uk/content/course/magister-juris-mjur": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/architecture/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.lboro.ac.uk/study/postgraduate/masters-degrees/a-z/graphic-design-visualisation/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.liverpool.ac.uk/courses/master-of-architecture-march": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.london.edu/masters-degrees/masters-in-management": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.lse.ac.uk/law/study/llm": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.lse.ac.uk/study-at-lse/graduate/msc-city-design-and-social-science": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.lse.ac.uk/study-at-lse/graduate/msc-finance-full-time": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.lse.ac.uk/study-at-lse/graduate/msc-international-relations": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.lshtm.ac.uk/study/courses/masters-degrees/public-health": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.luiss.edu/ammissione/offerta-formativa/laurea-magistrale/management": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.lunduniversity.lu.se/lucat/group/EAAAF": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.lunduniversity.lu.se/study/fine-arts-master-programme-KAFKO": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.maastrichtuniversity.nl/education/master/programmes/international-business-strategy-and-innovation": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.manchester.ac.uk/study/masters/courses/list/07354/msc-advanced-chemical-engineering/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.manchester.ac.uk/study/masters/courses/list/21574/msc-artificial-intelligence/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.mathematik.uni-muenchen.de/studium/studiengaenge/master-data-science/index.html": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.mdw.ac.at/1316/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.msa.ac.uk/study/march/apply/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.naba.it/en/postgraduate/fashion-and-textile-design-courses": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ncad.ie/students/programme-information/ma-mfa-in-fine-art/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ncl.ac.uk/postgraduate/degrees/5843f/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.ndph.ox.ac.uk/study-with-us/MSc-GHSE": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.northumbria.ac.uk/study-at-northumbria/postgraduate-study/masters-subject-pages/design/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-march-arb-riba-part-2": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.ntnu.edu/studies/mibygg": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ntnu.edu/studies/mssusarc": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ox.ac.uk/admissions/graduate/courses/mfa-fine-art": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.ox.ac.uk/admissions/graduate/courses/msc-advanced-computer-science": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.ox.ac.uk/admissions/graduate/courses/msc-sustainable-urban-development": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.penninghen.com/program/art-direction": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.poliba.it/it/content/architettura": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/architecture": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/civil-engineering-for-risk-mitigation": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/product-service-system-design": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.polimi.it/en/education/master-programmes/how-to-apply": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.polimi.it/en/education/master-programmes/how-to-apply-and-enrol": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-sustainability": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.polito.it/en/education/master-s-degree-programmes/systemic-design": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.postgraduate.study.cam.ac.uk/courses/directory/egegmpmeg": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.pxl-mad.be/en/english-master-programme": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.qub.ac.uk/courses/postgraduate-taught/architecture-march/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.rca.ac.uk/study/programme-finder/global-innovation-design-ma-msc/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.rca.ac.uk/study/programme-finder/painting-ma/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.reading.ac.uk/ready-to-study/study/Subject-area/architecture-pg/master-of-architecture": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.royalacademy.org.uk/page/ra-schools-how-to-apply": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.rsm.nl/education/master/msc-programmes/msc-international-management-cems/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.rsm.nl/education/master/msc-programmes/msc-marketing-management/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.sbs.ox.ac.uk/programmes/degrees/msc-financial-economics": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.sciencespo.fr/psia/academics/masters/master-international-security/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.sis.itu.edu.tr/EN/student/intenational-students/tuitions.php": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.smurfitschool.ie/programmes/masters/mscinmarketingpractice/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.southampton.ac.uk/courses/fashion-design-masters-ma": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.strate.design/en/training/transportation-design": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.strath.ac.uk/courses/postgraduatetaught/architecturaldesigninternational/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.students.pw.edu.pl/Studies-Offer/M.Sc.-offer": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.surrey.ac.uk/postgraduate/international-tourism-management-msc": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.tcd.ie/business/programmes/masters-programmes/msc-in-finance/": {
+   "checked": "2026-09-03",
+   "code": "202",
+   "status": "ok"
+  },
+  "https://www.tcd.ie/courses/postgraduate/courses/computer-science---data-science--mscpgraddip/": {
+   "checked": "2026-09-03",
+   "code": "202",
+   "status": "ok"
+  },
+  "https://www.tcd.ie/courses/postgraduate/courses/engineering-environmental--structural-and-geotechnical--transport-sustainable-energy/": {
+   "checked": "2026-09-03",
+   "code": "202",
+   "status": "ok"
+  },
+  "https://www.tilburguniversity.edu/education/masters-programs/finance": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.tu-braunschweig.de/en/degree-programmes/architecture-master": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.tu-dortmund.de/en/students/degree-programs/architecture-and-urban-design-664/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.tu.berlin/en/eecs/academics-teaching/study-offer/masters-programs/msc-computer-science-informatik": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.tu.berlin/en/eecs/academics-teaching/study-offer/masters-programs/msc-electrical-engineering": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.tu.berlin/en/planen-bauen-umwelt/architektur/architecture-msc": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.tudelft.nl/en/education/programmes/masters/aubs/msc-architecture-urbanism-and-building-sciences": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.tudelft.nl/en/education/programmes/masters/cie/msc-civil-engineering": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.tudelft.nl/en/education/programmes/masters/dfi/msc-design-for-interaction": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.tudelft.nl/onderwijs/opleidingen/masters/cs/msc-computer-science": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.tudelft.nl/onderwijs/opleidingen/masters/me/msc-mechanical-engineering": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.tue.nl/en/education/exchange-and-guest-programs/programs/electrical-engineering": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.tue.nl/en/education/graduate-school/master-architecture-building-and-planning": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.tugraz.at/en/studying-and-teaching/degree-and-certificate-programmes/masters-degree-programmes/architecture": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.tum.de/en/studies/degree-programs/detail/architecture-master-of-arts-ma": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.tuwien.at/en/studies/degree-and-continuing-education-programmes/master-programmes/machinenbau": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.tuwien.at/en/studies/studies/master-programmes/architecture": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.ua.pt/pt/curso/1536": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uab.cat/web/estudiar/la-oferta-de-masteres-oficiales/informacion-general/politicas-y-planificacion-para-las-ciudades-el-ambiente-y-el-paisaje-1096480309770.html": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uantwerpen.be/en/study/programmes/all-programmes/architecture/master/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uca.ac.uk/study/courses/ma-fine-art-farnham/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/architecture": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/civil-engineering-msc": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/data-science-msc": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.ucl.ac.uk/slade/study/ma-mfa-admissions/": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.uclouvain.be/en/study-programme/architecture-architectural-engineering-and-urban-planning": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.udk-berlin.de/en/application/applicationguide/fine-arts/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.ugent.be/ea/architectuur/en/education/masters-programmes": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.ugent.be/we/en/education/masters/chemical-engineering": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.ulb.be/en/programme/ma-arch": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.umprum.cz/en/web/applicant/ma-program-in-english": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.umu.se/en/umea-institute-of-design/education/programmes/masters-programme-in-advanced-product-design-/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uni-hannover.de/en/studium/finanzierung-foerderung/studienkosten": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uni-saarland.de/en/study/programmes/master/informatics.html": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uni-stuttgart.de/studium/studienangebot/Architektur-und-Stadtplanung-M.Sc./": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.uni-weimar.de/en/architecture-and-urbanism/studies/master/architecture/master-architecture/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uni-weimar.de/en/art-and-design/studies/media-art-and-design/medienkunstmediengestaltung-mfa/media-art-and-design-mfa/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uniarts.fi/en/study-programmes/fine-arts-master/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.unibocconi.it/en/programs/master-science-programs/marketing-management": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.uniroma3.it/en/international/study-at-roma-tre/courses-in-english/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.unisg.ch/en/studying/admission/admission-master/banking-and-finance/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.universiteitleiden.nl/en/education/study-programmes/master/international-relations-and-diplomacy": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.universiteitleiden.nl/en/education/study-programmes/master/law-and-finance": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.upc.edu/en/masters/architecture-barcelona-etsab": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.upc.edu/en/masters/civil-engineering": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.upc.edu/en/masters/data-science": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.upm.es/Estudiantes/Estudios_Titulaciones/Estudios_Master": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.upm.es/Estudiantes/Estudios_Titulaciones/Estudios_Master/Admision?fmt=detail&id=CON06485": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.upv.es/estudios/master/muarq/en/home/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.urbanisme-univ-paris1.fr/master-1": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.utwente.nl/en/education/master/programmes/cyber-security/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.utwente.nl/en/education/master/programmes/robotics/": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.uu.nl/en/masters/law-and-economics": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.uu.nl/en/masters/spatial-planning": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.uva.nl/en/programmes/masters/international-and-european-law-international-trade-and-investment-law/": {
+   "checked": "2026-09-03",
+   "code": "404",
+   "status": "dead"
+  },
+  "https://www.uva.nl/shared-content/programmas/en/masters/artificial-intelligence/artificial-intelligence.html": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uva.nl/shared-content/programmas/en/research-masters/urban-studies-research/urban-studies-research-msc.html": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.uzh.ch/en/studies/application/master.html": {
+   "checked": "2026-09-03",
+   "code": "206",
+   "status": "ok"
+  },
+  "https://www.vda.lt/en/study_programs/graduate-ma/painting-lt-en-1": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.vub.be/en/studying-vub/all-study-programmes-vub/bachelors-and-masters-programmes-vub/master-architectural-engineering/program/master/master-architectural-engineering": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.vut.cz/en/students/programmes/programme/7640": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.wbs.ac.uk/courses/masters/finance/": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.westminster.ac.uk/fashion-courses/2026-27/september/full-time/fashion-accessories-design-ma": {
+   "checked": "2026-09-03",
+   "code": "403",
+   "status": "blocked"
+  },
+  "https://www.wu.ac.at/en/programs/masters-programs/international-management-cems/overview": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.wur.nl/en/education-programmes/master/msc-programmes/msc-urban-environmental-management.htm": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  },
+  "https://www.zhdk.ch/en/degree-programmes/design/masters-programme-in-design/registration-design-ma-2857": {
+   "checked": "2026-09-03",
+   "code": "200",
+   "status": "ok"
+  }
+ }
+}

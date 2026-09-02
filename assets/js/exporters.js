@@ -54,7 +54,7 @@
     "STT", "Nhóm ngành", "Xếp hạng QS 2026", "Ngành cụ thể", "Trường", "Chương trình",
     "Quốc gia", "Thành phố", "Hạn nộp (nguyên văn)", "Hạn kế tiếp", "Còn lại (ngày)", "Độ tin cậy ngày",
     "Thời gian học", "Ngôn ngữ", "Học phí", "Học phí ~EUR/năm", "Chi phí sinh hoạt",
-    "Học bổng của trường", "Học bổng khác", "Yêu cầu đầu vào", "Mô tả", "Ghi chú", "Website",
+    "Học bổng của trường", "Học bổng khác", "Yêu cầu đầu vào", "Mô tả", "Ghi chú", "Website", "Trạng thái link",
     "Trạng thái hồ sơ", "Ghi chú cá nhân", "Tiến độ giấy tờ"
   ];
 
@@ -73,6 +73,9 @@
       (p.tuitionEur == null ? "" : p.tuitionEur), p.livingRaw || "",
       p.scholarshipSchool || "", p.scholarshipOther || "", p.requirements || "",
       p.desc || "", p.notes || "", p.link || "",
+      p.linkStatus === "dead" ? "Đã hỏng (404) — tìm lại trên web trường"
+        : p.linkStatus === "blocked" ? "Site chặn kiểm tra tự động — mở bằng trình duyệt"
+        : p.linkStatus === "ok" ? "Còn sống" : "Chưa kiểm tra",
       st, (tr && tr.notes) || "", docs + "/" + CFG.DOCS.length
     ];
   }
@@ -106,7 +109,7 @@
           { wch: 5 }, { wch: 22 }, { wch: 30 }, { wch: 20 }, { wch: 40 }, { wch: 42 },
           { wch: 16 }, { wch: 14 }, { wch: 46 }, { wch: 13 }, { wch: 11 }, { wch: 20 },
           { wch: 18 }, { wch: 20 }, { wch: 40 }, { wch: 15 }, { wch: 30 },
-          { wch: 40 }, { wch: 32 }, { wch: 50 }, { wch: 55 }, { wch: 40 }, { wch: 46 },
+          { wch: 40 }, { wch: 32 }, { wch: 50 }, { wch: 55 }, { wch: 40 }, { wch: 46 }, { wch: 30 },
           { wch: 16 }, { wch: 34 }, { wch: 12 }
         ];
         ws["!autofilter"] = { ref: XLSX.utils.encode_range({ s: { r: 0, c: 0 }, e: { r: aoa.length - 1, c: HEADERS.length - 1 } }) };
@@ -170,6 +173,7 @@
       row("Mô tả", p.desc) +
       row("Ghi chú", p.notes) +
       row("Website", p.link) +
+      (p.linkStatus === "dead" ? row("Lưu ý", "Link gốc đã đổi đường dẫn — tìm lại trên website trường") : "") +
       (tr && tr.status ? row("Trạng thái hồ sơ", window.EMT.statusLabel(tr.status)) : "") +
       (tr && tr.notes ? row("Ghi chú cá nhân", tr.notes) : "") +
       "</table></div>";

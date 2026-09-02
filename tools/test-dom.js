@@ -222,23 +222,19 @@ async function ready() {
   ok("mở modal Pro thay thế", $("#proModal").classList.contains("on"));
 
   console.log("\n=== I. Kích hoạt Pro ===");
-  const ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  function fnv1a(s) { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0; } return h >>> 0; }
-  const payload = "NKQRSTUVWXYZ";
-  const h = fnv1a(payload + "|" + window.EMT_CONFIG.KEY_SALT);
-  let cs3 = ""; for (let i = 0; i < 4; i++) cs3 += ALPHABET[(h >>> (i * 5)) & 31];
-  const key = (payload + cs3).match(/.{4}/g).join("-");
+  const key = "HAIKTSDUHOCY2026";
 
   $("#keyInput").value = "SAI-KEY-1234-5678";
   click("#keyBtn");
-  await wait(120);
+  await wait(250);
   ok("key sai bị từ chối", !window.EMT_PREMIUM.active, "");
   ok("hiện thông báo lỗi", $("#keyMsg").classList.contains("err"));
 
   $("#keyInput").value = key;
   click("#keyBtn");
-  await wait(120);
-  ok("key hợp lệ kích hoạt Pro", window.EMT_PREMIUM.active === true, key);
+  await wait(250);
+  ok("key đúng kích hoạt Pro", window.EMT_PREMIUM.active === true, key);
+  eq("nguồn key là master", (window.EMT_PREMIUM.info || {}).source, "master");
   eq("nút đổi nhãn", $("#proBtnLabel").textContent, "Pro đã kích hoạt");
   ok("ổ khoá nút Xuất biến mất", $("#exportLock").hidden === true);
   ok("key được lưu localStorage", !!window.localStorage.getItem("emt.license.v1"));
@@ -330,6 +326,57 @@ async function ready() {
   ok("gỡ kích hoạt thành công", window.EMT_PREMIUM.active === false);
   eq("nút trở lại 'Nâng cấp Pro'", $("#proBtnLabel").textContent, "Nâng cấp Pro");
   ok("xoá key khỏi localStorage", !window.localStorage.getItem("emt.license.v1"));
+
+  console.log("\n=== N. Link hỏng ===");
+  const deadOne = window.EMT.all.find((p) => p.linkStatus === "dead");
+  ok("dữ liệu có gắn trạng thái link", !!deadOne);
+  ok("có mốc thời gian kiểm tra link", !!window.EMT_DATA.meta.linkCheckedAt,
+     String(window.EMT_DATA.meta.linkCheckedAt));
+  if (deadOne) {
+    window.EMT.openDrawerById(deadOne.id);
+    ok("drawer cảnh báo link đã đổi", /link gốc đã đổi/i.test($("#dBody").textContent));
+    ok("có link tìm trang mới", /Tìm trang mới/.test($("#dFoot").textContent));
+    const rescue = $("#dFoot a.primary");
+    ok("link cứu hộ trỏ tới tìm kiếm", rescue && /google\.com\/search/.test(rescue.href));
+    click("#dClose");
+  }
+  const okOne = window.EMT.all.find((p) => p.linkStatus === "ok");
+  if (okOne) {
+    window.EMT.openDrawerById(okOne.id);
+    ok("link còn sống vẫn mở thẳng web trường", /Mở web trường/.test($("#dFoot").textContent));
+    click("#dClose");
+  }
+
+  console.log("\n=== O. Đồng bộ URL & phím tắt ===");
+  $("#fCountry").value = "Đức";
+  $("#fCountry").dispatchEvent(new window.Event("change", { bubbles: true }));
+  ok("URL phản ánh bộ lọc quốc gia", /country=/.test(window.location.search), window.location.search);
+  $("#fSort").value = "rank";
+  $("#fSort").dispatchEvent(new window.Event("change", { bubbles: true }));
+  ok("URL phản ánh sắp xếp", /sort=rank/.test(window.location.search), window.location.search);
+  click("#resetBtn");
+  ok("đặt lại thì URL sạch", !/country=|sort=/.test(window.location.search), window.location.search);
+
+  const press = (k) => document.dispatchEvent(
+    new window.KeyboardEvent("keydown", { key: k, bubbles: true }));
+  press("?");
+  ok("phím ? mở bảng phím tắt", $("#helpModal").classList.contains("on"));
+  press("Escape");
+  ok("Esc đóng bảng phím tắt", !$("#helpModal").classList.contains("on"));
+  press("2");
+  ok("phím 2 chuyển sang timeline", !$("#view-timeline").hidden, "");
+  press("1");
+  ok("phím 1 quay lại thẻ", !$("#view-cards").hidden);
+  $("#q").focus();
+  press("?");
+  ok("gõ trong ô tìm kiếm KHÔNG kích hoạt phím tắt", !$("#helpModal").classList.contains("on"));
+  $("#q").blur();
+
+  let copied = null;
+  window.navigator.clipboard = { writeText: (t) => { copied = t; return Promise.resolve(); } };
+  click("#shareBtn");
+  await wait(50);
+  ok("nút chia sẻ sao chép URL", !!copied && copied.indexOf("http") === 0, String(copied));
 
   console.log("\n=== M. Toàn vẹn cuối ===");
   eq("không phát sinh lỗi JS trong suốt phiên", errors.length, 0, errors.join(" | "));

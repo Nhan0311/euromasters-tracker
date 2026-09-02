@@ -4,3 +4,7 @@ package-lock.json
 Thumbs.db
 *.log
 keys-*.txt
+.linkcheck-*.tsv
+.linkcheck-urls.txt
+.recheck*.txt
+.recheck*.tsv

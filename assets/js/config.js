@@ -20,16 +20,18 @@ window.EMT_CONFIG = {
      Đặt 0 để không giới hạn. */
   MAX_USES: 5,
 
-  /* ---- Key offline (dự phòng) -------------------------------------------
-     Dùng khi Gumroad API không gọi được (chặn CORS / offline), hoặc khi bạn
-     muốn tự phát key cho khách VIP. Sinh key bằng: python tools/genkey.py 10
+  /* ---- Master key (1 key duy nhất của tác giả) --------------------------
+     Key thô KHÔNG nằm trong file này — chỉ lưu SHA-256 để người xem mã nguồn
+     không đọc được key. Đổi key mới:
+         python tools/keyhash.py "KEY-MOI-CUA-BAN"
+     rồi dán chuỗi hash in ra vào MASTER_KEY_HASH bên dưới.
 
-     ⚠ SALT NÀY NẰM TRONG MÃ NGUỒN CÔNG KHAI — ai đọc được là tự sinh key được.
-     Đây chỉ là lưới an toàn, KHÔNG phải lớp bảo vệ thật. Lớp bảo vệ thật là
-     Gumroad. Khi Gumroad license đã chạy ổn, đặt ALLOW_OFFLINE_KEYS: false.
+     ⚠ Đây vẫn là kiểm tra phía trình duyệt nên người rành kỹ thuật có thể
+     vượt qua. Khi bắt đầu bán cho nhiều người, dùng license key của Gumroad
+     (mỗi đơn một key, thu hồi được) — xem README mục 6.
   ------------------------------------------------------------------------ */
   KEY_SALT: "euromasters-2026",
-  ALLOW_OFFLINE_KEYS: true,
+  MASTER_KEY_HASH: "9a1de218ba45c19dfa11e463081e8530b01c598e8b1abb48ff25a7e4f83aa462",
 
   /* Giới hạn bản miễn phí */
   FREE_SHORTLIST_MAX: 5,
@@ -68,12 +70,12 @@ window.EMT_CONFIG = {
 
   /* Trạng thái hồ sơ */
   STATUSES: [
-    { k: "interested", t: "Quan tâm",       c: "#64748b" },
-    { k: "preparing",  t: "Đang chuẩn bị",  c: "#0d8ee0" },
-    { k: "submitted",  t: "Đã nộp",         c: "#7c3aed" },
-    { k: "interview",  t: "Phỏng vấn",      c: "#d97706" },
-    { k: "offer",      t: "Trúng tuyển",    c: "#0f9d6e" },
-    { k: "rejected",   t: "Từ chối",        c: "#e11d48" }
+    { k: "interested", t: "Quan tâm",       c: "#8a8f78" },
+    { k: "preparing",  t: "Đang chuẩn bị",  c: "#7f9436" },
+    { k: "submitted",  t: "Đã nộp",         c: "#c2691a" },
+    { k: "interview",  t: "Phỏng vấn",      c: "#b8860b" },
+    { k: "offer",      t: "Trúng tuyển",    c: "#3f7d4f" },
+    { k: "rejected",   t: "Từ chối",        c: "#b03a1c" }
   ],
 
   /* Tỉ giá tham chiếu để quy đổi (cập nhật khi cần) */

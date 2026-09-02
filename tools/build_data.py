@@ -10,6 +10,7 @@ import openpyxl
 DEFAULT_SRC = r"C:\Users\ADmin\Downloads\DANH SÁCH MỞ RỘNG 282 CHƯƠNG TRÌNH THẠC SĨ CHÂU ÂU - QS RANKING 2026.xlsx"
 SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(DEFAULT_SRC)
 OUT = Path(__file__).resolve().parent.parent / "data" / "programs.json"
+LINK_STATUS = Path(__file__).resolve().parent.parent / "data" / "link-status.json"
 
 SHEETS = [
     "Chương Trình Thạc Sĩ Kiến Trúc ",
@@ -204,7 +205,17 @@ def has_scholarship(*vals):
     return False
 
 
+def load_link_status():
+    """Trạng thái link từ tools/check_links.sh (xem tools/apply_linkcheck.py)."""
+    try:
+        d = json.loads(LINK_STATUS.read_text(encoding="utf-8"))
+        return d.get("links", {}), d.get("checkedAt", "")
+    except (OSError, ValueError):
+        return {}, ""
+
+
 def main():
+    link_status, link_checked_at = load_link_status()
     wb = openpyxl.load_workbook(SRC, data_only=True)
     rows, pid = [], 0
     for sheet in SHEETS:
@@ -236,6 +247,7 @@ def main():
                 "deadline": dl,
                 "scholarshipDeadline": sch if sch["type"] in ("fixed", "window", "month") else None,
                 "link": rec["link"],
+                "linkStatus": (link_status.get(rec["link"], {}) or {}).get("status", "unknown"),
                 "language": rec["language"],
                 "mainLanguage": rec["mainLanguage"] or rec["language"],
                 "tuitionRaw": rec["tuitionRaw"],
@@ -257,6 +269,8 @@ def main():
         "groups": sorted({r["group"] for r in rows if r["group"]}),
         "sheets": [s.strip() for s in SHEETS],
         "languages": sorted({r["mainLanguage"] for r in rows if r["mainLanguage"]}),
+        "linkCheckedAt": link_checked_at,
+        "linkDead": sum(1 for r in rows if r["linkStatus"] == "dead"),
     }
     payload = {"meta": meta, "programs": rows}
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -276,6 +290,10 @@ def main():
     print("living parsed:", sum(1 for r in rows if r["livingEur"] is not None))
     print("scholarship deadlines:", sum(1 for r in rows if r["scholarshipDeadline"]))
     print("countries:", len(meta["countries"]))
+    ls = {}
+    for r in rows:
+        ls[r["linkStatus"]] = ls.get(r["linkStatus"], 0) + 1
+    print("link status:", ls)
     print("written:", OUT)
 
 

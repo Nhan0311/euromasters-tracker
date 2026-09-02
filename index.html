@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>EuroMasters — Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu</title>
 <meta name="description" content="Đếm ngược hạn nộp hồ sơ và học bổng của 282 chương trình thạc sĩ tại 22 quốc gia châu Âu — QS Ranking 2026. Lọc, timeline, nhắc lịch và xuất hồ sơ.">
-<meta name="theme-color" content="#080b12">
+<meta name="theme-color" content="#0e1009">
 <meta property="og:title" content="EuroMasters — Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu">
 <meta property="og:description" content="282 chương trình · 22 quốc gia · QS Ranking 2026 · Đếm ngược deadline theo thời gian thực.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234f46e5'/><text y='68' x='50' text-anchor='middle' font-size='56' font-family='sans-serif' font-weight='bold' fill='white'>E</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%236b7a2f'/><text y='68' x='50' text-anchor='middle' font-size='56' font-family='sans-serif' font-weight='bold' fill='white'>E</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -41,6 +41,8 @@
     <span class="spacer"></span>
 
     <div class="top-actions">
+      <button class="btn icon ghost" id="shareBtn" title="Sao chép link kèm bộ lọc hiện tại" aria-label="Chia sẻ">🔗</button>
+      <button class="btn icon ghost" id="helpBtn" title="Phím tắt (?)" aria-label="Phím tắt">⌨</button>
       <button class="btn icon ghost" id="themeBtn" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện">🌗</button>
       <button class="btn sm ghost" id="exportBtn" title="Xuất dữ liệu">⬇ Xuất<span class="lock" id="exportLock">🔒</span></button>
       <button class="btn sm gold" id="proBtn">✦ <span id="proBtnLabel">Nâng cấp Pro</span></button>
@@ -224,7 +226,24 @@
   </div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-label="Phím tắt">
+  <div class="sheet" style="max-width:480px">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px">
+      <div style="flex:1"><h2>Phím tắt</h2><div class="sub">Dùng bàn phím cho nhanh.</div></div>
+      <button class="btn icon ghost" id="helpClose" aria-label="Đóng">✕</button>
+    </div>
+    <dl class="kv keys">
+      <dt><kbd>/</kbd></dt><dd>Nhảy tới ô tìm kiếm</dd>
+      <dt><kbd>1</kbd>–<kbd>4</kbd></dt><dd>Đổi chế độ xem</dd>
+      <dt><kbd>Enter</kbd></dt><dd>Mở chi tiết thẻ đang chọn</dd>
+      <dt><kbd>Tab</kbd></dt><dd>Di chuyển giữa các thẻ</dd>
+      <dt><kbd>Esc</kbd></dt><dd>Đóng bảng chi tiết / hộp thoại</dd>
+      <dt><kbd>?</kbd></dt><dd>Mở bảng phím tắt này</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div id="printroot"></div>
 
 <script src="data/programs.js"></script>

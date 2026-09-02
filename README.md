@@ -17,7 +17,10 @@ Không cần build, không cần server — chỉ là HTML/CSS/JS thuần, chạ
 - 9 liên kết tài liệu dựng sẵn cho mỗi trường (trang chương trình, admissions, học phí, học bổng, yêu cầu portfolio, brochure PDF, bản đồ, hồ sơ QS, review du học sinh Việt)
 - Lưu tối đa 5 trường vào danh sách ★, so sánh 2 trường
 - Xuất thử CSV 10 dòng
-- Sáng/tối, responsive, có hiệu ứng chuyển động theo con trỏ
+- **Cảnh báo link hỏng**: 25 trang trường đã đổi đường dẫn được đánh dấu sẵn, app tự chuyển sang link tìm kiếm
+- **Chia sẻ bộ lọc**: mọi bộ lọc đều nằm trên URL, bấm 🔗 để sao chép
+- **Phím tắt**: `/` tìm · `1`–`4` đổi view · `?` bảng phím tắt · `Esc` đóng
+- Sáng/tối (tông olive + cam), responsive, hiệu ứng chuyển động theo con trỏ, bẫy focus cho người dùng bàn phím
 
 **Pro (mở bằng license key)**
 | Tính năng | Mô tả |
@@ -53,12 +56,15 @@ euromasters-tracker/
 │       └── app.js              ← logic chính: deadline, lọc, render, drawer
 ├── data/
 │   ├── programs.json           ← dữ liệu đã chuẩn hoá (nguồn cho mọi thứ)
-│   └── programs.js             ← bản `window.EMT_DATA = …` để chạy được cả từ file://
+│   ├── programs.js             ← bản `window.EMT_DATA = …` để chạy được cả từ file://
+│   └── link-status.json        ← trạng thái link, sống sót qua mỗi lần rebuild
 ├── tools/
 │   ├── build_data.py           ← Excel → JSON (bóc tách deadline tiếng Việt)
-│   ├── genkey.py               ← sinh license key offline
-│   ├── test.js                 ← test logic (58 assertion, không cần cài gì)
-│   └── test-dom.js             ← test tích hợp DOM thật (90 assertion, cần jsdom)
+│   ├── keyhash.py              ← sinh SHA-256 cho master key
+│   ├── check_links.sh          ← kiểm tra 282 link còn sống không
+│   ├── apply_linkcheck.py      ← gộp kết quả vào data/link-status.json
+│   ├── test.js                 ← test logic (64 assertion, không cần cài gì)
+│   └── test-dom.js             ← test tích hợp DOM thật (106 assertion, cần jsdom)
 └── .nojekyll                   ← để GitHub Pages phục vụ nguyên trạng
 ```
 
@@ -120,69 +126,61 @@ Tham số URL khác:
 | `?embed=0` | | ép chế độ đầy đủ (dùng cho nút mở tab mới) |
 | `?view=` | `?view=timeline` | mở thẳng chế độ xem: `cards` `timeline` `table` `tracker` |
 | `?q=` | `?q=architecture` | mở với từ khoá tìm sẵn |
+| `?country=` `?group=` `?lang=` `?win=` `?sort=` `?flags=` | | khôi phục nguyên bộ lọc — nút 🔗 tự tạo giúp bạn |
 
 **Lưu ý quan trọng về khung nhúng:** Google Sites chạy nội dung trong iframe có sandbox, nên **việc tải file (.xlsx, .ics, .doc…) có thể bị chặn**. App sẽ báo lỗi kèm hướng dẫn, và nút **“Mở toàn màn hình ↗”** luôn hiển thị ở chế độ nhúng để người dùng sang tab riêng tải file. Nên ghi thêm một dòng hướng dẫn ngay dưới khung nhúng trên Google Sites.
 
 ---
 
-## 6. Bán key trên Gumroad
+## 6. Key Pro
 
-### 6.1 Đổi link sản phẩm
+Có **hai đường** mở khoá Pro, app thử theo thứ tự:
+
+### 6.1 Master key — 1 key duy nhất của bạn
+
+Dùng ngay được, không cần mạng, không cần cấu hình gì thêm. Key hiện tại:
+
+```
+HAIKTSDUHOCY2026
+```
+
+Chấp nhận cả chữ thường và dấu gạch (`haik-tsdu-hocy-2026` cũng vào).
+
+Key **thô không nằm trong mã nguồn** — `config.js` chỉ chứa SHA-256 của nó, nên người mở DevTools
+đọc file cũng không thấy key. Muốn đổi key khác:
+
+```bash
+python tools/keyhash.py "KEY-MOI-CUA-BAN"
+# → dán chuỗi in ra vào MASTER_KEY_HASH trong assets/js/config.js
+```
+
+### 6.2 Gumroad — khi bắt đầu bán cho nhiều người
 
 Sửa `assets/js/config.js`:
 
 ```js
 GUMROAD_URL:        "https://haiktsduoihiennha.gumroad.com/l/mnnfbc",
 GUMROAD_PERMALINK:  "mnnfbc",     // phần sau /l/
-GUMROAD_PRODUCT_ID: "",           // tuỳ chọn, xem 6.2
+GUMROAD_PRODUCT_ID: "",           // tuỳ chọn, lấy ở trang Share của sản phẩm
 MAX_USES: 5,                      // số thiết bị / 1 key (0 = không giới hạn)
 ```
 
-Đó là toàn bộ những gì cần đổi khi bạn có link mới.
+Trong Gumroad: **Product → Settings → bật “Generate a license key per sale”**.
+Mỗi đơn hàng sẽ có key riêng; app gọi `POST https://api.gumroad.com/v2/licenses/verify`
+và **từ chối** key nếu đơn đã `refunded`, `chargebacked`, `disputed`, hết hạn subscription,
+hoặc vượt `MAX_USES`. Ưu điểm so với master key: thu hồi được từng key, biết ai mua.
 
-### 6.2 Bật license key trên Gumroad
+### 6.3 Về mức độ bảo vệ — nói thẳng
 
-Trong trang sản phẩm Gumroad: **Product → Settings → bật “Generate a license key per sale”**.
-Từ đó mỗi đơn hàng sẽ nhận một key; người mua dán key vào app → app gọi
-`POST https://api.gumroad.com/v2/licenses/verify` để xác thực.
+Đây là app tĩnh nên **việc kiểm tra key diễn ra trong trình duyệt và người rành kỹ thuật có thể vượt qua**
+(sửa `localStorage`, hoặc chạy bản copy đã sửa). Với sản phẩm thông tin giá vừa phải thì mức này hợp lý —
+đa số người mua trả tiền cho sự tiện lợi, không phải cho DRM. Khi doanh thu đủ lớn và muốn siết chặt:
 
-Gumroad khuyến nghị dùng `product_id` thay cho `product_permalink`. Nếu muốn dùng, lấy `product_id`
-trong trang **Share** của sản phẩm rồi điền vào `GUMROAD_PRODUCT_ID`.
+1. Đặt endpoint nhỏ (Cloudflare Worker / Vercel Function) giữ Gumroad access token
+2. App gọi endpoint đó thay vì gọi thẳng Gumroad; endpoint trả về **JWT ngắn hạn đã ký**
+3. Chuyển phần dữ liệu giá trị cao (ví dụ toàn bộ cột học bổng & yêu cầu đầu vào) sang chỉ tải sau khi xác thực
 
-App tự kiểm tra và **từ chối** key nếu đơn đã `refunded`, `chargebacked`, `disputed`, hết hạn subscription, hoặc vượt `MAX_USES`.
-
-### 6.3 Key offline (dự phòng & khách VIP)
-
-Khi API Gumroad không gọi được (mạng chặn / CORS), hoặc khi bạn muốn tự phát key:
-
-```bash
-python tools/genkey.py 20          # in 20 key dạng XXXX-XXXX-XXXX-XXXX
-python tools/genkey.py verify ABCD-EFGH-JKLM-NPQR
-```
-
-Key được xác thực bằng checksum FNV-1a với `KEY_SALT` trong `config.js`.
-
-> ⚠️ **Nói rõ điểm yếu:** vì đây là app tĩnh, cả thuật toán (`premium.js`) lẫn `KEY_SALT` (`config.js`)
-> đều nằm trong mã nguồn công khai — ai đọc được là tự sinh key được. Cơ chế offline **chỉ là lưới an toàn**
-> khi Gumroad API không gọi được, và là cách phát key cho khách VIP, **không phải lớp bảo vệ thật**.
-> Lớp bảo vệ thật là xác thực qua Gumroad.
->
-> **Khuyến nghị:** sau khi bật license key trên Gumroad và chạy ổn, hãy đặt
-> `ALLOW_OFFLINE_KEYS: false` trong `config.js` để chỉ chấp nhận key Gumroad.
-
-Đổi `KEY_SALT` sẽ làm mọi key offline cũ mất hiệu lực (key Gumroad không ảnh hưởng).
-
-### 6.4 Về mức độ bảo vệ — nói thẳng
-
-Đây là app tĩnh, nên **việc kiểm tra key diễn ra trong trình duyệt và người rành kỹ thuật có thể vượt qua**
-(mở DevTools, sửa `localStorage`, hoặc chạy bản copy). Với sản phẩm thông tin giá vừa phải thì mức này là hợp lý —
-đa số người mua sẽ trả tiền cho tiện lợi. Nếu sau này doanh thu đủ lớn và bạn muốn siết chặt, hướng đi là:
-
-1. Đặt một endpoint nhỏ (Cloudflare Worker / Vercel Function) giữ Gumroad access token
-2. App gọi endpoint đó thay vì gọi thẳng Gumroad, endpoint trả về **dữ liệu Pro đã ký (JWT ngắn hạn)**
-3. Chuyển phần dữ liệu giá trị cao (ví dụ toàn bộ cột học bổng & yêu cầu) sang chỉ trả về sau khi xác thực
-
-Cách đó đòi hỏi một server nhỏ — nằm ngoài phạm vi bản tĩnh hiện tại.
+Cách đó cần một server nhỏ — nằm ngoài phạm vi bản tĩnh hiện tại.
 
 ---
 
@@ -215,14 +213,32 @@ Nếu một chương trình có ngày ghi rõ năm nhưng **đã trôi qua**, ap
 và gắn nhãn rõ ràng **“ước tính đợt sau”**, kèm cảnh báo trong bảng chi tiết. Ngày nguyên văn từ nguồn
 luôn được hiển thị bên dưới để đối chiếu.
 
+### Kiểm tra sức khoẻ link
+
+Website các trường đổi đường dẫn liên tục. Chạy định kỳ (khuyến nghị 3–6 tháng/lần):
+
+```bash
+bash tools/check_links.sh > .linkcheck-results.tsv     # ~3 phút cho 282 link
+python tools/apply_linkcheck.py .linkcheck-results.tsv # gộp vào data/link-status.json
+python tools/build_data.py                             # nạp vào programs.json
+```
+
+Kết quả lần kiểm tra gần nhất: **233 link còn sống · 25 link chết (404) · 24 link bị site chặn bot**
+(403/timeout — mở bằng trình duyệt thật vẫn vào được, app không cảnh báo nhóm này).
+
+Với link chết, app **không xoá dữ liệu** mà đổi nút chính thành “Tìm trang mới ↗” trỏ tới tìm kiếm
+Google theo tên trường + tên chương trình, đồng thời vẫn giữ link cũ ở dạng mờ để đối chiếu.
+`data/link-status.json` được commit nên trạng thái này sống sót qua mọi lần dựng lại từ Excel.
+
 ---
 
 ## 8. Kiểm thử
 
 ```bash
-node tools/test.js          # 58 assertion — logic deadline, lọc, xuất file, license
+node tools/test.js          # 64 assertion — deadline, lọc, xuất file, master key, SHA-256
 npm install jsdom           # (một lần)
-node tools/test-dom.js      # 90 assertion — DOM thật: click, lọc, drawer, gate Pro, xuất file
+node tools/test-dom.js      # 106 assertion — DOM thật: click, lọc, drawer, gate Pro, xuất file,
+                            #                 link hỏng, đồng bộ URL, phím tắt
 ```
 
 Cả hai đều `exit 1` khi có lỗi, dùng được trong CI.
@@ -235,6 +251,7 @@ Mọi thứ hay đổi đều nằm trong `assets/js/config.js`:
 
 | Muốn đổi | Sửa |
 |---|---|
+| Master key Pro | `MASTER_KEY_HASH` (sinh bằng `python tools/keyhash.py`) |
 | Link Gumroad | `GUMROAD_URL`, `GUMROAD_PERMALINK` |
 | Số trường lưu được ở bản free | `FREE_SHORTLIST_MAX` |
 | Số trường so sánh ở bản free | `FREE_COMPARE_MAX` |

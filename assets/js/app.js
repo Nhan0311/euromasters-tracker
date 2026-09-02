@@ -171,6 +171,54 @@
 
   function filtered() { return sortList(ALL.filter(matches)); }
 
+  /* ------------------------------------------------------- đồng bộ URL ---
+     Đưa bộ lọc lên thanh địa chỉ để người dùng chia sẻ đúng khung nhìn.
+     Dùng replaceState nên không làm rác lịch sử trình duyệt.                */
+  var FLAG_KEYS = ["scholarship", "english", "shortlist", "cheap", "top50", "dated"];
+
+  function stateToQuery() {
+    var qp = new URLSearchParams();
+    if (S.q) qp.set("q", S.q);
+    if (S.view !== "cards") qp.set("view", S.view);
+    if (S.group) qp.set("group", S.group);
+    if (S.country) qp.set("country", S.country);
+    if (S.lang) qp.set("lang", S.lang);
+    if (S.win) qp.set("win", S.win);
+    if (S.sort !== "deadline") qp.set("sort", S.sort);
+    var on = FLAG_KEYS.filter(function (k) { return S.flags[k]; });
+    if (on.length) qp.set("flags", on.join(","));
+    if (embedMode) qp.set("embed", "1");
+    return qp.toString();
+  }
+
+  function syncUrl() {
+    if (!window.history || !window.history.replaceState) return;
+    var qs = stateToQuery();
+    try {
+      window.history.replaceState(null, "",
+        window.location.pathname + (qs ? "?" + qs : "") + window.location.hash);
+    } catch (e) { /* một số iframe chặn replaceState — bỏ qua */ }
+  }
+
+  function applyQuery(qp) {
+    if (qp.get("q")) { S.q = qp.get("q"); $("#q").value = S.q; $("#qClear").hidden = false; }
+    if (qp.get("view")) S.view = qp.get("view");
+    if (qp.get("group")) { S.group = qp.get("group"); $("#fGroup").value = S.group; }
+    if (qp.get("country")) { S.country = qp.get("country"); $("#fCountry").value = S.country; }
+    if (qp.get("lang")) { S.lang = qp.get("lang"); $("#fLang").value = S.lang; }
+    if (qp.get("win")) { S.win = qp.get("win"); $("#fWindow").value = S.win; }
+    if (qp.get("sort")) { S.sort = qp.get("sort"); $("#fSort").value = S.sort; }
+    (qp.get("flags") || "").split(",").filter(Boolean).forEach(function (f) {
+      if (FLAG_KEYS.indexOf(f) === -1) return;
+      var chip = $('#chips [data-flag="' + f + '"]');
+      if (chip && chip.hasAttribute("data-pro-chip") && !PRO.active) return; // lọc Pro cần key
+      S.flags[f] = true;
+      if (chip) chip.classList.add("on");
+    });
+  }
+
+  var embedMode = false;
+
   /* ================================================================= toast */
   var toastT;
   function toast(msg) {
@@ -230,11 +278,26 @@
   }
   function gs(q) { return "https://www.google.com/search?q=" + encodeURIComponent(q); }
 
+  /* Link tìm kiếm thay thế khi trang gốc đã bị gỡ */
+  function rescueLink(p) {
+    return gs(p.school + " " + p.program + " master programme");
+  }
+
   function linksFor(p) {
     var dom = domainOf(p.link);
     var site = dom ? "site:" + dom + " " : "";
     var out = [];
-    if (p.link) out.push({ ic: "🎓", t: "Trang chương trình chính thức", s: dom || p.link, u: p.link });
+    if (p.linkStatus === "dead") {
+      out.push({
+        ic: "🔎", warn: true,
+        t: "Tìm trang chương trình (link gốc đã đổi)",
+        s: "Kiểm tra ngày " + (DATA.meta.linkCheckedAt || "gần đây") + ": trang cũ trả về lỗi 404",
+        u: rescueLink(p)
+      });
+      if (p.link) out.push({ ic: "🔗", t: "Thử link cũ", s: dom || p.link, u: p.link, dim: true });
+    } else if (p.link) {
+      out.push({ ic: "🎓", t: "Trang chương trình chính thức", s: dom || p.link, u: p.link });
+    }
     out.push({ ic: "📄", t: "Hướng dẫn nộp hồ sơ / Admissions", s: "Tìm trên website trường", u: gs(site + "master admission how to apply") });
     out.push({ ic: "💶", t: "Bảng học phí & lệ phí", s: "Tuition fees " + (p.country || ""), u: gs(site + "tuition fees master international") });
     out.push({ ic: "🏅", t: "Học bổng của trường", s: "Scholarships & funding", u: gs(site + "scholarship master international student") });
@@ -367,7 +430,12 @@
       '<div class="act" data-stop="1">' +
         '<button class="iconbtn save' + (saved ? " on" : "") + '" data-act="save" title="Lưu vào danh sách">' + (saved ? "★" : "☆") + "</button>" +
         '<button class="iconbtn cmp' + (cmp ? " on cmp" : "") + '" data-act="cmp" title="Thêm vào so sánh">⚖</button>' +
-        (p.link ? '<a class="iconbtn" href="' + esc(p.link) + '" target="_blank" rel="noopener" data-act="link" title="Mở web trường">↗</a>' : "") +
+        (p.link || p.linkStatus === "dead"
+          ? '<a class="iconbtn' + (p.linkStatus === "dead" ? " warn" : "") + '" href="' +
+            esc(p.linkStatus === "dead" ? rescueLink(p) : p.link) + '" target="_blank" rel="noopener" data-act="link" title="' +
+            (p.linkStatus === "dead" ? "Link gốc đã đổi — bấm để tìm trang mới" : "Mở web trường") + '">' +
+            (p.linkStatus === "dead" ? "⚠" : "↗") + "</a>"
+          : "") +
         '<span style="flex:1"></span>' +
         '<button class="btn xs ghost" data-act="detail">Chi tiết →</button>' +
       "</div>" +
@@ -609,6 +677,8 @@
     });
     $$("#nav button").forEach(function (b) { b.classList.toggle("on", b.dataset.view === S.view); });
 
+    syncUrl();
+
     if (S.view === "cards") renderCards(list);
     else if (S.view === "timeline") renderTimeline(list);
     else if (S.view === "table") renderTable(list);
@@ -696,7 +766,8 @@
     /* links */
     html += '<div class="dsec"><h4>Tài liệu &amp; liên kết từ trường</h4><div class="linklist">' +
       linksFor(p).map(function (l) {
-        return '<a class="linkrow" href="' + esc(l.u) + '" target="_blank" rel="noopener">' +
+        return '<a class="linkrow' + (l.warn ? " warn" : "") + (l.dim ? " dim" : "") +
+          '" href="' + esc(l.u) + '" target="_blank" rel="noopener">' +
           '<span class="ic">' + l.ic + "</span><div><b>" + esc(l.t) + "</b><small>" + esc(l.s) + "</small></div>" +
           '<span class="go">↗</span></a>';
       }).join("") + "</div></div>";
@@ -737,7 +808,9 @@
     /* footer */
     var saved = isSaved(p.id);
     $("#dFoot").innerHTML =
-      (p.link ? '<a class="btn primary" href="' + esc(p.link) + '" target="_blank" rel="noopener">Mở web trường ↗</a>' : "") +
+      (p.linkStatus === "dead"
+        ? '<a class="btn primary" href="' + esc(rescueLink(p)) + '" target="_blank" rel="noopener">Tìm trang mới ↗</a>'
+        : (p.link ? '<a class="btn primary" href="' + esc(p.link) + '" target="_blank" rel="noopener">Mở web trường ↗</a>' : "")) +
       '<button class="btn" id="dSave">' + (saved ? "★ Đã lưu" : "☆ Lưu") + "</button>" +
       '<button class="btn" id="dCmp">⚖ So sánh</button>' +
       '<button class="btn" id="dIcs">📅 Nhắc lịch' + (PRO.active ? "" : ' <span class="lock">🔒</span>') + "</button>" +
@@ -880,8 +953,37 @@
   }
 
   /* ================================================================ modals */
-  function show(sel) { $(sel).classList.add("on"); document.body.style.overflow = "hidden"; }
-  function hide(sel) { $(sel).classList.remove("on"); document.body.style.overflow = ""; }
+  var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),' +
+                  'textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  var lastFocus = null;
+
+  /* Giữ Tab quẩn trong hộp thoại đang mở — cần cho người dùng bàn phím / đọc màn hình */
+  function trapFocus(e) {
+    if (e.key !== "Tab") return;
+    var box = $("#drawer").classList.contains("on") ? $("#drawer")
+      : ["#proModal", "#expModal", "#cmpModal", "#helpModal"]
+          .map(function (x) { return $(x); })
+          .filter(function (el) { return el.classList.contains("on"); })[0];
+    if (!box) return;
+    var items = $$(FOCUSABLE, box).filter(function (el) { return el.offsetParent !== null || el === document.activeElement; });
+    if (!items.length) return;
+    var first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  function show(sel) {
+    lastFocus = document.activeElement;
+    $(sel).classList.add("on");
+    document.body.style.overflow = "hidden";
+    var f = $$(FOCUSABLE, $(sel))[0];
+    if (f) f.focus();
+  }
+  function hide(sel) {
+    $(sel).classList.remove("on");
+    document.body.style.overflow = "";
+    if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
+  }
 
   function openPro(feature) {
     $("#keyMsg").className = "msg";
@@ -1119,14 +1221,30 @@
 
     /* keyboard on cards */
     document.addEventListener("keydown", function (e) {
+      trapFocus(e);
+
       if (e.key === "Escape") {
         if ($("#drawer").classList.contains("on")) closeDrawer();
-        else { hide("#proModal"); hide("#expModal"); hide("#cmpModal"); }
+        else { hide("#proModal"); hide("#expModal"); hide("#cmpModal"); hide("#helpModal"); }
+        return;
       }
       if (e.key === "Enter" && document.activeElement && document.activeElement.classList.contains("card")) {
         openDrawer(byId(+document.activeElement.dataset.id));
+        return;
       }
-      if (e.key === "/" && document.activeElement !== $("#q")) { e.preventDefault(); $("#q").focus(); }
+
+      var typing = /^(INPUT|TEXTAREA|SELECT)$/.test((document.activeElement || {}).tagName || "");
+      if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
+
+      if (e.key === "/") { e.preventDefault(); $("#q").focus(); return; }
+      if (e.key === "?") { e.preventDefault(); show("#helpModal"); return; }
+      if (e.key >= "1" && e.key <= "4") {
+        var views = ["cards", "timeline", "table", "tracker"];
+        S.view = views[+e.key - 1];
+        lsSet("emt.view", S.view);
+        renderLimit = 60;
+        render();
+      }
     });
 
     /* drawer */
@@ -1164,6 +1282,26 @@
     $("#cmpClear").addEventListener("click", function () { compare = []; render(); });
     $("#cmpClose").addEventListener("click", function () { hide("#cmpModal"); });
     $("#cmpModal").addEventListener("click", function (e) { if (e.target.id === "cmpModal") hide("#cmpModal"); });
+
+    /* chia sẻ link kèm bộ lọc */
+    $("#shareBtn").addEventListener("click", function () {
+      var qs = stateToQuery();
+      var url = window.location.origin + window.location.pathname + (qs ? "?" + qs : "");
+      function fallback() {
+        window.prompt("Sao chép link này:", url);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(
+          function () { toast("Đã sao chép link kèm bộ lọc hiện tại."); },
+          fallback
+        );
+      } else fallback();
+    });
+
+    /* phím tắt */
+    $("#helpBtn").addEventListener("click", function () { show("#helpModal"); });
+    $("#helpClose").addEventListener("click", function () { hide("#helpModal"); });
+    $("#helpModal").addEventListener("click", function (e) { if (e.target.id === "helpModal") hide("#helpModal"); });
 
     /* ticker → mở chi tiết (gắn một lần) */
     $("#ticker").addEventListener("click", function () { if (tickerP) openDrawer(tickerP); });
@@ -1209,13 +1347,13 @@
     /* chế độ nhúng cho Google Sites: index.html?embed=1 */
     var qp = new URLSearchParams(window.location.search);
     if (qp.get("embed") === "1" || (window.self !== window.top && qp.get("embed") !== "0")) {
+      embedMode = true;
       document.body.classList.add("embed");
       var full = $("#openFull");
       full.hidden = false;
-      full.href = window.location.origin + window.location.pathname + "?embed=0";
+      full.href = window.location.origin + window.location.pathname + "?embed=0" +
+        (window.location.search ? "&" + window.location.search.slice(1).replace(/(^|&)embed=1(&|$)/, "$1") : "");
     }
-    if (qp.get("view")) S.view = qp.get("view");
-    if (qp.get("q")) { S.q = qp.get("q"); $("#q").value = S.q; $("#qClear").hidden = false; }
 
     $("#yr").textContent = new Date().getFullYear();
     $("#buildDate").textContent = CFG.DATA_DATE;
@@ -1224,6 +1362,7 @@
 
     // đồng bộ nhãn chip miễn phí/pro
     fillFacets();
+    applyQuery(qp);
     renderStats();
     renderTicker();
     renderProModal();
@@ -1232,6 +1371,14 @@
 
     $$("#nav button").forEach(function (b) { b.classList.toggle("on", b.dataset.view === S.view); });
     render();
+
+    // gợi ý nhẹ cho người dùng lần đầu
+    if (!lsGet("emt.seen", false)) {
+      lsSet("emt.seen", true);
+      setTimeout(function () {
+        toast("Mẹo: bấm “/” để tìm nhanh, “?” để xem phím tắt.");
+      }, 2200);
+    }
 
     // cập nhật đếm ngược mỗi phút (thẻ + bảng)
     setInterval(function () {
@@ -1248,6 +1395,7 @@
     getTrack: getTrack,
     statusLabel: statusLabel,
     openPro: openPro,
+    openDrawerById: function (id) { openDrawer(byId(id)); },
     statusOf: statusOf,
     filtered: filtered,
     all: ALL,
