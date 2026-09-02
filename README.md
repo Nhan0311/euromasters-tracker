@@ -161,8 +161,16 @@ python tools/genkey.py verify ABCD-EFGH-JKLM-NPQR
 ```
 
 Key được xác thực bằng checksum FNV-1a với `KEY_SALT` trong `config.js`.
-**Hãy đổi `KEY_SALT` thành chuỗi bí mật của riêng bạn trước khi phát hành**, rồi sinh lại key
-(đổi salt sẽ làm mọi key cũ mất hiệu lực). Muốn tắt hẳn cơ chế này: `ALLOW_OFFLINE_KEYS: false`.
+
+> ⚠️ **Nói rõ điểm yếu:** vì đây là app tĩnh, cả thuật toán (`premium.js`) lẫn `KEY_SALT` (`config.js`)
+> đều nằm trong mã nguồn công khai — ai đọc được là tự sinh key được. Cơ chế offline **chỉ là lưới an toàn**
+> khi Gumroad API không gọi được, và là cách phát key cho khách VIP, **không phải lớp bảo vệ thật**.
+> Lớp bảo vệ thật là xác thực qua Gumroad.
+>
+> **Khuyến nghị:** sau khi bật license key trên Gumroad và chạy ổn, hãy đặt
+> `ALLOW_OFFLINE_KEYS: false` trong `config.js` để chỉ chấp nhận key Gumroad.
+
+Đổi `KEY_SALT` sẽ làm mọi key offline cũ mất hiệu lực (key Gumroad không ảnh hưởng).
 
 ### 6.4 Về mức độ bảo vệ — nói thẳng
 

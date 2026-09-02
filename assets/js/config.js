@@ -23,7 +23,10 @@ window.EMT_CONFIG = {
   /* ---- Key offline (dự phòng) -------------------------------------------
      Dùng khi Gumroad API không gọi được (chặn CORS / offline), hoặc khi bạn
      muốn tự phát key cho khách VIP. Sinh key bằng: python tools/genkey.py 10
-     ĐỔI SALT NÀY thành chuỗi bí mật của riêng bạn, rồi chạy lại genkey.py.
+
+     ⚠ SALT NÀY NẰM TRONG MÃ NGUỒN CÔNG KHAI — ai đọc được là tự sinh key được.
+     Đây chỉ là lưới an toàn, KHÔNG phải lớp bảo vệ thật. Lớp bảo vệ thật là
+     Gumroad. Khi Gumroad license đã chạy ổn, đặt ALLOW_OFFLINE_KEYS: false.
   ------------------------------------------------------------------------ */
   KEY_SALT: "euromasters-2026",
   ALLOW_OFFLINE_KEYS: true,
