@@ -1,0 +1,17 @@
+{
+  "name": "euromasters-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Theo doi han nop ho so & hoc bong 282 chuong trinh thac si chau Au (QS 2026)",
+  "scripts": {
+    "test": "node tools/test.js && node tools/test-dom.js",
+    "test:logic": "node tools/test.js",
+    "test:dom": "node tools/test-dom.js",
+    "build:data": "python tools/build_data.py",
+    "keys": "python tools/genkey.py 20",
+    "serve": "python -m http.server 8000"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.0"
+  }
+}

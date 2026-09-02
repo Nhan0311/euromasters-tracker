@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EuroMasters — Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu</title>
+<meta name="description" content="Đếm ngược hạn nộp hồ sơ và học bổng của 282 chương trình thạc sĩ tại 22 quốc gia châu Âu — QS Ranking 2026. Lọc, timeline, nhắc lịch và xuất hồ sơ.">
+<meta name="theme-color" content="#080b12">
+<meta property="og:title" content="EuroMasters — Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu">
+<meta property="og:description" content="282 chương trình · 22 quốc gia · QS Ranking 2026 · Đếm ngược deadline theo thời gian thực.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234f46e5'/><text y='68' x='50' text-anchor='middle' font-size='56' font-family='sans-serif' font-weight='bold' fill='white'>E</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div id="glow" aria-hidden="true"></div>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="EuroMasters trang chủ">
+      <span class="mark">E</span>
+      <span>
+        <b>EuroMasters</b>
+        <small>Deadline Tracker</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Chế độ xem">
+      <button data-view="cards" class="on">Khám phá</button>
+      <button data-view="timeline">Dòng thời gian</button>
+      <button data-view="table">Bảng</button>
+      <button data-view="tracker">Hồ sơ của tôi</button>
+    </nav>
+
+    <span class="spacer"></span>
+
+    <div class="top-actions">
+      <button class="btn icon ghost" id="themeBtn" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện">🌗</button>
+      <button class="btn sm ghost" id="exportBtn" title="Xuất dữ liệu">⬇ Xuất<span class="lock" id="exportLock">🔒</span></button>
+      <button class="btn sm gold" id="proBtn">✦ <span id="proBtnLabel">Nâng cấp Pro</span></button>
+      <a class="btn sm primary" id="openFull" target="_blank" rel="noopener" hidden>Mở toàn màn hình ↗</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero wrap" id="hero">
+    <div class="badge-row">
+      <span class="pill live"><span class="dot"></span> Đồng bộ múi giờ của bạn</span>
+      <span class="pill">QS World University Rankings 2026</span>
+      <span class="pill">Cập nhật: <span id="buildDate">—</span></span>
+    </div>
+
+    <h1>Không bỏ lỡ <span class="grad">một hạn nộp nào</span> trên đường đến châu Âu.</h1>
+    <p class="lead">
+      Đếm ngược thời gian thực cho hạn nộp hồ sơ và hạn học bổng của
+      <b id="heroCount">282</b> chương trình thạc sĩ tại <b id="heroCountries">22</b> quốc gia châu Âu —
+      kiến trúc, mỹ thuật &amp; thiết kế, kinh tế, CNTT–AI, kỹ thuật, luật, y dược và hơn thế nữa.
+    </p>
+
+    <div class="stats" id="stats"></div>
+    <div class="ticker" id="ticker" hidden></div>
+  </section>
+
+  <!-- ============ CONTROLS ============ -->
+  <section class="controls">
+    <div class="wrap">
+      <div class="ctrl-row">
+        <div class="search">
+          <span class="ico">🔎</span>
+          <input id="q" type="search" placeholder="Tìm trường, chương trình, thành phố, ngành…" autocomplete="off" aria-label="Tìm kiếm">
+          <button class="clear" id="qClear" hidden aria-label="Xoá tìm kiếm">✕</button>
+        </div>
+
+        <select class="sel" id="fGroup" aria-label="Nhóm ngành"><option value="">Tất cả ngành</option></select>
+        <select class="sel" id="fCountry" aria-label="Quốc gia"><option value="">Tất cả quốc gia</option></select>
+        <select class="sel" id="fLang" aria-label="Ngôn ngữ"><option value="">Mọi ngôn ngữ</option></select>
+        <select class="sel" id="fWindow" aria-label="Khoảng thời gian">
+          <option value="">Mọi hạn nộp</option>
+          <option value="14">Còn ≤ 14 ngày</option>
+          <option value="30">Còn ≤ 30 ngày</option>
+          <option value="60">Còn ≤ 60 ngày</option>
+          <option value="90">Còn ≤ 90 ngày</option>
+          <option value="180">Còn ≤ 6 tháng</option>
+        </select>
+        <select class="sel" id="fSort" aria-label="Sắp xếp">
+          <option value="deadline">Sắp xếp: Hạn gần nhất</option>
+          <option value="rank">Sắp xếp: Thứ hạng QS</option>
+          <option value="tuitionAsc">Sắp xếp: Học phí thấp → cao</option>
+          <option value="tuitionDesc">Sắp xếp: Học phí cao → thấp</option>
+          <option value="school">Sắp xếp: Tên trường A→Z</option>
+          <option value="country">Sắp xếp: Quốc gia A→Z</option>
+        </select>
+      </div>
+
+      <div class="chips" id="chips">
+        <button class="chip" data-flag="scholarship">🎓 Có học bổng</button>
+        <button class="chip" data-flag="english">🇬🇧 Dạy bằng tiếng Anh</button>
+        <button class="chip" data-flag="shortlist">★ Danh sách của tôi</button>
+        <button class="chip pro" data-pro-chip data-flag="cheap">💶 Học phí ≤ €5.000</button>
+        <button class="chip pro" data-pro-chip data-flag="top50">🏅 Top 50 QS</button>
+        <button class="chip pro" data-pro-chip data-flag="dated">📌 Có ngày cụ thể</button>
+        <button class="chip ghost" id="resetBtn" style="margin-left:auto">↺ Đặt lại</button>
+      </div>
+
+      <div class="result-line" id="resultLine"></div>
+    </div>
+  </section>
+
+  <!-- ============ VIEWS ============ -->
+  <div class="wrap">
+    <div id="view-cards" class="grid" role="list"></div>
+    <div id="view-timeline" class="tl" hidden></div>
+    <div id="view-table" hidden>
+      <div class="tablewrap">
+        <table class="data" id="dataTable">
+          <thead><tr id="tblHead"></tr></thead>
+          <tbody id="tblBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div id="view-tracker" hidden></div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© <span id="yr"></span> EuroMasters Deadline Tracker</span>
+    <span>·</span>
+    <span>Nguồn: bảng dữ liệu QS Ranking 2026 do tác giả tổng hợp</span>
+    <span class="spacer"></span>
+    <a href="#" id="disclaimerLink">Miễn trừ trách nhiệm</a>
+    <a href="https://haiktsduoihiennha.gumroad.com/l/mnnfbc" target="_blank" rel="noopener">Mua key Pro</a>
+  </div>
+</footer>
+
+<!-- ============ DETAIL DRAWER ============ -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Chi tiết chương trình">
+  <div class="drawer-head">
+    <div style="flex:1;min-width:0">
+      <h2 id="dTitle">—</h2>
+      <div class="sub" id="dSub">—</div>
+    </div>
+    <button class="btn icon ghost" id="dClose" aria-label="Đóng">✕</button>
+  </div>
+  <div class="drawer-body" id="dBody"></div>
+  <div class="drawer-foot" id="dFoot"></div>
+</aside>
+
+<!-- ============ PREMIUM MODAL ============ -->
+<div class="modal" id="proModal" role="dialog" aria-modal="true" aria-label="Nâng cấp Pro">
+  <div class="sheet">
+    <div style="display:flex;align-items:flex-start;gap:12px">
+      <div style="flex:1">
+        <span class="pro-badge">✦ EUROMASTERS PRO</span>
+        <h2 style="margin-top:10px">Biến danh sách thành bộ hồ sơ hoàn chỉnh</h2>
+        <div class="sub">Mở khoá công cụ xuất file, bảng theo dõi hồ sơ, so sánh trường và nhắc lịch deadline.</div>
+      </div>
+      <button class="btn icon ghost" id="proClose" aria-label="Đóng">✕</button>
+    </div>
+
+    <div class="feat" id="featList"></div>
+
+    <h4 style="margin:0 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Kích hoạt bằng license key</h4>
+    <div class="keyrow">
+      <input id="keyInput" placeholder="VD: A1B2-C3D4-E5F6-G7H8" spellcheck="false" autocomplete="off">
+      <button class="btn primary" id="keyBtn">Kích hoạt</button>
+      <a class="btn gold" id="buyBtn" target="_blank" rel="noopener">Mua key ↗</a>
+    </div>
+    <div class="msg" id="keyMsg"></div>
+    <p style="font-size:12px;color:var(--muted);margin:14px 0 0">
+      Key được lưu trên trình duyệt này. Mất key? Kiểm tra email biên nhận Gumroad hoặc mở lại link tải sản phẩm.
+      <button class="btn xs ghost" id="deactivateBtn" hidden style="margin-left:6px">Gỡ kích hoạt</button>
+    </p>
+  </div>
+</div>
+
+<!-- ============ EXPORT MODAL ============ -->
+<div class="modal" id="expModal" role="dialog" aria-modal="true" aria-label="Xuất dữ liệu">
+  <div class="sheet" style="max-width:560px">
+    <div style="display:flex;align-items:flex-start;gap:12px">
+      <div style="flex:1">
+        <h2>Xuất dữ liệu</h2>
+        <div class="sub" id="expSub">—</div>
+      </div>
+      <button class="btn icon ghost" id="expClose" aria-label="Đóng">✕</button>
+    </div>
+    <div class="feat" id="expList"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <select class="sel" id="expScope" style="max-width:none;flex:1">
+        <option value="filtered">Phạm vi: kết quả đang lọc</option>
+        <option value="shortlist">Phạm vi: danh sách của tôi ★</option>
+        <option value="tracker">Phạm vi: hồ sơ đang theo dõi</option>
+        <option value="all">Phạm vi: toàn bộ 282 chương trình</option>
+      </select>
+    </div>
+    <div class="msg info on" id="expMsg" style="margin-top:14px">Chọn định dạng để tải xuống.</div>
+  </div>
+</div>
+
+<!-- ============ COMPARE ============ -->
+<div class="compare-bar" id="cmpBar">
+  <b style="font-size:13px">So sánh</b>
+  <div class="thumbs" id="cmpThumbs"></div>
+  <button class="btn sm primary" id="cmpOpen">Xem bảng</button>
+  <button class="btn icon sm ghost" id="cmpClear" aria-label="Xoá">✕</button>
+</div>
+
+<div class="modal" id="cmpModal" role="dialog" aria-modal="true" aria-label="So sánh chương trình">
+  <div class="sheet" style="max-width:1100px">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px">
+      <div style="flex:1"><h2>So sánh chương trình</h2><div class="sub">Ô nền xanh là lựa chọn tốt nhất ở tiêu chí đó.</div></div>
+      <button class="btn icon ghost" id="cmpClose" aria-label="Đóng">✕</button>
+    </div>
+    <div class="cmp-wrap" id="cmpBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div id="printroot"></div>
+
+<script src="data/programs.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/premium.js"></script>
+<script src="assets/js/exporters.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
