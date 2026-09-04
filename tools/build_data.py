@@ -3,12 +3,21 @@
 Build data/programs.json from the source Excel workbook.
 Parses Vietnamese free-text deadlines into structured, countdown-ready records.
 """
-import json, re, sys, unicodedata
+import json, os, re, sys, unicodedata
 from pathlib import Path
 import openpyxl
 
-DEFAULT_SRC = r"C:\Users\ADmin\Downloads\DANH SÁCH MỞ RỘNG 282 CHƯƠNG TRÌNH THẠC SĨ CHÂU ÂU - QS RANKING 2026.xlsx"
-SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(DEFAULT_SRC)
+# Nguồn dữ liệu là workbook Excel của tác giả, không nằm trong repo.
+# Thứ tự tìm: tham số dòng lệnh, biến môi trường EMT_SOURCE_XLSX,
+# rồi thư mục Downloads của người đang chạy.
+SRC_NAME = "DANH SÁCH MỞ RỘNG 282 CHƯƠNG TRÌNH THẠC SĨ CHÂU ÂU - QS RANKING 2026.xlsx"
+
+if len(sys.argv) > 1:
+    SRC = Path(sys.argv[1])
+elif os.environ.get("EMT_SOURCE_XLSX"):
+    SRC = Path(os.environ["EMT_SOURCE_XLSX"])
+else:
+    SRC = Path.home() / "Downloads" / SRC_NAME
 OUT = Path(__file__).resolve().parent.parent / "data" / "programs.json"
 LINK_STATUS = Path(__file__).resolve().parent.parent / "data" / "link-status.json"
 LINK_OVERRIDES = Path(__file__).resolve().parent.parent / "data" / "link-overrides.json"
