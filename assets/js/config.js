@@ -6,14 +6,14 @@ window.EMT_CONFIG = {
 
   /* ---- Gumroad ----------------------------------------------------------
      GUMROAD_URL      : link bán hàng hiển thị trên nút "Mua key ↗"
-     GUMROAD_PERMALINK: phần đuôi sau /l/ trong link Gumroad (ở đây là "mnnfbc")
+     GUMROAD_PERMALINK: phần đuôi sau /l/ trong link Gumroad (ở đây là "euromasters-pro")
      GUMROAD_PRODUCT_ID: (tuỳ chọn) product_id dạng dài của Gumroad.
         Gumroad khuyến nghị dùng product_id; nếu để trống app sẽ dùng permalink.
         Lấy tại: Gumroad → Product → Share → "Product ID" hoặc qua API /v2/products
      Đổi link mới sau này: chỉ cần sửa 2-3 dòng dưới đây.
   ------------------------------------------------------------------------ */
-  GUMROAD_URL: "https://haiktsduoihiennha.gumroad.com/l/mnnfbc",
-  GUMROAD_PERMALINK: "mnnfbc",
+  GUMROAD_URL: "https://haiktsduoihiennha.gumroad.com/l/euromasters-pro",
+  GUMROAD_PERMALINK: "euromasters-pro",
   GUMROAD_PRODUCT_ID: "",
 
   /* Số thiết bị tối đa cho 1 key (Gumroad trả về "uses").
@@ -31,7 +31,7 @@ window.EMT_CONFIG = {
      (mỗi đơn một key, thu hồi được) — xem README mục 6.
   ------------------------------------------------------------------------ */
   KEY_SALT: "euromasters-2026",
-  MASTER_KEY_HASH: "9a1de218ba45c19dfa11e463081e8530b01c598e8b1abb48ff25a7e4f83aa462",
+  MASTER_KEY_HASH: "cce88d32d5cadf177516ea52eccdc971515ce25e1eb5e8db4ce69009fa30826c",
 
   /* Giới hạn bản miễn phí */
   FREE_SHORTLIST_MAX: 5,
@@ -40,52 +40,92 @@ window.EMT_CONFIG = {
   /* Ngày cập nhật dữ liệu (hiển thị ở hero) */
   DATA_DATE: "09/2026",
 
-  /* Tính năng Pro — hiển thị trong modal nâng cấp */
+  /* ---- Nội dung song ngữ -----------------------------------------------
+     Mọi chuỗi hiển thị đều viết dạng { vi: "…", en: "…" }.
+     Muốn thêm ngôn ngữ: thêm khoá vào đây và vào assets/js/i18n.js.
+     "ic" là id biểu tượng trong bộ sprite ở đầu index.html (không dùng emoji).
+  ------------------------------------------------------------------------ */
+
+  /* Tính năng Pro, hiển thị trong hộp thoại nâng cấp */
   FEATURES: [
-    { ic: "📊", t: "Xuất Excel (.xlsx)", d: "Toàn bộ 20 cột dữ liệu + cột đếm ngược, mở bằng Excel / Google Sheets." },
-    { ic: "🖨️", t: "Xuất PDF chuẩn in", d: "Báo cáo dàn trang đẹp, giữ nguyên dấu tiếng Việt, in hoặc lưu PDF." },
-    { ic: "📝", t: "Xuất Word (.doc)", d: "Bản hồ sơ từng trường để chèn vào kế hoạch du học của bạn." },
-    { ic: "📅", t: "Nhắc lịch iCal (.ics)", d: "Nạp deadline vào Google/Apple Calendar, tự báo trước 30–14–7–1 ngày." },
-    { ic: "🗂️", t: "Bảng theo dõi hồ sơ", d: "Trạng thái Quan tâm → Đang chuẩn bị → Đã nộp → Kết quả, kèm ghi chú." },
-    { ic: "✅", t: "Checklist giấy tờ", d: "10 đầu mục hồ sơ cho từng trường, có thanh tiến độ riêng." },
-    { ic: "⚖️", t: "So sánh không giới hạn", d: "Đặt cạnh nhau tới 6 chương trình, tự tô đậm lựa chọn tốt nhất." },
-    { ic: "💰", t: "Máy tính chi phí du học", d: "Học phí + sinh hoạt phí × thời gian học, quy đổi EUR/VND." },
-    { ic: "🔍", t: "Bộ lọc nâng cao", d: "Lọc theo học phí, Top 50 QS, chỉ chương trình có ngày hạn cụ thể." },
-    { ic: "★",  t: "Danh sách không giới hạn", d: "Bản miễn phí lưu tối đa 5 trường, bản Pro không giới hạn." }
+    { ic: "i-file",
+      t: { vi: "Xuất Excel (.xlsx)", en: "Excel export (.xlsx)" },
+      d: { vi: "Toàn bộ 20 cột dữ liệu và cột đếm ngược, mở bằng Excel hoặc Google Sheets.",
+           en: "All 20 data columns plus the countdown, opens in Excel or Google Sheets." } },
+    { ic: "i-file",
+      t: { vi: "Xuất PDF chuẩn in", en: "Print-ready PDF" },
+      d: { vi: "Báo cáo dàn trang đẹp, giữ nguyên dấu tiếng Việt, in hoặc lưu PDF.",
+           en: "A laid-out report that keeps Vietnamese diacritics, print it or save as PDF." } },
+    { ic: "i-file",
+      t: { vi: "Xuất Word (.doc)", en: "Word export (.doc)" },
+      d: { vi: "Bản hồ sơ từng trường để chèn vào kế hoạch du học của bạn.",
+           en: "A per-school write-up you can drop into your own application plan." } },
+    { ic: "i-calendar",
+      t: { vi: "Nhắc lịch iCal (.ics)", en: "Calendar reminders (.ics)" },
+      d: { vi: "Nạp deadline vào Google hoặc Apple Calendar, tự báo trước 30, 14, 7 và 1 ngày.",
+           en: "Load deadlines into Google or Apple Calendar with alerts 30, 14, 7 and 1 day ahead." } },
+    { ic: "i-folder",
+      t: { vi: "Bảng theo dõi hồ sơ", en: "Application board" },
+      d: { vi: "Trạng thái từ Quan tâm tới Kết quả, kèm ghi chú riêng cho từng trường.",
+           en: "Track each school from Interested through to the final result, with your own notes." } },
+    { ic: "i-list-checks",
+      t: { vi: "Checklist giấy tờ", en: "Document checklist" },
+      d: { vi: "10 đầu mục hồ sơ cho từng trường, có thanh tiến độ riêng.",
+           en: "Ten document items per school, each with its own progress bar." } },
+    { ic: "i-columns",
+      t: { vi: "So sánh không giới hạn", en: "Unlimited comparison" },
+      d: { vi: "Đặt cạnh nhau tới 6 chương trình, tự tô đậm lựa chọn tốt nhất.",
+           en: "Put up to six programmes side by side, the best value in each row is highlighted." } },
+    { ic: "i-calculator",
+      t: { vi: "Máy tính chi phí du học", en: "Cost calculator" },
+      d: { vi: "Học phí cộng sinh hoạt phí nhân thời gian học, quy đổi EUR sang VND.",
+           en: "Tuition plus living costs across the full course, converted from EUR to VND." } },
+    { ic: "i-funnel",
+      t: { vi: "Bộ lọc nâng cao", en: "Advanced filters" },
+      d: { vi: "Lọc theo học phí, Top 50 QS, chỉ chương trình có ngày hạn cụ thể.",
+           en: "Filter by tuition, QS top 50, or only programmes with an exact deadline." } },
+    { ic: "i-star",
+      t: { vi: "Danh sách không giới hạn", en: "Unlimited shortlist" },
+      d: { vi: "Bản miễn phí lưu tối đa 5 trường, bản Pro không giới hạn.",
+           en: "The free version saves five schools, Pro has no limit." } }
   ],
 
   /* Các đầu mục hồ sơ trong checklist */
   DOCS: [
-    "Hộ chiếu còn hạn",
-    "Bằng tốt nghiệp + bảng điểm (dịch công chứng)",
-    "Chứng chỉ tiếng Anh (IELTS/TOEFL)",
-    "Chứng chỉ ngôn ngữ bản địa (nếu cần)",
-    "Portfolio / Sample of work",
-    "Thư động lực (SOP / Motivation letter)",
-    "CV học thuật",
-    "Thư giới thiệu #1",
-    "Thư giới thiệu #2",
-    "Chứng minh tài chính / học bổng"
+    { vi: "Hộ chiếu còn hạn", en: "Valid passport" },
+    { vi: "Bằng tốt nghiệp và bảng điểm (dịch công chứng)", en: "Degree and transcript (certified translation)" },
+    { vi: "Chứng chỉ tiếng Anh (IELTS/TOEFL)", en: "English certificate (IELTS/TOEFL)" },
+    { vi: "Chứng chỉ ngôn ngữ bản địa (nếu cần)", en: "Local language certificate (if required)" },
+    { vi: "Portfolio / Sample of work", en: "Portfolio / sample of work" },
+    { vi: "Thư động lực (SOP / Motivation letter)", en: "Statement of purpose / motivation letter" },
+    { vi: "CV học thuật", en: "Academic CV" },
+    { vi: "Thư giới thiệu #1", en: "Reference letter #1" },
+    { vi: "Thư giới thiệu #2", en: "Reference letter #2" },
+    { vi: "Chứng minh tài chính / học bổng", en: "Proof of funding or scholarship" }
   ],
 
-  /* Trạng thái hồ sơ */
+  /* Trạng thái hồ sơ. "c" nằm trên thang trung tính đến xanh, không đụng màu deadline. */
   STATUSES: [
-    { k: "interested", t: "Quan tâm",       c: "#8a8f78" },
-    { k: "preparing",  t: "Đang chuẩn bị",  c: "#7f9436" },
-    { k: "submitted",  t: "Đã nộp",         c: "#c2691a" },
-    { k: "interview",  t: "Phỏng vấn",      c: "#b8860b" },
-    { k: "offer",      t: "Trúng tuyển",    c: "#3f7d4f" },
-    { k: "rejected",   t: "Từ chối",        c: "#b03a1c" }
+    { k: "interested", t: { vi: "Quan tâm",      en: "Interested" }, c: "#7d8676" },
+    { k: "preparing",  t: { vi: "Đang chuẩn bị", en: "Preparing" },  c: "#5c8a4a" },
+    { k: "submitted",  t: { vi: "Đã nộp",        en: "Submitted" },  c: "#1d7a46" },
+    { k: "interview",  t: { vi: "Phỏng vấn",     en: "Interview" },  c: "#96761a" },
+    { k: "offer",      t: { vi: "Trúng tuyển",   en: "Offer" },      c: "#17673a" },
+    { k: "rejected",   t: { vi: "Từ chối",       en: "Rejected" },   c: "#bf3030" }
   ],
 
   /* Tỉ giá tham chiếu để quy đổi (cập nhật khi cần) */
   VND_PER_EUR: 28500,
 
-  DISCLAIMER:
-    "Dữ liệu được tổng hợp thủ công từ website các trường và bảng xếp hạng QS 2026, " +
-    "có thể thay đổi bất cứ lúc nào. Trước khi nộp hồ sơ, hãy luôn kiểm tra lại hạn nộp, " +
-    "học phí và yêu cầu đầu vào trên trang chính thức của trường (nút “Trang chương trình chính thức”). " +
-    "Ứng dụng này là công cụ theo dõi, không phải nguồn thông tin pháp lý."
+  DISCLAIMER: {
+    vi: "Dữ liệu được tổng hợp thủ công từ website các trường và bảng xếp hạng QS 2026, " +
+        "có thể thay đổi bất cứ lúc nào. Trước khi nộp hồ sơ, hãy luôn kiểm tra lại hạn nộp, " +
+        "học phí và yêu cầu đầu vào trên trang chính thức của trường. " +
+        "Ứng dụng này là công cụ theo dõi, không phải nguồn thông tin pháp lý.",
+    en: "This data was compiled by hand from university websites and the QS 2026 rankings, and can change " +
+        "at any time. Before you apply, always re-check the deadline, tuition and entry requirements on the " +
+        "university's own page. This app is a tracking tool, not a legal source of information."
+  }
 };
 
 /* Cờ quốc gia (emoji) theo tên tiếng Việt trong bảng dữ liệu */

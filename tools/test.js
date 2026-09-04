@@ -121,7 +121,7 @@ function run(rel) {
 
 /* ---------------------------------------------------------------- chạy --- */
 console.log("Nạp script…");
-["data/programs.js", "assets/js/config.js", "assets/js/premium.js",
+["data/programs.js", "assets/js/i18n.js", "assets/js/config.js", "assets/js/premium.js",
  "assets/js/exporters.js", "assets/js/app.js"].forEach(run);
 
 const W = sandbox.window;
@@ -218,13 +218,13 @@ ok("sắp xếp học phí tăng dần", sortedOk);
 S.sort = "deadline";
 
 console.log("\n=== 5. Kích hoạt Pro (master key) ===");
-const MASTER = "HAIKTSDUHOCY2026";
+const MASTER = "HAIKTSDUHOC2026";
 ok("mặc định chưa kích hoạt", PRO.active === false);
 ok("có cấu hình MASTER_KEY_HASH", !!CFG.MASTER_KEY_HASH);
 ok("key đúng được chấp nhận", PRO._verifyMaster(MASTER) === true);
 ok("chấp nhận chữ thường", PRO._verifyMaster(MASTER.toLowerCase()) === true);
-ok("chấp nhận có dấu gạch", PRO._verifyMaster("HAIK-TSDU-HOCY-2026") === true);
-ok("key sai bị từ chối", PRO._verifyMaster("HAIKTSDUHOCY2027") === false);
+ok("chấp nhận có dấu gạch", PRO._verifyMaster("HAIK-TSDU-HOC2-026") === true);
+ok("key sai bị từ chối", PRO._verifyMaster("HAIKTSDUHOC2027") === false);
 ok("key rỗng bị từ chối", PRO._verifyMaster("") === false);
 ok("key thô KHÔNG lộ trong config.js",
    !fs.readFileSync(path.join(ROOT, "assets/js/config.js"), "utf8").includes(MASTER));

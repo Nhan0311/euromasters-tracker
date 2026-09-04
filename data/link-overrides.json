@@ -1,0 +1,235 @@
+{
+  "_readme": [
+    "Sửa link chương trình mà không cần đụng vào file Excel gốc.",
+    "Khoá là URL cũ trong Excel, giá trị là URL mới đã kiểm tra bằng trình duyệt thật.",
+    "tools/build_data.py đọc file này sau khi đọc Excel, nên mỗi lần dựng lại dữ liệu",
+    "vẫn giữ được các link đã sửa. Khi nào sửa được Excel thì xoá mục tương ứng ở đây.",
+    "reason: vì sao phải đổi. checked: ngày xác minh URL mới trả về 200 và đúng trang."
+  ],
+  "checkedAt": "2026-09-04",
+  "links": {
+    "https://arch.kuleuven.be/english/studying/programmes/master-of-architecture": {
+      "to": "https://www.kuleuven.be/programmes/master-architecture",
+      "school": "KU Leuven",
+      "reason": "đổi tên miền, arch.kuleuven.be chuyển về kuleuven.be"
+    },
+    "https://www.hesge.ch/head/en/programs-research/master-arts-media-design": {
+      "to": "https://head.hesge.ch/en/programs-research/master-arts-media-design",
+      "school": "HEAD Genève",
+      "reason": "đổi tên miền sang head.hesge.ch"
+    },
+    "https://www.luiss.edu/ammissione/offerta-formativa/laurea-magistrale/management": {
+      "to": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/management",
+      "school": "LUISS",
+      "reason": "luiss.edu chuyển sang luiss.it, có bản tiếng Anh"
+    },
+    "https://feb.kuleuven.be/eng/prospective-students/master-of-business-economics": {
+      "to": "https://onderwijsaanbod.kuleuven.be/opleidingen/e/SC_51017073/diploma_omschrijving",
+      "school": "KU Leuven Faculty of Economics and Business",
+      "reason": "chuyển sang trang mô tả chương trình chính thức"
+    },
+    "https://www.kuleuven.be/programmes/master-artificial-intelligence": {
+      "to": "https://onderwijsaanbod.kuleuven.be/opleidingen/e/SC_51016880/diploma_omschrijving",
+      "school": "KU Leuven",
+      "reason": "chuyển sang trang mô tả chương trình chính thức"
+    },
+    "https://www.ed.ac.uk/studying/postgraduate/degrees/index.php?r=site/view&edition=2026&id=669": {
+      "to": "https://study.ed.ac.uk/programmes/postgraduate-taught/669-electronics",
+      "school": "The University of Edinburgh",
+      "reason": "Edinburgh chuyển sang study.ed.ac.uk"
+    },
+    "https://www.kuleuven.be/programmes/master-chemical-engineering": {
+      "to": "https://onderwijsaanbod.kuleuven.be/opleidingen/e/SC_51370066/diploma_omschrijving",
+      "school": "KU Leuven",
+      "reason": "chuyển sang trang mô tả chương trình chính thức"
+    },
+    "https://www.kuleuven.be/programmes/master-international-politics": {
+      "to": "https://onderwijsaanbod.kuleuven.be/opleidingen/e/SC_54298557/diploma_omschrijving",
+      "school": "KU Leuven",
+      "reason": "chuyển sang trang mô tả chương trình chính thức"
+    },
+    "https://studies.ku.dk/masters/global-health/": {
+      "to": "https://www.ku.dk/studies/masters/global-health",
+      "school": "University of Copenhagen",
+      "reason": "studies.ku.dk gộp về ku.dk"
+    },
+    "https://ir.ceu.edu/ma-international-relations-1-year": {
+      "to": "https://www.ceu.edu/academics/degrees/ma-international-relations-1-year",
+      "school": "Central European University",
+      "reason": "trang khoa chuyển về trang chính ceu.edu"
+    },
+
+    "https://www.architektur.tu-darmstadt.de/studieren/studieninteressierte/studienangebot/masterstudiengang_architektur/index.en.jsp": {
+      "to": "https://www.tu-darmstadt.de/studieren/studieninteressierte/studienangebot_studiengaenge/studiengang_180992.en.jsp",
+      "school": "TU Darmstadt",
+      "reason": "404, chuyển sang trang chương trình trên site chính của trường"
+    },
+    "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-march-arb-riba-part-2": {
+      "to": "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-arb-riba-part-2",
+      "school": "University of Nottingham",
+      "reason": "404, Nottingham đổi slug khoá học"
+    },
+    "https://www.uclouvain.be/en/study-programme/architecture-architectural-engineering-and-urban-planning": {
+      "to": "https://uclouvain.be/prog-2025-arcb2m",
+      "school": "UCLouvain",
+      "reason": "404, chuyển sang trang Master [120] en architecture/BXL"
+    },
+    "https://www.polimi.it/en/education/master-programmes/how-to-apply-and-enrol": {
+      "to": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/management-engineering",
+      "school": "Politecnico di Milano",
+      "reason": "404 và vốn là trang hướng dẫn nộp hồ sơ, đổi sang đúng trang chương trình"
+    },
+    "https://www.hhs.se/en/education/master/": {
+      "to": "https://www.hhs.se/education/master/finance/",
+      "school": "Stockholm School of Economics",
+      "reason": "404, đổi sang trang MSc in Finance"
+    },
+    "https://www.cbs.dk/en/study-programmes/master-programmes/msc-economics-and-business-administration-finance-and-investments": {
+      "to": "https://www.cbs.dk/en/study-programmes/master-programmes/msc-economics-and-business-administration-finance-and",
+      "school": "Copenhagen Business School",
+      "reason": "404, CBS rút gọn slug"
+    },
+    "https://www.mathematik.uni-muenchen.de/studium/studiengaenge/master-data-science/index.html": {
+      "to": "https://www.lmu.de/de/studium/studienangebot/alle-studienfaecher-und-studiengaenge/statistics-and-data-science-master-hauptfach-18752.html",
+      "school": "LMU Munich",
+      "reason": "404. Elite MSc Data Science ngừng nhận hồ sơ từ kỳ đông 2025/26, chương trình thay thế là Statistics and Data Science"
+    },
+    "https://www.polimi.it/en/education/master-programmes/how-to-apply": {
+      "to": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/computer-science-and-engineering",
+      "school": "Politecnico di Milano",
+      "reason": "404 và vốn là trang hướng dẫn nộp hồ sơ, đổi sang đúng trang chương trình"
+    },
+    "https://ethz.ch/en/studies/master/master-programmes/engineering-sciences/civil-engineering.html": {
+      "to": "https://ethz.ch/en/studies/master/degree-programmes/architecture-and-civil-engineering/civil-engineering.html",
+      "school": "ETH Zurich",
+      "reason": "404, ETH xếp lại Civil Engineering vào nhóm Architecture and Civil Engineering"
+    },
+    "https://www.dtu.dk/english/education/graduate/find-your-msc-programme/data-science": {
+      "to": "https://www.dtu.dk/english/education/graduate/msc-programmes/human-centered-artificial-intelligence/specialization/data-science",
+      "school": "Technical University of Denmark",
+      "reason": "404. Data Science giờ là hướng chuyên sâu trong MSc Human-Centered Artificial Intelligence"
+    },
+    "https://www.en.aau.dk/education/master/signal-processing-computing": {
+      "to": "https://www.en.aau.dk/education/master/electronic-systems",
+      "school": "Aalborg University",
+      "reason": "404. Signal Processing and Computing giờ là hướng chuyên sâu trong MSc Electronic Systems"
+    },
+    "https://www.tue.nl/en/education/exchange-and-guest-programs/programs/electrical-engineering": {
+      "to": "https://www.tue.nl/en/education/graduate-school/master-electrical-engineering",
+      "school": "Eindhoven University of Technology",
+      "reason": "404 và vốn là trang chương trình trao đổi, đổi sang trang thạc sĩ chính quy"
+    },
+    "https://www.ugent.be/we/en/education/masters/chemical-engineering": {
+      "to": "https://studiekiezer.ugent.be/2026/master-of-science-in-chemical-engineering-en",
+      "school": "Ghent University",
+      "reason": "404, UGent chuyển sang cổng studiekiezer"
+    },
+    "https://www.tuwien.at/en/studies/degree-and-continuing-education-programmes/master-programmes/machinenbau": {
+      "to": "https://www.tuwien.at/en/mwbw/study-programmes/mechanical-engineering",
+      "school": "TU Wien",
+      "reason": "404, URL cũ còn sai chính tả machinenbau"
+    },
+    "https://www.uva.nl/en/programmes/masters/international-and-european-law-international-trade-and-investment-law/": {
+      "to": "https://www.uva.nl/en/programmes/masters/international-and-european-law-international-trade-and-investment-law/international-trade-and-investment-law.html",
+      "school": "University of Amsterdam",
+      "reason": "404, UvA yêu cầu tên file đầy đủ ở cuối đường dẫn"
+    },
+    "https://www.lunduniversity.lu.se/lucat/group/EAAAF": {
+      "to": "https://www.lunduniversity.lu.se/lucat/group/v1000299",
+      "school": "Lund University",
+      "reason": "404, mã nhóm LUCAT cũ không còn dùng"
+    },
+    "https://www.unibocconi.it/en/programs/master-science-programs/marketing-management": {
+      "to": "https://www.unibocconi.it/en/programs/master-science/marketing-management",
+      "school": "Bocconi University",
+      "reason": "404, Bocconi rút gọn master-science-programs thành master-science"
+    },
+    "https://www.glion.edu/programs/msc-in-international-hospitality-business/": {
+      "to": "https://www.glion.edu/programs/masters-of-science-in-hospitality-business-leadership/",
+      "school": "Glion Institute of Higher Education",
+      "reason": "404. Chương trình đổi tên thành Master's in Hospitality Business Leadership"
+    },
+    "https://gs.ehl.edu/master-in-hospitality-management": {
+      "to": "https://gs.ehl.edu/degree-programs/master-in-hospitality-management",
+      "school": "EHL Hospitality Business School",
+      "reason": "404, EHL thêm cấp degree-programs vào đường dẫn"
+    },
+
+    "https://www.chalmers.se/en/education/find-masters-programme/architecture-and-urban-design-msc/": {
+      "to": "https://www.chalmers.se/en/education/find-masters-programme/",
+      "school": "Chalmers University of Technology",
+      "reason": "404 khi mở bằng trình duyệt thật, Chalmers đã dựng lại site và chưa công bố đường dẫn mới. Tạm trỏ về trang tra cứu chương trình của trường. CẦN KIỂM TRA LẠI."
+    },
+    "https://www.chalmers.se/en/education/find-masters-programme/computer-science-algorithms-languages-and-logic-msc/": {
+      "to": "https://www.chalmers.se/en/education/find-masters-programme/",
+      "school": "Chalmers University of Technology",
+      "reason": "404 khi mở bằng trình duyệt thật. Tạm trỏ về trang tra cứu chương trình. CẦN KIỂM TRA LẠI."
+    },
+    "https://www.chalmers.se/en/education/masters-programmes/mechanical-engineering/": {
+      "to": "https://www.chalmers.se/en/education/find-masters-programme/",
+      "school": "Chalmers University of Technology",
+      "reason": "404 khi mở bằng trình duyệt thật. Tạm trỏ về trang tra cứu chương trình. CẦN KIỂM TRA LẠI."
+    },
+
+    "https://www.sis.itu.edu.tr/EN/student/intenational-students/tuitions.php": {
+      "to": "https://www.tyyc.itu.edu.tr/ProgramHakkinda.php?Program=MIM_MS_YL&Dili=EN",
+      "school": "Istanbul Technical University",
+      "reason": "link cũ là trang học phí, không phải trang chương trình"
+    },
+    "https://www.avu.cz/en/": {
+      "to": "https://avu.cz/en/department/art-in-context",
+      "school": "Academy of Fine Arts Prague",
+      "reason": "link cũ là trang chủ, đổi sang trang chương trình Art in Context"
+    },
+    "https://www.designacademy.nl/page/451/masters-q-a": {
+      "to": "https://www.designacademy.nl/page/398/master-programme",
+      "school": "Design Academy Eindhoven",
+      "reason": "link cũ là trang hỏi đáp, đổi sang trang chương trình thạc sĩ"
+    },
+    "https://www.ensci.com/en/school/admissions": {
+      "to": "https://www.ensci.com/en/formations/industrial-designer",
+      "school": "ENSCI Les Ateliers",
+      "reason": "link cũ là trang tuyển sinh chung, đổi sang trang ngành Créateur Industriel"
+    },
+    "https://internacional.us.es/en/estudiar-en-la-universidad-de-sevilla": {
+      "to": "https://www.us.es/estudiar/que-estudiar/oferta-de-masteres/master-universitario-en-arquitectura",
+      "school": "Universidad de Sevilla",
+      "reason": "link cũ là trang giới thiệu chung cho sinh viên quốc tế"
+    },
+    "https://www.students.pw.edu.pl/Studies-Offer/M.Sc.-offer": {
+      "to": "https://www.arch.pw.edu.pl/Studies-in-English",
+      "school": "Warsaw University of Technology",
+      "reason": "link cũ liệt kê mọi ngành, đổi sang trang khoa Kiến trúc dạy bằng tiếng Anh"
+    },
+    "https://paris-malaquais.archi.fr/etudes/p/admissions/": {
+      "to": "https://paris-malaquais.archi.fr/etudes/p/master/",
+      "school": "ENSA Paris-Malaquais",
+      "reason": "link cũ là trang tuyển sinh, đổi sang trang chu kỳ Master"
+    },
+    "https://www.utwente.nl/en/education/master/programmes/cyber-security/": {
+      "to": "https://www.utwente.nl/en/education/master/programmes/computer-science/specialisation/cyber-security/",
+      "school": "University of Twente",
+      "reason": "link cũ bị đá về danh mục chung. Cyber Security là hướng chuyên sâu của MSc Computer Science"
+    },
+    "https://fel.cvut.cz/en/admissions/admission-procedures": {
+      "to": "https://fel.cvut.cz/en/study-programs/eecs-electrical-engineering-and-computer-science",
+      "school": "Czech Technical University in Prague",
+      "reason": "link cũ là quy trình tuyển sinh, đổi sang trang chương trình EECS"
+    },
+    "https://www.poliba.it/it/content/architettura": {
+      "to": "https://orientami.poliba.it/architettura-corso-di-laurea-magistrale-a-ciclo-unico-poliba/",
+      "school": "Politecnico di Bari",
+      "reason": "404, trang chương trình chuyển sang cổng hướng nghiệp orientami.poliba.it"
+    },
+    "https://norwichuni.ac.uk/study-at-norwich/courses/ma-fashion/": {
+      "to": "https://norwichuni.ac.uk/courses/postgraduate/",
+      "school": "Norwich University of the Arts",
+      "reason": "404. MA Fashion không còn trong danh mục sau đại học hiện tại của trường, nhiều khả năng đã ngừng tuyển. Tạm trỏ về danh mục để đối chiếu. CẦN KIỂM TRA LẠI."
+    },
+    "https://www.intl.kit.edu/istudies/": {
+      "to": "https://www.sle.kit.edu/english/vorstudium/master-chemical-process-engineering.php",
+      "school": "Karlsruhe Institute of Technology",
+      "reason": "link cũ là trang cho sinh viên quốc tế nói chung, đổi sang trang chương trình"
+    }
+  }
+}

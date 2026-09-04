@@ -9,6 +9,8 @@
 (function () {
   "use strict";
   var CFG = window.EMT_CONFIG;
+  var I18N = window.EMT_I18N;
+  function t(k, v) { return I18N ? I18N.t(k, v) : k; }
   var LS_KEY = "emt.license.v1";
 
   /* ---------------------------------------------------------------- SHA-256
@@ -124,17 +126,17 @@
         if (j.success !== true) {
           var m = (j.message || "").toLowerCase();
           if (m.indexOf("product") !== -1 && m.indexOf("not") !== -1) return { state: "unreachable" };
-          return { state: "invalid", message: j.message || "Key không hợp lệ." };
+          return { state: "invalid", message: j.message || t("key.invalid") };
         }
         var p = j.purchase || {};
         if (p.refunded || p.chargebacked || p.disputed) {
-          return { state: "invalid", message: "Đơn hàng này đã được hoàn tiền hoặc đang tranh chấp." };
+          return { state: "invalid", message: t("key.refunded") };
         }
         if (p.subscription_cancelled_at || p.subscription_failed_at) {
-          return { state: "invalid", message: "Gói đăng ký đã hết hiệu lực." };
+          return { state: "invalid", message: t("key.expired") };
         }
         if (CFG.MAX_USES > 0 && typeof j.uses === "number" && j.uses > CFG.MAX_USES) {
-          return { state: "invalid", message: "Key đã kích hoạt trên quá " + CFG.MAX_USES + " thiết bị." };
+          return { state: "invalid", message: t("key.tooManyUses", { n: CFG.MAX_USES }) };
         }
         return {
           state: "valid",
@@ -191,26 +193,25 @@
       var self = this;
       var raw = String(key || "").trim();
       if (raw.length < 8) {
-        return Promise.resolve({ ok: false, message: "Key quá ngắn — hãy dán đúng chuỗi trong email Gumroad." });
+        return Promise.resolve({ ok: false, message: t("key.tooShort") });
       }
       // 1) master key — nhanh, không cần mạng
       if (verifyMaster(raw)) {
         this.save(raw, { source: "master" });
-        return Promise.resolve({ ok: true, source: "master", message: "Đã kích hoạt EuroMasters Pro." });
+        return Promise.resolve({ ok: true, source: "master", message: t("key.ok") });
       }
       // 2) key khách mua trên Gumroad
       return verifyGumroad(raw).then(function (res) {
         if (res.state === "valid") {
           self.save(raw, res);
-          return { ok: true, source: "gumroad", message: "Đã kích hoạt Pro" + (res.email ? " cho " + res.email : "") + ". Cảm ơn bạn!" };
+          return { ok: true, source: "gumroad", message: res.email ? t("key.okFor", { email: res.email }) : t("key.ok") };
         }
         if (res.state === "invalid") {
-          return { ok: false, message: res.message || "Key không hợp lệ." };
+          return { ok: false, message: res.message || t("key.invalid") };
         }
         return {
           ok: false,
-          message: "Không kết nối được máy chủ Gumroad để xác thực key. " +
-                   "Kiểm tra kết nối mạng rồi thử lại."
+          message: t("key.offline")
         };
       });
     },

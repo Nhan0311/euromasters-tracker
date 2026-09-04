@@ -1,0 +1,795 @@
+/* ==========================================================================
+   EuroMasters - lớp song ngữ (VI / EN)
+
+   Cách dùng:
+     I18N.t("nav.cards")            -> chuỗi theo ngôn ngữ đang chọn
+     I18N.t("res.more", {n: 12})    -> chuỗi có biến {n}
+     I18N.term("country", "Ý")      -> dịch giá trị enum trong bộ dữ liệu
+     I18N.apply(document)           -> dịch mọi phần tử có data-i18n
+
+   Thêm ngôn ngữ mới: thêm một khoá vào DICT rồi bổ sung nút trong index.html.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var DICT = {
+    vi: {
+      "app.title": "EuroMasters",
+      "app.tagline": "Hai KTS dưới hiên nhà",
+      "app.home": "EuroMasters trang chủ",
+
+      "nav.label": "Chế độ xem",
+      "nav.cards": "Khám phá",
+      "nav.timeline": "Thời gian",
+      "nav.table": "Bảng",
+      "nav.tracker": "Hồ sơ",
+
+      "act.share": "Chép link kèm bộ lọc",
+      "act.keys": "Phím tắt",
+      "act.theme": "Đổi nền sáng / tối",
+      "act.lang": "Ngôn ngữ",
+      "act.export": "Xuất",
+      "act.exportFull": "Xuất dữ liệu",
+      "act.pro": "Nâng cấp Pro",
+      "act.proOn": "Pro đã kích hoạt",
+      "act.openFull": "Mở toàn màn hình",
+      "act.close": "Đóng",
+
+      "hero.live": "Đếm ngược theo múi giờ của bạn",
+      "hero.h1a": "Không bỏ lỡ",
+      "hero.h1b": "một hạn nộp nào",
+      "hero.h1c": "trên đường sang châu Âu.",
+      "hero.lead": "{n} chương trình thạc sĩ ở {c} quốc gia châu Âu, xếp theo hạn nộp gần nhất.",
+      "hero.updated": "Dữ liệu {d}",
+
+      "stat.programs": "Chương trình",
+      "stat.countries": "Quốc gia",
+      "stat.d30": "Hạn trong 30 ngày",
+      "stat.scholarship": "Có học bổng",
+      "stat.saved": "Đã lưu",
+
+      "next.label": "Hạn gần nhất",
+      "cd.d": "ngày",
+      "cd.h": "giờ",
+      "cd.m": "phút",
+      "cd.s": "giây",
+
+      "search.ph": "Tìm trường, ngành, thành phố…",
+      "search.label": "Tìm kiếm",
+      "search.clear": "Xoá tìm kiếm",
+      "filter.toggle": "Bộ lọc",
+      "filter.group": "Tất cả ngành",
+      "filter.country": "Tất cả quốc gia",
+      "filter.lang": "Mọi ngôn ngữ",
+      "filter.window": "Mọi hạn nộp",
+      "filter.w14": "Còn 14 ngày trở lại",
+      "filter.w30": "Còn 30 ngày trở lại",
+      "filter.w60": "Còn 60 ngày trở lại",
+      "filter.w90": "Còn 90 ngày trở lại",
+      "filter.w180": "Còn 6 tháng trở lại",
+      "filter.groupLabel": "Nhóm ngành",
+      "filter.countryLabel": "Quốc gia",
+      "filter.langLabel": "Ngôn ngữ giảng dạy",
+      "filter.windowLabel": "Khoảng hạn nộp",
+      "filter.sortLabel": "Sắp xếp",
+      "sort.deadline": "Hạn gần nhất",
+      "sort.rank": "Thứ hạng QS",
+      "sort.tuitionAsc": "Học phí thấp đến cao",
+      "sort.tuitionDesc": "Học phí cao đến thấp",
+      "sort.school": "Tên trường A-Z",
+      "sort.country": "Quốc gia A-Z",
+      "sort.prefix": "Sắp xếp: ",
+
+      "chip.scholarship": "Có học bổng",
+      "chip.english": "Dạy bằng tiếng Anh",
+      "chip.shortlist": "Danh sách của tôi",
+      "chip.cheap": "Học phí dưới €5.000",
+      "chip.top50": "Top 50 QS",
+      "chip.dated": "Có ngày cụ thể",
+      "chip.reset": "Đặt lại",
+
+      "res.more": "Xem thêm {n} chương trình",
+
+      "card.detail": "Chi tiết",
+      "card.save": "Lưu vào danh sách",
+      "card.compare": "Thêm vào so sánh",
+      "card.web": "Mở web trường",
+      "card.scholarship": "Học bổng",
+      "card.perYear": "/năm",
+
+      "tl.programs": "{n} chương trình",
+      "tl.undated": "Chưa có ngày cụ thể",
+      "tl.today": "Hôm nay",
+      "tl.left": "còn {n} ngày",
+      "tl.checkSite": "Xem web trường",
+
+      "tbl.rank": "QS",
+      "tbl.school": "Trường",
+      "tbl.program": "Chương trình",
+      "tbl.country": "Quốc gia",
+      "tbl.deadline": "Hạn nộp",
+      "tbl.left": "Còn lại",
+      "tbl.tuition": "Học phí",
+      "tbl.lang": "Ngôn ngữ",
+
+      "empty.title": "Không có chương trình nào khớp",
+      "empty.sub": "Thử bỏ bớt một bộ lọc, hoặc tìm bằng từ khoá ngắn hơn.",
+      "empty.reset": "Đặt lại bộ lọc",
+      "empty.trackTitle": "Chưa theo dõi hồ sơ nào",
+      "empty.trackSub": "Mở một chương trình rồi chọn trạng thái để đưa vào bảng theo dõi.",
+
+      "pro.tag": "EUROMASTERS PRO",
+      "pro.h": "Biến danh sách thành bộ hồ sơ hoàn chỉnh",
+      "pro.sub": "Mở khoá công cụ xuất file, bảng theo dõi hồ sơ, so sánh trường và nhắc lịch deadline.",
+      "pro.keyLabel": "Kích hoạt bằng license key",
+      "pro.keyPh": "VD: A1B2-C3D4-E5F6-G7H8",
+      "pro.activate": "Kích hoạt",
+      "pro.buy": "Mua key",
+      "pro.deactivate": "Gỡ kích hoạt",
+      "pro.note": "Key được lưu trên trình duyệt này. Mất key? Kiểm tra email biên nhận Gumroad hoặc mở lại link tải sản phẩm.",
+      "pro.unlock": "Mở khoá EuroMasters Pro",
+      "pro.feature": "tính năng Pro",
+
+      "exp.h": "Xuất dữ liệu",
+      "exp.filtered": "Phạm vi: kết quả đang lọc",
+      "exp.shortlist": "Phạm vi: danh sách của tôi",
+      "exp.tracker": "Phạm vi: hồ sơ đang theo dõi",
+      "exp.all": "Phạm vi: toàn bộ 282 chương trình",
+      "exp.pick": "Chọn định dạng để tải xuống.",
+
+      "cmp.bar": "So sánh",
+      "cmp.open": "Xem bảng",
+      "cmp.clear": "Xoá",
+      "cmp.h": "So sánh chương trình",
+      "cmp.sub": "Ô được tô là lựa chọn tốt nhất ở tiêu chí đó.",
+
+      "keys.h": "Phím tắt",
+      "keys.sub": "Dùng bàn phím cho nhanh.",
+      "keys.search": "Nhảy tới ô tìm kiếm",
+      "keys.views": "Đổi chế độ xem",
+      "keys.enter": "Mở chi tiết thẻ đang chọn",
+      "keys.tab": "Di chuyển giữa các thẻ",
+      "keys.esc": "Đóng bảng chi tiết hoặc hộp thoại",
+      "keys.help": "Mở bảng phím tắt này",
+
+      "foot.source": "Nguồn: bảng dữ liệu QS Rankings 2026 do tác giả tổng hợp",
+      "foot.by": "Một sản phẩm của Hai KTS dưới hiên nhà",
+      "foot.disclaimer": "Miễn trừ trách nhiệm",
+      "foot.buy": "Mua key Pro",
+      "foot.skip": "Bỏ qua, tới nội dung chính",
+
+      "d.rolledWarn": "Đợt tuyển sinh ghi trong nguồn ({d}) đã khép lại. Ngày ở trên là ước tính cho đợt kế tiếp, cùng kỳ năm sau. Hãy xác nhận lại trên trang trường.",
+      "d.approxWarn": "Nguồn chỉ nêu tháng, chưa nêu ngày. App lấy ngày cuối tháng làm mốc tạm.",
+      "d.raw": "Nguyên văn từ nguồn: {s}",
+      "d.group": "Nhóm ngành",
+      "d.fieldDetail": "Ngành cụ thể",
+      "d.living": "Chi phí sinh hoạt",
+      "d.durationVal": "{m} tháng (khoảng {y} năm)",
+      "d.tuitionTotal": "Học phí toàn khoá",
+      "d.livingTotal": "Sinh hoạt phí toàn khoá",
+      "d.sum": "Tổng cộng",
+      "d.totalNote": "Lấy mức thấp nhất tìm được trong mô tả học phí và sinh hoạt phí, chỉ mang tính tham khảo.",
+      "d.costTease": "Mở khoá để xem tổng chi phí toàn khoá",
+      "d.costTeaseSub": "Học phí nhân số năm cộng sinh hoạt phí nhân số tháng, quy đổi sang VND",
+      "d.schSchool": "Của trường",
+      "d.schOther": "Nguồn khác",
+      "d.schDeadline": "Hạn học bổng phát hiện trong mô tả: {d} (còn {n} ngày)",
+      "d.srcNotes": "Ghi chú nguồn",
+      "d.mine": "Hồ sơ của tôi",
+      "d.untrack": "Bỏ theo dõi",
+      "d.trackTease": "Theo dõi trạng thái và checklist 10 giấy tờ",
+      "d.trackTeaseSub": "Ghi chú riêng cho từng trường, tiến độ hồ sơ, tổng chi phí",
+      "d.compare": "So sánh",
+      "d.ical": "Nhắc lịch",
+      "d.print": "In hồ sơ",
+      "d.untracked": "Đã bỏ theo dõi.",
+      "pro.cost": "Máy tính chi phí du học",
+      "exp.xlsx": "Excel (.xlsx)",
+      "exp.xlsxD": "25 cột và sheet tóm tắt, có autofilter",
+      "exp.pdf": "PDF (bản in)",
+      "exp.pdfD": "Mở hộp thoại in rồi lưu dưới dạng PDF",
+      "exp.doc": "Word (.doc)",
+      "exp.docD": "Hồ sơ từng trường, mở bằng MS Word",
+      "exp.ics": "Lịch (.ics)",
+      "exp.icsD": "Nạp vào Google hoặc Apple Calendar, nhắc trước 30, 14, 7 và 1 ngày",
+      "exp.csv": "CSV đầy đủ",
+      "exp.csvD": "Cho Google Sheets, Notion hoặc Airtable",
+      "exp.json": "JSON",
+      "exp.jsonD": "Cho lập trình viên, kèm dữ liệu theo dõi",
+      "exp.csv10": "CSV thử, 10 dòng",
+      "exp.csv10D": "Miễn phí, để bạn xem trước định dạng",
+      "exp.count": "{n} chương trình sẽ được xuất.",
+      "exp.needPro": "Cần Pro để mở khoá đầy đủ.",
+      "exp.blocked": "Trình duyệt chặn tải file. Hãy mở trang ở tab riêng rồi thử lại.",
+      "pro.on": "Pro đang hoạt động",
+      "pro.unlocked": "EuroMasters Pro đã mở khoá.",
+      "pro.srcGumroad": "Gumroad",
+      "pro.srcLocal": "key nội bộ",
+      "toast.savedTo": "Đã lưu vào danh sách",
+      "toast.removed": "Đã bỏ khỏi danh sách",
+      "err.dataTitle": "Không nạp được dữ liệu",
+      "filter.active": "{n} bộ lọc đang bật",
+      "cmp.rowCountry": "Quốc gia và thành phố",
+      "cmp.rowRank": "Xếp hạng QS",
+      "cmp.rowDeadline": "Hạn kế tiếp",
+      "cmp.rowLeft": "Còn lại",
+      "cmp.rowDuration": "Thời gian học",
+      "cmp.rowLang": "Ngôn ngữ",
+      "cmp.rowTuition": "Học phí mỗi năm",
+      "cmp.rowLiving": "Sinh hoạt mỗi tháng",
+      "cmp.rowTotal": "Tổng chi phí ước tính",
+      "cmp.rowSchool": "Học bổng trường",
+      "cmp.rowOther": "Học bổng khác",
+      "cmp.rowReq": "Yêu cầu đầu vào",
+      "cmp.min2": "Chọn ít nhất 2 chương trình để so sánh.",
+      "cmp.max": "Tối đa 6 chương trình.",
+      "pro.unlimitedList": "Danh sách không giới hạn",
+      "pro.unlimitedCmp": "So sánh không giới hạn",
+      "pro.advFilter": "Bộ lọc nâng cao",
+      "pro.icalName": "Nhắc lịch iCal",
+      "pro.pdfName": "Xuất PDF",
+      "pro.exportName": "Xuất {k}",
+      "pro.needKey": "{f} là tính năng của EuroMasters Pro.",
+      "pro.off": "Đã gỡ kích hoạt Pro.",
+      "exp.emptyScope": "Phạm vi đang chọn không có chương trình nào.",
+      "tip.keys": "Mẹo: bấm phím / để tìm nhanh, phím ? để xem phím tắt.",
+      "key.invalid": "Key không hợp lệ.",
+      "key.refunded": "Đơn hàng này đã được hoàn tiền hoặc đang tranh chấp.",
+      "key.expired": "Gói đăng ký đã hết hiệu lực.",
+      "key.tooManyUses": "Key đã kích hoạt trên quá {n} thiết bị.",
+      "key.tooShort": "Key quá ngắn. Hãy dán đúng chuỗi trong email Gumroad.",
+      "key.ok": "Đã kích hoạt EuroMasters Pro.",
+      "key.okFor": "Đã kích hoạt Pro cho {email}.",
+      "key.offline": "Không kết nối được máy chủ Gumroad để xác thực key. Kiểm tra kết nối mạng rồi thử lại.",
+      "x.note": "Lưu ý",
+      "x.status": "Trạng thái hồ sơ",
+      "d.main": "Thông tin chính",
+      "d.desc": "Giới thiệu chương trình",
+      "d.req": "Yêu cầu đầu vào",
+      "d.links": "Tài liệu và liên kết",
+      "d.duration": "Thời gian học",
+      "d.language": "Ngôn ngữ giảng dạy",
+      "d.rank": "Xếp hạng QS",
+      "d.tuition": "Học phí",
+      "d.total": "Ước tính tổng chi phí",
+      "d.scholarship": "Học bổng",
+      "d.notes": "Ghi chú của tôi",
+      "d.notesPh": "Ghi lại điều cần nhớ về trường này…",
+      "d.findNew": "Tìm trang mới",
+      "d.openSite": "Mở web trường",
+      "d.save": "Lưu",
+      "d.saved": "Đã lưu",
+      "pro.locked": "{name} là tính năng Pro",
+      "brand.studio": "Hai KTS dưới hiên nhà",
+      "brand.byline": "Một sản phẩm của Hai KTS dưới hiên nhà",
+      "brand.note": "EuroMasters nằm trong bộ công cụ của Hai KTS dưới hiên nhà, hai kiến trúc sư viết về nghề, về học và về việc sống chậm.",
+      "track.h": "Bảng theo dõi hồ sơ",
+      "track.total": "Tổng chi phí ước tính",
+      "track.totalVnd": "Quy đổi",
+      "track.export": "Xuất bảng theo dõi",
+      "d.million": "triệu VND",
+      "pro.trackBody": "Sắp xếp mọi trường bạn đang nhắm theo trạng thái, từ Quan tâm tới Kết quả, kèm checklist 10 loại giấy tờ và ghi chú riêng cho từng trường.",
+      "st.rolling": "Nhận hồ sơ quanh năm",
+      "st.rollingSub": "Xét theo đợt, rolling",
+      "st.unknown": "Chưa rõ ngày",
+      "st.unknownSub": "Theo dõi web trường",
+      "cd.closed": "Đã đóng",
+      "cd.today": "Hôm nay",
+      "cd.dayUnit": "ngày",
+      "cd.nextRound": "ước tính đợt sau",
+      "cd.approxDate": "ngày ước lượng",
+      "cd.yearly": "lặp hằng năm",
+      "stat.d90": "Hạn trong 90 ngày",
+      "link.rescue": "Tìm trang chương trình (link gốc đã đổi)",
+      "link.rescueSub": "Kiểm tra ngày {d}: trang cũ trả về lỗi 404",
+      "link.old": "Thử link cũ",
+      "link.official": "Trang chương trình chính thức",
+      "link.admissions": "Hướng dẫn nộp hồ sơ",
+      "link.admissionsSub": "Tìm trên website trường",
+      "link.fees": "Bảng học phí và lệ phí",
+      "link.scholarship": "Học bổng của trường",
+      "link.scholarshipSub": "Scholarships và funding",
+      "link.portfolio": "Yêu cầu portfolio và hồ sơ năng lực",
+      "link.portfolioSub": "Entry requirements",
+      "link.brochure": "Brochure hoặc programme guide (PDF)",
+      "link.brochureSub": "Tài liệu chính thức dạng PDF",
+      "link.map": "Vị trí trên bản đồ",
+      "link.qs": "Hồ sơ trường trên QS",
+      "link.review": "Review từ du học sinh Việt",
+      "link.reviewSub": "Kinh nghiệm thực tế",
+      "toast.saveLimit": "Bản miễn phí lưu tối đa {n} trường.",
+      "toast.cmpLimit": "Bản miễn phí so sánh {n} trường.",
+      "toast.copied": "Đã chép link kèm bộ lọc hiện tại",
+      "toast.status": "Trạng thái: {s}",
+      "d.docsUnit": "giấy tờ",
+      "res.showing": "Hiển thị {n} trong {total} chương trình",
+      "res.savedCount": "{n} đã lưu",
+      "note.dataVi": "Mô tả và yêu cầu đầu vào giữ nguyên tiếng Việt theo bảng dữ liệu gốc."
+    },
+
+    en: {
+      "app.title": "EuroMasters",
+      "app.tagline": "Hai KTS duoi hien nha",
+      "app.home": "EuroMasters home",
+
+      "nav.label": "View mode",
+      "nav.cards": "Browse",
+      "nav.timeline": "Timeline",
+      "nav.table": "Table",
+      "nav.tracker": "Tracker",
+
+      "act.share": "Copy link with filters",
+      "act.keys": "Keyboard shortcuts",
+      "act.theme": "Switch light / dark",
+      "act.lang": "Language",
+      "act.export": "Export",
+      "act.exportFull": "Export data",
+      "act.pro": "Get Pro",
+      "act.proOn": "Pro active",
+      "act.openFull": "Open full screen",
+      "act.close": "Close",
+
+      "hero.live": "Counting down in your time zone",
+      "hero.h1a": "Never miss",
+      "hero.h1b": "a single deadline",
+      "hero.h1c": "on your way to Europe.",
+      "hero.lead": "{n} master's programmes across {c} European countries, sorted by the closest deadline.",
+      "hero.updated": "Data {d}",
+
+      "stat.programs": "Programmes",
+      "stat.countries": "Countries",
+      "stat.d30": "Due in 30 days",
+      "stat.scholarship": "With funding",
+      "stat.saved": "Saved",
+
+      "next.label": "Closing next",
+      "cd.d": "days",
+      "cd.h": "hrs",
+      "cd.m": "min",
+      "cd.s": "sec",
+
+      "search.ph": "Search school, field, city…",
+      "search.label": "Search",
+      "search.clear": "Clear search",
+      "filter.toggle": "Filters",
+      "filter.group": "All fields",
+      "filter.country": "All countries",
+      "filter.lang": "Any language",
+      "filter.window": "Any deadline",
+      "filter.w14": "Within 14 days",
+      "filter.w30": "Within 30 days",
+      "filter.w60": "Within 60 days",
+      "filter.w90": "Within 90 days",
+      "filter.w180": "Within 6 months",
+      "filter.groupLabel": "Field group",
+      "filter.countryLabel": "Country",
+      "filter.langLabel": "Language of instruction",
+      "filter.windowLabel": "Deadline window",
+      "filter.sortLabel": "Sort",
+      "sort.deadline": "Closest deadline",
+      "sort.rank": "QS rank",
+      "sort.tuitionAsc": "Tuition low to high",
+      "sort.tuitionDesc": "Tuition high to low",
+      "sort.school": "School A-Z",
+      "sort.country": "Country A-Z",
+      "sort.prefix": "Sort: ",
+
+      "chip.scholarship": "Has funding",
+      "chip.english": "Taught in English",
+      "chip.shortlist": "My shortlist",
+      "chip.cheap": "Tuition under €5,000",
+      "chip.top50": "QS top 50",
+      "chip.dated": "Exact date only",
+      "chip.reset": "Reset",
+
+      "res.more": "Show {n} more",
+
+      "card.detail": "Details",
+      "card.save": "Save to shortlist",
+      "card.compare": "Add to compare",
+      "card.web": "Open school website",
+      "card.scholarship": "Funding",
+      "card.perYear": "/year",
+
+      "tl.programs": "{n} programmes",
+      "tl.undated": "No exact date yet",
+      "tl.today": "Today",
+      "tl.left": "{n} days left",
+      "tl.checkSite": "Check school site",
+
+      "tbl.rank": "QS",
+      "tbl.school": "School",
+      "tbl.program": "Programme",
+      "tbl.country": "Country",
+      "tbl.deadline": "Deadline",
+      "tbl.left": "Left",
+      "tbl.tuition": "Tuition",
+      "tbl.lang": "Language",
+
+      "empty.title": "No programme matches",
+      "empty.sub": "Try dropping one filter, or search a shorter keyword.",
+      "empty.reset": "Reset filters",
+      "empty.trackTitle": "Nothing tracked yet",
+      "empty.trackSub": "Open a programme and pick a status to add it to the board.",
+
+      "pro.tag": "EUROMASTERS PRO",
+      "pro.h": "Turn a shortlist into a finished application set",
+      "pro.sub": "Unlock exports, the application board, side by side comparison and calendar reminders.",
+      "pro.keyLabel": "Activate with a license key",
+      "pro.keyPh": "e.g. A1B2-C3D4-E5F6-G7H8",
+      "pro.activate": "Activate",
+      "pro.buy": "Buy a key",
+      "pro.deactivate": "Deactivate",
+      "pro.note": "The key is stored in this browser. Lost it? Check your Gumroad receipt email or reopen the product download link.",
+      "pro.unlock": "Unlock EuroMasters Pro",
+      "pro.feature": "Pro feature",
+
+      "exp.h": "Export data",
+      "exp.filtered": "Scope: current results",
+      "exp.shortlist": "Scope: my shortlist",
+      "exp.tracker": "Scope: tracked applications",
+      "exp.all": "Scope: all 282 programmes",
+      "exp.pick": "Pick a format to download.",
+
+      "cmp.bar": "Compare",
+      "cmp.open": "See table",
+      "cmp.clear": "Clear",
+      "cmp.h": "Compare programmes",
+      "cmp.sub": "Highlighted cells are the best value in that row.",
+
+      "keys.h": "Keyboard shortcuts",
+      "keys.sub": "Faster with the keyboard.",
+      "keys.search": "Jump to search",
+      "keys.views": "Switch view",
+      "keys.enter": "Open the focused card",
+      "keys.tab": "Move between cards",
+      "keys.esc": "Close panel or dialog",
+      "keys.help": "Open this list",
+
+      "foot.source": "Source: QS Rankings 2026 data compiled by the author",
+      "foot.by": "A product of Hai KTS duoi hien nha",
+      "foot.disclaimer": "Disclaimer",
+      "foot.buy": "Buy a Pro key",
+      "foot.skip": "Skip to main content",
+
+      "d.rolledWarn": "The round listed in the source ({d}) has closed. The date above is an estimate for the next round, same time next year. Please confirm on the school page.",
+      "d.approxWarn": "The source gives only a month, not a day. The app uses the last day of that month as a placeholder.",
+      "d.raw": "As published: {s}",
+      "d.group": "Field group",
+      "d.fieldDetail": "Specific field",
+      "d.living": "Living costs",
+      "d.durationVal": "{m} months (about {y} years)",
+      "d.tuitionTotal": "Tuition, whole course",
+      "d.livingTotal": "Living costs, whole course",
+      "d.sum": "Total",
+      "d.totalNote": "Uses the lowest figure found in the tuition and living cost text. For reference only.",
+      "d.costTease": "Unlock to see the cost of the whole course",
+      "d.costTeaseSub": "Tuition times years plus living costs times months, converted to VND",
+      "d.schSchool": "From the school",
+      "d.schOther": "Other sources",
+      "d.schDeadline": "Funding deadline found in the description: {d} ({n} days left)",
+      "d.srcNotes": "Source notes",
+      "d.mine": "My application",
+      "d.untrack": "Stop tracking",
+      "d.trackTease": "Track status and a ten item document checklist",
+      "d.trackTeaseSub": "Your own notes per school, document progress, total cost",
+      "d.compare": "Compare",
+      "d.ical": "Calendar",
+      "d.print": "Print",
+      "d.untracked": "No longer tracked.",
+      "pro.cost": "Cost calculator",
+      "exp.xlsx": "Excel (.xlsx)",
+      "exp.xlsxD": "25 columns plus a summary sheet, with autofilter",
+      "exp.pdf": "PDF (print)",
+      "exp.pdfD": "Opens the print dialog, then save as PDF",
+      "exp.doc": "Word (.doc)",
+      "exp.docD": "A write-up per school, opens in MS Word",
+      "exp.ics": "Calendar (.ics)",
+      "exp.icsD": "Load into Google or Apple Calendar, alerts 30, 14, 7 and 1 day ahead",
+      "exp.csv": "Full CSV",
+      "exp.csvD": "For Google Sheets, Notion or Airtable",
+      "exp.json": "JSON",
+      "exp.jsonD": "For developers, includes your tracking data",
+      "exp.csv10": "Sample CSV, 10 rows",
+      "exp.csv10D": "Free, so you can preview the format",
+      "exp.count": "{n} programmes will be exported.",
+      "exp.needPro": "Pro unlocks the full set.",
+      "exp.blocked": "The browser blocked the download. Open the page in its own tab and try again.",
+      "pro.on": "Pro is active",
+      "pro.unlocked": "EuroMasters Pro unlocked.",
+      "pro.srcGumroad": "Gumroad",
+      "pro.srcLocal": "built-in key",
+      "toast.savedTo": "Saved to your shortlist",
+      "toast.removed": "Removed from your shortlist",
+      "err.dataTitle": "Could not load the data",
+      "filter.active": "{n} filters on",
+      "cmp.rowCountry": "Country and city",
+      "cmp.rowRank": "QS rank",
+      "cmp.rowDeadline": "Next deadline",
+      "cmp.rowLeft": "Time left",
+      "cmp.rowDuration": "Duration",
+      "cmp.rowLang": "Language",
+      "cmp.rowTuition": "Tuition per year",
+      "cmp.rowLiving": "Living per month",
+      "cmp.rowTotal": "Estimated total cost",
+      "cmp.rowSchool": "School funding",
+      "cmp.rowOther": "Other funding",
+      "cmp.rowReq": "Entry requirements",
+      "cmp.min2": "Pick at least two programmes to compare.",
+      "cmp.max": "Six programmes maximum.",
+      "pro.unlimitedList": "Unlimited shortlist",
+      "pro.unlimitedCmp": "Unlimited comparison",
+      "pro.advFilter": "Advanced filters",
+      "pro.icalName": "Calendar reminders",
+      "pro.pdfName": "PDF export",
+      "pro.exportName": "{k} export",
+      "pro.needKey": "{f} is part of EuroMasters Pro.",
+      "pro.off": "Pro deactivated.",
+      "exp.emptyScope": "The selected scope has no programmes in it.",
+      "tip.keys": "Tip: press / to search, press ? for the shortcut list.",
+      "key.invalid": "That key is not valid.",
+      "key.refunded": "This order was refunded or is disputed.",
+      "key.expired": "The subscription has expired.",
+      "key.tooManyUses": "This key is already active on more than {n} devices.",
+      "key.tooShort": "That key is too short. Paste the full string from your Gumroad email.",
+      "key.ok": "EuroMasters Pro activated.",
+      "key.okFor": "Pro activated for {email}.",
+      "key.offline": "Could not reach the Gumroad server to check the key. Check your connection and try again.",
+      "x.note": "Note",
+      "x.status": "Application status",
+      "d.main": "Key facts",
+      "d.desc": "About the programme",
+      "d.req": "Entry requirements",
+      "d.links": "Documents and links",
+      "d.duration": "Duration",
+      "d.language": "Language of instruction",
+      "d.rank": "QS rank",
+      "d.tuition": "Tuition",
+      "d.total": "Estimated total cost",
+      "d.scholarship": "Funding",
+      "d.notes": "My notes",
+      "d.notesPh": "Anything worth remembering about this school…",
+      "d.findNew": "Find the new page",
+      "d.openSite": "Open school website",
+      "d.save": "Save",
+      "d.saved": "Saved",
+      "pro.locked": "{name} is a Pro feature",
+      "brand.studio": "Hai KTS duoi hien nha",
+      "brand.byline": "A product of Hai KTS duoi hien nha",
+      "brand.note": "EuroMasters is part of the toolkit from Hai KTS duoi hien nha, two architects writing about the profession, about studying, and about living slowly.",
+      "track.h": "Application board",
+      "track.total": "Estimated total cost",
+      "track.totalVnd": "Converted",
+      "track.export": "Export the board",
+      "d.million": "million VND",
+      "pro.trackBody": "Arrange every school you are aiming for by status, from Interested through to the result, with a ten item document checklist and your own notes on each one.",
+      "st.rolling": "Rolling admission",
+      "st.rollingSub": "Reviewed in rounds",
+      "st.unknown": "Date not announced",
+      "st.unknownSub": "Watch the school site",
+      "cd.closed": "Closed",
+      "cd.today": "Today",
+      "cd.dayUnit": "days",
+      "cd.nextRound": "next round, estimated",
+      "cd.approxDate": "approximate date",
+      "cd.yearly": "repeats yearly",
+      "stat.d90": "Due in 90 days",
+      "link.rescue": "Find the programme page (original link moved)",
+      "link.rescueSub": "Checked {d}: the old page returned a 404",
+      "link.old": "Try the old link",
+      "link.official": "Official programme page",
+      "link.admissions": "How to apply",
+      "link.admissionsSub": "Search the school website",
+      "link.fees": "Tuition and fees",
+      "link.scholarship": "School scholarships",
+      "link.scholarshipSub": "Scholarships and funding",
+      "link.portfolio": "Portfolio and entry requirements",
+      "link.portfolioSub": "Entry requirements",
+      "link.brochure": "Brochure or programme guide (PDF)",
+      "link.brochureSub": "Official PDF documents",
+      "link.map": "Location on the map",
+      "link.qs": "QS profile",
+      "link.review": "Reviews from Vietnamese students",
+      "link.reviewSub": "First-hand experience",
+      "toast.saveLimit": "The free version saves up to {n} schools.",
+      "toast.cmpLimit": "The free version compares {n} schools.",
+      "toast.copied": "Link with current filters copied",
+      "toast.status": "Status: {s}",
+      "d.docsUnit": "documents",
+      "res.showing": "Showing {n} of {total} programmes",
+      "res.savedCount": "{n} saved",
+      "note.dataVi": "Field names, descriptions and entry requirements stay in Vietnamese, exactly as in the source dataset."
+    }
+  };
+
+  /* ---- giá trị enum trong bộ dữ liệu: bản tiếng Anh -------------------- */
+  var TERMS_EN = {
+    country: {
+      "Vương quốc Anh": "United Kingdom", "Đức": "Germany", "Pháp": "France", "Ý": "Italy",
+      "Hà Lan": "Netherlands", "Thụy Sĩ": "Switzerland", "Bỉ": "Belgium", "Thụy Điển": "Sweden",
+      "Đan Mạch": "Denmark", "Tây Ban Nha": "Spain", "Áo": "Austria", "Séc": "Czechia",
+      "Phần Lan": "Finland", "Na Uy": "Norway", "Ireland": "Ireland", "Bồ Đào Nha": "Portugal",
+      "Thổ Nhĩ Kỳ": "Turkey", "Hungary": "Hungary", "Hy Lạp": "Greece", "Ba Lan": "Poland",
+      "Estonia": "Estonia", "Lithuania": "Lithuania", "Litva": "Lithuania"
+    },
+    group: {
+      "Kiến trúc": "Architecture",
+      "Mỹ thuật & Thiết kế": "Art and Design",
+      "Kinh tế - Quản trị - Tài chính": "Business and Finance",
+      "Công nghệ thông tin - Data Science - AI": "Computing, Data Science, AI",
+      "Kỹ thuật (Engineering)": "Engineering",
+      "Luật": "Law",
+      "Y Dược": "Medicine and Pharmacy",
+      "Marketing": "Marketing",
+      "Quan hệ quốc tế": "International Relations",
+      "Du lịch - Khách sạn": "Tourism and Hospitality"
+    },
+    language: {
+      "Tiếng Anh": "English", "Tiếng Pháp": "French", "Tiếng Đức": "German",
+      "Tiếng Ý": "Italian", "Tiếng Tây Ban Nha": "Spanish", "Khác": "Other"
+    }
+  };
+
+  /* Thời lượng học là văn bản tự do nên dịch bằng luật thay thế.
+     \b của JS không nhận ký tự có dấu (ó, đ, à...) nên dùng lớp \p{L} thay thế. */
+  var MONTHS_EN = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+
+  function word(vi, en) {
+    return [new RegExp("(^|[^\\p{L}])(?:" + vi + ")(?![\\p{L}])", "giu"), "$1" + en];
+  }
+
+  var DUR_RULES = [
+    /* cụm từ dài dịch trước, tránh bị luật ngắn cắt mất */
+    [/học theo module cuối tuần/gi, "weekend modules"],
+    [/sau khi hoàn thành/gi, "after completing"],
+    [/hoặc tương đương/gi, "or equivalent"],
+    [/nếu đủ điều kiện/gi, "if eligible"],
+    [/hồ sơ đầu vào/gi, "your background"],
+    [/toàn thời gian/gi, "full-time"],
+    [/bán thời gian/gi, "part-time"],
+    [/không tách/gi, "not split into"],
+    [/tiếp nối sau/gi, "following"],
+    [/tương đương/gi, "equivalent to"],
+    [/chuyên nghiệp/gi, "professional"],
+    [/chuyên ngành/gi, "the specialisation"],
+    [/chuyển tiếp/gi, "progressing"],
+    [/sau khi có/gi, "after"],
+    [/nếu chọn/gi, "if you take"],
+    [/công nghiệp/gi, "industrial"],
+    [/đầu tháng/gi, "early "],
+    [/cuối tuần/gi, "weekend"],
+    [/thực tập/gi, "an internship"],
+    [/luận văn/gi, "a thesis"],
+    [/bao gồm/gi, "including"],
+    [/chương trình/gi, "programme"],
+    [/lộ trình/gi, "the track"],
+    [/tích hợp/gi, "integrated"],
+    [/toàn khóa|toàn khoá/gi, "the whole"],
+    [/toàn phần/gi, "full"],
+    [/truyền thống/gi, "traditional"],
+    [/kiến trúc/gi, "Architecture"],
+    [/hay không/gi, "or not"],
+    [/kéo dài/gi, "extended"],
+    [/trình độ/gi, "level"],
+    [/thạc sĩ/gi, "master's"],
+    [/cử nhân/gi, "bachelor's"],
+    [/tú tài/gi, "the baccalaureate"],
+    [/từ xa/gi, "distance learning"],
+    [/tối đa/gi, "up to"],
+    [/dài hơn/gi, "longer"],
+    [/kể từ/gi, "from"],
+    [/khoảng/gi, "approx."],
+    [/tuỳ|tùy/gi, "depending on"],
+    [/học kỳ/gi, "semesters"],
+    [/tín chỉ/gi, "credits"],
+
+    /* số + đơn vị */
+    [/(\d[\d.,-]*)\s*năm/gi, "$1 yr"],
+    [/(\d[\d.,-]*)\s*tháng/gi, "$1 mo"],
+    [/(\d[\d.,-]*)\s*tuần/gi, "$1 wk"],
+    /* "tháng 9/2026" là mốc thời gian, không phải số lượng tháng */
+    [/tháng\s*(\d{1,2})\s*\/\s*(\d{4})/gi, function (m, n, y) {
+      var i = parseInt(n, 10) - 1;
+      return MONTHS_EN[i] ? MONTHS_EN[i] + " " + y : m;
+    }],
+    /* "tháng 10" là tên tháng, không phải số lượng tháng */
+    [/tháng\s*(\d{1,2})/gi, function (m, n) {
+      var i = parseInt(n, 10) - 1;
+      return MONTHS_EN[i] || m;
+    }],
+
+    /* từ đơn */
+    word("năm", "year"), word("tháng", "month"), word("đến", "to"),
+    word("và", "and"), word("có", "with"), word("hoặc", "or"),
+    word("cho", "for"), word("thường", "usually"), word("mỗi", "each"),
+    word("nếu", "if"), word("học", "study"), word("sang", "to"),
+    word("với", "with"), word("bằng", "a degree"), word("kỹ sư", "engineering"),
+    word("hệ", "a")
+  ];
+
+  var LANG_KEY = "emt.lang";
+  var listeners = [];
+
+  function pickInitial() {
+    try {
+      /* "ui" chứ không phải "lang": tham số lang đã dùng cho bộ lọc ngôn ngữ giảng dạy */
+      var qp = new URLSearchParams(location.search).get("ui");
+      if (qp === "en" || qp === "vi") return qp;
+    } catch (e) {}
+    try {
+      var saved = localStorage.getItem(LANG_KEY);
+      if (saved === "en" || saved === "vi") return saved;
+    } catch (e) {}
+    var nav = String((typeof navigator !== "undefined" && navigator.language) || "vi").toLowerCase();
+    return nav.indexOf("vi") === 0 ? "vi" : "en";
+  }
+
+  var I18N = {
+    lang: pickInitial(),
+
+    /* chuỗi giao diện */
+    t: function (key, vars) {
+      var table = DICT[this.lang] || DICT.vi;
+      var s = table[key];
+      if (s == null) s = DICT.vi[key];
+      if (s == null) return key;
+      if (vars) {
+        s = s.replace(/\{(\w+)\}/g, function (m, k) {
+          return vars[k] == null ? m : String(vars[k]);
+        });
+      }
+      return s;
+    },
+
+    /* giá trị enum trong bộ dữ liệu */
+    term: function (kind, value) {
+      if (this.lang === "vi" || !value) return value;
+      var map = TERMS_EN[kind];
+      return (map && map[value]) || value;
+    },
+
+    /* thời lượng học (văn bản tự do) */
+    dur: function (value) {
+      if (this.lang === "vi" || !value) return value;
+      var s = String(value);
+      for (var i = 0; i < DUR_RULES.length; i++) s = s.replace(DUR_RULES[i][0], DUR_RULES[i][1]);
+      return s.replace(/\s{2,}/g, " ").trim();
+    },
+
+    locale: function () { return this.lang === "en" ? "en-GB" : "vi-VN"; },
+
+    /* Chọn bản dịch từ giá trị trong config: "chuỗi" hoặc {vi:…, en:…} */
+    pick: function (v) {
+      if (v == null || typeof v === "string") return v;
+      return v[this.lang] != null ? v[this.lang] : v.vi;
+    },
+
+    /* dịch mọi phần tử tĩnh trong HTML */
+    apply: function (root) {
+      var r = root || document;
+      var self = this;
+      Array.prototype.forEach.call(r.querySelectorAll("[data-i18n]"), function (el) {
+        el.textContent = self.t(el.getAttribute("data-i18n"));
+      });
+      ["title", "placeholder", "aria-label"].forEach(function (attr) {
+        Array.prototype.forEach.call(r.querySelectorAll("[data-i18n-" + attr + "]"), function (el) {
+          el.setAttribute(attr, self.t(el.getAttribute("data-i18n-" + attr)));
+        });
+      });
+      if (document.documentElement) document.documentElement.lang = this.lang;
+    },
+
+    set: function (lang) {
+      if (lang !== "vi" && lang !== "en") return;
+      this.lang = lang;
+      try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+      this.apply(document);
+      listeners.forEach(function (fn) { try { fn(lang); } catch (e) {} });
+    },
+
+    onChange: function (fn) { listeners.push(fn); }
+  };
+
+  window.EMT_I18N = I18N;
+})();

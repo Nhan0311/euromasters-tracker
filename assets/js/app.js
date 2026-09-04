@@ -14,6 +14,31 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
+  /* ============================================================ song ngữ */
+  var I18N = window.EMT_I18N;
+  function t(k, v) { return I18N.t(k, v); }          /* chuỗi giao diện     */
+  function L(v) { return I18N.pick(v); }             /* {vi:…, en:…} trong config */
+  function C(v) { return I18N.term("country", v); }  /* tên quốc gia        */
+  function G(v) { return I18N.term("group", v); }    /* nhóm ngành          */
+  function LG(v) { return I18N.term("language", v); }/* ngôn ngữ giảng dạy  */
+  function DU(v) { return I18N.dur(v); }             /* thời lượng học      */
+
+  /* Biểu tượng lấy từ sprite ở đầu index.html, không dùng emoji cho giao diện */
+  /* rankText trong bộ dữ liệu là tiếng Việt và kèm ghi chú STT gốc.
+     Bản tiếng Anh dựng lại từ nhóm ngành đã dịch. */
+  function rankText(p) {
+    if (!p.rankText) return p.rankText;
+    if (I18N.lang !== "en") return p.rankText;
+    return p.rank == null ? I18N.term("group", p.group) : I18N.term("group", p.group) + " #" + p.rank;
+  }
+
+  function ic(id, cls) {
+    return '<svg class="i' + (cls ? " " + cls : "") +
+      '" viewBox="0 0 24 24" aria-hidden="true"><use href="#' + id + '"/></svg>';
+  }
+
+  var DASH = "-";  /* ô trống trong bảng dữ liệu */
+
   /* ==================================================================== LS */
   function lsGet(k, dflt) {
     try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : dflt; }
@@ -35,15 +60,24 @@
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
-  function fmtNum(n) { return n == null ? "—" : Number(n).toLocaleString("vi-VN"); }
-  function fmtEur(n) { return n == null ? "—" : "€" + Number(n).toLocaleString("vi-VN"); }
+  function fmtNum(n) { return n == null ? DASH : Number(n).toLocaleString(I18N.locale()); }
+  function fmtEur(n) { return n == null ? DASH : "€" + Number(n).toLocaleString(I18N.locale()); }
 
-  var MONTHS = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6",
+  var MONTHS_VI = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6",
     "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
+  var MONTHS_EN = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+  var MON_SHORT_VI = ["Th1", "Th2", "Th3", "Th4", "Th5", "Th6", "Th7", "Th8", "Th9", "Th10", "Th11", "Th12"];
+  var MON_SHORT_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  function monthName(i) { return (I18N.lang === "en" ? MONTHS_EN : MONTHS_VI)[i]; }
+  function monthShort(i) { return (I18N.lang === "en" ? MON_SHORT_EN : MON_SHORT_VI)[i]; }
 
   function fmtDate(d) {
-    if (!d) return "—";
-    return ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + d.getFullYear();
+    if (!d) return DASH;
+    var dd = ("0" + d.getDate()).slice(-2);
+    if (I18N.lang === "en") return dd + " " + MON_SHORT_EN[d.getMonth()] + " " + d.getFullYear();
+    return dd + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + d.getFullYear();
   }
   function daysLeft(d) {
     if (!d) return null;
@@ -107,8 +141,8 @@
     var nx = nextDeadline(p);
     if (!nx) {
       return p.deadline && p.deadline.type === "rolling"
-        ? { cls: "s-ok", label: "Nhận hồ sơ quanh năm", sub: "Xét theo đợt / rolling", days: null }
-        : { cls: "s-dead", label: "Chưa rõ ngày", sub: "Theo dõi web trường", days: null };
+        ? { cls: "s-ok", label: t("st.rolling"), sub: t("st.rollingSub"), days: null }
+        : { cls: "s-dead", label: t("st.unknown"), sub: t("st.unknownSub"), days: null };
     }
     var d = daysLeft(nx.date);
     var cls = d < 0 ? "s-dead" : d <= 7 ? "s-hot" : d <= 30 ? "s-warn" : d <= 90 ? "s-soon" : "s-ok";
@@ -138,8 +172,8 @@
     if (S.flags.cheap && !(p.tuitionEur != null && p.tuitionEur <= 5000)) return false;
     if (S.flags.top50 && !(p.rank != null && p.rank <= 50)) return false;
     if (S.flags.dated) {
-      var t = p.deadline && p.deadline.type;
-      if (t !== "fixed" && t !== "window") return false;
+      var dt = p.deadline && p.deadline.type;
+      if (dt !== "fixed" && dt !== "window") return false;
     }
     if (S.win) {
       var st = statusOf(p);
@@ -236,8 +270,8 @@
     if (i !== -1) { shortlist.splice(i, 1); }
     else {
       if (!PRO.active && shortlist.length >= CFG.FREE_SHORTLIST_MAX) {
-        openPro("Danh sách không giới hạn");
-        toast("Bản miễn phí lưu tối đa " + CFG.FREE_SHORTLIST_MAX + " trường.");
+        openPro(t("pro.unlimitedList"));
+        toast(t("toast.saveLimit", { n: CFG.FREE_SHORTLIST_MAX }));
         return false;
       }
       shortlist.push(id);
@@ -254,7 +288,7 @@
   }
   function statusLabel(k) {
     var s = CFG.STATUSES.filter(function (x) { return x.k === k; })[0];
-    return s ? s.t : k;
+    return s ? L(s.t) : k;
   }
   function statusColor(k) {
     var s = CFG.STATUSES.filter(function (x) { return x.k === k; })[0];
@@ -289,23 +323,23 @@
     var out = [];
     if (p.linkStatus === "dead") {
       out.push({
-        ic: "🔎", warn: true,
-        t: "Tìm trang chương trình (link gốc đã đổi)",
-        s: "Kiểm tra ngày " + (DATA.meta.linkCheckedAt || "gần đây") + ": trang cũ trả về lỗi 404",
+        ic: "i-warning", warn: true,
+        t: t("link.rescue"),
+        s: t("link.rescueSub", { d: DATA.meta.linkCheckedAt || "2026-09-03" }),
         u: rescueLink(p)
       });
-      if (p.link) out.push({ ic: "🔗", t: "Thử link cũ", s: dom || p.link, u: p.link, dim: true });
+      if (p.link) out.push({ ic: "i-external", t: t("link.old"), s: dom || p.link, u: p.link, dim: true });
     } else if (p.link) {
-      out.push({ ic: "🎓", t: "Trang chương trình chính thức", s: dom || p.link, u: p.link });
+      out.push({ ic: "i-cap", t: t("link.official"), s: dom || p.link, u: p.link });
     }
-    out.push({ ic: "📄", t: "Hướng dẫn nộp hồ sơ / Admissions", s: "Tìm trên website trường", u: gs(site + "master admission how to apply") });
-    out.push({ ic: "💶", t: "Bảng học phí & lệ phí", s: "Tuition fees " + (p.country || ""), u: gs(site + "tuition fees master international") });
-    out.push({ ic: "🏅", t: "Học bổng của trường", s: "Scholarships & funding", u: gs(site + "scholarship master international student") });
-    out.push({ ic: "📐", t: "Yêu cầu portfolio / hồ sơ năng lực", s: "Entry requirements", u: gs(p.school + " " + p.program + " entry requirements portfolio") });
-    out.push({ ic: "📕", t: "Brochure / Programme guide (PDF)", s: "Tài liệu chính thức dạng PDF", u: gs(p.school + " " + p.program + " brochure OR handbook filetype:pdf") });
-    out.push({ ic: "🗺️", t: "Vị trí trên bản đồ", s: [p.city, ISO[p.country] || p.country].filter(Boolean).join(", "), u: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(p.school + " " + (p.city || "") + " " + (ISO[p.country] || p.country || "")) });
-    out.push({ ic: "📊", t: "Hồ sơ trường trên QS", s: "topuniversities.com", u: gs("site:topuniversities.com " + p.school) });
-    out.push({ ic: "💬", t: "Review từ du học sinh Việt", s: "Kinh nghiệm thực tế", u: gs('"' + p.school + '" du học sinh Việt Nam kinh nghiệm') });
+    out.push({ ic: "i-file", t: t("link.admissions"), s: t("link.admissionsSub"), u: gs(site + "master admission how to apply") });
+    out.push({ ic: "i-euro", t: t("link.fees"), s: "Tuition fees " + (C(p.country) || ""), u: gs(site + "tuition fees master international") });
+    out.push({ ic: "i-cap", t: t("link.scholarship"), s: t("link.scholarshipSub"), u: gs(site + "scholarship master international student") });
+    out.push({ ic: "i-list-checks", t: t("link.portfolio"), s: t("link.portfolioSub"), u: gs(p.school + " " + p.program + " entry requirements portfolio") });
+    out.push({ ic: "i-file", t: t("link.brochure"), s: t("link.brochureSub"), u: gs(p.school + " " + p.program + " brochure OR handbook filetype:pdf") });
+    out.push({ ic: "i-pin", t: t("link.map"), s: [p.city, ISO[p.country] || p.country].filter(Boolean).join(", "), u: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(p.school + " " + (p.city || "") + " " + (ISO[p.country] || p.country || "")) });
+    out.push({ ic: "i-sparkle", t: t("link.qs"), s: "topuniversities.com", u: gs("site:topuniversities.com " + p.school) });
+    out.push({ ic: "i-globe", t: t("link.review"), s: t("link.reviewSub"), u: gs('"' + p.school + '" du học sinh Việt Nam kinh nghiệm') });
     return out;
   }
 
@@ -316,11 +350,11 @@
     var d90 = withDate.filter(function (p) { return statusOf(p).days <= 90; }).length;
     var sch = ALL.filter(function (p) { return p.hasScholarship; }).length;
     var items = [
-      { n: ALL.length, l: "Chương trình" },
-      { n: (DATA.meta.countries || []).length, l: "Quốc gia" },
-      { n: d30, l: "Hạn trong 30 ngày" },
-      { n: d90, l: "Hạn trong 90 ngày" },
-      { n: sch, l: "Có học bổng" }
+      { n: ALL.length, l: t("stat.programs") },
+      { n: (DATA.meta.countries || []).length, l: t("stat.countries") },
+      { n: d30, l: t("stat.d30") },
+      { n: d90, l: t("stat.d90") },
+      { n: sch, l: t("stat.scholarship") }
     ];
     $("#stats").innerHTML = items.map(function (x) {
       return '<div class="stat"><b data-to="' + x.n + '">0</b><span>' + esc(x.l) + "</span></div>";
@@ -332,8 +366,8 @@
     $$("#stats b[data-to]").forEach(function (el) {
       var to = Number(el.dataset.to) || 0, t0 = performance.now(), dur = 900;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = fmtNum(to); return; }
-      function step(t) {
-        var k = Math.min(1, (t - t0) / dur);
+      function step(now) {
+        var k = Math.min(1, (now - t0) / dur);
         var e = 1 - Math.pow(1 - k, 3);
         el.textContent = fmtNum(Math.round(to * e));
         if (k < 1) requestAnimationFrame(step);
@@ -352,9 +386,9 @@
     if (!tickerP) { el.hidden = true; return; }
     el.hidden = false;
     el.innerHTML =
-      '<span class="lbl">⏱ Hạn gần nhất</span>' +
+      '<span class="lbl">' + ic("i-clock") + t("next.label") + "</span>" +
       '<span class="school">' + flagOf(tickerP.country) + " " + esc(tickerP.school) + "</span>" +
-      '<span style="color:var(--muted);font-size:12.5px">' + esc(tickerP.program) + "</span>" +
+      '<span class="prog">' + esc(tickerP.program) + "</span>" +
       '<span class="cd" id="cdBox"></span>';
     tickTicker();
     clearInterval(tickerTimer);
@@ -373,7 +407,7 @@
     var h = Math.floor(ms / 3600000) % 24;
     var m = Math.floor(ms / 60000) % 60;
     var s = Math.floor(ms / 1000) % 60;
-    var units = [[d, "ngày"], [h, "giờ"], [m, "phút"], [s, "giây"]];
+    var units = [[d, t("cd.d")], [h, t("cd.h")], [m, t("cd.m")], [s, t("cd.s")]];
     box.innerHTML = units.map(function (u) {
       return '<span class="cd-unit"><b>' + ("0" + u[0]).slice(-2) + "</b><span>" + u[1] + "</span></span>";
     }).join("");
@@ -396,10 +430,12 @@
       return '<div class="cdbadge ' + st.cls + '"><span class="days" style="font-size:13.5px">' + esc(st.label) +
         '</span><span class="when">' + esc(st.sub) + "</span></div>";
     }
-    var txt = st.days < 0 ? "Đã đóng" : st.days === 0 ? "Hôm nay!" : fmtNum(st.days) + "<small>ngày</small>";
-    var note = st.rolled ? "<em>ước tính đợt sau</em>"
-      : st.approx ? "<em>ngày ước lượng</em>"
-      : st.exact ? "" : "<em>lặp hằng năm</em>";
+    var txt = st.days < 0 ? t("cd.closed")
+      : st.days === 0 ? t("cd.today")
+      : fmtNum(st.days) + "<small>" + t("cd.dayUnit") + "</small>";
+    var note = st.rolled ? "<em>" + t("cd.nextRound") + "</em>"
+      : st.approx ? "<em>" + t("cd.approxDate") + "</em>"
+      : st.exact ? "" : "<em>" + t("cd.yearly") + "</em>";
     return '<div class="cdbadge ' + st.cls + '">' +
       '<span class="days">' + txt + "</span>" +
       '<span class="when">' + fmtDate(st.date) + note +
@@ -418,26 +454,26 @@
         "</div>" +
         (p.rank ? '<span class="rank">#' + p.rank + "</span>" : "") +
       "</div>" +
-      '<div class="where">📍 ' + esc(p.city || "—") + ", " + esc(p.country) + "</div>" +
+      '<div class="where">' + ic("i-pin") + esc(p.city || DASH) + ", " + esc(C(p.country)) + "</div>" +
       cdBadge(p) +
       '<div class="meta">' +
-        (p.duration ? '<span class="tag">⏳ ' + esc(p.duration) + "</span>" : "") +
-        (p.mainLanguage ? '<span class="tag">🗣 ' + esc(p.mainLanguage) + "</span>" : "") +
-        (p.tuitionEur != null ? '<span class="tag">💶 ~' + fmtEur(p.tuitionEur) + "/năm</span>" : "") +
-        (p.hasScholarship ? '<span class="tag sch">🎓 Học bổng</span>' : "") +
-        (tr && tr.status ? '<span class="tag" style="color:' + statusColor(tr.status) + ';border-color:' + statusColor(tr.status) + '55">● ' + esc(statusLabel(tr.status)) + "</span>" : "") +
+        (p.duration ? '<span class="tag">' + ic("i-clock") + esc(DU(p.duration)) + "</span>" : "") +
+        (p.mainLanguage ? '<span class="tag">' + ic("i-language") + esc(LG(p.mainLanguage)) + "</span>" : "") +
+        (p.tuitionEur != null ? '<span class="tag">' + ic("i-euro") + fmtEur(p.tuitionEur) + t("card.perYear") + "</span>" : "") +
+        (p.hasScholarship ? '<span class="tag sch">' + ic("i-cap") + t("card.scholarship") + "</span>" : "") +
+        (tr && tr.status ? '<span class="tag" style="color:' + statusColor(tr.status) + ';border-color:' + statusColor(tr.status) + '55">' + esc(statusLabel(tr.status)) + "</span>" : "") +
       "</div>" +
       '<div class="act" data-stop="1">' +
-        '<button class="iconbtn save' + (saved ? " on" : "") + '" data-act="save" title="Lưu vào danh sách">' + (saved ? "★" : "☆") + "</button>" +
-        '<button class="iconbtn cmp' + (cmp ? " on cmp" : "") + '" data-act="cmp" title="Thêm vào so sánh">⚖</button>' +
+        '<button class="iconbtn save' + (saved ? " on" : "") + '" data-act="save" title="' + esc(t("card.save")) + '" aria-label="' + esc(t("card.save")) + '">' + ic("i-star") + "</button>" +
+        '<button class="iconbtn cmp' + (cmp ? " on cmp" : "") + '" data-act="cmp" title="' + esc(t("card.compare")) + '" aria-label="' + esc(t("card.compare")) + '">' + ic("i-columns") + "</button>" +
         (p.link || p.linkStatus === "dead"
           ? '<a class="iconbtn' + (p.linkStatus === "dead" ? " warn" : "") + '" href="' +
             esc(p.linkStatus === "dead" ? rescueLink(p) : p.link) + '" target="_blank" rel="noopener" data-act="link" title="' +
-            (p.linkStatus === "dead" ? "Link gốc đã đổi — bấm để tìm trang mới" : "Mở web trường") + '">' +
-            (p.linkStatus === "dead" ? "⚠" : "↗") + "</a>"
+            esc(p.linkStatus === "dead" ? t("link.rescue") : t("card.web")) + '" aria-label="' +
+            esc(p.linkStatus === "dead" ? t("link.rescue") : t("card.web")) + '">' +
+            ic(p.linkStatus === "dead" ? "i-warning" : "i-external") + "</a>"
           : "") +
-        '<span style="flex:1"></span>' +
-        '<button class="btn xs ghost" data-act="detail">Chi tiết →</button>' +
+        '<button class="btn xs ghost" data-act="detail">' + t("card.detail") + ic("i-arrow-right") + "</button>" +
       "</div>" +
     "</article>";
   }
@@ -447,20 +483,20 @@
     if (!list.length) { box.innerHTML = emptyHTML(); return; }
     box.innerHTML = list.slice(0, renderLimit).map(cardHTML).join("") +
       (list.length > renderLimit
-        ? '<div style="grid-column:1/-1;text-align:center;padding:18px"><button class="btn" id="moreBtn">Xem thêm ' +
-          Math.min(60, list.length - renderLimit) + " chương trình (còn " + fmtNum(list.length - renderLimit) + ")</button></div>"
+        ? '<div style="grid-column:1/-1;text-align:center;padding:18px"><button class="btn" id="moreBtn">' +
+          esc(t("res.more", { n: Math.min(60, list.length - renderLimit) })) + "</button></div>"
         : "");
     $$(".card", box).forEach(observe);
-    bindCardMotion(box);
   }
 
   var renderLimit = 60;
 
   function emptyHTML() {
-    return '<div class="empty" style="grid-column:1/-1"><div class="big">🔍</div>' +
-      "<h3>Không tìm thấy chương trình phù hợp</h3>" +
-      "<p>Thử bỏ bớt bộ lọc hoặc đổi từ khoá tìm kiếm.</p>" +
-      '<button class="btn" onclick="document.getElementById(\'resetBtn\').click()">↺ Đặt lại bộ lọc</button></div>';
+    return '<div class="empty" style="grid-column:1/-1"><div class="big">' + ic("i-search") + "</div>" +
+      "<h3>" + esc(t("empty.title")) + "</h3>" +
+      "<p>" + esc(t("empty.sub")) + "</p>" +
+      '<button class="btn" onclick="document.getElementById(\'resetBtn\').click()">' +
+      ic("i-reset") + esc(t("empty.reset")) + "</button></div>";
   }
 
   /* ============================================================= timeline */
@@ -487,26 +523,26 @@
       var parts = k.split("-");
       var items = groups[k];
       return '<div class="tl-month">' +
-        '<div class="tl-head"><h3>' + MONTHS[+parts[1]] + " " + parts[0] + '</h3><span class="n">' + items.length + " chương trình</span></div>" +
+        '<div class="tl-head"><h3>' + monthName(+parts[1]) + " " + parts[0] + '</h3><span class="n">' + esc(t("tl.programs", { n: items.length })) + "</span></div>" +
         '<div class="tl-items">' + items.map(function (p) {
           var st = statusOf(p);
           return '<div class="tl-item ' + st.cls + '" data-id="' + p.id + '">' +
-            '<div class="tl-date"><b>' + st.date.getDate() + "</b><span>" + MONTHS[st.date.getMonth()].replace("Tháng ", "Th") + "</span></div>" +
+            '<div class="tl-date"><b>' + st.date.getDate() + "</b><span>" + monthShort(st.date.getMonth()) + "</span></div>" +
             '<div class="tl-body"><b>' + flagOf(p.country) + " " + esc(p.school) + "</b><span>" + esc(p.program) + "</span></div>" +
-            '<div class="tl-left">' + (st.days === 0 ? "Hôm nay" : "còn " + fmtNum(st.days) + " ngày") + "</div>" +
+            '<div class="tl-left">' + (st.days === 0 ? t("tl.today") : t("tl.left", { n: fmtNum(st.days) })) + "</div>" +
           "</div>";
         }).join("") + "</div></div>";
     }).join("");
 
     if (undated.length) {
-      html += '<div class="tl-month"><div class="tl-head"><h3>Chưa có ngày cụ thể</h3>' +
-        '<span class="n">' + undated.length + " chương trình</span></div><div class=\"tl-items\">" +
+      html += '<div class="tl-month"><div class="tl-head"><h3>' + esc(t("tl.undated")) + "</h3>" +
+        '<span class="n">' + esc(t("tl.programs", { n: undated.length })) + "</span></div><div class=\"tl-items\">" +
         undated.map(function (p) {
           var st = statusOf(p);
           return '<div class="tl-item s-dead" data-id="' + p.id + '">' +
-            '<div class="tl-date"><b>?</b><span>—</span></div>' +
+            '<div class="tl-date"><b>?</b><span></span></div>' +
             '<div class="tl-body"><b>' + flagOf(p.country) + " " + esc(p.school) + "</b><span>" + esc(p.program) + "</span></div>" +
-            '<div class="tl-left">' + esc(st.label || "Xem web trường") + "</div></div>";
+            '<div class="tl-left">' + esc(st.label || t("tl.checkSite")) + "</div></div>";
         }).join("") + "</div></div>";
     }
 
@@ -515,20 +551,24 @@
   }
 
   /* ================================================================ table */
-  var COLS = [
-    { k: "rank", t: "QS", w: 60 },
-    { k: "school", t: "Trường" },
-    { k: "program", t: "Chương trình" },
-    { k: "country", t: "Quốc gia" },
-    { k: "deadline", t: "Hạn kế tiếp" },
-    { k: "days", t: "Còn lại" },
-    { k: "tuition", t: "Học phí ~/năm" },
-    { k: "lang", t: "Ngôn ngữ" },
-    { k: "sch", t: "HB" }
+  var COL_KEYS = [
+    { k: "rank",     i: "tbl.rank" },
+    { k: "school",   i: "tbl.school" },
+    { k: "program",  i: "tbl.program" },
+    { k: "country",  i: "tbl.country" },
+    { k: "deadline", i: "tbl.deadline" },
+    { k: "left",     i: "tbl.left" },
+    { k: "tuition",  i: "tbl.tuition" },
+    { k: "lang",     i: "tbl.lang" },
+    { k: "sch",      i: "card.scholarship" }
   ];
+  function cols() {
+    return COL_KEYS.map(function (c) { return { k: c.k, t: t(c.i) }; });
+  }
 
   function renderTable(list) {
     var head = $("#tblHead"), body = $("#tblBody");
+    var COLS = cols();
     head.innerHTML = COLS.map(function (c) {
       var on = S.tableSort.k === c.k;
       return "<th data-k=\"" + c.k + "\">" + esc(c.t) +
@@ -541,7 +581,7 @@
       var va, vb;
       switch (k) {
         case "rank": va = a.rank == null ? 9999 : a.rank; vb = b.rank == null ? 9999 : b.rank; break;
-        case "days": case "deadline":
+        case "left": case "deadline":
           va = statusOf(a).days; vb = statusOf(b).days;
           va = va == null || va < 0 ? 1e9 : va; vb = vb == null || vb < 0 ? 1e9 : vb; break;
         case "tuition": va = a.tuitionEur == null ? 1e9 : a.tuitionEur; vb = b.tuitionEur == null ? 1e9 : b.tuitionEur; break;
@@ -553,26 +593,36 @@
       return (va - vb) * dir;
     });
 
+    /* data-label và data-col cho phép bảng xếp lại thành danh sách thẻ trên điện thoại */
+    function td(colKey, cls, html) {
+      var lbl = COLS.filter(function (c) { return c.k === colKey; })[0];
+      return '<td data-col="' + colKey + '" data-label="' + esc(lbl ? lbl.t : "") + '"' +
+        (cls ? ' class="' + cls + '"' : "") + ">" + html + "</td>";
+    }
+
     body.innerHTML = arr.slice(0, 300).map(function (p) {
       var st = statusOf(p);
       return '<tr data-id="' + p.id + '">' +
-        "<td class=\"nowrap\">" + (p.rank ? "<b>#" + p.rank + "</b>" : "—") + "</td>" +
-        "<td><b>" + flagOf(p.country) + " " + esc(p.school) + '</b><div class="mini">' + esc(p.city) + "</div></td>" +
-        "<td>" + esc(p.program) + '<div class="mini">' + esc(p.field) + "</div></td>" +
-        '<td class="nowrap">' + esc(p.country) + "</td>" +
-        '<td class="nowrap">' + (st.days == null ? "—" : fmtDate(st.date)) + "</td>" +
-        '<td class="nowrap"><span style="color:var(--c);font-weight:750" class="' + st.cls + '">' +
-          (st.days == null ? esc(st.label) : st.days < 0 ? "Đã đóng" : fmtNum(st.days) + " ngày") + "</span></td>" +
-        '<td class="nowrap">' + (p.tuitionEur == null ? "—" : "~" + fmtEur(p.tuitionEur)) + "</td>" +
-        "<td>" + esc(p.mainLanguage || "—") + "</td>" +
-        '<td>' + (p.hasScholarship ? "🎓" : "—") + "</td>" +
+        td("rank", "nowrap", p.rank ? "<b>#" + p.rank + "</b>" : DASH) +
+        td("school", "", "<b>" + flagOf(p.country) + " " + esc(p.school) + '</b><div class="mini">' + esc(p.city) + "</div>") +
+        td("program", "", esc(p.program) + '<div class="mini">' + esc(G(p.group)) + "</div>") +
+        td("country", "nowrap", esc(C(p.country))) +
+        td("deadline", "nowrap", st.days == null ? DASH : fmtDate(st.date)) +
+        td("left", "nowrap", '<span style="color:var(--c);font-weight:700" class="' + st.cls + '">' +
+          (st.days == null ? esc(st.label)
+            : st.days < 0 ? t("cd.closed")
+            : fmtNum(st.days) + " " + t("cd.dayUnit")) + "</span>") +
+        td("tuition", "nowrap", p.tuitionEur == null ? DASH : fmtEur(p.tuitionEur)) +
+        td("lang", "", esc(LG(p.mainLanguage) || DASH)) +
+        td("sch", "", p.hasScholarship ? ic("i-check") : DASH) +
       "</tr>";
-    }).join("") || '<tr><td colspan="9" style="text-align:center;padding:34px;color:var(--muted)">Không có kết quả</td></tr>';
+    }).join("") || '<tr><td colspan="9" style="text-align:center;padding:34px;color:var(--muted)">' +
+      esc(t("empty.title")) + "</td></tr>";
 
     if (arr.length > 300) {
       body.insertAdjacentHTML("beforeend",
-        '<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:14px">Hiển thị 300/' +
-        fmtNum(arr.length) + " dòng — thu hẹp bộ lọc hoặc xuất file Excel để xem đầy đủ.</td></tr>");
+        '<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:14px">' +
+        esc(t("res.showing", { n: 300, total: fmtNum(arr.length) })) + "</td></tr>");
     }
   }
 
@@ -581,15 +631,12 @@
     var box = $("#view-tracker");
     var ids = Object.keys(track).map(Number);
     if (!PRO.active) {
-      box.innerHTML = proTeaseHTML(
-        "Bảng theo dõi hồ sơ",
-        "Sắp xếp mọi trường bạn đang nhắm theo trạng thái Quan tâm → Đang chuẩn bị → Đã nộp → Phỏng vấn → Kết quả, " +
-        "kèm checklist 10 loại giấy tờ và ghi chú riêng cho từng trường.");
+      box.innerHTML = proTeaseHTML(t("track.h"), t("pro.trackBody"));
       return;
     }
     if (!ids.length) {
-      box.innerHTML = '<div class="empty"><div class="big">🗂️</div><h3>Chưa theo dõi hồ sơ nào</h3>' +
-        "<p>Mở chi tiết một chương trình rồi chọn trạng thái để đưa vào bảng theo dõi.</p></div>";
+      box.innerHTML = '<div class="empty"><div class="big">' + ic("i-folder") + "</div><h3>" +
+        esc(t("empty.trackTitle")) + "</h3><p>" + esc(t("empty.trackSub")) + "</p></div>";
       return;
     }
     var tot = { tuition: 0, living: 0, n: 0 };
@@ -599,10 +646,10 @@
       tot.tuition += c.tuition || 0; tot.living += c.living || 0; tot.n++;
     });
 
-    var cols = CFG.STATUSES.map(function (s) {
+    var board = CFG.STATUSES.map(function (s) {
       var items = ids.map(byId).filter(function (p) { return p && (track[p.id].status || "interested") === s.k; });
       return '<div class="col"><h4><span style="width:8px;height:8px;border-radius:50%;background:' + s.c + ';display:inline-block"></span>' +
-        esc(s.t) + '<span class="n">' + items.length + "</span></h4>" +
+        esc(L(s.t)) + '<span class="n">' + items.length + "</span></h4>" +
         items.map(function (p) {
           var st = statusOf(p);
           var tr = track[p.id];
@@ -614,20 +661,22 @@
               '<span style="font-size:10.5px;color:var(--muted)">' + done + "/" + CFG.DOCS.length + "</span>" +
             "</div>" +
             '<div style="margin-top:5px;font-size:11px" class="' + st.cls + '"><span style="color:var(--c);font-weight:700">' +
-              (st.days == null ? esc(st.label) : st.days < 0 ? "Đã đóng" : "còn " + fmtNum(st.days) + " ngày") + "</span></div>" +
+              (st.days == null ? esc(st.label)
+                : st.days < 0 ? t("cd.closed")
+                : t("tl.left", { n: fmtNum(st.days) })) + "</span></div>" +
           "</div>";
         }).join("") + "</div>";
     }).join("");
 
     box.innerHTML =
       '<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:16px">' +
-        '<div class="stat" style="flex:1;min-width:230px"><b>' + fmtEur(Math.round(tot.tuition + tot.living)) +
-        '</b><span>Tổng chi phí ước tính · ' + tot.n + " trường</span></div>" +
-        '<div class="stat" style="flex:1;min-width:230px"><b>' + fmtNum(Math.round((tot.tuition + tot.living) * CFG.VND_PER_EUR / 1e6)) +
-        ' triệu ₫</b><span>Quy đổi (' + fmtNum(CFG.VND_PER_EUR) + " ₫/€)</span></div>" +
-        '<button class="btn" id="trackExport">⬇ Xuất bảng theo dõi</button>' +
+        '<div class="stat" style="flex:1;min-width:220px"><b>' + fmtEur(Math.round(tot.tuition + tot.living)) +
+        "</b><span>" + esc(t("track.total")) + " (" + tot.n + ")</span></div>" +
+        '<div class="stat" style="flex:1;min-width:220px"><b>' + fmtNum(Math.round((tot.tuition + tot.living) * CFG.VND_PER_EUR / 1e6)) +
+        " " + t("d.million") + "</b><span>" + esc(t("track.totalVnd")) + " (" + fmtNum(CFG.VND_PER_EUR) + " VND/EUR)</span></div>" +
+        '<button class="btn" id="trackExport">' + ic("i-download") + esc(t("track.export")) + "</button>" +
       "</div>" +
-      '<div class="board">' + cols + "</div>";
+      '<div class="board">' + board + "</div>";
 
     $("#trackExport").addEventListener("click", function () { openExport("tracker"); });
     $$(".mini-card", box).forEach(function (el) {
@@ -636,9 +685,9 @@
   }
 
   function proTeaseHTML(title, body) {
-    return '<div class="empty"><div class="big">🔒</div><h3>' + esc(title) + " — tính năng Pro</h3>" +
-      '<p style="max-width:56ch;margin:0 auto 18px">' + esc(body) + "</p>" +
-      '<button class="btn gold" onclick="document.getElementById(\'proBtn\').click()">✦ Mở khoá EuroMasters Pro</button></div>';
+    return '<div class="empty"><div class="big">' + ic("i-lock") + "</div>" +
+      "<h3>" + esc(t("pro.locked", { name: title })) + "</h3><p>" + esc(body) + "</p>" +
+      '<button class="btn gold" onclick="document.getElementById(\'proBtn\').click()">' + ic("i-sparkle") + esc(t("pro.unlock")) + "</button></div>";
   }
 
   function byId(id) {
@@ -652,10 +701,8 @@
   function updateResultLine(n) {
     if (n != null) lastCount = n;
     $("#resultLine").innerHTML =
-      "<b>" + fmtNum(lastCount) + "</b> chương trình khớp bộ lọc" +
-      (shortlist.length ? ' · <b>★ ' + shortlist.length + "</b> đã lưu" : "") +
-      (Object.keys(track).length ? " · <b>🗂 " + Object.keys(track).length + "</b> đang theo dõi" : "") +
-      ' · <span>múi giờ ' + (Intl.DateTimeFormat().resolvedOptions().timeZone || "địa phương") + "</span>";
+      t("res.showing", { n: "<b>" + fmtNum(lastCount) + "</b>", total: fmtNum(ALL.length) }) +
+      (shortlist.length ? " &middot; " + t("res.savedCount", { n: shortlist.length }) : "");
   }
 
   /* Cập nhật nút ★ tại chỗ — tránh render lại cả lưới (gây nháy + mất hiệu ứng) */
@@ -663,7 +710,6 @@
     var on = isSaved(id);
     $$('[data-id="' + id + '"] [data-act="save"]').forEach(function (b) {
       b.classList.toggle("on", on);
-      b.textContent = on ? "★" : "☆";
     });
     updateResultLine();
   }
@@ -671,6 +717,7 @@
   function render() {
     var list = filtered();
     updateResultLine(list.length);
+    updateFilterCount();
 
     ["cards", "timeline", "table", "tracker"].forEach(function (v) {
       $("#view-" + v).hidden = S.view !== v;
@@ -700,106 +747,108 @@
     var tr = getTrack(p.id);
 
     $("#dTitle").textContent = p.program;
-    $("#dSub").innerHTML = flagOf(p.country) + " <b>" + esc(p.school) + "</b> — " + esc(p.city || "") + ", " + esc(p.country) +
-      (p.rankText ? ' <span style="color:var(--muted)">· ' + esc(p.rankText) + "</span>" : "");
+    $("#dSub").innerHTML = flagOf(p.country) + " <b>" + esc(p.school) + "</b>, " +
+      esc([p.city, C(p.country)].filter(Boolean).join(", ")) +
+      (p.rankText ? ' <span style="color:var(--muted)">' + esc(rankText(p)) + "</span>" : "");
 
     var html = "";
 
     /* countdown */
     html += '<div class="dsec">' + cdBadge(p) +
       (st.rolled
-        ? '<div style="font-size:12.4px;color:var(--warn);margin-top:8px">⚠ Đợt tuyển sinh ghi trong nguồn (' +
-          fmtDate(st.prev) + ") đã khép lại. Ngày trên là <b>ước tính cho đợt kế tiếp</b> (cùng kỳ năm sau) — " +
-          "hãy xác nhận lại trên trang trường.</div>"
+        ? '<div class="dnote warn">' + ic("i-warning") + esc(t("d.rolledWarn", { d: fmtDate(st.prev) })) + "</div>"
         : "") +
       (st.approx && !st.rolled
-        ? '<div style="font-size:12.4px;color:var(--muted);margin-top:8px">⚠ Nguồn chỉ nêu tháng, chưa nêu ngày — app lấy ngày cuối tháng làm mốc tạm.</div>'
+        ? '<div class="dnote">' + ic("i-warning") + esc(t("d.approxWarn")) + "</div>"
         : "") +
-      '<div style="font-size:12.4px;color:var(--muted);margin-top:8px">Nguyên văn từ nguồn: “' + esc(p.deadlineRaw || "—") + "”</div></div>";
+      '<div class="dnote">' + esc(t("d.raw", { s: p.deadlineRaw || DASH })) + "</div></div>";
 
     /* facts */
-    html += '<div class="dsec"><h4>Thông tin chính</h4><dl class="kv">' +
-      kv("Nhóm ngành", p.group) + kv("Ngành cụ thể", p.field) +
-      kv("Xếp hạng QS", p.rankText) + kv("Thời gian học", p.duration) +
-      kv("Ngôn ngữ giảng dạy", p.language) +
-      kv("Học phí", p.tuitionRaw) + kv("Chi phí sinh hoạt", p.livingRaw) +
+    html += '<div class="dsec"><h4>' + esc(t("d.main")) + '</h4><dl class="kv">' +
+      kv(t("d.group"), G(p.group)) + kv(t("d.fieldDetail"), p.field) +
+      kv(t("d.rank"), rankText(p)) + kv(t("d.duration"), DU(p.duration)) +
+      kv(t("d.language"), LG(p.mainLanguage) || p.language) +
+      kv(t("d.tuition"), p.tuitionRaw) + kv(t("d.living"), p.livingRaw) +
       "</dl></div>";
 
     /* cost calculator (Pro) */
     if (c) {
       if (PRO.active) {
-        html += '<div class="dsec"><h4>Ước tính tổng chi phí <span class="pro-badge">PRO</span></h4>' +
+        html += '<div class="dsec"><h4>' + esc(t("d.total")) + ' <span class="pro-badge">PRO</span></h4>' +
           '<dl class="kv">' +
-          kv("Thời lượng", (c.months) + " tháng (~" + c.years.toFixed(1) + " năm)") +
-          (c.tuition != null ? "<dt>Học phí toàn khoá</dt><dd>" + fmtEur(Math.round(c.tuition)) + "</dd>" : "") +
-          (c.living != null ? "<dt>Sinh hoạt phí</dt><dd>" + fmtEur(Math.round(c.living)) + "</dd>" : "") +
-          "<dt><b>Tổng cộng</b></dt><dd><b>" + fmtEur(Math.round(c.total)) + "</b> ≈ " +
-            fmtNum(Math.round(c.total * CFG.VND_PER_EUR / 1e6)) + " triệu ₫</dd>" +
-          "</dl><div style='font-size:11.5px;color:var(--muted);margin-top:8px'>Lấy mức thấp nhất tìm được trong mô tả học phí/sinh hoạt phí; chỉ mang tính tham khảo.</div></div>";
+          kv(t("d.duration"), t("d.durationVal", { m: c.months, y: c.years.toFixed(1) })) +
+          (c.tuition != null ? "<dt>" + esc(t("d.tuitionTotal")) + "</dt><dd>" + fmtEur(Math.round(c.tuition)) + "</dd>" : "") +
+          (c.living != null ? "<dt>" + esc(t("d.livingTotal")) + "</dt><dd>" + fmtEur(Math.round(c.living)) + "</dd>" : "") +
+          "<dt><b>" + esc(t("d.sum")) + "</b></dt><dd><b>" + fmtEur(Math.round(c.total)) + "</b> = " +
+            fmtNum(Math.round(c.total * CFG.VND_PER_EUR / 1e6)) + " " + t("d.million") + "</dd>" +
+          '</dl><div class="dnote">' + esc(t("d.totalNote")) + "</div></div>";
       } else {
-        html += '<div class="dsec"><h4>Ước tính tổng chi phí</h4>' +
-          '<div class="linkrow" style="cursor:pointer" data-pro="Máy tính chi phí du học">' +
-          '<span class="ic">🔒</span><div><b>Mở khoá để xem tổng chi phí toàn khoá</b>' +
-          "<small>Học phí × số năm + sinh hoạt phí × số tháng, quy đổi sang VND</small></div>" +
-          '<span class="go">→</span></div></div>';
+        html += '<div class="dsec"><h4>' + esc(t("d.total")) + "</h4>" +
+          '<div class="linkrow" style="cursor:pointer" data-pro="' + esc(t("pro.cost")) + '">' +
+          '<span class="ic">' + ic("i-lock") + "</span><div><b>" + esc(t("d.costTease")) + "</b>" +
+          "<small>" + esc(t("d.costTeaseSub")) + "</small></div>" +
+          '<span class="go">' + ic("i-arrow-right") + "</span></div></div>";
       }
     }
 
     /* description */
-    if (p.desc) html += '<div class="dsec"><h4>Giới thiệu</h4><div class="prose">' + esc(p.desc) + "</div></div>";
+    if (p.desc) html += '<div class="dsec"><h4>' + esc(t("d.desc")) + '</h4><div class="prose">' + esc(p.desc) + "</div></div>";
 
     /* scholarship */
     if (p.scholarshipSchool || p.scholarshipOther) {
-      html += '<div class="dsec"><h4>Học bổng</h4><dl class="kv">' +
-        kv("Của trường", p.scholarshipSchool) + kv("Nguồn khác", p.scholarshipOther) + "</dl>";
+      html += '<div class="dsec"><h4>' + esc(t("d.scholarship")) + '</h4><dl class="kv">' +
+        kv(t("d.schSchool"), p.scholarshipSchool) + kv(t("d.schOther"), p.scholarshipOther) + "</dl>";
       if (p.scholarshipDeadline && p.scholarshipDeadline.dates.length) {
         var sd = occurrences(p.scholarshipDeadline)[0];
-        if (sd) html += '<div style="margin-top:8px;font-size:12.5px;color:var(--warn)">📌 Hạn học bổng phát hiện trong mô tả: <b>' +
-          fmtDate(sd.date) + "</b> (còn " + fmtNum(daysLeft(sd.date)) + " ngày)</div>";
+        if (sd) html += '<div class="dnote warn">' + ic("i-calendar") +
+          esc(t("d.schDeadline", { d: fmtDate(sd.date), n: fmtNum(daysLeft(sd.date)) })) + "</div>";
       }
       html += "</div>";
     }
 
-    if (p.requirements) html += '<div class="dsec"><h4>Yêu cầu đầu vào</h4><div class="prose">' + esc(p.requirements) + "</div></div>";
-    if (p.notes) html += '<div class="dsec"><h4>Ghi chú nguồn</h4><div class="prose">' + esc(p.notes) + "</div></div>";
+    if (p.requirements) html += '<div class="dsec"><h4>' + esc(t("d.req")) + '</h4><div class="prose">' + esc(p.requirements) + "</div></div>";
+    if (p.notes) html += '<div class="dsec"><h4>' + esc(t("d.srcNotes")) + '</h4><div class="prose">' + esc(p.notes) + "</div></div>";
+    if (I18N.lang === "en") {
+      html += '<div class="dnote" style="margin:-12px 0 20px">' + esc(t("note.dataVi")) + "</div>";
+    }
 
     /* links */
-    html += '<div class="dsec"><h4>Tài liệu &amp; liên kết từ trường</h4><div class="linklist">' +
+    html += '<div class="dsec"><h4>' + esc(t("d.links")) + '</h4><div class="linklist">' +
       linksFor(p).map(function (l) {
         return '<a class="linkrow' + (l.warn ? " warn" : "") + (l.dim ? " dim" : "") +
           '" href="' + esc(l.u) + '" target="_blank" rel="noopener">' +
-          '<span class="ic">' + l.ic + "</span><div><b>" + esc(l.t) + "</b><small>" + esc(l.s) + "</small></div>" +
-          '<span class="go">↗</span></a>';
+          '<span class="ic">' + ic(l.ic) + "</span><div><b>" + esc(l.t) + "</b><small>" + esc(l.s) + "</small></div>" +
+          '<span class="go">' + ic("i-external") + "</span></a>";
       }).join("") + "</div></div>";
 
     /* tracker */
-    html += '<div class="dsec"><h4>Hồ sơ của tôi ' + (PRO.active ? "" : '<span class="pro-badge">PRO</span>') + "</h4>";
+    html += '<div class="dsec"><h4>' + esc(t("d.mine")) + " " + (PRO.active ? "" : '<span class="pro-badge">PRO</span>') + "</h4>";
     if (PRO.active) {
       html += '<div class="statusrow" style="margin-bottom:12px">' +
         CFG.STATUSES.map(function (s) {
           var on = tr && tr.status === s.k;
-          return '<button class="chip st' + (on ? " on" : "") + '" data-status="' + s.k + '" style="--st:' + s.c + (on ? ";border-color:transparent;color:#fff" : "") + '">' + esc(s.t) + "</button>";
+          return '<button class="chip st' + (on ? " on" : "") + '" data-status="' + s.k + '" style="--st:' + s.c + '">' + esc(L(s.t)) + "</button>";
         }).join("") +
-        (tr ? '<button class="chip" data-status="__clear" style="margin-left:auto">✕ Bỏ theo dõi</button>' : "") +
+        (tr ? '<button class="chip" data-status="__clear">' + ic("i-x") + esc(t("d.untrack")) + "</button>" : "") +
         "</div>";
 
       var done = tr && tr.docs ? Object.keys(tr.docs).filter(function (k) { return tr.docs[k]; }).length : 0;
       html += '<div style="display:flex;gap:9px;align-items:center;margin-bottom:9px">' +
         '<div class="progbar" style="flex:1"><i style="width:' + Math.round(done / CFG.DOCS.length * 100) + '%"></i></div>' +
-        '<span style="font-size:11.5px;color:var(--muted);white-space:nowrap">' + done + "/" + CFG.DOCS.length + " giấy tờ</span></div>";
+        '<span style="font-size:11.5px;color:var(--muted);white-space:nowrap">' + done + "/" + CFG.DOCS.length + " " + t("d.docsUnit") + "</span></div>";
 
       html += '<div class="checklist">' + CFG.DOCS.map(function (d, i) {
         var ck = tr && tr.docs && tr.docs[i];
-        return '<label class="chk' + (ck ? " done" : "") + '"><input type="checkbox" data-doc="' + i + '"' + (ck ? " checked" : "") + "> " + esc(d) + "</label>";
+        return '<label class="chk' + (ck ? " done" : "") + '"><input type="checkbox" data-doc="' + i + '"' + (ck ? " checked" : "") + "> " + esc(L(d)) + "</label>";
       }).join("") + "</div>";
 
-      html += '<h4 style="margin-top:16px">Ghi chú cá nhân</h4>' +
-        '<textarea class="notes" id="trNotes" placeholder="Ví dụ: đã liên hệ GS. X ngày 12/3, cần dịch bảng điểm…">' +
+      html += '<h4 style="margin-top:16px">' + esc(t("d.notes")) + "</h4>" +
+        '<textarea class="notes" id="trNotes" placeholder="' + esc(t("d.notesPh")) + '">' +
         esc((tr && tr.notes) || "") + "</textarea>";
     } else {
-      html += '<div class="linkrow" style="cursor:pointer" data-pro="Bảng theo dõi hồ sơ">' +
-        '<span class="ic">🔒</span><div><b>Theo dõi trạng thái + checklist 10 giấy tờ</b>' +
-        "<small>Ghi chú riêng cho từng trường, tiến độ hồ sơ, tổng chi phí</small></div><span class=\"go\">→</span></div>";
+      html += '<div class="linkrow" style="cursor:pointer" data-pro="' + esc(t("track.h")) + '">' +
+        '<span class="ic">' + ic("i-lock") + "</span><div><b>" + esc(t("d.trackTease")) + "</b>" +
+        "<small>" + esc(t("d.trackTeaseSub")) + '</small></div><span class="go">' + ic("i-arrow-right") + "</span></div>";
     }
     html += "</div>";
 
@@ -809,12 +858,12 @@
     var saved = isSaved(p.id);
     $("#dFoot").innerHTML =
       (p.linkStatus === "dead"
-        ? '<a class="btn primary" href="' + esc(rescueLink(p)) + '" target="_blank" rel="noopener">Tìm trang mới ↗</a>'
-        : (p.link ? '<a class="btn primary" href="' + esc(p.link) + '" target="_blank" rel="noopener">Mở web trường ↗</a>' : "")) +
-      '<button class="btn" id="dSave">' + (saved ? "★ Đã lưu" : "☆ Lưu") + "</button>" +
-      '<button class="btn" id="dCmp">⚖ So sánh</button>' +
-      '<button class="btn" id="dIcs">📅 Nhắc lịch' + (PRO.active ? "" : ' <span class="lock">🔒</span>') + "</button>" +
-      '<button class="btn" id="dPdf">🖨 In hồ sơ' + (PRO.active ? "" : ' <span class="lock">🔒</span>') + "</button>";
+        ? '<a class="btn primary" href="' + esc(rescueLink(p)) + '" target="_blank" rel="noopener">' + esc(t("d.findNew")) + ic("i-external") + "</a>"
+        : (p.link ? '<a class="btn primary" href="' + esc(p.link) + '" target="_blank" rel="noopener">' + esc(t("d.openSite")) + ic("i-external") + "</a>" : "")) +
+      '<button class="btn" id="dSave">' + ic("i-star") + esc(saved ? t("d.saved") : t("d.save")) + "</button>" +
+      '<button class="btn" id="dCmp">' + ic("i-columns") + esc(t("d.compare")) + "</button>" +
+      '<button class="btn" id="dIcs">' + ic("i-calendar") + esc(t("d.ical")) + (PRO.active ? "" : ' <span class="lock">' + ic("i-lock") + "</span>") + "</button>" +
+      '<button class="btn" id="dPdf">' + ic("i-file") + esc(t("d.print")) + (PRO.active ? "" : ' <span class="lock">' + ic("i-lock") + "</span>") + "</button>";
 
     bindDrawer(p);
     $("#scrim").classList.add("on");
@@ -833,8 +882,8 @@
     $$("[data-status]", body).forEach(function (b) {
       b.addEventListener("click", function () {
         var k = b.dataset.status;
-        if (k === "__clear") { delete track[p.id]; lsSet("emt.track", track); toast("Đã bỏ theo dõi."); }
-        else { setTrack(p.id, { status: k }); toast("Trạng thái: " + statusLabel(k)); }
+        if (k === "__clear") { delete track[p.id]; lsSet("emt.track", track); toast(t("d.untracked")); }
+        else { setTrack(p.id, { status: k }); toast(t("toast.status", { s: statusLabel(k) })); }
         openDrawer(p); render();
       });
     });
@@ -851,29 +900,30 @@
 
     var notes = $("#trNotes", body);
     if (notes) {
-      var t;
+      var noteTimer;
       notes.addEventListener("input", function () {
-        clearTimeout(t);
-        t = setTimeout(function () { setTrack(p.id, { notes: notes.value }); }, 500);
+        clearTimeout(noteTimer);
+        noteTimer = setTimeout(function () { setTrack(p.id, { notes: notes.value }); }, 500);
       });
     }
 
     $("#dSave").addEventListener("click", function () {
       if (!toggleSave(p.id)) return;
       var on = isSaved(p.id);
-      $("#dSave").textContent = on ? "★ Đã lưu" : "☆ Lưu";
+      $("#dSave").innerHTML = ic("i-star") + esc(on ? t("d.saved") : t("d.save"));
+      $("#dSave").classList.toggle("primary", on);
       refreshSaveState(p.id);
       if (S.flags.shortlist) render();
-      toast(on ? "Đã lưu vào danh sách ★" : "Đã bỏ khỏi danh sách.");
+      toast(on ? t("toast.savedTo") : t("toast.removed"));
     });
     $("#dCmp").addEventListener("click", function () { toggleCompare(p.id); });
     $("#dIcs").addEventListener("click", function () {
-      if (!PRO.gate("Nhắc lịch iCal")) return;
+      if (!PRO.gate(t("pro.icalName"))) return;
       var msg = window.EMT_EXPORT.ics([p]);
-      toast(msg || "Trình duyệt chặn tải file — hãy mở trang ở tab riêng.");
+      toast(msg || t("exp.blocked"));
     });
     $("#dPdf").addEventListener("click", function () {
-      if (!PRO.gate("Xuất PDF")) return;
+      if (!PRO.gate(t("pro.pdfName"))) return;
       closeDrawer();
       toast(window.EMT_EXPORT.pdf([p], "cards"));
     });
@@ -893,8 +943,8 @@
     else {
       var max = PRO.active ? 6 : CFG.FREE_COMPARE_MAX;
       if (compare.length >= max) {
-        if (!PRO.active) { openPro("So sánh không giới hạn"); toast("Bản miễn phí so sánh tối đa " + max + " chương trình."); return; }
-        toast("Tối đa 6 chương trình.");
+        if (!PRO.active) { openPro(t("pro.unlimitedCmp")); toast(t("toast.cmpLimit", { n: max })); return; }
+        toast(t("cmp.max"));
         return;
       }
       compare.push(id);
@@ -917,21 +967,21 @@
   }
 
   function openCompare() {
-    if (compare.length < 2) { toast("Chọn ít nhất 2 chương trình để so sánh."); return; }
+    if (compare.length < 2) { toast(t("cmp.min2")); return; }
     var ps = compare.map(byId);
     var rows = [
-      ["Quốc gia / TP", function (p) { return flagOf(p.country) + " " + p.country + " — " + (p.city || ""); }],
-      ["Xếp hạng QS", function (p) { return p.rankText || "—"; }, function (p) { return p.rank == null ? 1e9 : p.rank; }],
-      ["Hạn kế tiếp", function (p) { var s = statusOf(p); return s.days == null ? (s.label || "—") : fmtDate(s.date); }],
-      ["Còn lại", function (p) { var s = statusOf(p); return s.days == null ? "—" : (s.days < 0 ? "Đã đóng" : fmtNum(s.days) + " ngày"); }],
-      ["Thời gian học", function (p) { return p.duration || "—"; }],
-      ["Ngôn ngữ", function (p) { return p.language || "—"; }],
-      ["Học phí (~EUR/năm)", function (p) { return p.tuitionEur == null ? "—" : fmtEur(p.tuitionEur); }, function (p) { return p.tuitionEur == null ? 1e9 : p.tuitionEur; }],
-      ["Sinh hoạt (~EUR/tháng)", function (p) { return p.livingEur == null ? "—" : fmtEur(p.livingEur); }, function (p) { return p.livingEur == null ? 1e9 : p.livingEur; }],
-      ["Tổng chi phí ước tính", function (p) { var c = costOf(p); return c ? fmtEur(Math.round(c.total)) : "—"; }, function (p) { var c = costOf(p); return c ? c.total : 1e9; }],
-      ["Học bổng trường", function (p) { return p.scholarshipSchool || "—"; }],
-      ["Học bổng khác", function (p) { return p.scholarshipOther || "—"; }],
-      ["Yêu cầu đầu vào", function (p) { return p.requirements || "—"; }]
+      [t("cmp.rowCountry"), function (p) { return flagOf(p.country) + " " + C(p.country) + ", " + (p.city || ""); }],
+      [t("cmp.rowRank"), function (p) { return rankText(p) || DASH; }, function (p) { return p.rank == null ? 1e9 : p.rank; }],
+      [t("cmp.rowDeadline"), function (p) { var s = statusOf(p); return s.days == null ? (s.label || DASH) : fmtDate(s.date); }],
+      [t("cmp.rowLeft"), function (p) { var s = statusOf(p); return s.days == null ? DASH : (s.days < 0 ? t("cd.closed") : fmtNum(s.days) + " " + t("cd.dayUnit")); }],
+      [t("cmp.rowDuration"), function (p) { return DU(p.duration) || DASH; }],
+      [t("cmp.rowLang"), function (p) { return LG(p.mainLanguage) || p.language || DASH; }],
+      [t("cmp.rowTuition"), function (p) { return p.tuitionEur == null ? DASH : fmtEur(p.tuitionEur); }, function (p) { return p.tuitionEur == null ? 1e9 : p.tuitionEur; }],
+      [t("cmp.rowLiving"), function (p) { return p.livingEur == null ? DASH : fmtEur(p.livingEur); }, function (p) { return p.livingEur == null ? 1e9 : p.livingEur; }],
+      [t("cmp.rowTotal"), function (p) { var c = costOf(p); return c ? fmtEur(Math.round(c.total)) : DASH; }, function (p) { var c = costOf(p); return c ? c.total : 1e9; }],
+      [t("cmp.rowSchool"), function (p) { return p.scholarshipSchool || DASH; }],
+      [t("cmp.rowOther"), function (p) { return p.scholarshipOther || DASH; }],
+      [t("cmp.rowReq"), function (p) { return p.requirements || DASH; }]
     ];
 
     $("#cmpBody").innerHTML = "<table class='cmp'><thead><tr><th></th>" +
@@ -989,14 +1039,14 @@
     $("#keyMsg").className = "msg";
     if (feature) {
       $("#keyMsg").className = "msg info on";
-      $("#keyMsg").textContent = "“" + feature + "” là tính năng của EuroMasters Pro.";
+      $("#keyMsg").textContent = t("pro.needKey", { f: feature });
     }
     show("#proModal");
   }
 
   function renderProModal() {
     $("#featList").innerHTML = CFG.FEATURES.map(function (f) {
-      return '<div><span class="ic">' + f.ic + "</span><div><b>" + esc(f.t) + "</b><span>" + esc(f.d) + "</span></div></div>";
+      return '<div><span class="ic">' + ic(f.ic) + "</span><div><b>" + esc(L(f.t)) + "</b><span>" + esc(L(f.d)) + "</span></div></div>";
     }).join("");
     $("#buyBtn").href = CFG.GUMROAD_URL;
     syncProUI();
@@ -1004,7 +1054,7 @@
 
   function syncProUI() {
     var on = PRO.active;
-    $("#proBtnLabel").textContent = on ? "Pro đã kích hoạt" : "Nâng cấp Pro";
+    $("#proBtnLabel").textContent = on ? t("act.proOn") : t("act.pro");
     $("#proBtn").classList.toggle("gold", !on);
     $("#proBtn").classList.toggle("primary", on);
     $("#exportLock").hidden = on;
@@ -1012,21 +1062,21 @@
     $$("#chips [data-pro-chip]").forEach(function (c) { c.classList.toggle("pro", !on); });
     if (on && PRO.info) {
       $("#keyMsg").className = "msg ok on";
-      $("#keyMsg").textContent = "Pro đang hoạt động" + (PRO.info.email ? " — " + PRO.info.email : "") +
-        " (nguồn: " + (PRO.info.source === "gumroad" ? "Gumroad" : "key nội bộ") + ").";
+      $("#keyMsg").textContent = t("pro.on") + (PRO.info.email ? ", " + PRO.info.email : "") +
+        " (" + (PRO.info.source === "gumroad" ? t("pro.srcGumroad") : t("pro.srcLocal")) + ").";
       $("#keyInput").value = PRO.info.key;
     }
   }
 
   /* ================================================================ export */
   var EXPORTS = [
-    { k: "xlsx", ic: "📊", t: "Excel (.xlsx)", d: "25 cột + sheet tóm tắt, có autofilter", pro: true },
-    { k: "pdf", ic: "🖨️", t: "PDF (bản in)", d: "Mở hộp thoại in → Lưu dưới dạng PDF", pro: true },
-    { k: "doc", ic: "📝", t: "Word (.doc)", d: "Hồ sơ từng trường, mở bằng MS Word", pro: true },
-    { k: "ics", ic: "📅", t: "Lịch (.ics)", d: "Nạp vào Google/Apple Calendar, nhắc 30/14/7/1 ngày", pro: true },
-    { k: "csv", ic: "📄", t: "CSV đầy đủ", d: "Cho Google Sheets / Notion / Airtable", pro: true },
-    { k: "json", ic: "🧩", t: "JSON", d: "Cho lập trình viên, kèm dữ liệu theo dõi", pro: true },
-    { k: "csv10", ic: "🎁", t: "CSV thử — 10 dòng", d: "Miễn phí, để bạn xem trước định dạng", pro: false }
+    { k: "xlsx",  ic: "i-file",        i: "exp.xlsx",  pro: true },
+    { k: "pdf",   ic: "i-file",        i: "exp.pdf",   pro: true },
+    { k: "doc",   ic: "i-file",        i: "exp.doc",   pro: true },
+    { k: "ics",   ic: "i-calendar",    i: "exp.ics",   pro: true },
+    { k: "csv",   ic: "i-rows",        i: "exp.csv",   pro: true },
+    { k: "json",  ic: "i-list-checks", i: "exp.json",  pro: true },
+    { k: "csv10", ic: "i-download",    i: "exp.csv10", pro: false }
   ];
 
   function scopeList() {
@@ -1039,8 +1089,10 @@
 
   function openExport(scope) {
     $("#expList").innerHTML = EXPORTS.map(function (e) {
-      return '<div data-exp="' + e.k + '" style="cursor:pointer"><span class="ic">' + e.ic + "</span><div><b>" +
-        esc(e.t) + (e.pro && !PRO.active ? " 🔒" : "") + "</b><span>" + esc(e.d) + "</span></div></div>";
+      var locked = e.pro && !PRO.active;
+      return '<div data-exp="' + e.k + '" style="cursor:pointer"><span class="ic">' + ic(e.ic) + "</span><div><b>" +
+        esc(t(e.i)) + (locked ? ' <span class="lock">' + ic("i-lock") + "</span>" : "") +
+        "</b><span>" + esc(t(e.i + "D")) + "</span></div></div>";
     }).join("");
     if (scope) $("#expScope").value = scope;
     updateExpSub();
@@ -1052,20 +1104,20 @@
 
   function updateExpSub() {
     var n = scopeList().length;
-    $("#expSub").innerHTML = "<b>" + fmtNum(n) + "</b> chương trình sẽ được xuất." +
-      (PRO.active ? "" : ' <span style="color:var(--gold)">Cần Pro để mở khoá đầy đủ.</span>');
+    $("#expSub").innerHTML = t("exp.count", { n: "<b>" + fmtNum(n) + "</b>" }) +
+      (PRO.active ? "" : ' <span style="color:var(--muted)">' + esc(t("exp.needPro")) + "</span>");
   }
 
   function doExport(kind) {
     var list = scopeList();
-    if (!list.length) { toast("Phạm vi đang chọn không có chương trình nào."); return; }
+    if (!list.length) { toast(t("exp.emptyScope")); return; }
 
     if (kind === "csv10") {
       var msg = window.EMT_EXPORT.csv(list.slice(0, 10));
-      toast(msg || "Trình duyệt chặn tải file — hãy mở trang ở tab riêng.");
+      toast(msg || t("exp.blocked"));
       return;
     }
-    if (!PRO.gate("Xuất " + kind.toUpperCase())) { hide("#expModal"); return; }
+    if (!PRO.gate(t("pro.exportName", { k: kind.toUpperCase() }))) { hide("#expModal"); return; }
 
     var out;
     try {
@@ -1093,39 +1145,17 @@
     }
   }
 
-  /* ================================================================ motion */
-  function initMotion() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var glow = $("#glow"), tx = innerWidth / 2, ty = innerHeight / 3, cx = tx, cy = ty, raf;
-    window.addEventListener("pointermove", function (e) { tx = e.clientX; ty = e.clientY; if (!raf) raf = requestAnimationFrame(loop); }, { passive: true });
-    function loop() {
-      cx += (tx - cx) * .09; cy += (ty - cy) * .09;
-      glow.style.transform = "translate3d(" + cx + "px," + cy + "px,0)";
-      if (Math.abs(tx - cx) > .5 || Math.abs(ty - cy) > .5) raf = requestAnimationFrame(loop); else raf = null;
-    }
-  }
-
-  function bindCardMotion(box) {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    $$(".card", box).forEach(function (c) {
-      c.addEventListener("pointermove", function (e) {
-        var r = c.getBoundingClientRect();
-        c.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%");
-        c.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%");
-      }, { passive: true });
-    });
-  }
-
   /* ================================================================ facets */
   function fillFacets() {
-    function fill(sel, values, cur) {
+    function fill(sel, values, cur, label) {
       var el = $(sel);
       var first = el.options[0];
       el.innerHTML = "";
       el.appendChild(first);
       values.forEach(function (v) {
         var o = document.createElement("option");
-        o.value = v[0]; o.textContent = v[0] + " (" + v[1] + ")";
+        o.value = v[0];
+        o.textContent = label(v[0]) + " (" + v[1] + ")";
         el.appendChild(o);
       });
       el.value = cur || "";
@@ -1136,9 +1166,35 @@
       return Object.keys(m).sort(function (a, b) { return m[b] - m[a] || a.localeCompare(b, "vi"); })
         .map(function (k) { return [k, m[k]]; });
     }
-    fill("#fGroup", tally("group"), S.group);
-    fill("#fCountry", tally("country"), S.country);
-    fill("#fLang", tally("mainLanguage"), S.lang);
+    fill("#fGroup", tally("group"), S.group, G);
+    fill("#fCountry", tally("country"), S.country, C);
+    fill("#fLang", tally("mainLanguage"), S.lang, LG);
+  }
+
+  /* Nhan cua o "Sap xep" khong the dat data-i18n vi value phai giu nguyen */
+  var SORT_KEYS = {
+    deadline: "sort.deadline", rank: "sort.rank",
+    tuitionAsc: "sort.tuitionAsc", tuitionDesc: "sort.tuitionDesc",
+    school: "sort.school", country: "sort.country"
+  };
+  function fillSortLabels() {
+    $$("#fSort option").forEach(function (o) {
+      var k = SORT_KEYS[o.value];
+      if (k) o.textContent = t("sort.prefix") + t(k);
+    });
+  }
+
+  /* So bo loc dang bat, hien tren nut "Bo loc" o man hinh hep */
+  function updateFilterCount() {
+    var n = 0;
+    if (S.group) n++;
+    if (S.country) n++;
+    if (S.lang) n++;
+    if (S.win) n++;
+    var el = $("#filterCount");
+    if (!el) return;
+    el.textContent = n;
+    el.hidden = n === 0;
   }
 
   /* ================================================================= bind */
@@ -1170,7 +1226,7 @@
       c.addEventListener("click", function () {
         var f = c.dataset.flag;
         var isPro = ["cheap", "top50", "dated"].indexOf(f) !== -1;
-        if (isPro && !PRO.active) { openPro("Bộ lọc nâng cao"); return; }
+        if (isPro && !PRO.active) { openPro(t("pro.advFilter")); return; }
         S.flags[f] = !S.flags[f];
         c.classList.toggle("on", !!S.flags[f]);
         renderLimit = 60;
@@ -1201,7 +1257,7 @@
           if (toggleSave(id)) {
             refreshSaveState(id);
             if (S.flags.shortlist) render(); // đang lọc theo ★ thì danh sách phải đổi
-            toast(isSaved(id) ? "Đã lưu ★" : "Đã bỏ khỏi danh sách.");
+            toast(isSaved(id) ? t("toast.savedTo") : t("toast.removed"));
           }
           return;
         }
@@ -1251,12 +1307,30 @@
     $("#dClose").addEventListener("click", closeDrawer);
     $("#scrim").addEventListener("click", closeDrawer);
 
-    /* theme */
+    /* nen sang / toi */
     $("#themeBtn").addEventListener("click", function () {
       var next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
       document.documentElement.dataset.theme = next;
       lsSet("emt.theme", next);
+      syncThemeIcon();
     });
+
+    /* ngon ngu */
+    $$("#langSeg button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (b.dataset.lang === I18N.lang) return;
+        I18N.set(b.dataset.lang);
+      });
+    });
+
+    /* bo loc thu gon tren man hinh hep */
+    var ft = $("#filterToggle");
+    if (ft) {
+      ft.addEventListener("click", function () {
+        var open = $("#controls").classList.toggle("open");
+        ft.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
 
     /* premium */
     $("#proBtn").addEventListener("click", function () { openPro(""); });
@@ -1267,8 +1341,8 @@
     $("#deactivateBtn").addEventListener("click", function () {
       PRO.clear(); syncProUI(); render();
       $("#keyMsg").className = "msg info on";
-      $("#keyMsg").textContent = "Đã gỡ kích hoạt trên thiết bị này.";
-      toast("Đã gỡ kích hoạt Pro.");
+      $("#keyMsg").textContent = t("pro.off");
+      toast(t("pro.off"));
     });
 
     /* export */
@@ -1292,7 +1366,7 @@
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(
-          function () { toast("Đã sao chép link kèm bộ lọc hiện tại."); },
+          function () { toast(t("toast.copied")); },
           fallback
         );
       } else fallback();
@@ -1309,8 +1383,42 @@
     /* disclaimer */
     $("#disclaimerLink").addEventListener("click", function (e) {
       e.preventDefault();
-      alert(CFG.DISCLAIMER);
+      alert(L(CFG.DISCLAIMER));
     });
+  }
+
+  /* Bieu tuong nut doi nen: hien thi hanh dong ke tiep, khong phai trang thai */
+  function syncThemeIcon() {
+    var dark = document.documentElement.dataset.theme === "dark";
+    var use = $("#themeIcon use");
+    if (use) use.setAttribute("href", dark ? "#i-sun" : "#i-moon");
+  }
+
+  function syncLangUI() {
+    $$("#langSeg button").forEach(function (b) {
+      b.classList.toggle("on", b.dataset.lang === I18N.lang);
+    });
+  }
+
+  /* Doi ngon ngu: ve lai toan bo phan sinh boi JS */
+  function onLangChange() {
+    syncLangUI();
+    fillFacets();
+    fillSortLabels();
+    renderStats();
+    renderTicker();
+    renderProModal();
+    updateHero();
+    render();
+    if (current && $("#drawer").classList.contains("on")) openDrawer(current);
+  }
+
+  function updateHero() {
+    $("#heroLead").innerHTML = t("hero.lead", {
+      n: '<b id="heroCount">' + fmtNum(ALL.length) + "</b>",
+      c: '<b id="heroCountries">' + (DATA.meta.countries || []).length + "</b>"
+    });
+    $("#buildPill").textContent = t("hero.updated", { d: CFG.DATA_DATE });
   }
 
   function activateKey() {
@@ -1326,7 +1434,7 @@
       if (r.ok) {
         syncProUI();
         render();
-        toast("✦ EuroMasters Pro đã mở khoá!");
+        toast(t("pro.unlocked"));
         setTimeout(function () { hide("#proModal"); }, 1400);
       }
     });
@@ -1336,7 +1444,7 @@
   function init() {
     if (!ALL.length) {
       document.querySelector("main").innerHTML =
-        '<div class="wrap empty"><div class="big">⚠️</div><h3>Không nạp được dữ liệu</h3>' +
+        '<div class="wrap empty"><div class="big">' + ic("i-warning") + "</div><h3>" + t("err.dataTitle") + "</h3>" +
         "<p>Thiếu file <code>data/programs.js</code>. Chạy <code>python tools/build_data.py</code> để tạo lại.</p></div>";
       return;
     }
@@ -1356,9 +1464,13 @@
     }
 
     $("#yr").textContent = new Date().getFullYear();
-    $("#buildDate").textContent = CFG.DATA_DATE;
-    $("#heroCount").textContent = fmtNum(ALL.length);
-    $("#heroCountries").textContent = (DATA.meta.countries || []).length;
+
+    I18N.apply(document);
+    I18N.onChange(onLangChange);
+    syncLangUI();
+    syncThemeIcon();
+    fillSortLabels();
+    updateHero();
 
     // đồng bộ nhãn chip miễn phí/pro
     fillFacets();
@@ -1367,7 +1479,6 @@
     renderTicker();
     renderProModal();
     bind();
-    initMotion();
 
     $$("#nav button").forEach(function (b) { b.classList.toggle("on", b.dataset.view === S.view); });
     render();
@@ -1376,7 +1487,7 @@
     if (!lsGet("emt.seen", false)) {
       lsSet("emt.seen", true);
       setTimeout(function () {
-        toast("Mẹo: bấm “/” để tìm nhanh, “?” để xem phím tắt.");
+        toast(t("tip.keys"));
       }, 2200);
     }
 
@@ -1384,6 +1495,7 @@
     setInterval(function () {
       var k = todayKey();
       if (dlCacheDay !== k) { dlCache = {}; dlCacheDay = k; renderTicker(); render(); }
+      updateFilterCount();
     }, 60000);
   }
 

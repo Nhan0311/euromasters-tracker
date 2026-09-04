@@ -11,6 +11,21 @@ DEFAULT_SRC = r"C:\Users\ADmin\Downloads\DANH SÁCH MỞ RỘNG 282 CHƯƠNG TR�
 SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(DEFAULT_SRC)
 OUT = Path(__file__).resolve().parent.parent / "data" / "programs.json"
 LINK_STATUS = Path(__file__).resolve().parent.parent / "data" / "link-status.json"
+LINK_OVERRIDES = Path(__file__).resolve().parent.parent / "data" / "link-overrides.json"
+
+
+def load_link_overrides():
+    """URL sửa tay, khoá là URL cũ trong Excel.
+
+    File Excel là nguồn dữ liệu, nhưng khi một trường đổi đường dẫn thì sửa ở
+    đây nhanh hơn và không phải đụng vào workbook gốc. Xoá mục tương ứng khi
+    nào Excel đã được cập nhật.
+    """
+    try:
+        data = json.loads(LINK_OVERRIDES.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return {k: v["to"] for k, v in data.get("links", {}).items() if v.get("to")}
 
 SHEETS = [
     "Chương Trình Thạc Sĩ Kiến Trúc ",
@@ -216,6 +231,8 @@ def load_link_status():
 
 def main():
     link_status, link_checked_at = load_link_status()
+    link_overrides = load_link_overrides()
+    overrides_used = 0
     wb = openpyxl.load_workbook(SRC, data_only=True)
     rows, pid = [], 0
     for sheet in SHEETS:
@@ -225,6 +242,13 @@ def main():
                 continue
             rec = {COLS[i]: (clean(r[i]) if i < len(r) else "") for i in range(len(COLS))}
             pid += 1
+
+            # URL sửa tay thắng URL trong Excel
+            link = rec["link"]
+            if link in link_overrides:
+                link = link_overrides[link]
+                overrides_used += 1
+
             tui_eur, tui_cur, _ = parse_money(rec["tuitionRaw"])
             liv_eur, _, _ = parse_money(rec["livingRaw"])
             dl = parse_deadlines(rec["deadlineRaw"])
@@ -246,8 +270,8 @@ def main():
                 "deadlineRaw": rec["deadlineRaw"],
                 "deadline": dl,
                 "scholarshipDeadline": sch if sch["type"] in ("fixed", "window", "month") else None,
-                "link": rec["link"],
-                "linkStatus": (link_status.get(rec["link"], {}) or {}).get("status", "unknown"),
+                "link": link,
+                "linkStatus": (link_status.get(link, {}) or {}).get("status", "unknown"),
                 "language": rec["language"],
                 "mainLanguage": rec["mainLanguage"] or rec["language"],
                 "tuitionRaw": rec["tuitionRaw"],
@@ -294,6 +318,7 @@ def main():
     for r in rows:
         ls[r["linkStatus"]] = ls.get(r["linkStatus"], 0) + 1
     print("link status:", ls)
+    print("link overrides applied:", overrides_used)
     print("written:", OUT)
 
 

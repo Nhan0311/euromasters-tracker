@@ -69,7 +69,10 @@ function load(rel) {
   catch (e) { fail++; fails.push(`LOAD ${rel}: ${e.message}`); }
 }
 
-["data/programs.js", "assets/js/config.js", "assets/js/premium.js",
+// Ngon ngu co dinh la tieng Viet de test khong phu thuoc navigator.language
+window.localStorage.setItem("emt.lang", "vi");
+
+["data/programs.js", "assets/js/i18n.js", "assets/js/config.js", "assets/js/premium.js",
  "assets/js/exporters.js", "assets/js/app.js"].forEach(load);
 
 const $ = (s) => document.querySelector(s);
@@ -208,8 +211,9 @@ async function ready() {
   click("#exportBtn");
   ok("modal xuất mở", $("#expModal").classList.contains("on"));
   eq("7 định dạng", $$("#expList [data-exp]").length, 7);
-  ok("6 định dạng bị khoá", ($("#expList").innerHTML.match(/🔒/g) || []).length === 6,
-     String(($("#expList").innerHTML.match(/🔒/g) || []).length));
+  // ổ khoá giờ là biểu tượng SVG <span class="lock">, không còn emoji
+  ok("6 định dạng bị khoá", ($("#expList").innerHTML.match(/class="lock"/g) || []).length === 6,
+     String(($("#expList").innerHTML.match(/class="lock"/g) || []).length));
   window.__blobs = [];
   click('[data-exp="csv10"]');
   ok("CSV thử miễn phí tải được", window.__blobs.length === 1, String(window.__blobs.length));
@@ -222,7 +226,7 @@ async function ready() {
   ok("mở modal Pro thay thế", $("#proModal").classList.contains("on"));
 
   console.log("\n=== I. Kích hoạt Pro ===");
-  const key = "HAIKTSDUHOCY2026";
+  const key = "HAIKTSDUHOC2026";
 
   $("#keyInput").value = "SAI-KEY-1234-5678";
   click("#keyBtn");
@@ -271,7 +275,7 @@ async function ready() {
     ok("tick giấy tờ được lưu", Object.values(tr).some((t) => t.docs && t.docs["0"] === true));
   }
   ok("drawer hiện ước tính chi phí", /Ước tính tổng chi phí/.test($("#dBody").textContent));
-  ok("chi phí quy đổi ra VND", /triệu ₫/.test($("#dBody").textContent));
+  ok("chi phí quy đổi ra VND", /triệu VND/.test($("#dBody").textContent));
   click("#dClose");
 
   click($$("#nav button")[3]);
@@ -328,18 +332,25 @@ async function ready() {
   ok("xoá key khỏi localStorage", !window.localStorage.getItem("emt.license.v1"));
 
   console.log("\n=== N. Link hỏng ===");
-  const deadOne = window.EMT.all.find((p) => p.linkStatus === "dead");
-  ok("dữ liệu có gắn trạng thái link", !!deadOne);
+  ok("mọi chương trình đều có trạng thái link",
+     window.EMT.all.every((p) => !p.link || typeof p.linkStatus === "string"));
   ok("có mốc thời gian kiểm tra link", !!window.EMT_DATA.meta.linkCheckedAt,
      String(window.EMT_DATA.meta.linkCheckedAt));
-  if (deadOne) {
-    window.EMT.openDrawerById(deadOne.id);
-    ok("drawer cảnh báo link đã đổi", /link gốc đã đổi/i.test($("#dBody").textContent));
-    ok("có link tìm trang mới", /Tìm trang mới/.test($("#dFoot").textContent));
-    const rescue = $("#dFoot a.primary");
-    ok("link cứu hộ trỏ tới tìm kiếm", rescue && /google\.com\/search/.test(rescue.href));
-    click("#dClose");
-  }
+  eq("không còn link hỏng trong dữ liệu",
+     window.EMT.all.filter((p) => p.linkStatus === "dead").length, 0);
+
+  // Bộ dữ liệu hiện không còn link hỏng, nên tự dựng một ca hỏng để
+  // giao diện cảnh báo vẫn được kiểm tra.
+  const victim = window.EMT.all.find((p) => p.link);
+  const realStatus = victim.linkStatus;
+  victim.linkStatus = "dead";
+  window.EMT.openDrawerById(victim.id);
+  ok("drawer cảnh báo link đã đổi", /link gốc đã đổi/i.test($("#dBody").textContent));
+  ok("có link tìm trang mới", /Tìm trang mới/.test($("#dFoot").textContent));
+  const rescue = $("#dFoot a.primary");
+  ok("link cứu hộ trỏ tới tìm kiếm", rescue && /google\.com\/search/.test(rescue.href));
+  click("#dClose");
+  victim.linkStatus = realStatus;
   const okOne = window.EMT.all.find((p) => p.linkStatus === "ok");
   if (okOne) {
     window.EMT.openDrawerById(okOne.id);
@@ -378,9 +389,80 @@ async function ready() {
   await wait(50);
   ok("nút chia sẻ sao chép URL", !!copied && copied.indexOf("http") === 0, String(copied));
 
+  console.log("\n=== P. Song ngữ VI / EN ===");
+  const I18N = window.EMT_I18N;
+  ok("mặc định là tiếng Việt", I18N.lang === "vi", I18N.lang);
+  eq("thẻ html mang lang=vi", document.documentElement.lang, "vi");
+  const viNav = $('#nav [data-view="cards"] .lbl').textContent;
+
+  click('#langSeg [data-lang="en"]');
+  eq("đổi sang EN", I18N.lang, "en");
+  eq("thẻ html mang lang=en", document.documentElement.lang, "en");
+  eq("nhãn nav dịch sang EN", $('#nav [data-view="cards"] .lbl').textContent, "Browse");
+  ok("nhớ lựa chọn vào localStorage", window.localStorage.getItem("emt.lang") === "en");
+  ok("hero dịch sang EN", /master's programmes/.test($("#heroLead").textContent), $("#heroLead").textContent);
+  ok("thẻ chương trình dùng tên nước tiếng Anh",
+     /Netherlands|United Kingdom|Germany|Spain|Italy|France/.test($("#view-cards").textContent));
+  ok("bộ lọc quốc gia dịch sang EN",
+     [...$$("#fCountry option")].some((o) => o.textContent.startsWith("United Kingdom")));
+  ok("thời lượng học không còn chữ tiếng Việt",
+     !/\bnăm\b|\btháng\b|\bhọc kỳ\b/.test($("#view-cards").textContent),
+     $("#view-cards").textContent.slice(0, 120));
+
+  click('#langSeg [data-lang="vi"]');
+  eq("quay lại VI", I18N.lang, "vi");
+  eq("nhãn nav trở về tiếng Việt", $('#nav [data-view="cards"] .lbl').textContent, viNav);
+  ok("không mất dữ liệu khi đổi ngôn ngữ", $$("#view-cards .card").length > 0);
+
+  console.log("\n=== Q. Nền sáng / tối ===");
+  const th0 = document.documentElement.dataset.theme;
+  click("#themeBtn");
+  const th1 = document.documentElement.dataset.theme;
+  ok("đổi nền sáng tối", th1 !== th0 && (th1 === "light" || th1 === "dark"), th0 + " -> " + th1);
+  eq("lưu lựa chọn nền", JSON.parse(window.localStorage.getItem("emt.theme")), th1);
+  eq("biểu tượng nút đổi theo",
+     $("#themeIcon use").getAttribute("href"), th1 === "dark" ? "#i-sun" : "#i-moon");
+  click("#themeBtn");
+  eq("đổi qua lại được", document.documentElement.dataset.theme, th0);
+
+  console.log("\n=== R. Giao diện theo màn hình ===");
+  ok("có nút mở bộ lọc cho màn hình hẹp", !!$("#filterToggle"));
+  eq("bộ lọc ban đầu đóng", $("#filterToggle").getAttribute("aria-expanded"), "false");
+  click("#filterToggle");
+  ok("mở bộ lọc", $("#controls").classList.contains("open"));
+  eq("aria-expanded cập nhật", $("#filterToggle").getAttribute("aria-expanded"), "true");
+  click("#filterToggle");
+  ok("đóng bộ lọc", !$("#controls").classList.contains("open"));
+
+  $("#fCountry").value = "Hà Lan";
+  $("#fCountry").dispatchEvent(new window.Event("change", { bubbles: true }));
+  await wait(30);
+  eq("đếm số bộ lọc đang bật", $("#filterCount").textContent, "1");
+  ok("hiện huy hiệu đếm", $("#filterCount").hidden === false);
+  click("#resetBtn");
+  await wait(30);
+  ok("ẩn huy hiệu khi không còn bộ lọc", $("#filterCount").hidden === true);
+
+  click('#nav [data-view="table"]');
+  await wait(40);
+  const cells = $$("#tblBody tr:first-child td");
+  ok("mỗi ô bảng có data-col", cells.length > 0 && cells.every((c) => !!c.dataset.col));
+  ok("mỗi ô bảng có data-label để xếp thành thẻ trên điện thoại",
+     cells.every((c) => !!c.dataset.label));
+  click('#nav [data-view="cards"]');
+  await wait(40);
+
+  console.log("\n=== S. Biểu tượng thay cho emoji ===");
+  const chrome = $("#view-cards").innerHTML + $("#chips").innerHTML + $("#stats").innerHTML;
+  ok("giao diện dùng sprite SVG", (chrome.match(/<use href="#i-/g) || []).length > 5);
+  ok("không còn emoji giao diện trên thẻ",
+     !/[\u2605\u2606\u2696\u2726\u26a0\u2705\u{1F512}\u{1F4CD}\u{1F393}\u{1F50D}]/u.test(chrome));
+  ok("vẫn giữ cờ quốc gia (là dữ liệu, không phải biểu tượng giao diện)",
+     /\u{1F1E6}-\u{1F1FF}/u.test(chrome) || /[\u{1F1E6}-\u{1F1FF}]/u.test(chrome));
+
   console.log("\n=== M. Toàn vẹn cuối ===");
   eq("không phát sinh lỗi JS trong suốt phiên", errors.length, 0, errors.join(" | "));
-  ok("link Gumroad đúng", $("#buyBtn").href.includes("gumroad.com/l/mnnfbc"), $("#buyBtn").href);
+  ok("link Gumroad đúng", $("#buyBtn").href.includes("gumroad.com/l/euromasters-pro"), $("#buyBtn").href);
   ok("mọi id trong HTML được dùng đều tồn tại",
      ["#q", "#fGroup", "#stats", "#ticker", "#view-cards", "#drawer", "#proModal", "#expModal",
       "#cmpModal", "#toast", "#printroot"].every((s) => !!$(s)));

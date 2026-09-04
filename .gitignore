@@ -8,3 +8,5 @@ keys-*.txt
 .linkcheck-urls.txt
 .recheck*.txt
 .recheck*.tsv
+.linkcheck-report.json
+shots/

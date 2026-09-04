@@ -1,8 +1,12 @@
-# EuroMasters — Deadline Tracker
+# EuroMasters - Deadline Tracker
 
-Web app tĩnh theo dõi **hạn nộp hồ sơ & hạn học bổng** của **282 chương trình thạc sĩ tại 22 quốc gia châu Âu** (QS Subject Rankings 2026), với đồng hồ đếm ngược thời gian thực, dòng thời gian, bảng lọc, và bộ tính năng Pro bán qua Gumroad.
+**Một sản phẩm của Hai KTS dưới hiên nhà.**
 
-Không cần build, không cần server — chỉ là HTML/CSS/JS thuần, chạy được trên **GitHub Pages** và nhúng thẳng vào **Google Sites**.
+Web app tĩnh theo dõi **hạn nộp hồ sơ và hạn học bổng** của **282 chương trình thạc sĩ tại 22 quốc gia châu Âu** (QS Subject Rankings 2026), với đồng hồ đếm ngược thời gian thực, dòng thời gian, bảng lọc, và bộ tính năng Pro bán qua Gumroad.
+
+Giao diện **song ngữ Việt - Anh**, có **nền sáng và nền tối**, dựng riêng cho từng cỡ màn hình từ điện thoại 360px tới màn hình 2560px.
+
+Không cần build, không cần server: chỉ là HTML/CSS/JS thuần, chạy được trên **GitHub Pages** và nhúng thẳng vào **Google Sites**.
 
 ---
 
@@ -19,8 +23,10 @@ Không cần build, không cần server — chỉ là HTML/CSS/JS thuần, chạ
 - Xuất thử CSV 10 dòng
 - **Cảnh báo link hỏng**: 25 trang trường đã đổi đường dẫn được đánh dấu sẵn, app tự chuyển sang link tìm kiếm
 - **Chia sẻ bộ lọc**: mọi bộ lọc đều nằm trên URL, bấm 🔗 để sao chép
-- **Phím tắt**: `/` tìm · `1`–`4` đổi view · `?` bảng phím tắt · `Esc` đóng
-- Sáng/tối (tông olive + cam), responsive, hiệu ứng chuyển động theo con trỏ, bẫy focus cho người dùng bàn phím
+- **Phím tắt**: `/` tìm, `1` tới `4` đổi view, `?` bảng phím tắt, `Esc` đóng
+- **Song ngữ Việt - Anh**: đổi bằng một chạm, nhớ lựa chọn, chia sẻ được qua `?ui=en`
+- **Nền sáng và nền tối**: theo cài đặt hệ thống, đổi tay được, nhớ lựa chọn
+- Vừa vặn trên điện thoại, iPad, laptop và màn hình lớn (xem mục 11)
 
 **Pro (mở bằng license key)**
 | Tính năng | Mô tả |
@@ -48,8 +54,9 @@ Mọi dữ liệu cá nhân (danh sách ★, trạng thái hồ sơ, ghi chú, l
 euromasters-tracker/
 ├── index.html                  ← trang duy nhất
 ├── assets/
-│   ├── css/style.css           ← design system (tokens sáng/tối, motion)
+│   ├── css/style.css           ← design system (màu, bo góc, chữ, mọi điểm ngắt màn hình)
 │   └── js/
+│       ├── i18n.js             ← từ điển Việt/Anh + dịch tên nước, nhóm ngành, thời lượng học
 │       ├── config.js           ← ⚙ CHỈ CẦN SỬA FILE NÀY (Gumroad, giá, tính năng…)
 │       ├── premium.js          ← xác thực license (Gumroad API + key offline)
 │       ├── exporters.js        ← Excel / CSV / Word / PDF / iCal / JSON
@@ -57,14 +64,17 @@ euromasters-tracker/
 ├── data/
 │   ├── programs.json           ← dữ liệu đã chuẩn hoá (nguồn cho mọi thứ)
 │   ├── programs.js             ← bản `window.EMT_DATA = …` để chạy được cả từ file://
-│   └── link-status.json        ← trạng thái link, sống sót qua mỗi lần rebuild
+│   ├── link-status.json        ← trạng thái link, sống sót qua mỗi lần rebuild
+│   └── link-overrides.json     ← URL sửa tay, thắng URL trong Excel (xem mục 8)
 ├── tools/
 │   ├── build_data.py           ← Excel → JSON (bóc tách deadline tiếng Việt)
 │   ├── keyhash.py              ← sinh SHA-256 cho master key
-│   ├── check_links.sh          ← kiểm tra 282 link còn sống không
-│   ├── apply_linkcheck.py      ← gộp kết quả vào data/link-status.json
+│   ├── check_links.js          ← kiểm tra link: mã HTTP, URL sau chuyển hướng, tiêu đề trang
+│   ├── check_links.sh          ← bản cũ, chỉ xem mã HTTP (giữ lại để đối chiếu)
+│   ├── apply_linkcheck.py      ← gộp kết quả bản .sh vào data/link-status.json
+│   ├── shots.js                ← chụp ảnh giao diện ở 8 cỡ màn hình, báo lỗi tràn ngang
 │   ├── test.js                 ← test logic (64 assertion, không cần cài gì)
-│   └── test-dom.js             ← test tích hợp DOM thật (106 assertion, cần jsdom)
+│   └── test-dom.js             ← test tích hợp DOM thật (136 assertion, cần jsdom)
 └── .nojekyll                   ← để GitHub Pages phục vụ nguyên trạng
 ```
 
@@ -141,7 +151,7 @@ Có **hai đường** mở khoá Pro, app thử theo thứ tự:
 Dùng ngay được, không cần mạng, không cần cấu hình gì thêm. Key hiện tại:
 
 ```
-HAIKTSDUHOCY2026
+HAIKTSDUHOC2026
 ```
 
 Chấp nhận cả chữ thường và dấu gạch (`haik-tsdu-hocy-2026` cũng vào).
@@ -159,8 +169,8 @@ python tools/keyhash.py "KEY-MOI-CUA-BAN"
 Sửa `assets/js/config.js`:
 
 ```js
-GUMROAD_URL:        "https://haiktsduoihiennha.gumroad.com/l/mnnfbc",
-GUMROAD_PERMALINK:  "mnnfbc",     // phần sau /l/
+GUMROAD_URL:        "https://haiktsduoihiennha.gumroad.com/l/euromasters-pro",
+GUMROAD_PERMALINK:  "euromasters-pro",   // phần sau /l/
 GUMROAD_PRODUCT_ID: "",           // tuỳ chọn, lấy ở trang Share của sản phẩm
 MAX_USES: 5,                      // số thiết bị / 1 key (0 = không giới hạn)
 ```
@@ -235,13 +245,55 @@ Google theo tên trường + tên chương trình, đồng thời vẫn giữ li
 ## 8. Kiểm thử
 
 ```bash
-node tools/test.js          # 64 assertion — deadline, lọc, xuất file, master key, SHA-256
+node tools/test.js          # 64 assertion: deadline, lọc, xuất file, master key, SHA-256
 npm install jsdom           # (một lần)
-node tools/test-dom.js      # 106 assertion — DOM thật: click, lọc, drawer, gate Pro, xuất file,
-                            #                 link hỏng, đồng bộ URL, phím tắt
+node tools/test-dom.js      # 136 assertion: DOM thật. Click, lọc, drawer, gate Pro, xuất file,
+                            # link hỏng, đồng bộ URL, phím tắt, song ngữ, nền sáng tối,
+                            # bộ lọc thu gọn, nhãn cột cho bảng trên điện thoại
 ```
 
 Cả hai đều `exit 1` khi có lỗi, dùng được trong CI.
+
+**Kiểm tra bố cục thật trên trình duyệt** (cần Chrome hoặc Edge):
+
+```bash
+node tools/shots.js shots    # chụp 8 cỡ màn hình × 2 nền, in ra cảnh báo nếu trang bị tràn ngang
+```
+
+Script nói chuyện thẳng với Chrome DevTools Protocol nên giả lập được đúng iPhone 360-430px,
+điều mà cờ `--window-size` không làm được (Chrome trên Windows ép cửa sổ rộng tối thiểu ~500px).
+Mỗi cỡ cho hai ảnh: `-fold` là khung nhìn đầu tiên, `-full` là toàn trang.
+
+**Kiểm tra link của từng trường**:
+
+```bash
+node tools/check_links.js                  # quét toàn bộ, in báo cáo, chưa ghi vào dữ liệu
+node tools/check_links.js --apply          # ghi vào data/link-status.json
+node tools/check_links.js --only-dead      # chỉ kiểm tra lại những link từng hỏng
+python tools/build_data.py                 # nạp lại vào programs.json
+```
+
+Ngoài mã HTTP, bản này còn đi theo chuyển hướng, đọc `<title>` trang đích và cảnh báo khi:
+link bị đá về trang chủ, đổi tên miền, hoặc tiêu đề trang không dính gì tới tên trường và tên ngành.
+Lỗi mạng tạm thời (timeout, TLS) **không** được phép gỡ một kết luận "hỏng" đã chắc chắn trước đó.
+
+**Sửa một link sai**: đừng sửa thẳng vào `data/programs.json`, vì mỗi lần dựng lại từ Excel là mất.
+Thêm một mục vào `data/link-overrides.json`, khoá là URL cũ trong Excel:
+
+```json
+"https://link-cu-trong-excel/...": {
+  "to": "https://link-moi-da-kiem-tra/...",
+  "school": "Tên trường",
+  "reason": "vì sao phải đổi"
+}
+```
+
+`tools/build_data.py` đọc file này sau khi đọc Excel nên link đã sửa sống sót qua mọi lần dựng lại.
+Khi nào sửa được file Excel gốc thì xoá mục tương ứng ở đây.
+
+Lần quét ngày 04/09/2026: 282 chương trình, **0 link hỏng**, 31 link không kiểm tra tự động được
+(site chặn bot hoặc lỗi chứng chỉ TLS, mở bằng trình duyệt thật vẫn vào bình thường),
+44 link đã được sửa qua `link-overrides.json`.
 
 ---
 
@@ -262,11 +314,60 @@ Mọi thứ hay đổi đều nằm trong `assets/js/config.js`:
 | Ngày cập nhật hiển thị ở hero | `DATA_DATE` |
 | Miễn trừ trách nhiệm | `DISCLAIMER` |
 
+Chữ hiển thị của giao diện nằm trong `assets/js/i18n.js`. Mỗi khoá có một dòng `vi` và một dòng `en`.
+Muốn thêm ngôn ngữ thứ ba: thêm một khoá vào `DICT` rồi thêm một nút vào `#langSeg` trong `index.html`.
+
 Màu sắc, bo góc, đổ bóng: khối `:root` và `html[data-theme="dark"]` ở đầu `assets/css/style.css`.
 
 ---
 
-## 10. Miễn trừ trách nhiệm
+## 10. Design system và cách co giãn theo màn hình
+
+Bốn quy ước đã khoá, sửa gì cũng phải theo (ghi ngay đầu `style.css`):
+
+| Quy ước | Nội dung |
+|---|---|
+| Màu | **Một** màu thương hiệu duy nhất (`--accent`, xanh lá). Dải vàng, cam, đỏ chỉ mang nghĩa "còn bao nhiêu thời gian", không dùng để trang trí. |
+| Bo góc | nút và ô nhập 10px, thẻ và khung 16px, sheet 24px, chip bo tròn. |
+| Chữ | `Be Vietnam Pro` cho mọi thứ (font Việt, đủ dấu), `JetBrains Mono` cho con số và phím tắt. |
+| Cỡ chữ | luôn dùng `clamp()`, không đặt cỡ cố định. |
+
+Biểu tượng là một bộ sprite SVG nằm ngay đầu `index.html`, nét dày 1.7 đồng đều.
+Giao diện không dùng emoji; riêng cờ quốc gia vẫn là emoji vì đó là **dữ liệu**, không phải biểu tượng giao diện.
+
+**Từng cỡ màn hình:**
+
+| Bề rộng | Thay đổi |
+|---|---|
+| ≥ 1181px | Hero chia hai cột: nội dung bên trái, thẻ đếm ngược hạn gần nhất bên phải. Chọn chế độ xem nằm trong thanh trên cùng. |
+| 900 - 1180px | Hero về một cột. Lưới thẻ tự rút số cột. |
+| ≤ 899px | Chọn chế độ xem **rời xuống thanh cố định dưới đáy**, vừa tầm ngón cái. Nút chia sẻ và phím tắt ẩn đi. |
+| ≤ 719px | Bộ lọc thu vào sau nút "Bộ lọc" có huy hiệu đếm. Dải chip cuộn ngang. **Bảng xếp lại thành danh sách thẻ** thay vì cuộn ngang. Ngăn kéo chi tiết và hộp thoại trượt lên từ đáy. Nút Xuất rút về biểu tượng. |
+| ≤ 479px | Chỉ giữ dấu hiệu thương hiệu, nhãn nút Pro ẩn đi. |
+| Màn hình cảm ứng | Mọi vùng chạm tối thiểu 44px (`@media (pointer: coarse)`). |
+| Máy tính bảng có tai thỏ | Chừa `env(safe-area-inset-*)` cho thanh dưới đáy, thanh so sánh và toast. |
+
+Hai điểm dễ vấp, đã xử lý và ghi chú ngay trong CSS:
+
+1. `backdrop-filter` biến phần tử thành **khối chứa** cho con `position: fixed`. Giữ nó trên thanh
+   trên cùng thì thanh điều hướng đáy sẽ dính vào đáy thanh trên cùng thay vì đáy màn hình.
+   Trên di động thanh trên cùng dùng nền đặc.
+2. Lớp phủ trượt (toast, thanh so sánh) được ẩn bằng `visibility` chứ không chỉ bằng `transform`,
+   vì khi có khoảng cách đáy thì dịch 200% chiều cao vẫn chưa đủ để ra khỏi màn hình.
+
+---
+
+## 11. Về Hai KTS dưới hiên nhà
+
+EuroMasters nằm trong bộ công cụ của **Hai KTS dưới hiên nhà**, hai kiến trúc sư viết về nghề,
+về học và về việc sống chậm. Ghi chú thương hiệu xuất hiện ở chân trang, trong hộp thoại Pro,
+trong thẻ `meta` của trang, và trong phần chân của mọi file Excel, Word, PDF mà app xuất ra.
+
+Cửa hàng: <https://haiktsduoihiennha.gumroad.com>
+
+---
+
+## 12. Miễn trừ trách nhiệm
 
 Dữ liệu được tổng hợp thủ công từ website các trường và bảng xếp hạng QS 2026, **có thể thay đổi bất cứ lúc nào**.
 Trước khi nộp hồ sơ, luôn kiểm tra lại hạn nộp, học phí và yêu cầu đầu vào trên trang chính thức của trường

@@ -3,123 +3,263 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>EuroMasters — Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu</title>
-<meta name="description" content="Đếm ngược hạn nộp hồ sơ và học bổng của 282 chương trình thạc sĩ tại 22 quốc gia châu Âu — QS Ranking 2026. Lọc, timeline, nhắc lịch và xuất hồ sơ.">
-<meta name="theme-color" content="#0e1009">
-<meta property="og:title" content="EuroMasters — Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu">
-<meta property="og:description" content="282 chương trình · 22 quốc gia · QS Ranking 2026 · Đếm ngược deadline theo thời gian thực.">
+<title>EuroMasters - Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu</title>
+<meta name="description" content="Đếm ngược hạn nộp hồ sơ và học bổng của 282 chương trình thạc sĩ tại 22 quốc gia châu Âu, theo QS Rankings 2026. Lọc, dòng thời gian, nhắc lịch và xuất hồ sơ. Song ngữ Việt - Anh.">
+<meta name="theme-color" content="#0b0e0a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f2f3f0" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="EuroMasters - Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu">
+<meta property="og:description" content="282 chương trình, 22 quốc gia, QS Rankings 2026. Đếm ngược deadline theo thời gian thực.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%236b7a2f'/><text y='68' x='50' text-anchor='middle' font-size='56' font-family='sans-serif' font-weight='bold' fill='white'>E</text></svg>">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary">
+<meta name="author" content="Hai KTS dưới hiên nhà">
+<meta property="og:site_name" content="Hai KTS dưới hiên nhà">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d7a46'/><text y='69' x='50' text-anchor='middle' font-size='58' font-family='sans-serif' font-weight='bold' fill='white'>E</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+
+<script>
+  /* Đặt nền sáng/tối trước khi vẽ trang, tránh nháy trắng khi tải */
+  (function () {
+    try {
+      var saved = localStorage.getItem("emt.theme");
+      var sys = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", saved === "light" || saved === "dark" ? saved : sys);
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
 
-<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-<div id="glow" aria-hidden="true"></div>
+<a class="skip" href="#main" data-i18n="foot.skip">Bỏ qua, tới nội dung chính</a>
+<div class="grain" aria-hidden="true"></div>
 
-<!-- ============ TOP BAR ============ -->
+<!-- ============ BỘ BIỂU TƯỢNG (một bộ nét duy nhất, dày 1.7) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="i-search"><circle cx="11" cy="11" r="7"/><path d="M16.2 16.2 21 21"/></g>
+    <g id="i-x"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5"/></g>
+    <g id="i-copy"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15.5 5.5H6a1.5 1.5 0 0 0-1.5 1.5v9.5"/></g>
+    <g id="i-keyboard"><rect x="2.5" y="6" width="19" height="12" rx="2.5"/><path d="M6.5 10h.01M10 10h.01M13.5 10h.01M17 10h.01M6.5 13.5h.01M17 13.5h.01M9.5 14h5"/></g>
+    <g id="i-sun"><circle cx="12" cy="12" r="4.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></g>
+    <g id="i-moon"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/></g>
+    <g id="i-download"><path d="M12 3.5v11M7.5 10.5 12 15l4.5-4.5M4 20h16"/></g>
+    <g id="i-star"><path d="M12 3.6l2.63 5.55 5.87.83-4.25 4.24 1 6.02L12 17.4l-5.25 2.84 1-6.02L3.5 9.98l5.87-.83z"/></g>
+    <g id="i-columns"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M12 4.5v15"/></g>
+    <g id="i-external"><path d="M8 16 16.5 7.5M10 7.5h6.5V14"/></g>
+    <g id="i-pin"><path d="M12 21s6.8-6.1 6.8-10.6a6.8 6.8 0 1 0-13.6 0C5.2 14.9 12 21 12 21Z"/><circle cx="12" cy="10.2" r="2.4"/></g>
+    <g id="i-clock"><circle cx="12" cy="12" r="8.4"/><path d="M12 7.4V12l3.1 2"/></g>
+    <g id="i-globe"><circle cx="12" cy="12" r="8.4"/><path d="M3.6 12h16.8M12 3.6c2.5 2.7 2.5 14.1 0 16.8M12 3.6c-2.5 2.7-2.5 14.1 0 16.8"/></g>
+    <g id="i-sliders"><path d="M4 8h8M17 8h3M4 16h3M12 16h8"/><circle cx="14.5" cy="8" r="2.3"/><circle cx="9.5" cy="16" r="2.3"/></g>
+    <g id="i-grid"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></g>
+    <g id="i-calendar"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g>
+    <g id="i-rows"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M3.5 14.5h17"/></g>
+    <g id="i-folder"><path d="M3.5 7.6a2 2 0 0 1 2-2h3.7l2.1 2.6h7.2a2 2 0 0 1 2 2v8.2a2 2 0 0 1-2 2H5.5a2 2 0 0 1-2-2Z"/></g>
+    <g id="i-check"><path d="M5 12.6 9.6 17.2 19 7.4"/></g>
+    <g id="i-cap"><path d="M2.6 9.4 12 5.1l9.4 4.3L12 13.7z"/><path d="M6.6 11.6v5.1c0 1.4 2.4 2.5 5.4 2.5s5.4-1.1 5.4-2.5v-5.1"/></g>
+    <g id="i-euro"><path d="M17.4 6.8a6.6 6.6 0 1 0 0 10.4M4.6 10.2h8.2M4.6 13.8h8.2"/></g>
+    <g id="i-lock"><rect x="4.5" y="10" width="15" height="10.2" rx="2.4"/><path d="M8 10V7.2a4 4 0 0 1 8 0V10"/></g>
+    <g id="i-sparkle"><path d="M12 3.2 14 9l5.8 2-5.8 2-2 5.8-2-5.8L4.2 11 10 9z"/></g>
+    <g id="i-arrow-right"><path d="M4.5 12h14M13 6.5l6 5.5-6 5.5"/></g>
+    <g id="i-warning"><path d="M12 4.2 21 19.4H3z"/><path d="M12 10v4M12 16.9h.01"/></g>
+    <g id="i-file"><path d="M13.8 3.2v5.2H19"/><path d="M13.8 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.4z"/></g>
+    <g id="i-list-checks"><path d="M10.5 7h9M10.5 12h9M10.5 17h9M4 6.6 5.5 8.1 8 5.4M4 11.6l1.5 1.5L8 10.4M4 16.6l1.5 1.5L8 15.4"/></g>
+    <g id="i-calculator"><rect x="4.5" y="3" width="15" height="18" rx="2.5"/><path d="M8 7.5h8M8 12h.01M12 12h.01M16 12h.01M8 16.5h.01M12 16.5h.01M16 16.5h.01"/></g>
+    <g id="i-funnel"><path d="M3.5 5.2h17l-6.6 7.7v6.3l-3.8 1.9v-8.2z"/></g>
+    <g id="i-language"><path d="M3.5 6.2h8.4M7.7 4v2.2M9.6 6.2c0 4-2.8 7.3-6.1 8.5M5.6 9.9c1 2.2 3 3.9 5.4 4.6M12.4 20l4-9.5 4 9.5M13.9 16.6h5"/></g>
+    <g id="i-reset"><path d="M4.6 11a7.5 7.5 0 1 1 2 5.6"/><path d="M3.4 5.6v5h5"/></g>
+  </defs>
+</svg>
+
+<!-- ============================ THANH TRÊN CÙNG ============================ -->
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="./" aria-label="EuroMasters trang chủ">
-      <span class="mark">E</span>
+    <a class="brand" href="./" data-i18n-aria-label="app.home" aria-label="EuroMasters trang chủ">
+      <span class="mark" aria-hidden="true">E</span>
       <span>
-        <b>EuroMasters</b>
-        <small>Deadline Tracker</small>
+        <b data-i18n="app.title">EuroMasters</b>
+        <small data-i18n="app.tagline">Hai KTS dưới hiên nhà</small>
       </span>
     </a>
 
-    <nav class="nav" id="nav" aria-label="Chế độ xem">
-      <button data-view="cards" class="on">Khám phá</button>
-      <button data-view="timeline">Dòng thời gian</button>
-      <button data-view="table">Bảng</button>
-      <button data-view="tracker">Hồ sơ của tôi</button>
+    <nav class="nav seg" id="nav" data-i18n-aria-label="nav.label" aria-label="Chế độ xem">
+      <button data-view="cards" class="on">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-grid"/></svg>
+        <span class="lbl" data-i18n="nav.cards">Khám phá</span>
+      </button>
+      <button data-view="timeline">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg>
+        <span class="lbl" data-i18n="nav.timeline">Thời gian</span>
+      </button>
+      <button data-view="table">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rows"/></svg>
+        <span class="lbl" data-i18n="nav.table">Bảng</span>
+      </button>
+      <button data-view="tracker">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-folder"/></svg>
+        <span class="lbl" data-i18n="nav.tracker">Hồ sơ</span>
+      </button>
     </nav>
 
     <span class="spacer"></span>
 
     <div class="top-actions">
-      <button class="btn icon ghost" id="shareBtn" title="Sao chép link kèm bộ lọc hiện tại" aria-label="Chia sẻ">🔗</button>
-      <button class="btn icon ghost" id="helpBtn" title="Phím tắt (?)" aria-label="Phím tắt">⌨</button>
-      <button class="btn icon ghost" id="themeBtn" title="Đổi giao diện sáng/tối" aria-label="Đổi giao diện">🌗</button>
-      <button class="btn sm ghost" id="exportBtn" title="Xuất dữ liệu">⬇ Xuất<span class="lock" id="exportLock">🔒</span></button>
-      <button class="btn sm gold" id="proBtn">✦ <span id="proBtnLabel">Nâng cấp Pro</span></button>
-      <a class="btn sm primary" id="openFull" target="_blank" rel="noopener" hidden>Mở toàn màn hình ↗</a>
+      <div class="seg lang" id="langSeg" data-i18n-aria-label="act.lang" aria-label="Ngôn ngữ" role="group">
+        <button data-lang="vi" type="button">VI</button>
+        <button data-lang="en" type="button">EN</button>
+      </div>
+
+      <button class="btn icon ghost desktop-only" id="shareBtn"
+              data-i18n-title="act.share" data-i18n-aria-label="act.share" title="Chép link kèm bộ lọc">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg>
+      </button>
+      <button class="btn icon ghost desktop-only" id="helpBtn"
+              data-i18n-title="act.keys" data-i18n-aria-label="act.keys" title="Phím tắt">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-keyboard"/></svg>
+      </button>
+      <button class="btn icon ghost" id="themeBtn"
+              data-i18n-title="act.theme" data-i18n-aria-label="act.theme" title="Đổi nền sáng / tối">
+        <svg class="i" id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <button class="btn sm ghost" id="exportBtn" data-i18n-title="act.exportFull" title="Xuất dữ liệu">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-download"/></svg>
+        <span class="lbl" data-i18n="act.export">Xuất</span>
+        <span class="lock" id="exportLock" aria-hidden="true">
+          <svg class="i" viewBox="0 0 24 24"><use href="#i-lock"/></svg>
+        </span>
+      </button>
+      <button class="btn sm gold" id="proBtn">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sparkle"/></svg>
+        <span id="proBtnLabel" data-i18n="act.pro">Nâng cấp Pro</span>
+      </button>
+      <a class="btn sm primary" id="openFull" target="_blank" rel="noopener" hidden data-i18n="act.openFull">Mở toàn màn hình</a>
     </div>
   </div>
 </header>
 
-<main>
-  <!-- ============ HERO ============ -->
-  <section class="hero wrap" id="hero">
-    <div class="badge-row">
-      <span class="pill live"><span class="dot"></span> Đồng bộ múi giờ của bạn</span>
-      <span class="pill">QS World University Rankings 2026</span>
-      <span class="pill">Cập nhật: <span id="buildDate">—</span></span>
+<p class="studio-strip">
+  <span data-i18n="brand.byline">Một sản phẩm của Hai KTS dưới hiên nhà</span>
+</p>
+
+<main id="main">
+  <!-- ================================ HERO ================================ -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="badge-row">
+          <span class="pill live"><span class="dot"></span><span data-i18n="hero.live">Đếm ngược theo múi giờ của bạn</span></span>
+          <span class="pill" id="buildPill">QS Rankings 2026</span>
+        </div>
+
+        <h1>
+          <span data-i18n="hero.h1a">Không bỏ lỡ</span>
+          <em data-i18n="hero.h1b">một hạn nộp nào</em>
+          <span data-i18n="hero.h1c">trên đường sang châu Âu.</span>
+        </h1>
+        <p class="lead" id="heroLead"></p>
+      </div>
+
+      <div class="next-card" id="ticker" hidden></div>
     </div>
 
-    <h1>Không bỏ lỡ <span class="grad">một hạn nộp nào</span> trên đường đến châu Âu.</h1>
-    <p class="lead">
-      Đếm ngược thời gian thực cho hạn nộp hồ sơ và hạn học bổng của
-      <b id="heroCount">282</b> chương trình thạc sĩ tại <b id="heroCountries">22</b> quốc gia châu Âu —
-      kiến trúc, mỹ thuật &amp; thiết kế, kinh tế, CNTT–AI, kỹ thuật, luật, y dược và hơn thế nữa.
-    </p>
-
     <div class="stats" id="stats"></div>
-    <div class="ticker" id="ticker" hidden></div>
   </section>
 
-  <!-- ============ CONTROLS ============ -->
-  <section class="controls">
+  <!-- ============================== BỘ ĐIỀU KHIỂN ========================= -->
+  <section class="controls" id="controls">
     <div class="wrap">
       <div class="ctrl-row">
         <div class="search">
-          <span class="ico">🔎</span>
-          <input id="q" type="search" placeholder="Tìm trường, chương trình, thành phố, ngành…" autocomplete="off" aria-label="Tìm kiếm">
-          <button class="clear" id="qClear" hidden aria-label="Xoá tìm kiếm">✕</button>
+          <span class="ico" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-search"/></svg></span>
+          <input id="q" type="search" autocomplete="off"
+                 data-i18n-placeholder="search.ph" data-i18n-aria-label="search.label"
+                 placeholder="Tìm trường, ngành, thành phố…" aria-label="Tìm kiếm">
+          <button class="clear" id="qClear" hidden data-i18n-aria-label="search.clear" aria-label="Xoá tìm kiếm">
+            <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+          </button>
         </div>
 
-        <select class="sel" id="fGroup" aria-label="Nhóm ngành"><option value="">Tất cả ngành</option></select>
-        <select class="sel" id="fCountry" aria-label="Quốc gia"><option value="">Tất cả quốc gia</option></select>
-        <select class="sel" id="fLang" aria-label="Ngôn ngữ"><option value="">Mọi ngôn ngữ</option></select>
-        <select class="sel" id="fWindow" aria-label="Khoảng thời gian">
-          <option value="">Mọi hạn nộp</option>
-          <option value="14">Còn ≤ 14 ngày</option>
-          <option value="30">Còn ≤ 30 ngày</option>
-          <option value="60">Còn ≤ 60 ngày</option>
-          <option value="90">Còn ≤ 90 ngày</option>
-          <option value="180">Còn ≤ 6 tháng</option>
+        <button class="btn filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filters">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sliders"/></svg>
+          <span data-i18n="filter.toggle">Bộ lọc</span>
+          <span class="n" id="filterCount" hidden>0</span>
+        </button>
+      </div>
+
+      <div class="filters" id="filters">
+        <select class="sel" id="fGroup" data-i18n-aria-label="filter.groupLabel" aria-label="Nhóm ngành">
+          <option value="" data-i18n="filter.group">Tất cả ngành</option>
         </select>
-        <select class="sel" id="fSort" aria-label="Sắp xếp">
-          <option value="deadline">Sắp xếp: Hạn gần nhất</option>
-          <option value="rank">Sắp xếp: Thứ hạng QS</option>
-          <option value="tuitionAsc">Sắp xếp: Học phí thấp → cao</option>
-          <option value="tuitionDesc">Sắp xếp: Học phí cao → thấp</option>
-          <option value="school">Sắp xếp: Tên trường A→Z</option>
-          <option value="country">Sắp xếp: Quốc gia A→Z</option>
+        <select class="sel" id="fCountry" data-i18n-aria-label="filter.countryLabel" aria-label="Quốc gia">
+          <option value="" data-i18n="filter.country">Tất cả quốc gia</option>
+        </select>
+        <select class="sel" id="fLang" data-i18n-aria-label="filter.langLabel" aria-label="Ngôn ngữ giảng dạy">
+          <option value="" data-i18n="filter.lang">Mọi ngôn ngữ</option>
+        </select>
+        <select class="sel" id="fWindow" data-i18n-aria-label="filter.windowLabel" aria-label="Khoảng hạn nộp">
+          <option value="" data-i18n="filter.window">Mọi hạn nộp</option>
+          <option value="14" data-i18n="filter.w14">Còn 14 ngày trở lại</option>
+          <option value="30" data-i18n="filter.w30">Còn 30 ngày trở lại</option>
+          <option value="60" data-i18n="filter.w60">Còn 60 ngày trở lại</option>
+          <option value="90" data-i18n="filter.w90">Còn 90 ngày trở lại</option>
+          <option value="180" data-i18n="filter.w180">Còn 6 tháng trở lại</option>
+        </select>
+        <select class="sel" id="fSort" data-i18n-aria-label="filter.sortLabel" aria-label="Sắp xếp">
+          <option value="deadline">Hạn gần nhất</option>
+          <option value="rank">Thứ hạng QS</option>
+          <option value="tuitionAsc">Học phí thấp đến cao</option>
+          <option value="tuitionDesc">Học phí cao đến thấp</option>
+          <option value="school">Tên trường A-Z</option>
+          <option value="country">Quốc gia A-Z</option>
         </select>
       </div>
 
       <div class="chips" id="chips">
-        <button class="chip" data-flag="scholarship">🎓 Có học bổng</button>
-        <button class="chip" data-flag="english">🇬🇧 Dạy bằng tiếng Anh</button>
-        <button class="chip" data-flag="shortlist">★ Danh sách của tôi</button>
-        <button class="chip pro" data-pro-chip data-flag="cheap">💶 Học phí ≤ €5.000</button>
-        <button class="chip pro" data-pro-chip data-flag="top50">🏅 Top 50 QS</button>
-        <button class="chip pro" data-pro-chip data-flag="dated">📌 Có ngày cụ thể</button>
-        <button class="chip ghost" id="resetBtn" style="margin-left:auto">↺ Đặt lại</button>
+        <button class="chip" data-flag="scholarship">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cap"/></svg>
+          <span data-i18n="chip.scholarship">Có học bổng</span>
+        </button>
+        <button class="chip" data-flag="english">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-language"/></svg>
+          <span data-i18n="chip.english">Dạy bằng tiếng Anh</span>
+        </button>
+        <button class="chip" data-flag="shortlist">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg>
+          <span data-i18n="chip.shortlist">Danh sách của tôi</span>
+        </button>
+        <button class="chip pro" data-pro-chip data-flag="cheap">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-euro"/></svg>
+          <span data-i18n="chip.cheap">Học phí dưới €5.000</span>
+        </button>
+        <button class="chip pro" data-pro-chip data-flag="top50">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sparkle"/></svg>
+          <span data-i18n="chip.top50">Top 50 QS</span>
+        </button>
+        <button class="chip pro" data-pro-chip data-flag="dated">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendar"/></svg>
+          <span data-i18n="chip.dated">Có ngày cụ thể</span>
+        </button>
+        <button class="chip ghost" id="resetBtn">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-reset"/></svg>
+          <span data-i18n="chip.reset">Đặt lại</span>
+        </button>
       </div>
 
       <div class="result-line" id="resultLine"></div>
     </div>
   </section>
 
-  <!-- ============ VIEWS ============ -->
+  <!-- ================================ KHUNG XEM =========================== -->
   <div class="wrap">
     <div id="view-cards" class="grid" role="list"></div>
+
     <div id="view-timeline" class="tl" hidden></div>
+
     <div id="view-table" hidden>
       <div class="tablewrap">
         <table class="data" id="dataTable">
@@ -128,117 +268,143 @@
         </table>
       </div>
     </div>
+
     <div id="view-tracker" hidden></div>
   </div>
 </main>
 
 <footer class="site">
   <div class="wrap">
-    <span>© <span id="yr"></span> EuroMasters Deadline Tracker</span>
-    <span>·</span>
-    <span>Nguồn: bảng dữ liệu QS Ranking 2026 do tác giả tổng hợp</span>
+    <span>&copy; <span id="yr"></span> EuroMasters Deadline Tracker</span>
+    <a href="https://haiktsduoihiennha.gumroad.com" target="_blank" rel="noopener"
+       data-i18n="foot.by">Một sản phẩm của Hai KTS dưới hiên nhà</a>
+    <span data-i18n="foot.source">Nguồn: bảng dữ liệu QS Rankings 2026 do tác giả tổng hợp</span>
     <span class="spacer"></span>
-    <a href="#" id="disclaimerLink">Miễn trừ trách nhiệm</a>
-    <a href="https://haiktsduoihiennha.gumroad.com/l/mnnfbc" target="_blank" rel="noopener">Mua key Pro</a>
+    <a href="#" id="disclaimerLink" data-i18n="foot.disclaimer">Miễn trừ trách nhiệm</a>
+    <a href="https://haiktsduoihiennha.gumroad.com/l/euromasters-pro" target="_blank" rel="noopener" data-i18n="foot.buy">Mua key Pro</a>
   </div>
 </footer>
 
-<!-- ============ DETAIL DRAWER ============ -->
+<!-- ========================== NGĂN KÉO CHI TIẾT ========================== -->
 <div class="scrim" id="scrim"></div>
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Chi tiết chương trình">
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
   <div class="drawer-head">
     <div style="flex:1;min-width:0">
-      <h2 id="dTitle">—</h2>
-      <div class="sub" id="dSub">—</div>
+      <h2 id="dTitle">-</h2>
+      <div class="sub" id="dSub">-</div>
     </div>
-    <button class="btn icon ghost" id="dClose" aria-label="Đóng">✕</button>
+    <button class="btn icon ghost" id="dClose" data-i18n-aria-label="act.close" aria-label="Đóng">
+      <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+    </button>
   </div>
   <div class="drawer-body" id="dBody"></div>
   <div class="drawer-foot" id="dFoot"></div>
 </aside>
 
-<!-- ============ PREMIUM MODAL ============ -->
-<div class="modal" id="proModal" role="dialog" aria-modal="true" aria-label="Nâng cấp Pro">
+<!-- ============================ HỘP THOẠI PRO ============================ -->
+<div class="modal" id="proModal" role="dialog" aria-modal="true" aria-labelledby="proModalTitle">
   <div class="sheet">
-    <div style="display:flex;align-items:flex-start;gap:12px">
-      <div style="flex:1">
-        <span class="pro-badge">✦ EUROMASTERS PRO</span>
-        <h2 style="margin-top:10px">Biến danh sách thành bộ hồ sơ hoàn chỉnh</h2>
-        <div class="sub">Mở khoá công cụ xuất file, bảng theo dõi hồ sơ, so sánh trường và nhắc lịch deadline.</div>
+    <div class="modal-head">
+      <div>
+        <span class="pro-badge" data-i18n="pro.tag">EUROMASTERS PRO</span>
+        <h2 id="proModalTitle" style="margin-top:10px" data-i18n="pro.h">Biến danh sách thành bộ hồ sơ hoàn chỉnh</h2>
+        <div class="sub" data-i18n="pro.sub">Mở khoá công cụ xuất file, bảng theo dõi hồ sơ, so sánh trường và nhắc lịch deadline.</div>
       </div>
-      <button class="btn icon ghost" id="proClose" aria-label="Đóng">✕</button>
+      <button class="btn icon ghost" id="proClose" data-i18n-aria-label="act.close" aria-label="Đóng">
+        <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+      </button>
     </div>
 
     <div class="feat" id="featList"></div>
 
-    <h4 style="margin:0 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Kích hoạt bằng license key</h4>
+    <h4 style="margin:0 0 8px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)"
+        data-i18n="pro.keyLabel">Kích hoạt bằng license key</h4>
     <div class="keyrow">
-      <input id="keyInput" placeholder="VD: A1B2-C3D4-E5F6-G7H8" spellcheck="false" autocomplete="off">
-      <button class="btn primary" id="keyBtn">Kích hoạt</button>
-      <a class="btn gold" id="buyBtn" target="_blank" rel="noopener">Mua key ↗</a>
+      <input id="keyInput" spellcheck="false" autocomplete="off"
+             data-i18n-placeholder="pro.keyPh" placeholder="VD: A1B2-C3D4-E5F6-G7H8">
+      <button class="btn primary" id="keyBtn" data-i18n="pro.activate">Kích hoạt</button>
+      <a class="btn gold" id="buyBtn" target="_blank" rel="noopener" data-i18n="pro.buy">Mua key</a>
     </div>
     <div class="msg" id="keyMsg"></div>
+    <p class="studio-note">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cap"/></svg>
+      <span data-i18n="brand.note">EuroMasters nằm trong bộ công cụ của Hai KTS dưới hiên nhà, hai kiến trúc sư viết về nghề, về học và về việc sống chậm.</span>
+    </p>
+
     <p style="font-size:12px;color:var(--muted);margin:14px 0 0">
-      Key được lưu trên trình duyệt này. Mất key? Kiểm tra email biên nhận Gumroad hoặc mở lại link tải sản phẩm.
-      <button class="btn xs ghost" id="deactivateBtn" hidden style="margin-left:6px">Gỡ kích hoạt</button>
+      <span data-i18n="pro.note">Key được lưu trên trình duyệt này. Mất key? Kiểm tra email biên nhận Gumroad hoặc mở lại link tải sản phẩm.</span>
+      <button class="btn xs ghost" id="deactivateBtn" hidden style="margin-left:6px" data-i18n="pro.deactivate">Gỡ kích hoạt</button>
     </p>
   </div>
 </div>
 
-<!-- ============ EXPORT MODAL ============ -->
-<div class="modal" id="expModal" role="dialog" aria-modal="true" aria-label="Xuất dữ liệu">
+<!-- =========================== HỘP THOẠI XUẤT ============================ -->
+<div class="modal" id="expModal" role="dialog" aria-modal="true" aria-labelledby="expTitle">
   <div class="sheet" style="max-width:560px">
-    <div style="display:flex;align-items:flex-start;gap:12px">
-      <div style="flex:1">
-        <h2>Xuất dữ liệu</h2>
-        <div class="sub" id="expSub">—</div>
+    <div class="modal-head">
+      <div>
+        <h2 id="expTitle" data-i18n="exp.h">Xuất dữ liệu</h2>
+        <div class="sub" id="expSub">-</div>
       </div>
-      <button class="btn icon ghost" id="expClose" aria-label="Đóng">✕</button>
+      <button class="btn icon ghost" id="expClose" data-i18n-aria-label="act.close" aria-label="Đóng">
+        <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+      </button>
     </div>
     <div class="feat" id="expList"></div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-      <select class="sel" id="expScope" style="max-width:none;flex:1">
-        <option value="filtered">Phạm vi: kết quả đang lọc</option>
-        <option value="shortlist">Phạm vi: danh sách của tôi ★</option>
-        <option value="tracker">Phạm vi: hồ sơ đang theo dõi</option>
-        <option value="all">Phạm vi: toàn bộ 282 chương trình</option>
-      </select>
-    </div>
-    <div class="msg info on" id="expMsg" style="margin-top:14px">Chọn định dạng để tải xuống.</div>
+    <select class="sel" id="expScope" style="width:100%">
+      <option value="filtered" data-i18n="exp.filtered">Phạm vi: kết quả đang lọc</option>
+      <option value="shortlist" data-i18n="exp.shortlist">Phạm vi: danh sách của tôi</option>
+      <option value="tracker" data-i18n="exp.tracker">Phạm vi: hồ sơ đang theo dõi</option>
+      <option value="all" data-i18n="exp.all">Phạm vi: toàn bộ 282 chương trình</option>
+    </select>
+    <div class="msg info on" id="expMsg" style="margin-top:14px" data-i18n="exp.pick">Chọn định dạng để tải xuống.</div>
   </div>
 </div>
 
-<!-- ============ COMPARE ============ -->
+<!-- ============================== SO SÁNH ================================ -->
 <div class="compare-bar" id="cmpBar">
-  <b style="font-size:13px">So sánh</b>
+  <b style="font-size:13px" data-i18n="cmp.bar">So sánh</b>
   <div class="thumbs" id="cmpThumbs"></div>
-  <button class="btn sm primary" id="cmpOpen">Xem bảng</button>
-  <button class="btn icon sm ghost" id="cmpClear" aria-label="Xoá">✕</button>
+  <button class="btn sm primary" id="cmpOpen" data-i18n="cmp.open">Xem bảng</button>
+  <button class="btn icon sm ghost" id="cmpClear" data-i18n-aria-label="cmp.clear" aria-label="Xoá">
+    <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+  </button>
 </div>
 
-<div class="modal" id="cmpModal" role="dialog" aria-modal="true" aria-label="So sánh chương trình">
+<div class="modal" id="cmpModal" role="dialog" aria-modal="true" aria-labelledby="cmpTitle">
   <div class="sheet" style="max-width:1100px">
-    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px">
-      <div style="flex:1"><h2>So sánh chương trình</h2><div class="sub">Ô nền xanh là lựa chọn tốt nhất ở tiêu chí đó.</div></div>
-      <button class="btn icon ghost" id="cmpClose" aria-label="Đóng">✕</button>
+    <div class="modal-head" style="margin-bottom:18px">
+      <div>
+        <h2 id="cmpTitle" data-i18n="cmp.h">So sánh chương trình</h2>
+        <div class="sub" data-i18n="cmp.sub">Ô được tô là lựa chọn tốt nhất ở tiêu chí đó.</div>
+      </div>
+      <button class="btn icon ghost" id="cmpClose" data-i18n-aria-label="act.close" aria-label="Đóng">
+        <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+      </button>
     </div>
     <div class="cmp-wrap" id="cmpBody"></div>
   </div>
 </div>
 
-<div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-label="Phím tắt">
+<!-- ============================== PHÍM TẮT =============================== -->
+<div class="modal" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
   <div class="sheet" style="max-width:480px">
-    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:16px">
-      <div style="flex:1"><h2>Phím tắt</h2><div class="sub">Dùng bàn phím cho nhanh.</div></div>
-      <button class="btn icon ghost" id="helpClose" aria-label="Đóng">✕</button>
+    <div class="modal-head" style="margin-bottom:16px">
+      <div>
+        <h2 id="helpTitle" data-i18n="keys.h">Phím tắt</h2>
+        <div class="sub" data-i18n="keys.sub">Dùng bàn phím cho nhanh.</div>
+      </div>
+      <button class="btn icon ghost" id="helpClose" data-i18n-aria-label="act.close" aria-label="Đóng">
+        <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+      </button>
     </div>
     <dl class="kv keys">
-      <dt><kbd>/</kbd></dt><dd>Nhảy tới ô tìm kiếm</dd>
-      <dt><kbd>1</kbd>–<kbd>4</kbd></dt><dd>Đổi chế độ xem</dd>
-      <dt><kbd>Enter</kbd></dt><dd>Mở chi tiết thẻ đang chọn</dd>
-      <dt><kbd>Tab</kbd></dt><dd>Di chuyển giữa các thẻ</dd>
-      <dt><kbd>Esc</kbd></dt><dd>Đóng bảng chi tiết / hộp thoại</dd>
-      <dt><kbd>?</kbd></dt><dd>Mở bảng phím tắt này</dd>
+      <dt><kbd>/</kbd></dt><dd data-i18n="keys.search">Nhảy tới ô tìm kiếm</dd>
+      <dt><kbd>1</kbd><kbd>4</kbd></dt><dd data-i18n="keys.views">Đổi chế độ xem</dd>
+      <dt><kbd>Enter</kbd></dt><dd data-i18n="keys.enter">Mở chi tiết thẻ đang chọn</dd>
+      <dt><kbd>Tab</kbd></dt><dd data-i18n="keys.tab">Di chuyển giữa các thẻ</dd>
+      <dt><kbd>Esc</kbd></dt><dd data-i18n="keys.esc">Đóng bảng chi tiết hoặc hộp thoại</dd>
+      <dt><kbd>?</kbd></dt><dd data-i18n="keys.help">Mở bảng phím tắt này</dd>
     </dl>
   </div>
 </div>
@@ -247,6 +413,7 @@
 <div id="printroot"></div>
 
 <script src="data/programs.js"></script>
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/premium.js"></script>
 <script src="assets/js/exporters.js"></script>

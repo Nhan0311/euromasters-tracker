@@ -5,6 +5,9 @@
 (function () {
   "use strict";
   var CFG = window.EMT_CONFIG;
+  var I18N = window.EMT_I18N;
+  function t(k, v) { return I18N ? I18N.t(k, v) : k; }
+  function L(v) { return I18N ? I18N.pick(v) : v; }
 
   /* ---------------------------------------------------------------- utils */
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
@@ -137,7 +140,7 @@
         Object.keys(byCountry).sort().forEach(function (k) { sum.push([k, byCountry[k]]); });
         sum.push([], ["Theo nhóm ngành", ""]);
         Object.keys(byGroup).sort().forEach(function (k) { sum.push([k, byGroup[k]]); });
-        sum.push([], ["Lưu ý", CFG.DISCLAIMER]);
+        sum.push([], [t("x.note"), (t("brand.byline") + ". " + L(CFG.DISCLAIMER))]);
         var ws2 = XLSX.utils.aoa_to_sheet(sum);
         ws2["!cols"] = [{ wch: 42 }, { wch: 90 }];
         XLSX.utils.book_append_sheet(wb, ws2, "Tóm tắt");
@@ -174,7 +177,7 @@
       row("Ghi chú", p.notes) +
       row("Website", p.link) +
       (p.linkStatus === "dead" ? row("Lưu ý", "Link gốc đã đổi đường dẫn — tìm lại trên website trường") : "") +
-      (tr && tr.status ? row("Trạng thái hồ sơ", window.EMT.statusLabel(tr.status)) : "") +
+      (tr && tr.status ? row(t("x.status"), window.EMT.statusLabel(tr.status)) : "") +
       (tr && tr.notes ? row("Ghi chú cá nhân", tr.notes) : "") +
       "</table></div>";
   }
@@ -190,7 +193,7 @@
       "<div class='sub'>" + list.length + " chương trình · Xuất ngày " + new Date().toLocaleString("vi-VN") +
       " · EuroMasters Deadline Tracker</div>" +
       list.map(programBlockHTML).join("") +
-      "<hr><p style='font-size:8.5pt;color:#666'>" + esc(CFG.DISCLAIMER) + "</p>" +
+      "<hr><p style='font-size:8.5pt;color:#666'>" + esc((t("brand.byline") + ". " + L(CFG.DISCLAIMER))) + "</p>" +
       "</body></html>";
   }
 
@@ -238,7 +241,7 @@
       }).join("");
     }
 
-    return head + body + "<hr><p style='font-size:9px;color:#666'>" + esc(CFG.DISCLAIMER) + "</p>";
+    return head + body + "<hr><p style='font-size:9px;color:#666'>" + esc((t("brand.byline") + ". " + L(CFG.DISCLAIMER))) + "</p>";
   }
 
   function exportPDF(list, mode) {
