@@ -2,7 +2,7 @@
   "name": "euromasters-tracker",
   "version": "1.0.0",
   "private": true,
-  "description": "Theo doi han nop ho so "description": "Theo doi han nop ho so & hoc bong 282 chuong trinh thac si chau Au (QS 2026)" hoc bong 400+ chuong trinh cu nhan, thac si, tien si va online o chau Au",
+  "description": "Theo doi han nop ho so va hoc bong 400+ chuong trinh cu nhan, thac si, tien si va online o chau Au",
   "scripts": {
     "test": "node tools/test.js && node tools/test-dom.js",
     "test:logic": "node tools/test.js",

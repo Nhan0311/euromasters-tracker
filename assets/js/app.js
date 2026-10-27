@@ -1397,8 +1397,9 @@
     /* chia sẻ link kèm bộ lọc */
     $("#shareBtn").addEventListener("click", function () {
       var qs = stateToQuery();
-      var base = embedMode ? CFG.FULL_URL : window.location.origin + window.location.pathname;
-      var url = base + (qs ? "?" + qs.replace(/(^|&)embed=1(&|$)/, "$1").replace(/^&|&$/g, "") : "");
+      // đang nhúng thì chia sẻ trang trên website Hai KTS (trang đó không nhận tham số lọc)
+      var url = embedMode ? CFG.FULL_URL
+        : window.location.origin + window.location.pathname + (qs ? "?" + qs : "");
       function fallback() {
         window.prompt("Sao chép link này:", url);
       }
@@ -1574,10 +1575,7 @@
       document.body.classList.add("embed");
       var full = $("#openFull");
       full.hidden = false;
-      var rest = window.location.search.slice(1).split("&").filter(function (kv) {
-        return kv && kv.split("=")[0] !== "embed";
-      });
-      full.href = CFG.FULL_URL + "?" + ["embed=0"].concat(rest).join("&");
+      full.href = CFG.FULL_URL;
     }
 
     $("#yr").textContent = new Date().getFullYear();
