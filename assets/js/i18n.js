@@ -32,7 +32,7 @@
       "act.exportFull": "Xuất dữ liệu",
       "act.pro": "Nâng cấp Pro",
       "act.proOn": "Pro đã kích hoạt",
-      "act.openFull": "Mở toàn màn hình",
+      "hero.scroll": "Lăn xuống để tìm chương trình",
       "act.close": "Đóng",
 
       "hero.live": "Đếm ngược theo múi giờ của bạn",
@@ -369,7 +369,7 @@
       "act.exportFull": "Export data",
       "act.pro": "Get Pro",
       "act.proOn": "Pro active",
-      "act.openFull": "Open full screen",
+      "hero.scroll": "Scroll down to find a programme",
       "act.close": "Close",
 
       "hero.live": "Counting down in your time zone",

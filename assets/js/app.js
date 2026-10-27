@@ -1573,9 +1573,6 @@
     if (qp.get("embed") === "1" || (window.self !== window.top && qp.get("embed") !== "0")) {
       embedMode = true;
       document.body.classList.add("embed");
-      var full = $("#openFull");
-      full.hidden = false;
-      full.href = CFG.FULL_URL;
     }
 
     $("#yr").textContent = new Date().getFullYear();

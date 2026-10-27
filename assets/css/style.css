@@ -1138,7 +1138,6 @@ kbd {
 }
 
 /* ============================================== 18. CHẾ ĐỘ NHÚNG (iframe) = */
-body.embed .hero { display: none; }
 body.embed .controls { top: 0; padding-top: 9px; }
 body.embed .topbar { position: static; }
 body.embed footer.site { padding: 14px 0 calc(22px + var(--safe-b)); }
@@ -1368,3 +1367,17 @@ footer.site { border-top: 1px solid var(--line); }
   #guideBtn .lbl, #exportBtn .lbl { display: none; }
   #guideBtn, #exportBtn { padding: 0 10px; }
 }
+
+/* gợi ý lăn xuống dưới tiêu đề */
+.scroll-cue {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: clamp(18px, 2.4vw, 28px);
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--text-2); padding: 8px 14px; border: 1px dashed var(--line-strong); border-radius: 999px;
+}
+.scroll-cue::after { content: "\2193"; font-size: 13px; color: var(--accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-cue::after { animation: cue 1.8s var(--ease) infinite; }
+  @keyframes cue { 0%, 100% { transform: none; } 50% { transform: translateY(3px); } }
+}
+@media (hover: hover) { .scroll-cue:hover { color: var(--text); border-color: var(--text); } }
+html { scroll-behavior: smooth; }

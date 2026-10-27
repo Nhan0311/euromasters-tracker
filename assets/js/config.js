@@ -45,8 +45,8 @@ window.EMT_CONFIG = {
   /* Giá hiển thị trên nút mua (khớp với giá trên Gumroad) */
   PRICE: { vi: "1,99 USD", en: "US$1.99" },
 
-  /* Trang mở khi bấm "Mở toàn màn hình" trong khung nhúng, và link chia sẻ khi
-     đang nhúng: trang danh sách trên website Hai KTS (không lộ địa chỉ GitHub). */
+  /* Link chia sẻ khi đang nhúng trong Google Sites: trang danh sách trên
+     website Hai KTS (không lộ địa chỉ GitHub). */
   FULL_URL: "https://www.haiktsduoihiennha.com/danh-s%C3%A1ch-ch%C6%B0%C6%A1ng-tr%C3%ACnh-th%E1%BA%A1c-s%C4%A9-2026",
 
   /* Ngày cập nhật dữ liệu (hiển thị ở hero) */
