@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_data import (parse_money, parse_deadlines, parse_months, has_scholarship,  # noqa: E402
+from build_data import (parse_money, strip_accents, parse_deadlines, parse_months, has_scholarship,  # noqa: E402
                         load_link_status, OUT)
 
 EXTRA = OUT.parent / "extra-programs.json"
@@ -91,6 +91,12 @@ def build_record(x, pid, link_status):
     dl = parse_deadlines(x["dl"])
     sch = parse_deadlines(ss + " " + so)
     tui_eur, tui_cur, _ = parse_money(x.get("tu", ""))
+    # Học phí tiến sĩ thường ghi kèm lương hoặc học bổng: con số đó không phải học phí
+    low = strip_accents(x.get("tu", "")).lower()
+    if "mien hoc phi" in low:
+        tui_eur, tui_cur = 0, "EUR"
+    elif lv == "phd" and ("luong" in low or "hoc bong" in low or "hop dong" in low):
+        tui_eur, tui_cur = None, None
     liv_eur, _, _ = parse_money(living)
     return {
         "id": pid,
