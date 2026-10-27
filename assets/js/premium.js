@@ -149,9 +149,34 @@
       .catch(function () { return { state: "unreachable" }; });
   }
 
+  /* ---- Dùng thử ---------------------------------------------------------
+     Lần đầu mở trang được dùng đủ Pro trong CFG.TRIAL_MINUTES phút. Mốc bắt
+     đầu lưu trong localStorage; nếu trình duyệt chặn bộ nhớ thì tính từ lúc
+     tải trang. Đây là rào nhẹ phía trình duyệt, giống key master. */
+  var TRIAL_KEY = "emt.trial.v1";
+  var trialStart = null;
+  function readTrialStart() {
+    if (trialStart != null) return trialStart;
+    try {
+      var v = Number(localStorage.getItem(TRIAL_KEY));
+      if (v > 0 && v <= Date.now()) { trialStart = v; return v; }
+      trialStart = Date.now();
+      localStorage.setItem(TRIAL_KEY, String(trialStart));
+    } catch (e) { trialStart = Date.now(); }
+    return trialStart;
+  }
+
   var Premium = {
-    active: false,
+    licensed: false,
     info: null,
+
+    /* mili giây dùng thử còn lại, 0 khi đã hết */
+    trialLeft: function () {
+      var ms = (Number(CFG.TRIAL_MINUTES) || 0) * 60000;
+      return Math.max(0, readTrialStart() + ms - Date.now());
+    },
+    inTrial: function () { return !this.licensed && this.trialLeft() > 0; },
+    trialOver: function () { return !this.licensed && this.trialLeft() === 0; },
 
     load: function () {
       try {
@@ -222,6 +247,17 @@
       if (window.EMT && window.EMT.openPro) window.EMT.openPro(featureLabel);
       return false;
     }
+  };
+
+  /* "active" = được dùng tính năng Pro: đã có key hoặc còn trong thời gian dùng thử.
+     Gán active = true/false (khi kích hoạt hoặc gỡ key) chỉ đổi trạng thái key. */
+  Object.defineProperty(Premium, "active", {
+    get: function () { return this.licensed || this.trialLeft() > 0; },
+    set: function (v) { this.licensed = !!v; }
+  });
+  Premium._resetTrial = function (startMs) {  // để test
+    trialStart = startMs == null ? null : startMs;
+    if (startMs == null) { try { localStorage.removeItem(TRIAL_KEY); } catch (e) {} }
   };
 
   Premium.load();

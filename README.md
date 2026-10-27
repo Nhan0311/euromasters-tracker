@@ -372,3 +372,12 @@ Cửa hàng: <https://haiktsduoihiennha.gumroad.com>
 Dữ liệu được tổng hợp thủ công từ website các trường và bảng xếp hạng QS 2026, **có thể thay đổi bất cứ lúc nào**.
 Trước khi nộp hồ sơ, luôn kiểm tra lại hạn nộp, học phí và yêu cầu đầu vào trên trang chính thức của trường
 (nút “Trang chương trình chính thức” trong app). Ứng dụng là công cụ theo dõi, không phải nguồn thông tin pháp lý.
+
+## 11. Cập nhật 10/2026: cử nhân, tiến sĩ, online, dùng thử 5 phút
+
+- **Dữ liệu bổ sung** nằm ở `data/extra-programs.json` (130 chương trình: cử nhân, tiến sĩ, khoá online, thêm 11 quốc gia). Chạy `python tools/add_extras.py` để gộp vào `programs.json`/`programs.js`; `build_data.py` cũng tự gọi bước này. Mỗi bản ghi có thêm `level` (`bachelor`/`master`/`phd`) và `online`.
+- Kiểm tra link riêng phần mới: `node tools/check_links.js --min-id 283 --apply`.
+- **Dùng thử**: người mới được dùng đủ Pro trong `TRIAL_MINUTES` phút (config.js). Hết giờ thì khoá Pro và chỉ hiện `FREE_VISIBLE` chương trình có hạn gần nhất, kèm hộp thoại và thanh mời mua (`PRICE`, `GUMROAD_URL`). Mốc bắt đầu lưu ở `localStorage` khoá `emt.trial.v1`, nên đây vẫn là rào nhẹ phía trình duyệt.
+- **Mở toàn màn hình** trong khung nhúng luôn trỏ về `FULL_URL`.
+- **Hướng dẫn sử dụng**: nút Hướng dẫn trên thanh trên cùng và ở chân trang (chuỗi `guide.*` trong i18n.js).
+- **Giao diện**: mục 19 cuối `style.css` (nền giấy ấm, chữ Bricolage Grotesque, nhãn mono, dải số chia ô, nút viên thuốc, nút mua màu san hô).

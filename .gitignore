@@ -10,3 +10,4 @@ keys-*.txt
 .recheck*.tsv
 .linkcheck-report.json
 shots/
+tools/__pycache__/

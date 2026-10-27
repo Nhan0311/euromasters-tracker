@@ -99,8 +99,16 @@ async function ready() {
   console.log("=== A. Khởi tạo trang ===");
   eq("không có lỗi JS khi tải", errors.length, 0, errors.join(" | "));
   ok("window.EMT sẵn sàng", !!window.EMT);
-  eq("hero hiển thị số chương trình", $("#heroCount").textContent, "282");
-  eq("hero hiển thị số quốc gia", $("#heroCountries").textContent, "22");
+  eq("hero hiển thị số chương trình", $("#heroCount").textContent, window.EMT_DATA.programs.length.toLocaleString("vi-VN"));
+  eq("hero hiển thị số quốc gia", $("#heroCountries").textContent, String(window.EMT_DATA.meta.countries.length));
+  ok("thanh dùng thử hiện khi mới mở", !$("#trialBar").hidden && /còn \d+:\d\d/.test($("#trialTxt").textContent), $("#trialTxt").textContent);
+  ok("có nút Hướng dẫn", !!$("#guideBtn"));
+  click($("#guideBtn"));
+  ok("mở hướng dẫn", $("#guideModal").classList.contains("on"));
+  eq("hướng dẫn có 8 bước", $$("#guideModal .guide li").length, 8);
+  ok("bước hướng dẫn có nội dung", $$("[data-guide]").every((el) => el.textContent.length > 20));
+  click($("#guideClose"));
+  ok("không nhắc tới GitHub trên giao diện", !/github/i.test(document.body.textContent));
   eq("5 ô thống kê", $$("#stats .stat").length, 5);
   ok("ticker hiện lên", $("#ticker").hidden === false);
   ok("ticker có đồng hồ đếm ngược", $$("#cdBox .cd-unit").length === 4,
@@ -117,7 +125,8 @@ async function ready() {
   console.log("\n=== C. Bộ lọc ===");
   const before = $$("#view-cards .card").length;
   const sel = $("#fCountry");
-  ok("dropdown quốc gia đã nạp", sel.options.length === 23, String(sel.options.length));
+  ok("dropdown quốc gia đã nạp", sel.options.length === window.EMT_DATA.meta.countries.length + 1, String(sel.options.length));
+  ok("có bộ lọc cấp học", $("#fLevel").options.length === 4);
   sel.value = "Hà Lan";
   sel.dispatchEvent(new window.Event("change", { bubbles: true }));
   const nl = $$("#view-cards .card");
@@ -149,6 +158,17 @@ async function ready() {
   click($$("#tblHead th")[0]); // sort theo QS
   ok("click header đổi sắp xếp", $("#tblHead th .ar").textContent !== "↕");
 
+  console.log("\n=== D2. Hết dùng thử ===");
+  window.EMT_PREMIUM._resetTrial(1);
+  await new Promise((r) => setTimeout(r, 1300));
+  ok("hết giờ thì hiện hộp thoại mời mua", $("#trialModal").classList.contains("on"));
+  ok("nút mua trỏ tới Gumroad", /gumroad\.com/.test($("#trialModalBuy").href), $("#trialModalBuy").href);
+  ok("nút mua có giá", /1,99/.test($("#trialModalBuy").textContent), $("#trialModalBuy").textContent);
+  click($("#trialModalContinue"));
+  ok("thanh dùng thử chuyển sang đã hết", $("#trialBar").classList.contains("over"));
+  click(nav[0]);
+  ok("chỉ còn tối đa 50 thẻ", $$("#view-cards .card").length <= 50, String($$("#view-cards .card").length));
+  ok("có thẻ khoá kèm nút mua", !!$("#view-cards .lockcard a[href*=gumroad]"));
   click(nav[3]); // tracker (chưa Pro)
   ok("tracker hiển thị màn khoá Pro", $("#view-tracker").innerHTML.includes("tính năng Pro"));
 
@@ -400,7 +420,7 @@ async function ready() {
   eq("thẻ html mang lang=en", document.documentElement.lang, "en");
   eq("nhãn nav dịch sang EN", $('#nav [data-view="cards"] .lbl').textContent, "Browse");
   ok("nhớ lựa chọn vào localStorage", window.localStorage.getItem("emt.lang") === "en");
-  ok("hero dịch sang EN", /master's programmes/.test($("#heroLead").textContent), $("#heroLead").textContent);
+  ok("hero dịch sang EN", /PhD and online programmes/.test($("#heroLead").textContent), $("#heroLead").textContent);
   ok("thẻ chương trình dùng tên nước tiếng Anh",
      /Netherlands|United Kingdom|Germany|Spain|Italy|France/.test($("#view-cards").textContent));
   ok("bộ lọc quốc gia dịch sang EN",

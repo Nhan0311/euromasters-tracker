@@ -330,6 +330,10 @@ def main():
     print("link overrides applied:", overrides_used)
     print("written:", OUT)
 
+    # chương trình bổ sung (cử nhân, tiến sĩ, online...) nằm ngoài Excel
+    import add_extras
+    add_extras.merge()
+
 
 if __name__ == "__main__":
     main()

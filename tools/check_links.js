@@ -50,6 +50,7 @@ for (const p of DATA.programs) {
 if (has("--only-dead")) {
   jobs = jobs.filter((j) => prev.links[j.url] && prev.links[j.url].status === "dead");
 }
+if (has("--min-id")) jobs = jobs.filter((j) => j.id >= Number(val("--min-id", 0)));
 if (has("--limit")) jobs = jobs.slice(0, Number(val("--limit", 30)));
 
 /* ------------------------------------------------------------- tiện ích -- */

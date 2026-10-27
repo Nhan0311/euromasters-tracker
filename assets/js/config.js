@@ -37,6 +37,17 @@ window.EMT_CONFIG = {
   FREE_SHORTLIST_MAX: 5,
   FREE_COMPARE_MAX: 2,
 
+  /* Dùng thử: người mới được dùng đủ tính năng Pro trong TRIAL_MINUTES phút.
+     Hết giờ thì khoá Pro và chỉ cho xem FREE_VISIBLE chương trình có hạn gần nhất. */
+  TRIAL_MINUTES: 5,
+  FREE_VISIBLE: 50,
+
+  /* Giá hiển thị trên nút mua (khớp với giá trên Gumroad) */
+  PRICE: { vi: "1,99 USD", en: "US$1.99" },
+
+  /* Trang mở khi bấm "Mở toàn màn hình" trong khung nhúng */
+  FULL_URL: "https://nhan0311.github.io/euromasters-tracker/",
+
   /* Ngày cập nhật dữ liệu (hiển thị ở hero) */
   DATA_DATE: "09/2026",
 
@@ -48,6 +59,10 @@ window.EMT_CONFIG = {
 
   /* Tính năng Pro, hiển thị trong hộp thoại nâng cấp */
   FEATURES: [
+    { ic: "i-grid",
+      t: { vi: "Xem toàn bộ danh sách", en: "The full list" },
+      d: { vi: "Tất cả chương trình cử nhân, thạc sĩ, tiến sĩ và khoá online. Bản miễn phí chỉ xem 50 chương trình có hạn gần nhất.",
+           en: "Every bachelor's, master's, PhD and online programme. The free version shows only the 50 nearest deadlines." } },
     { ic: "i-file",
       t: { vi: "Xuất Excel (.xlsx)", en: "Excel export (.xlsx)" },
       d: { vi: "Toàn bộ 20 cột dữ liệu và cột đếm ngược, mở bằng Excel hoặc Google Sheets.",
@@ -134,7 +149,10 @@ window.EMT_FLAGS = {
   "Thụy Sĩ": "🇨🇭", "Bỉ": "🇧🇪", "Thụy Điển": "🇸🇪", "Đan Mạch": "🇩🇰", "Tây Ban Nha": "🇪🇸",
   "Áo": "🇦🇹", "Séc": "🇨🇿", "Phần Lan": "🇫🇮", "Na Uy": "🇳🇴", "Ireland": "🇮🇪",
   "Bồ Đào Nha": "🇵🇹", "Thổ Nhĩ Kỳ": "🇹🇷", "Hungary": "🇭🇺", "Hy Lạp": "🇬🇷",
-  "Ba Lan": "🇵🇱", "Estonia": "🇪🇪", "Lithuania": "🇱🇹", "Litva": "🇱🇹"
+  "Ba Lan": "🇵🇱", "Estonia": "🇪🇪", "Lithuania": "🇱🇹", "Litva": "🇱🇹",
+  "Latvia": "🇱🇻", "Slovenia": "🇸🇮", "Croatia": "🇭🇷", "Slovakia": "🇸🇰", "Romania": "🇷🇴",
+  "Serbia": "🇷🇸", "Luxembourg": "🇱🇺", "Malta": "🇲🇹", "Síp": "🇨🇾", "Iceland": "🇮🇸",
+  "Toàn châu Âu": "🇪🇺"
 };
 
 /* Mã quốc gia dùng cho link Google Maps / tìm kiếm */
@@ -143,5 +161,8 @@ window.EMT_ISO = {
   "Thụy Sĩ": "Switzerland", "Bỉ": "Belgium", "Thụy Điển": "Sweden", "Đan Mạch": "Denmark",
   "Tây Ban Nha": "Spain", "Áo": "Austria", "Séc": "Czechia", "Phần Lan": "Finland", "Na Uy": "Norway",
   "Ireland": "Ireland", "Bồ Đào Nha": "Portugal", "Thổ Nhĩ Kỳ": "Turkey", "Hungary": "Hungary",
-  "Hy Lạp": "Greece", "Ba Lan": "Poland", "Estonia": "Estonia", "Lithuania": "Lithuania"
+  "Hy Lạp": "Greece", "Ba Lan": "Poland", "Estonia": "Estonia", "Lithuania": "Lithuania",
+  "Latvia": "Latvia", "Slovenia": "Slovenia", "Croatia": "Croatia", "Slovakia": "Slovakia",
+  "Romania": "Romania", "Serbia": "Serbia", "Luxembourg": "Luxembourg", "Malta": "Malta",
+  "Síp": "Cyprus", "Iceland": "Iceland", "Toàn châu Âu": "Europe"
 };

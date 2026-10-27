@@ -153,7 +153,7 @@
 
   /* =============================================================== filters */
   var S = {
-    q: "", group: "", country: "", lang: "", win: "", sort: "deadline",
+    q: "", level: "", group: "", country: "", lang: "", win: "", sort: "deadline",
     flags: {}, view: lsGet("emt.view", "cards"), tableSort: { k: "deadline", dir: 1 }
   };
 
@@ -163,6 +163,8 @@
       var terms = noAccent(S.q).split(/\s+/).filter(Boolean);
       for (var i = 0; i < terms.length; i++) if (hay.indexOf(terms[i]) === -1) return false;
     }
+    if (S.level && (p.level || "master") !== S.level) return false;
+    if (S.flags.online && !p.online) return false;
     if (S.group && p.group !== S.group) return false;
     if (S.country && p.country !== S.country) return false;
     if (S.lang && p.mainLanguage !== S.lang) return false;
@@ -203,17 +205,34 @@
     return arr;
   }
 
-  function filtered() { return sortList(ALL.filter(matches)); }
+  /* Hết dùng thử mà chưa có key: chỉ mở FREE_VISIBLE chương trình có hạn gần nhất.
+     Danh sách này tính lại mỗi ngày vì hạn nộp trôi theo thời gian. */
+  var freeIds = null, freeDay = "";
+  function freePool() {
+    var k = todayKey();
+    if (!freeIds || freeDay !== k) {
+      freeDay = k;
+      freeIds = {};
+      sortList(ALL, "deadline").slice(0, CFG.FREE_VISIBLE || 50)
+        .forEach(function (p) { freeIds[p.id] = true; });
+    }
+    return ALL.filter(function (p) { return freeIds[p.id]; });
+  }
+  function locked() { return !PRO.active; }
+  function visiblePool() { return locked() ? freePool() : ALL; }
+
+  function filtered() { return sortList(visiblePool().filter(matches)); }
 
   /* ------------------------------------------------------- đồng bộ URL ---
      Đưa bộ lọc lên thanh địa chỉ để người dùng chia sẻ đúng khung nhìn.
      Dùng replaceState nên không làm rác lịch sử trình duyệt.                */
-  var FLAG_KEYS = ["scholarship", "english", "shortlist", "cheap", "top50", "dated"];
+  var FLAG_KEYS = ["scholarship", "english", "online", "shortlist", "cheap", "top50", "dated"];
 
   function stateToQuery() {
     var qp = new URLSearchParams();
     if (S.q) qp.set("q", S.q);
     if (S.view !== "cards") qp.set("view", S.view);
+    if (S.level) qp.set("level", S.level);
     if (S.group) qp.set("group", S.group);
     if (S.country) qp.set("country", S.country);
     if (S.lang) qp.set("lang", S.lang);
@@ -237,6 +256,7 @@
   function applyQuery(qp) {
     if (qp.get("q")) { S.q = qp.get("q"); $("#q").value = S.q; $("#qClear").hidden = false; }
     if (qp.get("view")) S.view = qp.get("view");
+    if (qp.get("level")) { S.level = qp.get("level"); $("#fLevel").value = S.level; }
     if (qp.get("group")) { S.group = qp.get("group"); $("#fGroup").value = S.group; }
     if (qp.get("country")) { S.country = qp.get("country"); $("#fCountry").value = S.country; }
     if (qp.get("lang")) { S.lang = qp.get("lang"); $("#fLang").value = S.lang; }
@@ -348,13 +368,13 @@
     var withDate = ALL.filter(function (p) { var s = statusOf(p); return s.days != null && s.days >= 0; });
     var d30 = withDate.filter(function (p) { return statusOf(p).days <= 30; }).length;
     var d90 = withDate.filter(function (p) { return statusOf(p).days <= 90; }).length;
-    var sch = ALL.filter(function (p) { return p.hasScholarship; }).length;
+
     var items = [
       { n: ALL.length, l: t("stat.programs") },
       { n: (DATA.meta.countries || []).length, l: t("stat.countries") },
       { n: d30, l: t("stat.d30") },
       { n: d90, l: t("stat.d90") },
-      { n: sch, l: t("stat.scholarship") }
+      { n: ALL.filter(function (p) { return p.online; }).length, l: t("chip.online") }
     ];
     $("#stats").innerHTML = items.map(function (x) {
       return '<div class="stat"><b data-to="' + x.n + '">0</b><span>' + esc(x.l) + "</span></div>";
@@ -457,6 +477,8 @@
       '<div class="where">' + ic("i-pin") + esc(p.city || DASH) + ", " + esc(C(p.country)) + "</div>" +
       cdBadge(p) +
       '<div class="meta">' +
+        ((p.level && p.level !== "master") ? '<span class="tag lv">' + esc(t("lv." + p.level)) + "</span>" : "") +
+        (p.online ? '<span class="tag on">' + ic("i-globe") + esc(t("card.online")) + "</span>" : "") +
         (p.duration ? '<span class="tag">' + ic("i-clock") + esc(DU(p.duration)) + "</span>" : "") +
         (p.mainLanguage ? '<span class="tag">' + ic("i-language") + esc(LG(p.mainLanguage)) + "</span>" : "") +
         (p.tuitionEur != null ? '<span class="tag">' + ic("i-euro") + fmtEur(p.tuitionEur) + t("card.perYear") + "</span>" : "") +
@@ -478,10 +500,22 @@
     "</article>";
   }
 
+  function lockedCardHTML() {
+    if (!locked()) return "";
+    var n = CFG.FREE_VISIBLE || 50;
+    return '<div class="lockcard" style="grid-column:1/-1">' +
+      '<span class="lk-ic">' + ic("i-lock") + "</span>" +
+      "<div><h3>" + esc(t("trial.lockedCard", { locked: fmtNum(ALL.length - n) })) + "</h3>" +
+      "<p>" + esc(t("trial.lockedCardSub", { n: n })) + "</p></div>" +
+      '<a class="btn gold" href="' + esc(CFG.GUMROAD_URL) + '" target="_blank" rel="noopener">' +
+      ic("i-sparkle") + esc(t("trial.buy", { p: L(CFG.PRICE) })) + "</a></div>";
+  }
+
   function renderCards(list) {
     var box = $("#view-cards");
-    if (!list.length) { box.innerHTML = emptyHTML(); return; }
-    box.innerHTML = list.slice(0, renderLimit).map(cardHTML).join("") +
+    if (!list.length) { box.innerHTML = emptyHTML() + lockedCardHTML(); return; }
+    var more = list.length > renderLimit;
+    box.innerHTML = list.slice(0, renderLimit).map(cardHTML).join("") + (more ? "" : lockedCardHTML()) +
       (list.length > renderLimit
         ? '<div style="grid-column:1/-1;text-align:center;padding:18px"><button class="btn" id="moreBtn">' +
           esc(t("res.more", { n: Math.min(60, list.length - renderLimit) })) + "</button></div>"
@@ -701,7 +735,9 @@
   function updateResultLine(n) {
     if (n != null) lastCount = n;
     $("#resultLine").innerHTML =
-      t("res.showing", { n: "<b>" + fmtNum(lastCount) + "</b>", total: fmtNum(ALL.length) }) +
+      (locked()
+        ? t("res.freeShowing", { n: "<b>" + fmtNum(lastCount) + "</b>", free: CFG.FREE_VISIBLE || 50, total: fmtNum(ALL.length) })
+        : t("res.showing", { n: "<b>" + fmtNum(lastCount) + "</b>", total: fmtNum(ALL.length) })) +
       (shortlist.length ? " &middot; " + t("res.savedCount", { n: shortlist.length }) : "");
   }
 
@@ -1187,6 +1223,7 @@
   /* So bo loc dang bat, hien tren nut "Bo loc" o man hinh hep */
   function updateFilterCount() {
     var n = 0;
+    if (S.level) n++;
     if (S.group) n++;
     if (S.country) n++;
     if (S.lang) n++;
@@ -1216,7 +1253,7 @@
     });
 
     /* selects */
-    [["#fGroup", "group"], ["#fCountry", "country"], ["#fLang", "lang"], ["#fWindow", "win"], ["#fSort", "sort"]]
+    [["#fLevel", "level"], ["#fGroup", "group"], ["#fCountry", "country"], ["#fLang", "lang"], ["#fWindow", "win"], ["#fSort", "sort"]]
       .forEach(function (pair) {
         $(pair[0]).addEventListener("change", function (e) { S[pair[1]] = e.target.value; renderLimit = 60; render(); });
       });
@@ -1235,9 +1272,9 @@
     });
 
     $("#resetBtn").addEventListener("click", function () {
-      S.q = ""; S.group = ""; S.country = ""; S.lang = ""; S.win = ""; S.sort = "deadline"; S.flags = {};
+      S.q = ""; S.level = ""; S.group = ""; S.country = ""; S.lang = ""; S.win = ""; S.sort = "deadline"; S.flags = {};
       $("#q").value = ""; $("#qClear").hidden = true;
-      $("#fGroup").value = ""; $("#fCountry").value = ""; $("#fLang").value = "";
+      $("#fLevel").value = ""; $("#fGroup").value = ""; $("#fCountry").value = ""; $("#fLang").value = "";
       $("#fWindow").value = ""; $("#fSort").value = "deadline";
       $$("#chips .chip").forEach(function (c) { c.classList.remove("on"); });
       renderLimit = 60;
@@ -1339,7 +1376,7 @@
     $("#keyBtn").addEventListener("click", activateKey);
     $("#keyInput").addEventListener("keydown", function (e) { if (e.key === "Enter") activateKey(); });
     $("#deactivateBtn").addEventListener("click", function () {
-      PRO.clear(); syncProUI(); render();
+      PRO.clear(); syncProUI(); syncTrialBar(); render();
       $("#keyMsg").className = "msg info on";
       $("#keyMsg").textContent = t("pro.off");
       toast(t("pro.off"));
@@ -1360,7 +1397,8 @@
     /* chia sẻ link kèm bộ lọc */
     $("#shareBtn").addEventListener("click", function () {
       var qs = stateToQuery();
-      var url = window.location.origin + window.location.pathname + (qs ? "?" + qs : "");
+      var base = embedMode ? CFG.FULL_URL : window.location.origin + window.location.pathname;
+      var url = base + (qs ? "?" + qs.replace(/(^|&)embed=1(&|$)/, "$1").replace(/^&|&$/g, "") : "");
       function fallback() {
         window.prompt("Sao chép link này:", url);
       }
@@ -1371,6 +1409,21 @@
         );
       } else fallback();
     });
+
+    /* hướng dẫn sử dụng */
+    function openGuide(e) { if (e) e.preventDefault(); show("#guideModal"); }
+    $("#guideBtn").addEventListener("click", openGuide);
+    $("#guideLink").addEventListener("click", openGuide);
+    $("#guideClose").addEventListener("click", function () { hide("#guideModal"); });
+    $("#guideModal").addEventListener("click", function (e) { if (e.target.id === "guideModal") hide("#guideModal"); });
+
+    /* dùng thử */
+    function toKey() { hide("#trialModal"); openPro(""); setTimeout(function () { $("#keyInput").focus(); }, 60); }
+    $("#trialKeyBtn").addEventListener("click", toKey);
+    $("#trialModalKey").addEventListener("click", toKey);
+    $("#trialClose").addEventListener("click", function () { hide("#trialModal"); });
+    $("#trialModalContinue").addEventListener("click", function () { hide("#trialModal"); });
+    $("#trialModal").addEventListener("click", function (e) { if (e.target.id === "trialModal") hide("#trialModal"); });
 
     /* phím tắt */
     $("#helpBtn").addEventListener("click", function () { show("#helpModal"); });
@@ -1409,6 +1462,7 @@
     renderTicker();
     renderProModal();
     updateHero();
+    fillDynamicText();
     render();
     if (current && $("#drawer").classList.contains("on")) openDrawer(current);
   }
@@ -1419,6 +1473,66 @@
       c: '<b id="heroCountries">' + (DATA.meta.countries || []).length + "</b>"
     });
     $("#buildPill").textContent = t("hero.updated", { d: CFG.DATA_DATE });
+  }
+
+  /* Nội dung có tham số (số phút, số chương trình, giá) không đặt bằng data-i18n được */
+  function fillDynamicText() {
+    var m = CFG.TRIAL_MINUTES, n = CFG.FREE_VISIBLE || 50;
+    $$("[data-guide]").forEach(function (el) {
+      el.textContent = t(el.getAttribute("data-guide"), { m: m, n: n });
+    });
+    $("#trialSub").textContent = t("trial.sub", { m: m, n: n });
+    $("#trialList").innerHTML = ["trial.unlock1", "trial.unlock2", "trial.unlock3", "trial.unlock4"].map(function (k) {
+      return "<li>" + ic("i-check") + "<span>" + esc(t(k, { total: fmtNum(ALL.length) })) + "</span></li>";
+    }).join("");
+    var buy = t("trial.buy", { p: L(CFG.PRICE) });
+    $("#trialModalBuy").innerHTML = ic("i-sparkle") + esc(buy);
+    $("#trialBuyBtn").textContent = buy;
+    $("#trialModalBuy").href = CFG.GUMROAD_URL;
+    $("#trialBuyBtn").href = CFG.GUMROAD_URL;
+    $("#trialModalContinue").textContent = t("trial.continue", { n: n });
+    syncTrialBar();
+  }
+
+  function mmss(ms) {
+    var sec = Math.ceil(ms / 1000), m = Math.floor(sec / 60), r = sec % 60;
+    return m + ":" + (r < 10 ? "0" : "") + r;
+  }
+
+  var wasActive = null;
+  function syncTrialBar() {
+    var bar = $("#trialBar");
+    if (PRO.licensed) { bar.hidden = true; return; }
+    bar.hidden = false;
+    var over = PRO.trialOver();
+    bar.classList.toggle("over", over);
+    $("#trialTxt").textContent = over
+      ? t("trial.over", { m: CFG.TRIAL_MINUTES, n: CFG.FREE_VISIBLE || 50, locked: fmtNum(ALL.length - (CFG.FREE_VISIBLE || 50)) })
+      : t("trial.running", { t: mmss(PRO.trialLeft()) });
+  }
+
+  /* Gọi mỗi giây: cập nhật đồng hồ, và khi vừa hết giờ thì khoá lại + mời mua */
+  function trialTick() {
+    var now = PRO.active;
+    syncTrialBar();
+    if (wasActive === true && !now) {
+      Object.keys(S.flags).forEach(function (f) {
+        if (["cheap", "top50", "dated"].indexOf(f) !== -1 && S.flags[f]) {
+          S.flags[f] = false;
+          var c = $('#chips [data-flag="' + f + '"]');
+          if (c) c.classList.remove("on");
+        }
+      });
+      syncProUI();
+      render();
+      showTrialEnded();
+    }
+    wasActive = now;
+  }
+
+  function showTrialEnded() {
+    if ($("#proModal").classList.contains("on")) return;
+    show("#trialModal");
   }
 
   function activateKey() {
@@ -1433,6 +1547,7 @@
       msg.textContent = r.message;
       if (r.ok) {
         syncProUI();
+        syncTrialBar();
         render();
         toast(t("pro.unlocked"));
         setTimeout(function () { hide("#proModal"); }, 1400);
@@ -1459,8 +1574,10 @@
       document.body.classList.add("embed");
       var full = $("#openFull");
       full.hidden = false;
-      full.href = window.location.origin + window.location.pathname + "?embed=0" +
-        (window.location.search ? "&" + window.location.search.slice(1).replace(/(^|&)embed=1(&|$)/, "$1") : "");
+      var rest = window.location.search.slice(1).split("&").filter(function (kv) {
+        return kv && kv.split("=")[0] !== "embed";
+      });
+      full.href = CFG.FULL_URL + "?" + ["embed=0"].concat(rest).join("&");
     }
 
     $("#yr").textContent = new Date().getFullYear();
@@ -1479,9 +1596,19 @@
     renderTicker();
     renderProModal();
     bind();
+    fillDynamicText();
+    wasActive = PRO.active;
+    setInterval(trialTick, 1000);
 
     $$("#nav button").forEach(function (b) { b.classList.toggle("on", b.dataset.view === S.view); });
     render();
+
+    // vào lại trang khi đã hết dùng thử: nhắc một lần mỗi phiên
+    if (PRO.trialOver()) {
+      var seenEnd = false;
+      try { seenEnd = sessionStorage.getItem("emt.trialEndSeen") === "1"; sessionStorage.setItem("emt.trialEndSeen", "1"); } catch (e) {}
+      if (!seenEnd) setTimeout(showTrialEnded, 900);
+    }
 
     // gợi ý nhẹ cho người dùng lần đầu
     if (!lsGet("emt.seen", false)) {

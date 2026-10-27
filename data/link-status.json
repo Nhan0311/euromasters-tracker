@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-09-04",
+  "checkedAt": "2026-10-27",
   "links": {
     "https://aarch.dk/en/full-degree-student-admission/": {
       "checked": "2026-09-04",
@@ -1393,6 +1393,621 @@
     },
     "https://orientami.poliba.it/architettura-corso-di-laurea-magistrale-a-ciclo-unico-poliba/": {
       "checked": "2026-09-04",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.unimi.it/en/education/bachelor-programmes": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.unibocconi.it/en/programs/bachelor-science/international-economics-and-management": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.tudelft.nl/ae/education/bsc-aerospace-engineering/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://corsidilaurea.uniroma1.it/en/corso/2022/30786/home": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.polimi.it/en/international-prospective-students": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.tue.nl/en/education/bachelor-college/bachelor-industrial-design": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.polito.it/en/education": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.maastrichtuniversity.nl/education/bachelor/programmes/international-business": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://corsi.unibo.it/1cycle/CLaBE/overview": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.tum.de/en/studies/degree-programs": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ie.edu/university/studies/academic-programs/bachelor-architectural-studies/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.unipd.it/en/educational-offer": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.eur.nl/en/bachelor/international-business-administration-iba": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.universiteitleiden.nl/en/education/study-programmes/bachelor/international-studies": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.esade.edu/bachelor/en/programmes/business-administration": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.hochschule-rhein-waal.de/en": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://constructor.university/bachelor": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.sciencespo.fr/en/education/bachelor": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.tcd.ie/courses/undergraduate/": {
+      "checked": "2026-10-27",
+      "code": "202",
+      "status": "ok"
+    },
+    "https://www.ucd.ie/global/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ucl.ac.uk/bartlett/architecture/programmes/undergraduate": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.aalto.fi/en/study-options/aalto-offers-five-study-options-in-science-and-technology-at-bachelors-level": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://programmes.polytechnique.edu/en/bachelor": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://fit.cvut.cz/en": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.bme.hu/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.cwm.pw.edu.pl/en/International-students/Studies-in-English": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://ut.ee/en/admissions": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://ju.se/en/study-at-ju/our-programmes.html": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.undergraduate.study.cam.ac.uk/courses/engineering": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://harvey.unipv.eu/": {
+      "checked": "2026-10-27",
+      "code": "000",
+      "status": "blocked"
+    },
+    "https://www.novasbe.unl.pt/en/programs/bachelor": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.lse.ac.uk/study-at-lse/undergraduate": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.kuleuven.be/programmes": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.eui.eu/apply": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ehl.edu/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://admissions.vu.lt/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.sheffield.ac.uk/undergraduate/courses": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.lhi.is/en": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.cbs.dk/en/study/bachelor": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.iuav.it/en/": {
+      "checked": "2026-10-27",
+      "code": "503",
+      "status": "blocked"
+    },
+    "https://www.designacademy.nl/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.wu.ac.at/en/programs/bachelors-programs": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.polimi.it/en/phd": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.unibocconi.it/en/programs/phd": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.maastrichtuniversity.nl/education/bachelor/programmes/european-law-school": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.polito.it/en/education/phd-programmes-and-postgraduate-school": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.epfl.ch/education/phd/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.daad.de/en/studying-in-germany/scholarships/": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.sissa.it/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://ethz.ch/en/doctorate.html": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.arct.cam.ac.uk/": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.tudelft.nl/en/education/programmes/phd": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ucl.ac.uk/bartlett/architecture/programmes/research-degrees": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.ox.ac.uk/admissions/graduate": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.tu.berlin/en/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.dtu.dk/english/education/phd": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://semmelweis.hu/english/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.mpg.de/en/imprs": {
+      "checked": "2026-10-27",
+      "code": "503",
+      "status": "blocked"
+    },
+    "https://www.kuleuven.be/english/research/phd": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ntnu.edu/phd": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://euraxess.ec.europa.eu/jobs/search": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.kth.se/en/studies/phd": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.london.ac.uk/courses": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.aalto.fi/en/doctoral-education": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.london.ac.uk/courses/computer-science": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.embl.org/about/info/embl-international-phd-programme/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://ista.ac.at/en/education/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://online.leeds.ac.uk/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.tse-fr.eu/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ie.edu/business-school/programs/mba/global-online-mba/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.durham.ac.uk/business/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ceu.edu/admissions": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://online.liverpool.ac.uk/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.imperial.ac.uk/study/courses/postgraduate-taught/machine-learning-data-science/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.uoc.edu/en/studies/masters": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.iu.org/bachelor/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.open.ac.uk/postgraduate/": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.imperial.ac.uk/business-school/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.unic.ac.cy/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.iu.org/master/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://online.bath.ac.uk/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.lshtm.ac.uk/study/courses/distance-learning": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.london.ac.uk/courses/master-laws": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.glion.edu/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ed.ac.uk/studying/postgraduate/degrees/index.php": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.som.polimi.it/en/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.gla.ac.uk/study/online/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.rtu.lv/en/university/international-students": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://ellis.eu/phd-postdoc": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.salford.ac.uk/courses/postgraduate": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.imtlucca.it/en": {
+      "checked": "2026-10-27",
+      "code": "000",
+      "status": "blocked"
+    },
+    "https://www.uninettunouniversity.net/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.ucy.ac.cy/": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.uni.lu/en/education/": {
+      "checked": "2026-10-27",
+      "code": "202",
+      "status": "ok"
+    },
+    "https://taltech.ee/en/admissions": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.uni-lj.si/en": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.uauim.ro/en/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.unifi.it/en": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.um.edu.mt/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.diplomacy.edu/courses/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://cat.org.uk/courses-and-training/graduate-school/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.uniroma3.it/en/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.arhitekt.unizg.hr/en": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.wbs.ac.uk/courses/mba/distance-learning/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.uni-weimar.de/en/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://sigarra.up.pt/faup/en/": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://unige.it/en": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.unitn.it/en": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.unina.it/en_GB/home": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://portale.unipv.it/en": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.fa.stuba.sk/en": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://aho.no/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.arh.bg.ac.rs/en/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.coleurope.eu/": {
+      "checked": "2026-10-27",
+      "code": "403",
+      "status": "blocked"
+    },
+    "https://www.arch.ntua.gr/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.rwth-aachen.de/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.wur.nl/en/education-programmes/master.htm": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.uni-corvinus.hu/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.unive.it/pag/en/": {
+      "checked": "2026-10-27",
+      "code": "503",
+      "status": "blocked"
+    },
+    "https://www.uni-stuttgart.de/en/study/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.sseriga.edu/": {
+      "checked": "2026-10-27",
+      "code": "200",
+      "status": "ok"
+    },
+    "https://www.msc-sahc.org/": {
+      "checked": "2026-10-27",
       "code": "200",
       "status": "ok"
     }

@@ -129,8 +129,8 @@ const EMT = W.EMT, DATA = W.EMT_DATA, CFG = W.EMT_CONFIG, PRO = W.EMT_PREMIUM, E
 
 console.log("\n=== 1. Nạp dữ liệu ===");
 ok("EMT_DATA tồn tại", !!DATA);
-eq("số chương trình", DATA.programs.length, 282);
-eq("số quốc gia", DATA.meta.countries.length, 22);
+ok("số chương trình ≥ 400", DATA.programs.length >= 400, String(DATA.programs.length));
+ok("số quốc gia ≥ 30", DATA.meta.countries.length >= 30, String(DATA.meta.countries.length));
 ok("app khởi tạo (window.EMT)", !!EMT);
 ok("bộ xuất sẵn sàng", !!EX);
 
@@ -144,7 +144,10 @@ eq("thiếu tên chương trình", missing.program, 0);
 eq("thiếu quốc gia", missing.country, 0);
 ok("thiếu link ≤ 5", missing.link <= 5, `thiếu ${missing.link}`);
 ok("thiếu mô tả hạn nộp ≤ 5", missing.deadlineRaw <= 5, `thiếu ${missing.deadlineRaw}`);
-ok("id là duy nhất", new Set(DATA.programs.map((p) => p.id)).size === 282);
+ok("id là duy nhất", new Set(DATA.programs.map((p) => p.id)).size === DATA.programs.length);
+ok("có đủ 3 cấp học", ["bachelor", "master", "phd"].every((lv) => DATA.programs.some((p) => p.level === lv)));
+ok("có chương trình online", DATA.programs.some((p) => p.online));
+ok("mọi bản ghi có level", DATA.programs.every((p) => ["bachelor", "master", "phd"].includes(p.level)));
 
 console.log("\n=== 3. Logic đếm ngược ===");
 let threw = 0, future = 0, past = 0, none = 0, approx = 0;
@@ -187,7 +190,16 @@ if (rolling.length) {
 
 console.log("\n=== 4. Bộ lọc & sắp xếp ===");
 const S = EMT._S;
-eq("mặc định: tất cả", EMT.filtered().length, 282);
+ok("mới mở: đang dùng thử", PRO.inTrial() && PRO.active === true);
+eq("dùng thử: thấy tất cả", EMT.filtered().length, DATA.programs.length);
+S.level = "phd";
+const phd = EMT.filtered();
+ok("lọc cấp tiến sĩ", phd.length > 0 && phd.every((p) => p.level === "phd"), `${phd.length}`);
+S.level = "";
+S.flags.online = true;
+const onl = EMT.filtered();
+ok("lọc học online", onl.length > 0 && onl.every((p) => p.online), `${onl.length}`);
+S.flags = {};
 S.country = "Vương quốc Anh";
 const uk = EMT.filtered();
 ok("lọc theo quốc gia", uk.length > 0 && uk.every((p) => p.country === "Vương quốc Anh"), `${uk.length}`);
@@ -219,7 +231,13 @@ S.sort = "deadline";
 
 console.log("\n=== 5. Kích hoạt Pro (master key) ===");
 const MASTER = "HAIKTSDUHOC2026";
-ok("mặc định chưa kích hoạt", PRO.active === false);
+PRO._resetTrial(1); // giả lập đã hết 5 phút dùng thử
+ok("hết dùng thử thì khoá", PRO.active === false && PRO.trialOver());
+eq("hết dùng thử: chỉ thấy FREE_VISIBLE", EMT.filtered().length, CFG.FREE_VISIBLE);
+const free = EMT.filtered(), freeMax = Math.max.apply(null, free.map((p) => { const d = EMT.statusOf(p).days; return d == null || d < 0 ? 1e9 : d; }));
+const hidden = DATA.programs.filter((p) => !free.includes(p));
+ok("bản miễn phí là các hạn gần nhất", hidden.every((p) => { const d = EMT.statusOf(p).days; return d == null || d < 0 || d >= freeMax || freeMax === 1e9; }));
+ok("mặc định chưa kích hoạt", PRO.licensed === false);
 ok("có cấu hình MASTER_KEY_HASH", !!CFG.MASTER_KEY_HASH);
 ok("key đúng được chấp nhận", PRO._verifyMaster(MASTER) === true);
 ok("chấp nhận chữ thường", PRO._verifyMaster(MASTER.toLowerCase()) === true);

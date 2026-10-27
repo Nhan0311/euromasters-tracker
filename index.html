@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>EuroMasters - Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu</title>
-<meta name="description" content="Đếm ngược hạn nộp hồ sơ và học bổng của 282 chương trình thạc sĩ tại 22 quốc gia châu Âu, theo QS Rankings 2026. Lọc, dòng thời gian, nhắc lịch và xuất hồ sơ. Song ngữ Việt - Anh.">
-<meta name="theme-color" content="#0b0e0a" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f2f3f0" media="(prefers-color-scheme: light)">
+<title>EuroMasters - Theo dõi hạn nộp hồ sơ du học châu Âu</title>
+<meta name="description" content="Đếm ngược hạn nộp hồ sơ và học bổng của hơn 400 chương trình cử nhân, thạc sĩ, tiến sĩ và học online tại hơn 30 quốc gia châu Âu. Lọc, dòng thời gian, nhắc lịch và xuất hồ sơ. Song ngữ Việt - Anh.">
+<meta name="theme-color" content="#0d1020" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbf9f3" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="light dark">
-<meta property="og:title" content="EuroMasters - Theo dõi hạn nộp hồ sơ Thạc sĩ châu Âu">
-<meta property="og:description" content="282 chương trình, 22 quốc gia, QS Rankings 2026. Đếm ngược deadline theo thời gian thực.">
+<meta property="og:title" content="EuroMasters - Theo dõi hạn nộp hồ sơ du học châu Âu">
+<meta property="og:description" content="Hơn 400 chương trình cử nhân, thạc sĩ, tiến sĩ và online ở hơn 30 quốc gia châu Âu. Đếm ngược deadline theo thời gian thực.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="vi_VN">
 <meta property="og:locale:alternate" content="en_GB">
 <meta name="twitter:card" content="summary">
 <meta name="author" content="Hai KTS dưới hiên nhà">
 <meta property="og:site_name" content="Hai KTS dưới hiên nhà">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231d7a46'/><text y='69' x='50' text-anchor='middle' font-size='58' font-family='sans-serif' font-weight='bold' fill='white'>E</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23141b34'/><text y='69' x='50' text-anchor='middle' font-size='58' font-family='sans-serif' font-weight='bold' fill='white'>E</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 
 <script>
@@ -72,6 +72,7 @@
     <g id="i-calculator"><rect x="4.5" y="3" width="15" height="18" rx="2.5"/><path d="M8 7.5h8M8 12h.01M12 12h.01M16 12h.01M8 16.5h.01M12 16.5h.01M16 16.5h.01"/></g>
     <g id="i-funnel"><path d="M3.5 5.2h17l-6.6 7.7v6.3l-3.8 1.9v-8.2z"/></g>
     <g id="i-language"><path d="M3.5 6.2h8.4M7.7 4v2.2M9.6 6.2c0 4-2.8 7.3-6.1 8.5M5.6 9.9c1 2.2 3 3.9 5.4 4.6M12.4 20l4-9.5 4 9.5M13.9 16.6h5"/></g>
+    <g id="i-help"><circle cx="12" cy="12" r="8.4"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.6 2.2c-.8.4-1.2 1-1.2 1.8v.4M12 16.9h.01"/></g>
     <g id="i-reset"><path d="M4.6 11a7.5 7.5 0 1 1 2 5.6"/><path d="M3.4 5.6v5h5"/></g>
   </defs>
 </svg>
@@ -114,6 +115,10 @@
         <button data-lang="en" type="button">EN</button>
       </div>
 
+      <button class="btn sm ghost" id="guideBtn" data-i18n-title="act.guide" title="Hướng dẫn">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-help"/></svg>
+        <span class="lbl" data-i18n="act.guide">Hướng dẫn</span>
+      </button>
       <button class="btn icon ghost desktop-only" id="shareBtn"
               data-i18n-title="act.share" data-i18n-aria-label="act.share" title="Chép link kèm bộ lọc">
         <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg>
@@ -137,7 +142,7 @@
         <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sparkle"/></svg>
         <span id="proBtnLabel" data-i18n="act.pro">Nâng cấp Pro</span>
       </button>
-      <a class="btn sm primary" id="openFull" target="_blank" rel="noopener" hidden data-i18n="act.openFull">Mở toàn màn hình</a>
+      <a class="btn sm primary" id="openFull" href="https://nhan0311.github.io/euromasters-tracker/" target="_blank" rel="noopener" hidden data-i18n="act.openFull">Mở toàn màn hình</a>
     </div>
   </div>
 </header>
@@ -145,6 +150,16 @@
 <p class="studio-strip">
   <span data-i18n="brand.byline">Một sản phẩm của Hai KTS dưới hiên nhà</span>
 </p>
+
+<div class="trialbar" id="trialBar" hidden>
+  <div class="wrap">
+    <span class="trial-ic" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-clock"/></svg></span>
+    <span class="trial-txt" id="trialTxt"></span>
+    <span class="spacer"></span>
+    <button class="btn sm ghost" id="trialKeyBtn" data-i18n="trial.haveKey">Tôi đã có key</button>
+    <a class="btn sm gold" id="trialBuyBtn" target="_blank" rel="noopener">Mua key Pro</a>
+  </div>
+</div>
 
 <main id="main">
   <!-- ================================ HERO ================================ -->
@@ -192,6 +207,12 @@
       </div>
 
       <div class="filters" id="filters">
+        <select class="sel" id="fLevel" data-i18n-aria-label="filter.levelLabel" aria-label="Cấp học">
+          <option value="" data-i18n="filter.level">Mọi cấp học</option>
+          <option value="bachelor" data-i18n="lv.bachelor">Cử nhân</option>
+          <option value="master" data-i18n="lv.master">Thạc sĩ</option>
+          <option value="phd" data-i18n="lv.phd">Tiến sĩ</option>
+        </select>
         <select class="sel" id="fGroup" data-i18n-aria-label="filter.groupLabel" aria-label="Nhóm ngành">
           <option value="" data-i18n="filter.group">Tất cả ngành</option>
         </select>
@@ -227,6 +248,10 @@
         <button class="chip" data-flag="english">
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-language"/></svg>
           <span data-i18n="chip.english">Dạy bằng tiếng Anh</span>
+        </button>
+        <button class="chip" data-flag="online">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-globe"/></svg>
+          <span data-i18n="chip.online">Học online</span>
         </button>
         <button class="chip" data-flag="shortlist">
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg>
@@ -280,6 +305,7 @@
        data-i18n="foot.by">Một sản phẩm của Hai KTS dưới hiên nhà</a>
     <span data-i18n="foot.source">Nguồn: bảng dữ liệu QS Rankings 2026 do tác giả tổng hợp</span>
     <span class="spacer"></span>
+    <a href="#" id="guideLink" data-i18n="act.guide">Hướng dẫn</a>
     <a href="#" id="disclaimerLink" data-i18n="foot.disclaimer">Miễn trừ trách nhiệm</a>
     <a href="https://haiktsduoihiennha.gumroad.com/l/euromasters-pro" target="_blank" rel="noopener" data-i18n="foot.buy">Mua key Pro</a>
   </div>
@@ -338,6 +364,56 @@
   </div>
 </div>
 
+<!-- ========================= HỘP THOẠI HẾT DÙNG THỬ ======================= -->
+<div class="modal" id="trialModal" role="dialog" aria-modal="true" aria-labelledby="trialTitle">
+  <div class="sheet" style="max-width:520px">
+    <div class="modal-head">
+      <div>
+        <span class="pro-badge" data-i18n="pro.tag">EUROMASTERS PRO</span>
+        <h2 id="trialTitle" style="margin-top:10px" data-i18n="trial.h">Hết thời gian dùng thử</h2>
+        <div class="sub" id="trialSub"></div>
+      </div>
+      <button class="btn icon ghost" id="trialClose" data-i18n-aria-label="act.close" aria-label="Đóng">
+        <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+      </button>
+    </div>
+    <h4 class="trial-h" data-i18n="trial.unlockH">Mua key Pro để mở lại toàn bộ:</h4>
+    <ul class="trial-list" id="trialList"></ul>
+    <a class="btn gold trial-cta" id="trialModalBuy" target="_blank" rel="noopener">Mua key Pro</a>
+    <p class="trial-once" data-i18n="trial.once">Thanh toán một lần qua Gumroad, nhận key ngay trong email.</p>
+    <div class="trial-actions">
+      <button class="btn" id="trialModalKey" data-i18n="trial.haveKey">Tôi đã có key</button>
+      <button class="btn ghost" id="trialModalContinue"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== HƯỚNG DẪN ============================== -->
+<div class="modal" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideTitle">
+  <div class="sheet" style="max-width:620px">
+    <div class="modal-head" style="margin-bottom:16px">
+      <div>
+        <h2 id="guideTitle" data-i18n="guide.h">Hướng dẫn sử dụng</h2>
+        <div class="sub" data-i18n="guide.sub">Tìm chương trình, theo dõi hạn nộp và chuẩn bị hồ sơ trong 8 bước.</div>
+      </div>
+      <button class="btn icon ghost" id="guideClose" data-i18n-aria-label="act.close" aria-label="Đóng">
+        <svg class="i" viewBox="0 0 24 24"><use href="#i-x"/></svg>
+      </button>
+    </div>
+    <ol class="guide">
+      <li><b data-i18n="guide.s1t"></b><span data-guide="guide.s1"></span></li>
+      <li><b data-i18n="guide.s2t"></b><span data-guide="guide.s2"></span></li>
+      <li><b data-i18n="guide.s3t"></b><span data-guide="guide.s3"></span></li>
+      <li><b data-i18n="guide.s4t"></b><span data-guide="guide.s4"></span></li>
+      <li><b data-i18n="guide.s5t"></b><span data-guide="guide.s5"></span></li>
+      <li><b data-i18n="guide.s6t"></b><span data-guide="guide.s6"></span></li>
+      <li><b data-i18n="guide.s7t"></b><span data-guide="guide.s7"></span></li>
+      <li><b data-i18n="guide.s8t"></b><span data-guide="guide.s8"></span></li>
+    </ol>
+    <p class="guide-tip" data-i18n="guide.tip"></p>
+  </div>
+</div>
+
 <!-- =========================== HỘP THOẠI XUẤT ============================ -->
 <div class="modal" id="expModal" role="dialog" aria-modal="true" aria-labelledby="expTitle">
   <div class="sheet" style="max-width:560px">
@@ -355,7 +431,7 @@
       <option value="filtered" data-i18n="exp.filtered">Phạm vi: kết quả đang lọc</option>
       <option value="shortlist" data-i18n="exp.shortlist">Phạm vi: danh sách của tôi</option>
       <option value="tracker" data-i18n="exp.tracker">Phạm vi: hồ sơ đang theo dõi</option>
-      <option value="all" data-i18n="exp.all">Phạm vi: toàn bộ 282 chương trình</option>
+      <option value="all" data-i18n="exp.all">Phạm vi: toàn bộ chương trình</option>
     </select>
     <div class="msg info on" id="expMsg" style="margin-top:14px" data-i18n="exp.pick">Chọn định dạng để tải xuống.</div>
   </div>
