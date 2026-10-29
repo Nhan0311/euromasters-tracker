@@ -131,7 +131,7 @@ window.EMT_CONFIG = {
   ],
 
   /* Tỉ giá tham chiếu để quy đổi (cập nhật khi cần) */
-  VND_PER_EUR: 28500,
+  VND_PER_EUR: 29700,
 
   DISCLAIMER: {
     vi: "Dữ liệu được tổng hợp thủ công từ website các trường và bảng xếp hạng QS 2026, " +
