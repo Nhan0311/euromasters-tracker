@@ -288,7 +288,7 @@
    "language": "Tiếng Anh (có chương trình song song tiếng Ý)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EUR 900-3.900/năm tùy mức thu nhập gia đình (ISEE), áp dụng chung cho SV Ý và quốc tế",
-   "tuitionEur": 900,
+   "tuitionEur": 3943,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 800-1.000/tháng tại Milan",
    "livingEur": 800,
@@ -296,9 +296,10 @@
    "scholarshipOther": "Học bổng chính phủ Ý (MAECI)",
    "hasScholarship": true,
    "requirements": "Bằng cử nhân liên quan, GPA tối thiểu tương đương 70/100, portfolio, IELTS khoảng 6.0-6.5",
-   "notes": "Học phí tính theo thu nhập gia đình (ISEE) là đặc trưng hệ thống Ý, khá thấp so với mặt bằng châu Âu",
+   "notes": "Học phí tính theo thu nhập gia đình (ISEE) là đặc trưng hệ thống Ý, khá thấp so với mặt bằng châu Âu. SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 6,
@@ -2167,7 +2168,7 @@
    "scholarshipOther": "Erasmus Mundus, Quỹ học bổng nhà nước Na Uy cho một số đối tượng",
    "hasScholarship": true,
    "requirements": "Bằng cử nhân 3 năm ngành Kiến trúc, Kỹ thuật hoặc Quy hoạch đô thị, tối thiểu 30 ECTS liên quan thiết kế kiến trúc/xây dựng",
-   "notes": "NTNU còn có chương trình Master of Architecture tích hợp 5 năm giảng dạy chủ yếu bằng tiếng Na Uy. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
+   "notes": "NTNU còn có chương trình Master of Architecture tích hợp 5 năm giảng dạy chủ yếu bằng tiếng Na Uy. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
    "level": "master",
    "online": false,
    "verifiedAt": "2026-10-29"
@@ -2787,7 +2788,7 @@
    "scholarshipOther": "Học bổng Nhà nước Hy Lạp (IKY)",
    "hasScholarship": true,
    "requirements": "Portfolio, hồ sơ, có thể phỏng vấn, yêu cầu trình độ tiếng Hy Lạp nhất định",
-   "notes": "Rào cản ngôn ngữ tiếng Hy Lạp lớn với SV quốc tế. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
+   "notes": "Rào cản ngôn ngữ tiếng Hy Lạp lớn với SV quốc tế. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
    "level": "master",
    "online": false,
    "verifiedAt": "2026-10-29"
@@ -4385,7 +4386,7 @@
    "scholarshipOther": "Học bổng Chính phủ Na Uy",
    "hasScholarship": true,
    "requirements": "Bắt buộc bằng cử nhân Mỹ thuật 3 năm (180 ECTS) và hồ sơ/portfolio thực hành nghệ thuật",
-   "notes": "Chương trình không chuyên biệt chất liệu, khuyến khích thực hành liên ngành. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
+   "notes": "Chương trình không chuyên biệt chất liệu, khuyến khích thực hành liên ngành. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
    "level": "master",
    "online": false,
    "verifiedAt": "2026-10-29"
@@ -4460,7 +4461,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EUR 900-3.900/năm (theo thu nhập gia đình, áp dụng cả EU và ngoài EU)",
-   "tuitionEur": 900,
+   "tuitionEur": 3943,
    "tuitionCur": "EUR",
    "livingRaw": "EUR 800-1.200/tháng (Milan)",
    "livingEur": 800,
@@ -4468,9 +4469,10 @@
    "scholarshipOther": "Học bổng Chính phủ Ý (MAECI), Erasmus+",
    "hasScholarship": true,
    "requirements": "Bằng cử nhân liên quan; portfolio là bắt buộc với ngành thiết kế",
-   "notes": "Học phí thuộc nhóm thấp nhất trong top trường thiết kế châu Âu",
+   "notes": "Học phí thuộc nhóm thấp nhất trong top trường thiết kế châu Âu. SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 99,
@@ -8157,7 +8159,7 @@
    "language": "Tiếng Anh (một số chuyên ngành có tiếng Ý)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 900-3.900 EUR/năm (theo thu nhập gia đình với sinh viên EU; sinh viên ngoài EU khoảng 3.900 EUR/năm)",
-   "tuitionEur": 3900,
+   "tuitionEur": 3943,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.000-1.300 EUR/tháng tại Milan (ước tính)",
    "livingEur": 1300,
@@ -8165,9 +8167,10 @@
    "scholarshipOther": "Học bổng vùng Lombardia (Regione Lombardia), Erasmus+",
    "hasScholarship": true,
    "requirements": "Bằng cử nhân kỹ thuật/kinh tế liên quan (GPA tối thiểu tương đương 70/100), IELTS 6.0",
-   "notes": "Xếp hạng theo QS Business & Management 2026 (tổng hợp qua smapse.com); học phí thấp bất thường so với các trường cùng nhóm do chính sách công lập Ý",
+   "notes": "Xếp hạng theo QS Business & Management 2026 (tổng hợp qua smapse.com); học phí thấp bất thường so với các trường cùng nhóm do chính sách công lập Ý. SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 181,
@@ -9544,7 +9547,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 900 - 3.900/năm tùy theo ISEE (chỉ số kinh tế gia đình); sinh viên ngoài khối EEA đóng mức tối đa ~EUR 3.900/năm",
-   "tuitionEur": 3900,
+   "tuitionEur": 3943,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900 - 1.300/tháng tại Milano",
    "livingEur": 900,
@@ -9552,9 +9555,10 @@
    "scholarshipOther": "Erasmus Mundus, học bổng VEF",
    "hasScholarship": true,
    "requirements": "Bằng cử nhân Kỹ thuật/CNTT liên quan, nền tảng toán và lập trình; đôi khi cần vượt qua bài kiểm tra đầu vào (TOLC)",
-   "notes": "QS CS&IS 2026 và DS&AI 2026 (xuanxiao.org); học phí thuộc nhóm thấp nhất châu Âu so với chất lượng đào tạo",
+   "notes": "QS CS&IS 2026 và DS&AI 2026 (xuanxiao.org); học phí thuộc nhóm thấp nhất châu Âu so với chất lượng đào tạo. SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 211,
@@ -10336,7 +10340,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EUR 900-3,900/năm tùy thu nhập gia đình (ISEE), sinh viên ngoài EU thường ở mức tối đa khoảng EUR 3,900/năm - học phí rất thấp so với mặt bằng châu Âu",
-   "tuitionEur": 3900,
+   "tuitionEur": 3943,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1,100/tháng",
    "livingEur": 900,
@@ -10344,9 +10348,10 @@
    "scholarshipOther": "Học bổng Chính phủ Ý (Invest Your Talent in Italy, DSU regional scholarships)",
    "hasScholarship": true,
    "requirements": "Bằng Cử nhân Kỹ thuật Xây dựng/liên quan; IELTS 6.0-6.5 hoặc TOEFL tương đương; GPA khá trở lên",
-   "notes": "QS 2026; học phí PoliMi thuộc nhóm thấp nhất trong các trường top châu Âu, rất phù hợp sinh viên Việt Nam",
+   "notes": "QS 2026; học phí PoliMi thuộc nhóm thấp nhất trong các trường top châu Âu, rất phù hợp sinh viên Việt Nam. SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 228,

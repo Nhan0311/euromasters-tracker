@@ -10,6 +10,7 @@ build_data.py gọi hàm merge() ở cuối, nên dựng lại từ Excel không
 Chạy:  python tools/add_extras.py
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -160,7 +161,9 @@ def apply_overrides(rows):
         if "tuEur" in o:
             r["tuitionEur"] = o["tuEur"]
         if "note" in o:
-            r["notes"] = (r.get("notes") or "").rstrip(". ") + (". " if r.get("notes") else "") + o["note"]
+            core = re.escape(o["note"].rstrip("."))
+            base = re.sub(r"[.\s]*" + core + r"\.?", "", r.get("notes") or "").strip().rstrip(".")
+            r["notes"] = base + (". " if base else "") + o["note"]
         r["verifiedAt"] = o.get("checked")
     missing = set(items) - {r["school"] + " | " + r["program"] for r in rows}
     if missing:

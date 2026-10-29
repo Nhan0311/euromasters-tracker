@@ -323,6 +323,36 @@
    "dl": "Xét cuốn chiếu; nên nộp hồ sơ và đơn học bổng trước 15/4 hàng năm",
    "src": "https://www.ie.edu/business-school/programs/executive-part-time-mbas/global-mba/",
    "checked": "2026-10-29"
+  },
+  "Politecnico di Milano | Master of Science in Architecture (Laurea Magistrale in Architettura)": {
+   "note": "SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
+   "src": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/architecture",
+   "checked": "2026-10-29",
+   "tuEur": 3943
+  },
+  "Politecnico di Milano (School of Design) | Master of Science in Product Service System Design": {
+   "note": "SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
+   "src": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/product-service-system-design",
+   "checked": "2026-10-29",
+   "tuEur": 3943
+  },
+  "Politecnico di Milano | MSc Management Engineering": {
+   "note": "SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
+   "src": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/management-engineering",
+   "checked": "2026-10-29",
+   "tuEur": 3943
+  },
+  "Politecnico di Milano | MSc Computer Science and Engineering": {
+   "note": "SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
+   "src": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/computer-science-and-engineering",
+   "checked": "2026-10-29",
+   "tuEur": 3943
+  },
+  "Politecnico di Milano (PoliMi) | MSc in Civil Engineering for Risk Mitigation": {
+   "note": "SV ngoài EU vào thạc sĩ bằng bằng nước ngoài, không có học bổng: đóng mức tối đa khoảng 3.943 EUR/năm (quy chế Polimi 2026/27).",
+   "src": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/civil-engineering-for-risk-mitigation",
+   "checked": "2026-10-29",
+   "tuEur": 3943
   }
  }
 }
