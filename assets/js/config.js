@@ -50,7 +50,7 @@ window.EMT_CONFIG = {
   FULL_URL: "https://www.haiktsduoihiennha.com/danh-s%C3%A1ch-ch%C6%B0%C6%A1ng-tr%C3%ACnh-th%E1%BA%A1c-s%C4%A9-2026",
 
   /* Ngày cập nhật dữ liệu (hiển thị ở hero) */
-  DATA_DATE: "09/2026",
+  DATA_DATE: "10/2026",
 
   /* ---- Nội dung song ngữ -----------------------------------------------
      Mọi chuỗi hiển thị đều viết dạng { vi: "…", en: "…" }.
