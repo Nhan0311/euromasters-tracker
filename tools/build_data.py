@@ -67,6 +67,8 @@ def strip_accents(s):
 def to_number(raw):
     """'35.400' / '22,290' / '1 460' -> 35400 / 22290 / 1460"""
     s = raw.replace(" ", "").strip(".,")
+    if re.fullmatch(r"\d+,\d{1,2}", s):  # '19,43' / '454,47': phẩy thập phân kiểu Việt
+        return float(s.replace(",", "."))
     m = re.fullmatch(r"(.*)[.,](\d{1,2})", s)
     if m and re.search(r"[.,]", m.group(1)):
         s = m.group(1).replace(".", "").replace(",", "") + "." + m.group(2)
@@ -76,6 +78,77 @@ def to_number(raw):
         return float(s)
     except ValueError:
         return None
+
+
+# Số tiền đi sau các cụm này là lệ phí/phụ phí, không phải học phí
+FEE_BEFORE = re.compile(r"(phi (ho so|nop ho so|xu ly ho so|xet tuyen|ghi danh|dich vu|sinh vien|bao hiem|hoi sinh vien)|le phi|"
+                        r"phi hoc ky|phi ky|phi sv|phi bat buoc|phi ban nien|phi ban phan|semesterbeitrag|phi hanh chinh|dat coc|tien coc|cvec|\boh\b|phu phi|application fee|deposit|cems)[^;,]{0,45}$")
+RANGE_TAIL = r"(?:\s*[-–]\s*[0-9][0-9.,]*\s*(?:eur|gbp|chf|usd|sek|nok|dkk|czk|pln|huf|try|ron|€|£)?)?"
+PER_TERM = re.compile(r"^" + RANGE_TAIL + r"\s*/\s*(hoc ky|ky|semester)|^\s*(moi ky|mot ky|per semester)")
+PER_CREDIT = re.compile(r"^" + RANGE_TAIL + r"\s*/\s*(tin chi|credit|ects)|^\s*(moi tin chi|per credit)")
+WHOLE = re.compile(r"^" + RANGE_TAIL + r"[^;]{0,25}(toan khoa|toan chuong trinh|tron khoa|ca khoa|cho [23] nam)")
+WHOLE_BEFORE = re.compile(r"(tong|toan khoa|tron khoa)[^;]{0,12}$")
+PER_YEAR = re.compile(r"^" + RANGE_TAIL + r"\s*(/\s*nam|/\s*year|moi nam|per year)")
+LOWER = re.compile(r"([0-9][0-9.,]*)\s*[-–]\s*$")
+
+
+NON_EU = re.compile(r"ngoai (eu|eea|khoi|chau au)|non[- ]?eu|non[- ]?eea|quoc te|international|nuoc ngoai|overseas|"
+                    r"sinh vien khac|sv khac|category 2|ngoai khoi|tra phi")
+EU = re.compile(r"eu|eea|trong nuoc|home|thuong tru|ban dia|chau au|thuy si|bac au|dan mach|hoa ky")
+DISCOUNT = re.compile(r"(giam|uu dai|hoc bong|tro cap)[^;]{0,30}$")
+
+
+def parse_tuition(text, months=None):
+    """Học phí theo NĂM cho sinh viên ngoài EU (người dùng là SV Việt Nam).
+    - Bỏ lệ phí, phí học kỳ/hành chính, đặt cọc, khoản giảm; đổi /học kỳ x2, /tín chỉ x60, cả khoá chia số năm.
+    - Khoảng "a-b" lấy cận dưới a.
+    - Mệnh đề nào nói ngoài EU / quốc tế thì lấy mức thấp nhất trong đó; không có thì lấy mức thấp nhất không gắn EU.
+    - "Miễn học phí" chỉ cho 0 khi không còn mức nào áp cho SV ngoài EU."""
+    if not text:
+        return None, None, None
+    t = str(text)
+    low = strip_accents(t).lower()
+    segs = [(m.start(), m.end()) for m in re.finditer(r"(?:[^;|,]|,(?=\d))+", low)]
+    seg_of = lambda i: next((low[x:y] for x, y in segs if x <= i < y), "")
+    years = (months or 24) / 12
+    found = []
+    for m in NUM_RE.finditer(t):
+        cur = SYM.get((m.group(1) or m.group(4) or "").upper(), (m.group(1) or m.group(4) or "").upper())
+        num = m.group(2) or m.group(3)
+        if cur not in RATE:
+            continue
+        v = to_number(num)
+        if v is None or v <= 0 or (1900 <= v <= 2100 and not re.search(r"[.,]", num)):
+            continue
+        before = low[max(0, m.start() - 45):m.start()]
+        after = low[m.end():m.end() + 45]
+        if FEE_BEFORE.search(before) or DISCOUNT.search(before):
+            continue
+        lo = LOWER.search(before)
+        if lo and m.group(3):  # "3.100-5.800 EUR": lấy cận dưới
+            lv = to_number(lo.group(1))
+            if lv and 0 < lv < v:
+                v = lv
+        if PER_CREDIT.search(after):
+            v *= 60
+        elif PER_TERM.search(after):
+            v *= 2
+        elif (WHOLE.search(after) or WHOLE_BEFORE.search(before)) and not PER_YEAR.search(after) and years > 1:
+            v /= years
+        eur = v * RATE[cur]
+        if eur < 100:
+            continue
+        seg = seg_of(m.start())
+        non_eu = bool(NON_EU.search(seg))
+        found.append((eur, cur, v, non_eu, bool(EU.search(seg)) and not non_eu))
+    free = re.search(r"mien phi|mien hoc phi|khong hoc phi|khong thu hoc phi|hoc phi 0", low)
+    pick = [x for x in found if x[3]] or [x for x in found if not x[4]] or ([] if free else found)
+    if pick:
+        best = min(pick)
+        return int(round(best[0])), best[1], best[2]
+    if free:
+        return 0, "EUR", 0
+    return parse_money(t)
 
 
 def parse_money(text):

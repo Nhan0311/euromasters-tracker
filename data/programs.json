@@ -156,7 +156,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/EEA khoảng EUR 2.600/năm; Ngoài EU/EEA khoảng EUR 22.290/năm",
-   "tuitionEur": 2600,
+   "tuitionEur": 22290,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 800-1.200/tháng tại Delft",
    "livingEur": 800,
@@ -200,7 +200,7 @@
    "language": "Tiếng Đức (chủ yếu), một số studio bằng tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "CHF 730/học kỳ (khoảng CHF 1.460/năm), áp dụng chung cho mọi sinh viên",
-   "tuitionEur": 774,
+   "tuitionEur": 1548,
    "tuitionCur": "CHF",
    "livingRaw": "Khoảng CHF 2.000-2.500/tháng tại Zurich",
    "livingEur": 2120,
@@ -244,7 +244,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV Home (UK): GBP 9.790/năm; Quốc tế: GBP 32.000/năm",
-   "tuitionEur": 11454,
+   "tuitionEur": 37440,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 900-1.200/tháng tại Manchester",
    "livingEur": 1053,
@@ -337,7 +337,7 @@
    "language": "Tiếng Pháp (chủ yếu), một phần tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "CHF 780/học kỳ (khoảng CHF 1.560/năm), áp dụng chung cho SV Thụy Sĩ và quốc tế",
-   "tuitionEur": 827,
+   "tuitionEur": 1654,
    "tuitionCur": "CHF",
    "livingRaw": "Khoảng CHF 2.000-2.400/tháng tại Lausanne",
    "livingEur": 2120,
@@ -469,7 +469,7 @@
    "language": "Tiếng Tây Ban Nha/Catalan (một số môn tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU: khoảng EUR 1.061-1.660/năm; Ngoài EU: khoảng EUR 2.490-2.700/năm",
-   "tuitionEur": 1061,
+   "tuitionEur": 2490,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1.200/tháng tại Barcelona",
    "livingEur": 900,
@@ -513,7 +513,7 @@
    "language": "Tiếng Tây Ban Nha",
    "mainLanguage": "Tiếng Tây Ban Nha",
    "tuitionRaw": "Tính theo giá tín chỉ công lập (khoảng EUR 19,43/tín chỉ lần đầu), ước tính tổng khoảng EUR 2.000-2.500/năm",
-   "tuitionEur": 1943,
+   "tuitionEur": 1166,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 800-1.200/tháng tại Madrid",
    "livingEur": 800,
@@ -601,7 +601,7 @@
    "language": "Tiếng Đức (chủ yếu, một số môn có tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV EU/EEA: miễn học phí (chỉ đóng phí học kỳ khoảng EUR 97-150); SV ngoài EU: có thể khoảng EUR 4.000-6.000/học kỳ tùy quy định hiện hành, cần xác nhận",
-   "tuitionEur": 97,
+   "tuitionEur": 8000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.300-2.000/tháng tại Munich",
    "livingEur": 1300,
@@ -627,10 +627,16 @@
    "desc": "School of Architecture and Landscape mạnh về nghiên cứu thiết kế xã hội, thực hành cộng đồng và đào tạo hành nghề chuẩn RIBA Part 2",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Xét tuyển theo đợt, khuyến khích nộp sớm trong năm",
+   "deadlineRaw": "20/8/2027 cho kỳ nhập học tháng 9/2027 (nên nộp sớm)",
    "deadline": {
-    "type": "rolling",
-    "dates": [],
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 20,
+      "m": 8,
+      "y": 2027
+     }
+    ],
     "recurring": false
    },
    "scholarshipDeadline": null,
@@ -639,7 +645,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Quốc tế: khoảng GBP 32.100/năm (có ưu đãi giảm GBP 3.000 cho SV nhập học 2026); SV Home (UK) thấp hơn, không rõ số cụ thể",
-   "tuitionEur": 3510,
+   "tuitionEur": 37557,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 1.200-1.600/tháng tại Sheffield",
    "livingEur": 1404,
@@ -649,7 +655,8 @@
    "requirements": "Bằng 2:1 Kiến trúc từ trường RIBA/ARB công nhận, đã có RIBA Part 1, 9 tháng kinh nghiệm thực hành, bài luận 500-600 từ",
    "notes": "Chi phí sinh hoạt Sheffield thấp hơn London/Cambridge đáng kể, phù hợp SV cân nhắc ngân sách",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 14,
@@ -665,19 +672,14 @@
    "desc": "Chương trình thạc sĩ 2 năm kết hợp công nghệ và nghệ thuật, cho phép chuyên sâu về kiến trúc gỗ, đô thị, bảo tồn hoặc thiết kế bền vững",
    "duration": "2 năm/120 ECTS",
    "months": 24,
-   "deadlineRaw": "1/12/2025 - 2/1/2026 (đợt 2026)",
+   "deadlineRaw": "5/1/2027 (đợt nộp mở đầu tháng 12/2026) cho kỳ nhập học mùa thu 2027",
    "deadline": {
-    "type": "window",
+    "type": "fixed",
     "dates": [
      {
-      "d": 1,
-      "m": 12,
-      "y": 2025
-     },
-     {
-      "d": 2,
+      "d": 5,
       "m": 1,
-      "y": 2026
+      "y": 2027
      }
     ],
     "recurring": false
@@ -688,7 +690,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/EEA/Thụy Sĩ: miễn phí / Ngoài EU: EUR 20.000/năm",
-   "tuitionEur": 0,
+   "tuitionEur": 20000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1200/tháng",
    "livingEur": 900,
@@ -698,7 +700,8 @@
    "requirements": "Bằng cử nhân Kiến trúc liên quan/portfolio tối đa 24 trang/thư động lực/thư tự phản ánh/phỏng vấn",
    "notes": "Chương trình công nhận theo chỉ thị EU 2005/36/EC cho hành nghề kiến trúc sư",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 15,
@@ -714,11 +717,17 @@
    "desc": "Chương trình thạc sĩ 2 năm giảng dạy hoàn toàn tiếng Anh, đào tạo kiến trúc sư quốc tế theo chỉ thị EU, tập trung bảo tồn và chuyển đổi đô thị bền vững",
    "duration": "2 năm/120 ECTS",
    "months": 24,
-   "deadlineRaw": "Theo thông báo tuyển sinh hàng năm/xem lịch trên trang trường",
+   "deadlineRaw": "Khoảng 23/2 hàng năm (đợt 2026/27 đã đóng; đăng ký nhận thông báo đợt mới trên trang trường)",
    "deadline": {
-    "type": "unknown",
-    "dates": [],
-    "recurring": false
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 23,
+      "m": 2,
+      "y": null
+     }
+    ],
+    "recurring": true
    },
    "scholarshipDeadline": null,
    "link": "https://www.iuav.it/en/didattica/lauree-magistrali/architecture",
@@ -736,7 +745,8 @@
    "requirements": "Bằng cử nhân Kiến trúc hoặc tương đương/chứng chỉ tiếng Anh",
    "notes": "Một trong các trường Kiến trúc lâu đời nổi tiếng nhất châu Âu/học phí rẻ hơn nhiều so với Bắc Âu",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 16,
@@ -808,8 +818,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/EEA/Thụy Sĩ: miễn phí / Ngoài EU: tổng SEK 600.000 (khoảng SEK 300.000/năm)",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 26400,
+   "tuitionCur": "SEK",
    "livingRaw": "Khoảng SEK 9.450-12.350/tháng (theo KTH công bố)",
    "livingEur": 832,
    "scholarshipSchool": "KTH Scholarships (miễn học phí 1-2 năm cho SV đóng học phí)",
@@ -841,12 +851,12 @@
     "recurring": false
    },
    "scholarshipDeadline": null,
-   "link": "https://www.tuwien.at/en/studies/studies/master-programmes/architecture",
+   "link": "https://www.tuwien.at/en/studies/studies/master-programmes/architecture-and-planning/architecture",
    "linkStatus": "ok",
    "language": "Tiếng Đức (một số môn tự chọn tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/EEA: chỉ phí ÖH ~EUR 25,2/kỳ / Ngoài EU: thêm EUR 363-727/kỳ (khoảng EUR 726-1453/năm)",
-   "tuitionEur": 252,
+   "tuitionEur": 726,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1100/tháng",
    "livingEur": 900,
@@ -856,7 +866,8 @@
    "requirements": "Bằng cử nhân Kiến trúc (BSc)/hoàn thành thủ tục Zulassungsverfahren với 2 bài tập thiết kế",
    "notes": "Cần trình độ tiếng Đức tốt (thường B2/C1) vì chương trình giảng dạy chủ yếu tiếng Đức",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 19,
@@ -916,11 +927,17 @@
    "desc": "Chương trình thạc sĩ kiến trúc 2 năm (Part 2 theo hệ Anh) do Welsh School of Architecture đào tạo, kết hợp thực tập nghề nghiệp năm 1 và đồ án luận văn năm 2",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Không rõ ngày cụ thể/khuyến nghị nộp sớm theo đợt tuyển sinh trường",
+   "deadlineRaw": "Khoảng cuối tháng 8 hàng năm (xét theo thứ tự nộp, có thể đóng sớm), nhập học cuối tháng 9",
    "deadline": {
-    "type": "rolling",
-    "dates": [],
-    "recurring": false
+    "type": "month",
+    "dates": [
+     {
+      "d": 31,
+      "m": 8,
+      "y": null
+     }
+    ],
+    "recurring": true
    },
    "scholarshipDeadline": null,
    "link": "https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/master-of-architecture-march",
@@ -938,7 +955,8 @@
    "requirements": "Đã hoàn thành Part 1 Kiến trúc (BSc) được ARB/RIBA công nhận/tự thu xếp thực tập nghề nghiệp trước khi nhập học",
    "notes": "Đây là chương trình Part 2 trong hệ đào tạo kiến trúc sư Anh (RIBA/ARB), yêu cầu đã hoàn thành Part 1",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 21,
@@ -1020,8 +1038,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/EEA: miễn phí / Ngoài EU: SEK 190.000/năm (năm đầu)",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 16720,
+   "tuitionCur": "SEK",
    "livingRaw": "Khoảng SEK 9.000-11.000/tháng",
    "livingEur": 792,
    "scholarshipSchool": "Chalmers IPOET Scholarships (cho SV ngoài EU)",
@@ -1151,7 +1169,7 @@
    "language": "Tiếng Đức (chủ yếu)",
    "mainLanguage": "Tiếng Đức",
    "tuitionRaw": "Đức/EU: miễn học phí (chỉ phí hành chính ~EUR 150-160/kỳ) / Ngoài EU: EUR 1.500/kỳ (khoảng EUR 3.000/năm)",
-   "tuitionEur": 150,
+   "tuitionEur": 3000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 850-1000/tháng",
    "livingEur": 850,
@@ -1177,13 +1195,13 @@
    "desc": "Chương trình thạc sĩ kiến trúc chuyên nghiệp 2 năm được RIBA và ARB công nhận Part 2, kết hợp studio thiết kế với thực hành nghề và chuyến đi thực địa.",
    "duration": "24 tháng toàn thời gian",
    "months": 24,
-   "deadlineRaw": "Tuyển sinh liên tục quanh năm, khuyến nghị nộp sớm cho kỳ nhập học tháng 9",
+   "deadlineRaw": "31/7 hàng năm cho kỳ nhập học tháng 9",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 30,
-      "m": 9,
+      "d": 31,
+      "m": 7,
       "y": null
      }
     ],
@@ -1195,7 +1213,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Trong nước ước tính khoảng 12.000-13.000 GBP/năm; ngoài EU khoảng 30.700 GBP/năm",
-   "tuitionEur": 15210,
+   "tuitionEur": 35919,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 900-1.100 GBP/tháng",
    "livingEur": 1287,
@@ -1205,7 +1223,8 @@
    "requirements": "Bằng cử nhân Kiến trúc (RIBA Part 1/ARB) loại khá giỏi (2:1); portfolio, có thể phỏng vấn",
    "notes": "Được RIBA và ARB công nhận Part 2",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 27,
@@ -1239,7 +1258,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên quốc tế khoảng 1.000-1.500 USD/năm (theo bảng học phí METU 2025-2026)",
-   "tuitionEur": 1380,
+   "tuitionEur": 920,
    "tuitionCur": "USD",
    "livingRaw": "Khoảng 300-500 USD/tháng",
    "livingEur": 460,
@@ -1277,7 +1296,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Trong nước 9.535 GBP/năm (2025-26, chưa xác nhận 2026-27); quốc tế Không rõ chính xác (ước tính 26.000-29.000 GBP/năm)",
-   "tuitionEur": 11156,
+   "tuitionEur": 30420,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 900-1.100 GBP/tháng",
    "livingEur": 1287,
@@ -1364,7 +1383,7 @@
    "language": "Tiếng Đức (một số học phần có thể bằng tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn học phí; chỉ đóng phí bán niên (Semesterbeitrag) khoảng 300-350 EUR/kỳ",
-   "tuitionEur": 350,
+   "tuitionEur": 0,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng",
    "livingEur": 1100,
@@ -1408,7 +1427,7 @@
    "language": "Tiếng Ý",
    "mainLanguage": "Tiếng Ý",
    "tuitionRaw": "Khoảng 300-1.500 EUR/năm tuỳ theo ISEE và quốc tịch; SV ngoài EU có thể tới khoảng 2.000-3.000 EUR/năm nếu ISEE cao",
-   "tuitionEur": 1500,
+   "tuitionEur": 2000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 800-1.100 EUR/tháng",
    "livingEur": 1100,
@@ -1457,7 +1476,7 @@
    "language": "Tiếng Đức và/hoặc tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn học phí; chỉ đóng phí bán niên khoảng 300-400 EUR/kỳ",
-   "tuitionEur": 400,
+   "tuitionEur": 0,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 850-1.000 EUR/tháng",
    "livingEur": 1000,
@@ -1501,7 +1520,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Trong nước 22.000 GBP/năm (2026/27); ngoài EU khoảng 29.760 GBP/năm (ước tính)",
-   "tuitionEur": 25740,
+   "tuitionEur": 34819,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.300-1.700 GBP/tháng (London đắt đỏ)",
    "livingEur": 1989,
@@ -1527,17 +1546,17 @@
    "desc": "Chương trình thạc sĩ kiến trúc chuyên nghiệp được ARB/RIBA công nhận Part 2, kết hợp studio thiết kế và nghiên cứu lý thuyết.",
    "duration": "21 tháng",
    "months": 21,
-   "deadlineRaw": "Không rõ chính xác (theo hệ thống tuyển sinh trực tuyến của trường, nên nộp trước tháng 1-3)",
+   "deadlineRaw": "Vòng 1: 30/6/2027 (xét theo vòng, có thể đóng sớm nếu nhiều hồ sơ)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
-      "m": 1,
-      "y": null
+      "d": 30,
+      "m": 6,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://study.ed.ac.uk/programmes/postgraduate-taught/420-architecture-master-of-arbriba-part-2",
@@ -1555,7 +1574,8 @@
    "requirements": "Bằng cử nhân Kiến trúc (RIBA Part 1/ARB); portfolio",
    "notes": "Chương trình được xếp là postgraduate taught nhưng áp dụng khung học phí như undergraduate theo quy định của Anh",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 35,
@@ -1624,7 +1644,7 @@
    "language": "Tiếng Tây Ban Nha",
    "mainLanguage": "Tiếng Tây Ban Nha",
    "tuitionRaw": "SV Tây Ban Nha/EU/thường trú khoảng 1.040 EUR/năm (17,34 EUR/tín chỉ); SV quốc tế khác khoảng 2.081 EUR/năm (34,68 EUR/tín chỉ)",
-   "tuitionEur": 1040,
+   "tuitionEur": 2081,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 700-900 EUR/tháng",
    "livingEur": 900,
@@ -1756,7 +1776,7 @@
    "language": "Tiếng Bồ Đào Nha",
    "mainLanguage": "Khác",
    "tuitionRaw": "SV quốc tế ngoài EU khoảng 5.000 EUR/năm (2026-2027); SV Bồ Đào Nha/EU thấp hơn nhiều, thường dưới 1.000 EUR/năm",
-   "tuitionEur": 1000,
+   "tuitionEur": 5000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 600-800 EUR/tháng",
    "livingEur": 800,
@@ -1800,7 +1820,7 @@
    "language": "Tiếng Đức",
    "mainLanguage": "Tiếng Đức",
    "tuitionRaw": "Sinh viên EU khoảng 170-200 EUR/kỳ (phí hành chính); sinh viên ngoài EU khoảng 1.500 EUR/kỳ cộng phí hành chính khoảng 164 EUR/kỳ",
-   "tuitionEur": 164,
+   "tuitionEur": 3000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng",
    "livingEur": 1100,
@@ -1854,8 +1874,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên EU/EEA miễn học phí; sinh viên ngoài EU khoảng DKK 45.000-75.000/học kỳ (khoảng 6.000-10.000 EUR/học kỳ)",
-   "tuitionEur": 6030,
-   "tuitionCur": "DKK",
+   "tuitionEur": 12000,
+   "tuitionCur": "EUR",
    "livingRaw": "Khoảng 800-1.200 EUR/tháng",
    "livingEur": 1200,
    "scholarshipSchool": "Một số suất học bổng có giới hạn cho sinh viên ngoài EU/EEA xuất sắc mỗi đợt tuyển tháng 9",
@@ -1898,7 +1918,7 @@
     "recurring": true
    },
    "scholarshipDeadline": null,
-   "link": "https://www.uni-weimar.de/en/architecture-and-urbanism/studies/master/architecture/master-architecture/",
+   "link": "https://www.uni-weimar.de/en/studies/degree-programmes/architecture-msc/",
    "linkStatus": "ok",
    "language": "Tiếng Đức (yêu cầu DSH-2 hoặc TestDaF TDN4)",
    "mainLanguage": "Tiếng Đức",
@@ -1913,7 +1933,8 @@
    "requirements": "Bằng cử nhân/Diplom Kiến trúc, vượt qua kỳ thi tuyển đầu vào (portfolio, thư động lực, có thể phỏng vấn)",
    "notes": "Bắt buộc thi tuyển đầu vào (Eignungsprüfung); trường có truyền thống Bauhaus nổi tiếng thế giới",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 42,
@@ -1947,7 +1968,7 @@
    "language": "Chủ yếu tiếng Hà Lan, một phần giảng dạy bằng tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên EU khoảng 950 EUR/năm; sinh viên ngoài EU khoảng 2.200-6.000 EUR/năm tuỳ diện",
-   "tuitionEur": 950,
+   "tuitionEur": 2200,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng",
    "livingEur": 1100,
@@ -1996,7 +2017,7 @@
    "language": "Tiếng Đức",
    "mainLanguage": "Tiếng Đức",
    "tuitionRaw": "Sinh viên EU/EEA chỉ đóng phí Hội sinh viên (ÖH) khoảng 25 EUR/kỳ nếu học đúng hạn; sinh viên ngoài EU khoảng 726 EUR/kỳ cộng phí ÖH",
-   "tuitionEur": 25,
+   "tuitionEur": 1452,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 800-1.000 EUR/tháng",
    "livingEur": 1000,
@@ -2139,16 +2160,17 @@
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên EU/EEA/Thụy Sĩ miễn học phí; sinh viên ngoài khối đóng học phí (Category 2), khoảng vài trăm nghìn NOK/năm tuỳ năm học",
    "tuitionEur": null,
-   "tuitionCur": null,
+   "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.000-1.300 EUR/tháng",
    "livingEur": 1300,
    "scholarshipSchool": "Không rõ, có hỗ trợ tài chính hạn chế cho một số sinh viên ngoài EU",
    "scholarshipOther": "Erasmus Mundus, Quỹ học bổng nhà nước Na Uy cho một số đối tượng",
    "hasScholarship": true,
    "requirements": "Bằng cử nhân 3 năm ngành Kiến trúc, Kỹ thuật hoặc Quy hoạch đô thị, tối thiểu 30 ECTS liên quan thiết kế kiến trúc/xây dựng",
-   "notes": "NTNU còn có chương trình Master of Architecture tích hợp 5 năm giảng dạy chủ yếu bằng tiếng Na Uy",
+   "notes": "NTNU còn có chương trình Master of Architecture tích hợp 5 năm giảng dạy chủ yếu bằng tiếng Na Uy. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 47,
@@ -2182,7 +2204,7 @@
    "language": "Tiếng Tây Ban Nha/Catalan, một phần tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 46 EUR/tín chỉ cho sinh viên EU/thường trú; khoảng 75 EUR/tín chỉ cho sinh viên ngoài EU không thường trú",
-   "tuitionEur": 46,
+   "tuitionEur": 4500,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.200 EUR/tháng",
    "livingEur": 1200,
@@ -2231,7 +2253,7 @@
    "language": "Chủ yếu tiếng Tây Ban Nha (80%), một phần Catalan và tiếng Anh (10%)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 19,37 EUR/tín chỉ cho sinh viên EU/thường trú; khoảng 82 EUR/tín chỉ cho sinh viên ngoài EU không thường trú",
-   "tuitionEur": 82,
+   "tuitionEur": 4920,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.200 EUR/tháng",
    "livingEur": 1200,
@@ -2257,19 +2279,24 @@
    "desc": "Thạc sĩ nghiên cứu Đô thị học liên ngành dành cho sinh viên quan tâm đến thành phố và môi trường đô thị, nền tảng từ khoa học xã hội như địa lý, xã hội học, quy hoạch.",
    "duration": "2 năm (chương trình research master)",
    "months": 24,
-   "deadlineRaw": "Sinh viên ngoài EEA đăng ký Studielink trước 23/1/2026 và nộp hồ sơ SIS trước 2/2/2026",
+   "deadlineRaw": "SV ngoài EEA: đăng ký Studielink trước 5/2/2027 và nộp hồ sơ SIS trước 15/2/2027 (SV EEA: 15/3/2027), nhập học 9/2027",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 23,
-      "m": 1,
-      "y": 2026
+      "d": 5,
+      "m": 2,
+      "y": 2027
      },
      {
-      "d": 2,
+      "d": 15,
       "m": 2,
-      "y": 2026
+      "y": 2027
+     },
+     {
+      "d": 15,
+      "m": 3,
+      "y": 2027
      }
     ],
     "recurring": false
@@ -2280,7 +2307,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên EU/EEA theo mức học phí luật định khoảng 2.600 EUR/năm; sinh viên ngoài EU/EEA thường trên 15.000 EUR/năm",
-   "tuitionEur": 2600,
+   "tuitionEur": 15000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.100-1.500 EUR/tháng",
    "livingEur": 1500,
@@ -2290,7 +2317,8 @@
    "requirements": "Bằng cử nhân khoa học xã hội liên quan (địa lý nhân văn, xã hội học, quy hoạch, khoa học chính trị, nhân học), thư động lực, đề cương nghiên cứu",
    "notes": "Đây là chương trình Research Master thiên về nghiên cứu học thuật hơn thiết kế/thực hành kiến trúc",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 50,
@@ -2324,7 +2352,7 @@
    "language": "Tiếng Bồ Đào Nha",
    "mainLanguage": "Khác",
    "tuitionRaw": "Sinh viên EU khoảng 697-1.250 EUR/năm; sinh viên ngoài EU có thể lên tới khoảng 7.000 EUR/năm tuỳ quy định hàng năm",
-   "tuitionEur": 1250,
+   "tuitionEur": 7000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 700-900 EUR/tháng",
    "livingEur": 900,
@@ -2368,7 +2396,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho công dân EU/EEA; EUR 20.000/năm cho sinh viên ngoài EU/EEA",
-   "tuitionEur": 0,
+   "tuitionEur": 20000,
    "tuitionCur": "EUR",
    "livingRaw": "EUR 800-1.200/tháng (Espoo/Helsinki)",
    "livingEur": 800,
@@ -2406,8 +2434,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "DKK 90.000 cho toàn khóa 60 ECTS (khoảng 12.000 EUR), áp dụng chung mọi quốc tịch",
-   "tuitionEur": 12000,
-   "tuitionCur": "EUR",
+   "tuitionEur": 6030,
+   "tuitionCur": "DKK",
    "livingRaw": "Khoảng 800-1.200 EUR/tháng",
    "livingEur": 1200,
    "scholarshipSchool": "Không rõ học bổng riêng cho chương trình này",
@@ -2494,7 +2522,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "89.000 CZK/học kỳ (~3.650 EUR/kỳ, khoảng 7.300 EUR/năm)",
-   "tuitionEur": 3560,
+   "tuitionEur": 7120,
    "tuitionCur": "CZK",
    "livingRaw": "Khoảng 600-1.000 USD/tháng tại Prague",
    "livingEur": 920,
@@ -2543,8 +2571,8 @@
    "language": "Tiếng Ba Lan (yêu cầu B2)",
    "mainLanguage": "Khác",
    "tuitionRaw": "Miễn phí cho SV Ba Lan/EU học bằng tiếng Ba Lan; khoảng 12.500 USD/năm cho hệ tiếng Anh nếu có",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 11500,
+   "tuitionCur": "USD",
    "livingRaw": "Khoảng 500-800 USD/tháng",
    "livingEur": 736,
    "scholarshipSchool": "Học bổng Bộ trưởng và học bổng hiệu trưởng theo thành tích",
@@ -2675,7 +2703,7 @@
    "language": "Tiếng Đức (một số Meisterklasse dùng tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EUR khoảng 363/học kỳ (EU/EEA) - EUR 727/học kỳ (ngoài EU) cộng phí hội sinh viên",
-   "tuitionEur": 727,
+   "tuitionEur": 1454,
    "tuitionCur": "EUR",
    "livingRaw": "EUR 900-1.200/tháng (Vienna)",
    "livingEur": 900,
@@ -2713,7 +2741,7 @@
    "language": "Tiếng Hà Lan, một số học phần tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 2.694 EUR/năm cho SV EU/EEA; khoảng 10.162 EUR/năm cho SV ngoài EEA",
-   "tuitionEur": 2694,
+   "tuitionEur": 10162,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.200-1.500 EUR/tháng",
    "livingEur": 1500,
@@ -2751,7 +2779,7 @@
    "language": "Tiếng Hy Lạp",
    "mainLanguage": "Khác",
    "tuitionRaw": "Miễn học phí cho SV EU/EEA, chỉ đóng lệ phí nhỏ khoảng 150 EUR/kỳ; SV ngoài EU cần liên hệ trường",
-   "tuitionEur": 150,
+   "tuitionEur": null,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 600-800 EUR/tháng",
    "livingEur": 800,
@@ -2759,9 +2787,10 @@
    "scholarshipOther": "Học bổng Nhà nước Hy Lạp (IKY)",
    "hasScholarship": true,
    "requirements": "Portfolio, hồ sơ, có thể phỏng vấn, yêu cầu trình độ tiếng Hy Lạp nhất định",
-   "notes": "Rào cản ngôn ngữ tiếng Hy Lạp lớn với SV quốc tế",
+   "notes": "Rào cản ngôn ngữ tiếng Hy Lạp lớn với SV quốc tế. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 61,
@@ -2831,13 +2860,13 @@
    "desc": "Thạc sĩ Mỹ thuật tại một trong những trường nghệ thuật lớn nhất châu Âu, chú trọng thực hành xưởng cá nhân, đối thoại phê bình và triển lãm",
    "duration": "2 năm (4 học kỳ)",
    "months": 24,
-   "deadlineRaw": "Cửa sổ nộp hồ sơ thường trong khoảng tháng 1-4 hàng năm cho kỳ nhập học mùa đông (tháng 10)",
+   "deadlineRaw": "5/2 - 5/3 hàng năm cho kỳ mùa đông (tháng 10)",
    "deadline": {
-    "type": "month",
+    "type": "window",
     "dates": [
      {
-      "d": 31,
-      "m": 1,
+      "d": 5,
+      "m": 3,
       "y": null
      }
     ],
@@ -2849,7 +2878,7 @@
    "language": "Tiếng Đức (một số vòng phỏng vấn có thể dùng tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn học phí (trường công lập Đức), chỉ đóng phí bán phần khoảng EUR 360/kỳ (~EUR 720/năm)",
-   "tuitionEur": 360,
+   "tuitionEur": 0,
    "tuitionCur": "EUR",
    "livingRaw": "khoảng EUR 900-1.200/tháng tại Berlin",
    "livingEur": 900,
@@ -2859,7 +2888,8 @@
    "requirements": "Portfolio bắt buộc kèm phỏng vấn hoặc thi tuyển",
    "notes": "Đức không thu học phí đại học công lập, chi phí học tập rất thấp so với các trường khác",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 63,
@@ -2875,17 +2905,17 @@
    "desc": "Chương trình thạc sĩ lịch sử nghệ thuật quy mô lớn và uy tín hàng đầu thế giới, xếp hạng số 1 toàn cầu về History of Art theo QS 2026",
    "duration": "9 tháng toàn thời gian",
    "months": 9,
-   "deadlineRaw": "Xét tuyển liên tục, hạn cuối 6 tháng 8 hàng năm",
+   "deadlineRaw": "11/1/2027 cho kỳ nhập học tháng 9/2027",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 6,
-      "m": 8,
-      "y": null
+      "d": 11,
+      "m": 1,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://courtauld.ac.uk/explore-our-courses/postgraduate/ma-history-of-art/",
@@ -2893,7 +2923,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV Anh 16.275 GBP/năm; SV quốc tế 33.285 GBP/năm (năm học 2026/27)",
-   "tuitionEur": 19042,
+   "tuitionEur": 38943,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.500-2.000 GBP/tháng",
    "livingEur": 2340,
@@ -2903,7 +2933,8 @@
    "requirements": "Bằng cử nhân loại giỏi tương đương 2.1 Anh hoặc GPA 3.3+, không yêu cầu portfolio",
    "notes": "Đây là chương trình lý thuyết, không phải MFA thực hành",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 64,
@@ -2968,17 +2999,22 @@
    "desc": "Chương trình thạc sĩ chia theo các \"khoa\" chuyên đề như Social Design, Contextual Design, nổi tiếng về tư duy thiết kế phản biện và thử nghiệm khái niệm (Dutch Design).",
    "duration": "2 năm (120 ECTS)",
    "months": 24,
-   "deadlineRaw": "Thường khoảng tháng 1-4 cho nhập học tháng 9 (kiểm tra trang trường)",
+   "deadlineRaw": "Vòng 1: 29/1/2027; vòng 2: 29/3/2027 (nộp trước 23:59)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 29,
       "m": 1,
-      "y": null
+      "y": 2027
+     },
+     {
+      "d": 29,
+      "m": 3,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.designacademy.nl/page/398/master-programme",
@@ -2996,7 +3032,8 @@
    "requirements": "Bằng cử nhân liên quan; portfolio là bắt buộc, thể hiện thực hành và nghiên cứu sáng tạo",
    "notes": "DAE nổi tiếng thế giới về thiết kế khái niệm và thử nghiệm",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 66,
@@ -3030,7 +3067,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA; khoảng 36.000 EUR trọn khóa 2 năm cho SV ngoài EU/EEA",
-   "tuitionEur": 0,
+   "tuitionEur": 18000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.200 EUR/tháng",
    "livingEur": 1200,
@@ -3074,7 +3111,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/Thụy Sĩ khoảng 17.200-23.900 EUR/năm; Ngoài EU khoảng 22.200-28.900 EUR/năm tùy chương trình",
-   "tuitionEur": 23900,
+   "tuitionEur": 22200,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.000-1.300 EUR/tháng tại Milan",
    "livingEur": 1300,
@@ -3156,7 +3193,7 @@
    "language": "Tiếng Pháp (yêu cầu trình độ B2 với ứng viên nước ngoài)",
    "mainLanguage": "Tiếng Pháp",
    "tuitionRaw": "EUR 458/năm (học phí công lập Pháp, áp dụng mọi quốc tịch) cộng phí CVEC khoảng EUR 103",
-   "tuitionEur": 103,
+   "tuitionEur": 458,
    "tuitionCur": "EUR",
    "livingRaw": "khoảng EUR 1.000-1.300/tháng tại Paris",
    "livingEur": 1000,
@@ -3238,7 +3275,7 @@
    "language": "Tiếng Pháp (yêu cầu trình độ tiếng Anh tốt)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 13.895-15.895 EUR/năm tùy EU hay ngoài EU",
-   "tuitionEur": 15895,
+   "tuitionEur": 13895,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.200-1.500 EUR/tháng",
    "livingEur": 1500,
@@ -3282,7 +3319,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 2.000-4.200 EUR/năm",
-   "tuitionEur": 4200,
+   "tuitionEur": 2000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 500-700 EUR/tháng tại Tallinn",
    "livingEur": 700,
@@ -3396,10 +3433,16 @@
    "desc": "Chương trình 2 năm (năm 1 Diploma, năm 2 MFA) gắn liền với phong trào Young British Artists, chú trọng phản biện lý thuyết và thực hành cá nhân.",
    "duration": "2 năm toàn thời gian (hoặc 4 năm bán thời gian)",
    "months": 24,
-   "deadlineRaw": "Nộp hồ sơ theo đợt, nên nộp sớm để được xét học bổng (kiểm tra trang trường)",
+   "deadlineRaw": "31/1/2027 cho kỳ nhập học tháng 9/2027 (hạn học bổng có thể sớm hơn)",
    "deadline": {
-    "type": "rolling",
-    "dates": [],
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 31,
+      "m": 1,
+      "y": 2027
+     }
+    ],
     "recurring": false
    },
    "scholarshipDeadline": null,
@@ -3418,7 +3461,8 @@
    "requirements": "Bằng cử nhân liên quan; portfolio là bắt buộc",
    "notes": "Cựu sinh viên nổi bật gồm Damien Hirst, Steve McQueen",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 76,
@@ -3434,14 +3478,19 @@
    "desc": "Thạc sĩ 1 năm tiếng Anh tại PXL-MAD liên kết học thuật với Hasselt University, thực hành nghệ thuật với chuyên ngành như gốm, kính, hội họa, khắc in, điêu khắc.",
    "duration": "1 năm (60 ECTS)",
    "months": 12,
-   "deadlineRaw": "Đợt 2025-2026 gia hạn đến 15/6/2026, năm 2026-2027 cần kiểm tra trên trang trường",
+   "deadlineRaw": "31/1/2027 (đợt nộp mở từ đầu tháng 12/2026; muốn xin học bổng Master Mind cũng nộp trước 31/1)",
    "deadline": {
-    "type": "window",
+    "type": "fixed",
     "dates": [
      {
-      "d": 15,
-      "m": 6,
-      "y": 2026
+      "d": 31,
+      "m": 1,
+      "y": 2027
+     },
+     {
+      "d": 31,
+      "m": 1,
+      "y": null
      }
     ],
     "recurring": false
@@ -3452,7 +3501,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV EU khoảng 1.181 EUR/năm; SV ngoài EU khoảng 9.400 EUR/năm",
-   "tuitionEur": 1181,
+   "tuitionEur": 9400,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng",
    "livingEur": 1100,
@@ -3462,7 +3511,8 @@
    "requirements": "Bằng cử nhân mỹ thuật/thiết kế liên quan, portfolio, thư động lực",
    "notes": "Hasselt University xuất hiện trong QS Art & Design nhờ liên kết học thuật với PXL-MAD",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 77,
@@ -3589,7 +3639,7 @@
    "language": "Tiếng Anh/Tiếng Ý tùy khóa",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 20.100-24.000 EUR/năm",
-   "tuitionEur": 24000,
+   "tuitionEur": 20100,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.000-1.300 EUR/tháng tại Milan",
    "livingEur": 1300,
@@ -3615,19 +3665,19 @@
    "desc": "Chương trình thạc sĩ liên ngành giữa Royal College of Art và Imperial College London, đào tạo thiết kế đổi mới sáng tạo toàn cầu với trao đổi quốc tế",
    "duration": "2 năm (24 tháng)",
    "months": 24,
-   "deadlineRaw": "Round 2: 17/3/2026; Round 3: 3/6/2026 (nhập học tháng 9/2026)",
+   "deadlineRaw": "Vòng 1: 8/1/2027; vòng 2: 23/3/2027 (theo lịch tuyển sinh RCA, nộp trước 12h trưa giờ Anh)",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 17,
-      "m": 3,
-      "y": 2026
+      "d": 8,
+      "m": 1,
+      "y": 2027
      },
      {
-      "d": 3,
-      "m": 6,
-      "y": 2026
+      "d": 23,
+      "m": 3,
+      "y": 2027
      }
     ],
     "recurring": false
@@ -3638,7 +3688,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 27.000-46.000 GBP/năm tùy chương trình",
-   "tuitionEur": 53820,
+   "tuitionEur": 31590,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.300-1.500 GBP/tháng tại London",
    "livingEur": 1755,
@@ -3648,7 +3698,8 @@
    "requirements": "Bắt buộc nộp portfolio thiết kế/kỹ thuật",
    "notes": "Chương trình phối hợp RCA-Imperial, còn liên kết Keio University Nhật Bản và Pratt Institute Mỹ",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 81,
@@ -3682,7 +3733,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EUR 31.000/năm (SV EU) - EUR 33.500/năm (SV ngoài EU), cộng phí ghi danh EUR 5.500",
-   "tuitionEur": 5500,
+   "tuitionEur": 31000,
    "tuitionCur": "EUR",
    "livingRaw": "khoảng EUR 1.000-1.300/tháng tại Milan",
    "livingEur": 1000,
@@ -3720,7 +3771,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "14.000 GBP/năm (SV Anh); 28.000 GBP/năm (SV quốc tế), niên khóa 2026/27",
-   "tuitionEur": 16380,
+   "tuitionEur": 32760,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.300-1.600 GBP/tháng (London)",
    "livingEur": 1872,
@@ -3746,17 +3797,17 @@
    "desc": "Chương trình thạc sĩ nhỏ, chọn lọc cao, chú trọng thực hành nghệ thuật cá nhân kết hợp phản biện lý thuyết trong bối cảnh thiết kế-thủ công Thụy Điển.",
    "duration": "2 năm (120 ECTS)",
    "months": 24,
-   "deadlineRaw": "Khoảng tháng 11-1 hàng năm (nhập học tháng 8/9)",
+   "deadlineRaw": "15/1/2027 (nộp qua universityadmissions.se + bài dự tuyển trên konstfack.se), nhập học tháng 8/2027",
    "deadline": {
-    "type": "window",
+    "type": "fixed",
     "dates": [
      {
-      "d": 8,
-      "m": 9,
-      "y": null
+      "d": 15,
+      "m": 1,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.konstfack.se/en/Education/Masters-Degree-Programmes/Fine-Art/",
@@ -3764,7 +3815,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho công dân EU/EEA/Thụy Sĩ; khoảng SEK 210.000-240.000/năm (~EUR 18.000-21.000) cho sinh viên ngoài EU",
-   "tuitionEur": 0,
+   "tuitionEur": 18000,
    "tuitionCur": "EUR",
    "livingRaw": "SEK 9.000-12.000/tháng (~EUR 800-1.050, Stockholm)",
    "livingEur": 792,
@@ -3774,7 +3825,8 @@
    "requirements": "Portfolio nghệ thuật, đề xuất dự án/statement of intent và phỏng vấn là bắt buộc",
    "notes": "Konstfack còn có nhiều chương trình thạc sĩ Thiết kế khác như CRAFT!, Design Ecologies",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 84,
@@ -3802,7 +3854,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 8.900 EUR/năm cho SV châu Âu, 9.900 EUR/năm cho SV ngoài châu Âu",
-   "tuitionEur": 8900,
+   "tuitionEur": 9900,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 800-1.000 EUR/tháng",
    "livingEur": 1000,
@@ -3851,7 +3903,7 @@
    "language": "Tiếng Pháp",
    "mainLanguage": "Tiếng Pháp",
    "tuitionRaw": "SV Bỉ/EU khoảng 454,47 EUR/năm; SV ngoài EU cộng thêm phụ phí khoảng 4.175 EUR/năm",
-   "tuitionEur": 4175,
+   "tuitionEur": 4629,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng tại Brussels",
    "livingEur": 1100,
@@ -3861,7 +3913,8 @@
    "requirements": "Bắt buộc nộp portfolio nghệ thuật khổ A4/A5 kèm mô tả tác phẩm, có thể phỏng vấn",
    "notes": "Yêu cầu trình độ tiếng Pháp tốt; trường công lập, học phí rất thấp so với mặt bằng châu Âu",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 86,
@@ -3983,7 +4036,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA/Thụy Sĩ; SV ngoài EU 410.000 SEK toàn khóa (khoảng 18.000 EUR/năm)",
-   "tuitionEur": 0,
+   "tuitionEur": 18000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 800-1.000 EUR/tháng",
    "livingEur": 1000,
@@ -4009,12 +4062,12 @@
    "desc": "Thạc sĩ 2 năm tại K3 đào tạo thiết kế tương tác kết hợp công nghệ, truyền thông và nghiên cứu thiết kế.",
    "duration": "2 năm (120 tín chỉ)",
    "months": 24,
-   "deadlineRaw": "16/1 hàng năm (vòng 1), giữa tháng 4 (vòng 2) qua universityadmissions.se",
+   "deadlineRaw": "15/1 hàng năm (vòng 1, qua universityadmissions.se); vòng 2 khoảng giữa tháng 4",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 16,
+      "d": 15,
       "m": 1,
       "y": null
      }
@@ -4027,7 +4080,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV EU/EEA/Thụy Sĩ miễn học phí; SV ngoài EU ước tính 130.000-140.000 SEK/năm",
-   "tuitionEur": 12320,
+   "tuitionEur": 11440,
    "tuitionCur": "SEK",
    "livingRaw": "Khoảng 8.000-10.000 SEK/tháng (~750-950 EUR)",
    "livingEur": 880,
@@ -4037,7 +4090,8 @@
    "requirements": "Bằng cử nhân liên quan (thiết kế, CNTT, truyền thông...), thư động lực, có thể yêu cầu work sample",
    "notes": "K3 còn có chương trình Interaction Design 1 năm (TAINE) và khóa ngắn khác",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 90,
@@ -4115,7 +4169,7 @@
    "language": "Tiếng Anh (tối thiểu B2)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "5.000 EUR/học kỳ (khoảng 10.000 EUR/năm) cho SV ngoài EU/EEA; phí ghi danh 50 EUR",
-   "tuitionEur": 50,
+   "tuitionEur": 10000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 500-700 EUR/tháng",
    "livingEur": 700,
@@ -4235,7 +4289,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Không rõ số chính xác, ước tính khoảng 17.500-19.500 GBP/năm cho SV quốc tế",
-   "tuitionEur": 22815,
+   "tuitionEur": 20475,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.000-1.200 GBP/tháng",
    "livingEur": 1404,
@@ -4279,7 +4333,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV Anh khoảng 9.000 GBP/năm; SV quốc tế khoảng 18.000 GBP/năm",
-   "tuitionEur": 10530,
+   "tuitionEur": 21060,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 900-1.100 GBP/tháng",
    "livingEur": 1287,
@@ -4323,7 +4377,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA/Thụy Sĩ; có học phí cho SV ngoài khối trừ khi được miễn; phí SV bắt buộc 690 NOK/kỳ",
-   "tuitionEur": 0,
+   "tuitionEur": null,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 166.859 NOK/năm theo yêu cầu tối thiểu của UDI để xin visa",
    "livingEur": 14350,
@@ -4331,9 +4385,10 @@
    "scholarshipOther": "Học bổng Chính phủ Na Uy",
    "hasScholarship": true,
    "requirements": "Bắt buộc bằng cử nhân Mỹ thuật 3 năm (180 ECTS) và hồ sơ/portfolio thực hành nghệ thuật",
-   "notes": "Chương trình không chuyên biệt chất liệu, khuyến khích thực hành liên ngành",
+   "notes": "Chương trình không chuyên biệt chất liệu, khuyến khích thực hành liên ngành. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường. Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 97,
@@ -4449,7 +4504,7 @@
    "language": "Tiếng Ý và tiếng Anh (song ngữ)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 4.000-5.000 EUR/năm cho SV quốc tế (tính theo thu nhập gia đình)",
-   "tuitionEur": 5000,
+   "tuitionEur": 4000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 800-1.000 EUR/tháng tại Turin",
    "livingEur": 1000,
@@ -4475,13 +4530,13 @@
    "desc": "Thạc sĩ đào tạo nhiếp ảnh gia có ý thức xã hội, quan tâm đến vai trò công nghệ, chính trị, môi trường và xã hội của nhiếp ảnh",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Nộp hồ sơ trực tuyến trước 1/5 hàng năm",
+   "deadlineRaw": "2/3 hàng năm (sau 2/3 chỉ xét nếu còn chỗ)",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 1,
-      "m": 5,
+      "d": 2,
+      "m": 3,
       "y": null
      }
     ],
@@ -4503,7 +4558,8 @@
    "requirements": "Portfolio và đề cương nghiên cứu bắt buộc, vòng 1 xét hồ sơ, vòng 2 phỏng vấn",
    "notes": "KABK có 7 chương trình Master tiếng Anh (Fine Art, Photography & Society, Interior Architecture, Type and Media...)",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 101,
@@ -4519,10 +4575,16 @@
    "desc": "Chương trình Thạc sĩ Kiến trúc chuyên sâu về thiết kế, được RIBA và ARB công nhận tương đương Part 2, dành cho SV đã có bằng Kiến trúc Part 1.",
    "duration": "2 năm toàn thời gian",
    "months": 24,
-   "deadlineRaw": "Không rõ",
+   "deadlineRaw": "13/1/2027 cho kỳ nhập học tháng 9/2027",
    "deadline": {
-    "type": "unknown",
-    "dates": [],
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 13,
+      "m": 1,
+      "y": 2027
+     }
+    ],
     "recurring": false
    },
    "scholarshipDeadline": null,
@@ -4541,7 +4603,8 @@
    "requirements": "Bằng Cử nhân Kiến trúc loại 2.1 trở lên có RIBA Part 1, portfolio thiết kế, IELTS 6.5",
    "notes": "Chương trình được RIBA và ARB công nhận là Part 2",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 102,
@@ -4613,7 +4676,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV EU/EEA khoảng EUR 2694/năm, SV ngoài EU khoảng EUR 21700/năm",
-   "tuitionEur": 2694,
+   "tuitionEur": 21700,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1100/tháng",
    "livingEur": 900,
@@ -4963,7 +5026,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV EU/EEA miễn phí, SV ngoài EU khoảng EUR 10000-11000/học kỳ tương đương EUR 20000-22000/năm",
-   "tuitionEur": 0,
+   "tuitionEur": 20000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1000-1300/tháng, Copenhagen đắt đỏ",
    "livingEur": 1000,
@@ -5056,7 +5119,7 @@
    "language": "Tiếng Tây Ban Nha",
    "mainLanguage": "Tiếng Tây Ban Nha",
    "tuitionRaw": "SV EU khoảng EUR 800-1500/năm, SV ngoài EU có thể cao hơn ước tính đến EUR 7500/năm tùy diện",
-   "tuitionEur": 800,
+   "tuitionEur": 7500,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 700-900/tháng",
    "livingEur": 700,
@@ -5144,7 +5207,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV EU khoảng EUR 835-1092/năm, SV ngoài EU ước tính khoảng EUR 3000-5000/năm",
-   "tuitionEur": 835,
+   "tuitionEur": 3000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1100/tháng",
    "livingEur": 900,
@@ -5188,8 +5251,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV ngoài EU khoảng EUR 6795/học kỳ tương đương EUR 13590/năm, SV EU/EFTA khoảng PLN 7595/học kỳ",
-   "tuitionEur": 1762,
-   "tuitionCur": "PLN",
+   "tuitionEur": 13590,
+   "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 500-700/tháng",
    "livingEur": 500,
    "scholarshipSchool": "Học bổng SV xuất sắc của trường",
@@ -5214,10 +5277,26 @@
    "desc": "Thạc sĩ Quy hoạch đô thị được RTPI công nhận, dành cho SV có nền tảng Kiến trúc, Địa lý hoặc các ngành liên quan đến môi trường xây dựng.",
    "duration": "1 năm toàn thời gian",
    "months": 12,
-   "deadlineRaw": "Không rõ",
+   "deadlineRaw": "Xét theo 6 vòng cho kỳ 9/2027: vòng đầu hạn 5/11/2026, vòng 3 hạn 4/2/2027, vòng cuối hạn 8/7/2027",
    "deadline": {
-    "type": "unknown",
-    "dates": [],
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 5,
+      "m": 11,
+      "y": 2026
+     },
+     {
+      "d": 4,
+      "m": 2,
+      "y": 2027
+     },
+     {
+      "d": 8,
+      "m": 7,
+      "y": 2027
+     }
+    ],
     "recurring": false
    },
    "scholarshipDeadline": null,
@@ -5226,7 +5305,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV quốc tế khoảng GBP 26580/năm, SV Anh khoảng GBP 11820/năm",
-   "tuitionEur": 13829,
+   "tuitionEur": 31099,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 1000-1200/tháng",
    "livingEur": 1170,
@@ -5236,7 +5315,8 @@
    "requirements": "Bằng Cử nhân loại 2.1 ngành liên quan Quy hoạch, Địa lý, Kiến trúc, bài luận cá nhân, IELTS theo yêu cầu trường",
    "notes": "Trường không có chương trình Thạc sĩ Kiến trúc riêng",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 118,
@@ -5308,7 +5388,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Học phí theo thu nhập (ISEE), khoảng 200-4000 EUR/năm cho cả SV EU và ngoài EU",
-   "tuitionEur": 4000,
+   "tuitionEur": 200,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 800-1100 EUR/tháng tại Rome",
    "livingEur": 1100,
@@ -5352,7 +5432,7 @@
    "language": "Tiếng Pháp",
    "mainLanguage": "Tiếng Pháp",
    "tuitionRaw": "Khoảng 243-380 EUR/năm (mức học phí công lập chuẩn của Pháp)",
-   "tuitionEur": 380,
+   "tuitionEur": 243,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1000-1300 EUR/tháng tại Paris",
    "livingEur": 1300,
@@ -5396,7 +5476,7 @@
    "language": "Tiếng Thổ Nhĩ Kỳ (một số chương trình có tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 1250-2500 USD/năm cho sinh viên quốc tế",
-   "tuitionEur": 2300,
+   "tuitionEur": 1150,
    "tuitionCur": "USD",
    "livingRaw": "Khoảng 400-600 USD/tháng tại Istanbul",
    "livingEur": 552,
@@ -5422,13 +5502,13 @@
    "desc": "Thạc sĩ Kiến trúc 2 năm theo mô hình studio, sinh viên tự chọn hướng chuyên sâu (track) riêng.",
    "duration": "2 năm (4 học kỳ)",
    "months": 24,
-   "deadlineRaw": "15/3 hàng năm cho SV ngoài EU/EEA (nhập học tháng 9)",
+   "deadlineRaw": "1/2 hàng năm cho kỳ nhập học tháng 9",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 15,
-      "m": 3,
+      "d": 1,
+      "m": 2,
       "y": null
      }
     ],
@@ -5440,7 +5520,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "18000 EUR/năm cho SV ngoài EU/EEA; miễn phí cho SV EU/EEA/Bắc Âu",
-   "tuitionEur": 0,
+   "tuitionEur": 18000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1200 EUR/tháng tại Aarhus",
    "livingEur": 1200,
@@ -5450,7 +5530,8 @@
    "requirements": "Bằng cử nhân Kiến trúc, portfolio thiết kế, IELTS 6.5",
    "notes": "Trường chuyên ngành kiến trúc độc lập, nổi tiếng về thiết kế thực nghiệm",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 123,
@@ -5466,13 +5547,13 @@
    "desc": "Thạc sĩ Kiến trúc 2 năm theo mô hình studio, cho phép chuyên sâu kiến trúc, đô thị hoặc cảnh quan.",
    "duration": "2 năm (120 ECTS)",
    "months": 24,
-   "deadlineRaw": "Khoảng đầu tháng 3 hàng năm cho SV quốc tế (nhập học tháng 8)",
+   "deadlineRaw": "2/2 hàng năm (mở nhận hồ sơ từ đầu tháng 12), nhập học tháng 8",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
-      "m": 3,
+      "d": 2,
+      "m": 2,
       "y": null
      }
     ],
@@ -5494,7 +5575,8 @@
    "requirements": "Bằng cử nhân Kiến trúc, portfolio thiết kế, tiếng Anh",
    "notes": "Trường kiến trúc chuyên ngành hàng đầu Bắc Âu, quy mô nhỏ, chọn lọc cao",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 124,
@@ -5510,17 +5592,17 @@
    "desc": "Thạc sĩ Kiến trúc 2 năm được công nhận bởi RIBA/ARB, đào tạo kiến trúc sư chuyên nghiệp giai đoạn 2.",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Nên nộp sớm (thường tháng 1-6) do giới hạn chỗ, nhập học tháng 9",
+   "deadlineRaw": "30/6/2027 cho kỳ nhập học cuối tháng 9/2027 (có thể đóng sớm nếu nhiều hồ sơ)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
-      "m": 1,
-      "y": null
+      "d": 30,
+      "m": 6,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.qub.ac.uk/courses/postgraduate-taught/architecture-march/",
@@ -5538,7 +5620,8 @@
    "requirements": "Bằng cử nhân Kiến trúc được ARB/RIBA công nhận (Part 1), portfolio, IELTS 6.5",
    "notes": "Bằng MArch được công nhận hành nghề kiến trúc sư tại Anh",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 125,
@@ -5572,7 +5655,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 24480-33360 GBP/năm cho SV quốc tế",
-   "tuitionEur": 39031,
+   "tuitionEur": 28642,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 900-1100 GBP/tháng tại Birmingham",
    "livingEur": 1287,
@@ -5665,7 +5748,7 @@
    "language": "Tiếng Ý",
    "mainLanguage": "Tiếng Ý",
    "tuitionRaw": "Học phí theo thu nhập (ISEE), khoảng 200-3000 EUR/năm",
-   "tuitionEur": 3000,
+   "tuitionEur": 200,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 700-900 EUR/tháng tại Bari",
    "livingEur": 900,
@@ -5709,7 +5792,7 @@
    "language": "Tiếng Pháp",
    "mainLanguage": "Tiếng Pháp",
    "tuitionRaw": "Khoảng 835 EUR/năm cho SV EU; khoảng 4175-8920 EUR/năm cho SV ngoài EU",
-   "tuitionEur": 835,
+   "tuitionEur": 4175,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1100 EUR/tháng tại Brussels",
    "livingEur": 1100,
@@ -5753,7 +5836,7 @@
    "language": "Tiếng Hà Lan (một số phần bằng tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 950 EUR/năm cho SV EU/EEA; khoảng 6000-11000 EUR/năm cho SV ngoài EU",
-   "tuitionEur": 950,
+   "tuitionEur": 6000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1100 EUR/tháng tại Antwerp",
    "livingEur": 1100,
@@ -5802,7 +5885,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA/Thụy Sĩ; khoảng 15000-19000 EUR/năm cho SV ngoài EU",
-   "tuitionEur": 0,
+   "tuitionEur": 15000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1000-1300 EUR/tháng tại Copenhagen",
    "livingEur": 1300,
@@ -5846,7 +5929,7 @@
    "language": "Tiếng Tây Ban Nha",
    "mainLanguage": "Tiếng Tây Ban Nha",
    "tuitionRaw": "Khoảng 900-1600 EUR/năm",
-   "tuitionEur": 1600,
+   "tuitionEur": 900,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 700-900 EUR/tháng tại Granada",
    "livingEur": 900,
@@ -5872,17 +5955,22 @@
    "desc": "Thạc sĩ Kiến trúc 2 năm (giai đoạn 2 sau Part 1), được công nhận bởi RIBA/ARB, đào tạo thiết kế kiến trúc chuyên sâu.",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Tuyển sinh theo vòng, khuyến nghị nộp trước tháng 3-6 (nhập học tháng 9)",
+   "deadlineRaw": "30/7/2027 cho SV quốc tế; 10/9/2027 cho SV Anh",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
-      "m": 3,
-      "y": null
+      "d": 30,
+      "m": 7,
+      "y": 2027
+     },
+     {
+      "d": 10,
+      "m": 9,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://courses.leeds.ac.uk/j929/architecture-march",
@@ -5900,7 +5988,8 @@
    "requirements": "Bằng cử nhân Kiến trúc được ARB/RIBA công nhận (Part 1), portfolio, IELTS 6.5",
    "notes": "Bằng MArch của Leeds được công nhận RIBA Part 2",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 133,
@@ -5934,7 +6023,7 @@
    "language": "Tiếng Pháp",
    "mainLanguage": "Tiếng Pháp",
    "tuitionRaw": "Khoảng 243-601 EUR/năm",
-   "tuitionEur": 601,
+   "tuitionEur": 243,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1000-1300 EUR/tháng tại Paris",
    "livingEur": 1300,
@@ -5983,7 +6072,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "2694 EUR/năm cho SV EU/EEA; 21342 EUR/năm cho SV ngoài EU/EEA",
-   "tuitionEur": 2694,
+   "tuitionEur": 21342,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1100-1300 EUR/tháng tại Utrecht",
    "livingEur": 1300,
@@ -6009,13 +6098,18 @@
    "desc": "Thạc sĩ Kiến trúc 1,5 năm dành cho SV đã có bằng cử nhân Kiến trúc, chương trình được công nhận bởi RIBA.",
    "duration": "1,5 năm (3 học kỳ, 90 ECTS)",
    "months": 18,
-   "deadlineRaw": "Thường tháng 6-7 hàng năm (nhập học tháng 10)",
+   "deadlineRaw": "Kỳ mùa đông: nộp từ đầu tháng 5 đến 17/7 hàng năm; kỳ mùa hè: đến 5/2/2027",
    "deadline": {
-    "type": "month",
+    "type": "window",
     "dates": [
      {
-      "d": 30,
-      "m": 6,
+      "d": 5,
+      "m": 2,
+      "y": 2027
+     },
+     {
+      "d": 17,
+      "m": 7,
       "y": null
      }
     ],
@@ -6027,7 +6121,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 3000-3500 EUR/năm cho SV ngoài EU; SV gốc Ba Lan được giảm 30%",
-   "tuitionEur": 3500,
+   "tuitionEur": 3000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 500-700 EUR/tháng tại Krakow",
    "livingEur": 700,
@@ -6037,7 +6131,8 @@
    "requirements": "Bằng cử nhân Kiến trúc, chứng chỉ tiếng Anh, portfolio",
    "notes": "Chương trình được RIBA và Ủy ban Kiểm định Ba Lan công nhận",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 136,
@@ -6071,7 +6166,7 @@
    "language": "Tiếng Hungary và tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 6400-7200 EUR/năm cho SV ngoài EU (chương trình tiếng Anh)",
-   "tuitionEur": 7200,
+   "tuitionEur": 6400,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 500-700 EUR/tháng tại Budapest",
    "livingEur": 700,
@@ -6109,8 +6204,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn học phí hoàn toàn cho tất cả sinh viên trúng tuyển, chỉ có lệ phí hồ sơ nhỏ khoảng 40-46 GBP",
-   "tuitionEur": 54,
-   "tuitionCur": "GBP",
+   "tuitionEur": 0,
+   "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.500-2.000 GBP/tháng",
    "livingEur": 2340,
    "scholarshipSchool": "Toàn bộ sinh viên được miễn phí học phí; có thêm bursaries sinh hoạt phí xét theo nhu cầu",
@@ -6135,17 +6230,22 @@
    "desc": "Chương trình mỹ thuật sau đại học hàng đầu thế giới, chú trọng thực hành xưởng vẽ cá nhân và mạng lưới nghệ sĩ giảng dạy danh tiếng.",
    "duration": "2 năm toàn thời gian",
    "months": 24,
-   "deadlineRaw": "Theo từng đợt, thường đóng khoảng tháng 1-3 cho nhập học tháng 9 (xem trang trường)",
+   "deadlineRaw": "Vòng 1: 8/1/2027; vòng 2: 23/3/2027 (theo lịch tuyển sinh RCA)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 8,
       "m": 1,
-      "y": null
+      "y": 2027
+     },
+     {
+      "d": 23,
+      "m": 3,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.rca.ac.uk/study/programme-finder/painting-ma/",
@@ -6163,7 +6263,8 @@
    "requirements": "Bằng cử nhân liên quan; portfolio nghệ thuật là bắt buộc, kèm thư động lực và phỏng vấn",
    "notes": "Trường mỹ thuật/thiết kế sau đại học chuyên biệt, xếp #1 QS Art & Design nhiều năm liên tiếp",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 139,
@@ -6197,8 +6298,8 @@
    "language": "Tiếng Anh/Thụy Điển",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA/Thụy Sĩ; SV ngoài EU khoảng SEK 366.326/năm (~32.500 USD)",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 29900,
+   "tuitionCur": "USD",
    "livingRaw": "Khoảng 9.000-10.000 SEK/tháng (~850-950 USD) tại Stockholm",
    "livingEur": 874,
    "scholarshipSchool": "Học bổng miễn học phí cho SV ngoài EU (không bao gồm sinh hoạt phí)",
@@ -6235,7 +6336,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA; 12.000 EUR/năm cho SV ngoài EU/EEA từ 8/2025",
-   "tuitionEur": 0,
+   "tuitionEur": 12000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng",
    "livingEur": 1100,
@@ -6323,7 +6424,7 @@
    "language": "Tiếng Anh (một số khóa tiếng Đan Mạch)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho công dân EU/EEA/Thụy Sĩ; khoảng DKK 100.000-120.000/năm (~EUR 13.000-16.000) cho sinh viên ngoài EU",
-   "tuitionEur": 0,
+   "tuitionEur": 13000,
    "tuitionCur": "EUR",
    "livingRaw": "DKK 8.000-11.000/tháng (~EUR 1.100-1.500, Copenhagen)",
    "livingEur": 1072,
@@ -6426,8 +6527,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA/Thụy Sĩ; SV ngoài EU khoảng SEK 321.300/năm (~29.000 USD)",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 26680,
+   "tuitionCur": "USD",
    "livingRaw": "Khoảng 9.000-10.000 SEK/tháng (~850-950 USD)",
    "livingEur": 874,
    "scholarshipSchool": "Học bổng miễn giảm học phí cho SV ngoài EU xuất sắc",
@@ -6490,7 +6591,7 @@
    "language": "Tiếng Pháp",
    "mainLanguage": "Tiếng Pháp",
    "tuitionRaw": "Khoảng 170-260 EUR/năm",
-   "tuitionEur": 260,
+   "tuitionEur": 170,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 700-900 EUR/tháng",
    "livingEur": 900,
@@ -6534,7 +6635,7 @@
    "language": "Tiếng Pháp",
    "mainLanguage": "Tiếng Pháp",
    "tuitionRaw": "Khoảng 243-260 EUR/năm cộng phí CVEC khoảng 105 EUR",
-   "tuitionEur": 105,
+   "tuitionEur": 243,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.200-1.500 EUR/tháng",
    "livingEur": 1500,
@@ -6578,7 +6679,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "10.800 GBP/năm (SV Anh/EU đủ điều kiện giảm); 18.540 GBP/năm (SV quốc tế), niên khóa 2026/27",
-   "tuitionEur": 12636,
+   "tuitionEur": 21692,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.100-1.300 GBP/tháng",
    "livingEur": 1521,
@@ -6622,7 +6723,7 @@
    "language": "Tiếng Anh/Tiếng Hà Lan tùy chuyên ngành",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 1.157 EUR/năm cho SV EEA; khoảng 3.100-5.800 EUR/năm cho SV ngoài EEA",
-   "tuitionEur": 1157,
+   "tuitionEur": 3100,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng",
    "livingEur": 1100,
@@ -6648,24 +6749,14 @@
    "desc": "Chương trình thạc sĩ tại Đại học Nghệ thuật Ứng dụng Vienna, một trong những trường mỹ thuật/thiết kế lâu đời và danh giá nhất châu Âu với nhiều chuyên ngành.",
    "duration": "2 năm (thường 4 học kỳ, tùy chuyên ngành)",
    "months": 24,
-   "deadlineRaw": "Đợt nộp hồ sơ khoảng 2/2-31/3/2026, đợt trước đó đến 22/1/2026",
+   "deadlineRaw": "21/1/2027 (13h CET), nộp hồ sơ online từ đầu tháng 1/2027",
    "deadline": {
-    "type": "window",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
-      "m": 3,
-      "y": 2026
-     },
-     {
-      "d": 22,
+      "d": 21,
       "m": 1,
-      "y": 2026
-     },
-     {
-      "d": 2,
-      "m": 2,
-      "y": null
+      "y": 2027
      }
     ],
     "recurring": false
@@ -6676,8 +6767,8 @@
    "language": "Tiếng Anh/Tiếng Đức tùy chương trình",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho công dân Áo/EU; khoảng 1.690 USD/năm trở lên cho SV ngoài EU tùy chương trình",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 1555,
+   "tuitionCur": "USD",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng",
    "livingEur": 1100,
    "scholarshipSchool": "Học bổng Leistungsstipendium của Angewandte cho SV xuất sắc/khó khăn",
@@ -6686,7 +6777,8 @@
    "requirements": "Bắt buộc portfolio và thi tuyển năng khiếu (Aufnahmeprüfung)",
    "notes": "Angewandte có 8 lĩnh vực đào tạo gồm Mỹ thuật, Design, Kiến trúc, Nghệ thuật truyền thông, Art & Science, Social Design",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 150,
@@ -6720,7 +6812,7 @@
    "language": "Tiếng Bồ Đào Nha (một phần tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV EU khoảng 1.000-1.500 EUR/năm; SV ngoài EU khoảng 2.500-4.000 EUR/năm",
-   "tuitionEur": 1500,
+   "tuitionEur": 2500,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 600-800 EUR/tháng",
    "livingEur": 800,
@@ -6758,7 +6850,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV Anh khoảng 9.000-10.000 GBP/năm; SV quốc tế khoảng 16.900-20.000 GBP/năm",
-   "tuitionEur": 11700,
+   "tuitionEur": 19773,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 900-1.100 GBP/tháng",
    "livingEur": 1287,
@@ -6851,7 +6943,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 20.000-25.000 GBP/năm cho SV quốc tế",
-   "tuitionEur": 29250,
+   "tuitionEur": 23400,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.100-1.300 GBP/tháng tại Edinburgh",
    "livingEur": 1521,
@@ -6900,8 +6992,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA/Thụy Sĩ; SV ngoài EU 638.000 SEK toàn khóa, khoảng 28.000 EUR/năm",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 28072,
+   "tuitionCur": "SEK",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng",
    "livingEur": 1100,
    "scholarshipSchool": "Học bổng của Đại học Gothenburg cho sinh viên đóng học phí",
@@ -6938,8 +7030,8 @@
    "language": "Tiếng Đức (một số môn có thể bằng tiếng Anh)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho SV EU/EEA; SV ngoài EU khoảng 1.500 USD/năm cộng phí sinh viên ÖH khoảng 25 EUR/kỳ",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 1380,
+   "tuitionCur": "USD",
    "livingRaw": "Khoảng 900-1.100 EUR/tháng tại Vienna",
    "livingEur": 1100,
    "scholarshipSchool": "Không rõ",
@@ -7008,10 +7100,21 @@
    "desc": "Thạc sĩ 1 năm tại Winchester School of Art, tập trung thiết kế thời trang bền vững và có đạo đức đương đại.",
    "duration": "1 năm toàn thời gian",
    "months": 12,
-   "deadlineRaw": "Không có hạn cố định, khuyến khích nộp sớm do cạnh tranh cao",
+   "deadlineRaw": "4/8/2027 cho SV quốc tế; 18/8/2027 cho SV Anh (có thể đóng sớm khi đủ chỗ)",
    "deadline": {
-    "type": "rolling",
-    "dates": [],
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 4,
+      "m": 8,
+      "y": 2027
+     },
+     {
+      "d": 18,
+      "m": 8,
+      "y": 2027
+     }
+    ],
     "recurring": false
    },
    "scholarshipDeadline": null,
@@ -7020,7 +7123,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV Anh khoảng 10.400 GBP/năm; SV quốc tế khoảng 26.200 GBP/năm",
-   "tuitionEur": 12168,
+   "tuitionEur": 30654,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.000-1.200 GBP/tháng",
    "livingEur": 1404,
@@ -7030,7 +7133,8 @@
    "requirements": "Bằng cử nhân 2.2 trở lên hoặc kinh nghiệm tương đương, portfolio thời trang, IELTS nếu cần",
    "notes": "Đặt cọc 2.000 GBP cho SV quốc tế toàn thời gian",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 158,
@@ -7046,10 +7150,21 @@
    "desc": "Chương trình đa ngành tại CSM khuyến khích thực hành liên ngành giữa hội họa, điêu khắc, trình diễn và truyền thông mới.",
    "duration": "2 năm toàn thời gian",
    "months": 24,
-   "deadlineRaw": "UAL đã đóng hồ sơ quốc tế 2026/27; hồ sơ 2027/28 mở mùa thu 2026",
+   "deadlineRaw": "Vòng 1: 1/12/2026; vòng 2: 17/2/2027 (13h giờ Anh)",
    "deadline": {
-    "type": "unknown",
-    "dates": [],
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 1,
+      "m": 12,
+      "y": 2026
+     },
+     {
+      "d": 17,
+      "m": 2,
+      "y": 2027
+     }
+    ],
     "recurring": false
    },
    "scholarshipDeadline": null,
@@ -7068,7 +7183,8 @@
    "requirements": "Bằng cử nhân liên quan; portfolio là bắt buộc, thể hiện thực hành sáng tạo hiện tại",
    "notes": "CSM là 1 trong 6 college của UAL, trường nghệ thuật lớn nhất châu Âu",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 159,
@@ -7096,7 +7212,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SV Anh khoảng 11.900 GBP/năm; SV quốc tế ước tính 16.000-17.000 GBP/năm",
-   "tuitionEur": 13923,
+   "tuitionEur": 18720,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.300-1.600 GBP/tháng",
    "livingEur": 1872,
@@ -7155,7 +7271,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/EEA khoảng 2.600-2.700 EUR/năm; ngoài EEA khoảng 11.835 EUR/năm",
-   "tuitionEur": 2700,
+   "tuitionEur": 11835,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.000-1.200 EUR/tháng",
    "livingEur": 1200,
@@ -7281,7 +7397,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Cần kiểm tra thêm số chính xác theo Table of Fees 2026/27 (LSE MSc Finance thường trong khoảng 47.000-50.000 GBP/năm)",
-   "tuitionEur": 58500,
+   "tuitionEur": 54990,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.800-2.200 GBP/tháng tại London (ước tính)",
    "livingEur": 2574,
@@ -7325,7 +7441,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "62.920 GBP (năm học 2026-27), đặt cọc 9.440 GBP",
-   "tuitionEur": 11045,
+   "tuitionEur": 73616,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng 1.400-1.700 GBP/tháng tại Oxford (ước tính)",
    "livingEur": 1989,
@@ -7395,19 +7511,14 @@
    "desc": "Chương trình kết hợp phân tích dữ liệu, AI và ra quyết định kinh doanh, phù hợp sinh viên có nền tảng định lượng, đặt tại trung tâm công nghệ - tài chính London.",
    "duration": "12 tháng",
    "months": 12,
-   "deadlineRaw": "Vòng 3: 11/3/2026; Vòng 4: 29/4/2026 (nên nộp sớm vì cạnh tranh cao)",
+   "deadlineRaw": "Xét theo vòng; vòng kế tiếp 6/1/2027 cho kỳ nhập học 2027",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 11,
-      "m": 3,
-      "y": 2026
-     },
-     {
-      "d": 29,
-      "m": 4,
-      "y": 2026
+      "d": 6,
+      "m": 1,
+      "y": 2027
      }
     ],
     "recurring": false
@@ -7428,7 +7539,8 @@
    "requirements": "Bằng cử nhân ngành định lượng (kinh tế, toán, kỹ thuật...), không bắt buộc kinh nghiệm làm việc, khuyến khích GMAT",
    "notes": "Xếp hạng theo QS Business & Management 2026 (tổng hợp qua smapse.com)",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 167,
@@ -7637,7 +7749,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "51.200 EUR (sinh viên quốc tế); sinh viên ngoài EU/Erasmus+ đóng thêm phụ phí khoảng 2.000 EUR",
-   "tuitionEur": 2000,
+   "tuitionEur": 51200,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.200-1.500 EUR/tháng tại vùng Paris (ước tính)",
    "livingEur": 1500,
@@ -7719,7 +7831,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "31.900 EUR + phí hồ sơ 100 EUR",
-   "tuitionEur": 100,
+   "tuitionEur": 31900,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.000-1.300 EUR/tháng (ước tính, tùy cơ sở học)",
    "livingEur": 1300,
@@ -7757,7 +7869,7 @@
    "language": "Tiếng Anh (một số cơ sở có lựa chọn Pháp/Đức/Tây Ban Nha)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "21.500 EUR/năm (sinh viên châu Âu) / 25.200 EUR/năm (sinh viên ngoài châu Âu), cộng phí dịch vụ khoảng 2.800 EUR/năm",
-   "tuitionEur": 2800,
+   "tuitionEur": 21500,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.200-1.500 EUR/tháng tại Paris (ước tính, thay đổi theo cơ sở)",
    "livingEur": 1500,
@@ -7850,7 +7962,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Cần kiểm tra thêm số chính xác (học phí thể chế cho sinh viên ngoài EU/EEA thường trong khoảng 18.000-22.000 EUR/năm tại UvA, tùy ngành)",
-   "tuitionEur": 22000,
+   "tuitionEur": 18000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.200-1.500 EUR/tháng tại Amsterdam (ước tính)",
    "livingEur": 1500,
@@ -8007,7 +8119,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 18.550 EUR/năm (~37.000 EUR cho 2 năm, tùy mức đóng góp theo thu nhập gia đình)",
-   "tuitionEur": 18550,
+   "tuitionEur": 18500,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.000-1.300 EUR/tháng tại Milan (ước tính)",
    "livingEur": 1300,
@@ -8127,7 +8239,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 3.558 CHF/học kỳ cho sinh viên nước ngoài (tương đương khoảng 7.100 CHF/năm)",
-   "tuitionEur": 3771,
+   "tuitionEur": 7526,
    "tuitionCur": "CHF",
    "livingRaw": "Khoảng 1.800-2.200 CHF/tháng tại St. Gallen (ước tính)",
    "livingEur": 2332,
@@ -8197,14 +8309,19 @@
    "desc": "IMD là một trong những trường MBA hàng đầu thế giới, chương trình 1 năm cường độ cao, tập trung phát triển kỹ năng lãnh đạo qua các dự án thực tế với doanh nghiệp.",
    "duration": "12 tháng",
    "months": 12,
-   "deadlineRaw": "13/10/2026 (hạn cho khóa nhập học 2027, có nhiều vòng trong năm)",
+   "deadlineRaw": "Lớp 2028 có 6 hạn nộp, gần nhất 26/1/2027 và 16/3/2027 (xem đủ lịch trên trang IMD)",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 13,
-      "m": 10,
-      "y": 2026
+      "d": 26,
+      "m": 1,
+      "y": 2027
+     },
+     {
+      "d": 16,
+      "m": 3,
+      "y": 2027
      }
     ],
     "recurring": false
@@ -8225,7 +8342,8 @@
    "requirements": "Tối thiểu 2 năm kinh nghiệm làm việc (trung bình lớp học khoảng 6 năm), GMAT/GRE (GMAT khuyến nghị từ 555 trở lên)",
    "notes": "Xếp hạng theo QS Business & Management 2026 (tổng hợp qua smapse.com); IMD thường xuyên nằm trong top 5 MBA thế giới theo Financial Times",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 185,
@@ -8269,7 +8387,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng 363 EUR/học kỳ (sinh viên EU/EEA) hoặc 727 EUR/học kỳ (sinh viên ngoài EU/EEA), cộng phí CEMS khoảng 1.500 EUR/năm",
-   "tuitionEur": 363,
+   "tuitionEur": 726,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 900-1.200 EUR/tháng tại Vienna (ước tính)",
    "livingEur": 1200,
@@ -8383,17 +8501,17 @@
    "desc": "Aalto là trường kinh doanh hàng đầu Bắc Âu, chương trình Marketing yêu cầu video giới thiệu bản thân trong hồ sơ, sinh viên EU/EEA được miễn học phí.",
    "duration": "24 tháng",
    "months": 24,
-   "deadlineRaw": "Đợt nhập học mùa thu 2026 đã đóng đầu tháng 1/2026; đợt 2027 dự kiến mở khoảng tháng 12/2026 - đầu tháng 1/2027",
+   "deadlineRaw": "5/1/2027 (đợt nộp mở đầu tháng 12/2026) cho kỳ nhập học mùa thu 2027",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 5,
       "m": 1,
-      "y": null
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.aalto.fi/en/study-options/marketing-master-of-science-economics-and-business-administration",
@@ -8411,7 +8529,8 @@
    "requirements": "Bằng cử nhân liên quan, video động lực 2 phút, hồ sơ học thuật",
    "notes": "Xếp hạng theo QS Business & Management 2026 (tổng hợp qua smapse.com); QS không có bảng xếp hạng riêng cho Marketing",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 189,
@@ -8427,19 +8546,14 @@
    "desc": "Trinity College Dublin là đại học danh tiếng nhất Ireland, chương trình Tài chính tại Trinity Business School có định hướng nghề nghiệp mạnh gắn với trung tâm tài chính quốc tế IFSC Dublin.",
    "duration": "12 tháng",
    "months": 12,
-   "deadlineRaw": "Hạn ưu tiên 1/2/2026; xét tuyển cuốn chiếu đến 30/6/2026 (chương trình hot nên có thể đóng sớm hơn)",
+   "deadlineRaw": "Đóng 31/7/2027 cho kỳ tháng 9/2027 (nên nộp sớm)",
    "deadline": {
-    "type": "window",
+    "type": "fixed",
     "dates": [
      {
-      "d": 1,
-      "m": 2,
-      "y": 2026
-     },
-     {
-      "d": 30,
-      "m": 6,
-      "y": 2026
+      "d": 31,
+      "m": 7,
+      "y": 2027
      }
     ],
     "recurring": false
@@ -8460,7 +8574,8 @@
    "requirements": "Bằng cử nhân 2:1 trở lên, IELTS 6.5/TOEFL 90, 2 thư giới thiệu học thuật (hoặc 1 học thuật + 1 nghề nghiệp)",
    "notes": "Xếp hạng theo QS Accounting & Finance 2026 (tổng hợp qua smapse.com)",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 190,
@@ -8581,7 +8696,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "39.000 EUR (có ưu đãi giảm nếu nộp sớm) + phí hồ sơ 100 EUR",
-   "tuitionEur": 100,
+   "tuitionEur": 39000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng 1.000-1.300 EUR/tháng tại Frankfurt (ước tính)",
    "livingEur": 1300,
@@ -8625,7 +8740,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Quốc tế (ngoài Anh): khoảng GBP 41.250/năm (2025-26); phí nộp hồ sơ GBP 75",
-   "tuitionEur": 88,
+   "tuitionEur": 48262,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 1.400 - 2.100/tháng tại Oxford",
    "livingEur": 1638,
@@ -8705,17 +8820,27 @@
    "desc": "Chương trình AI/ML chuyên sâu tại một trong những đại học kỹ thuật hàng đầu châu Âu, gắn kết chặt với ngành công nghiệp London.",
    "duration": "1 năm (toàn thời gian)",
    "months": 12,
-   "deadlineRaw": "Thường có nhiều vòng, nên nộp trước tháng 12-1",
+   "deadlineRaw": "Xét theo vòng cho kỳ 2027: vòng 2 hạn 6/1/2027, vòng 3 hạn 10/3/2027, vòng 4 hạn 28/4/2027 (nên nộp sớm)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
-      "m": 12,
-      "y": null
+      "d": 6,
+      "m": 1,
+      "y": 2027
+     },
+     {
+      "d": 10,
+      "m": 3,
+      "y": 2027
+     },
+     {
+      "d": 28,
+      "m": 4,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-artificial-intelligence-msc/",
@@ -8723,7 +8848,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Quốc tế: khoảng GBP 41.750/năm; phí nộp hồ sơ GBP 90",
-   "tuitionEur": 105,
+   "tuitionEur": 48848,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 1.500 - 2.200/tháng tại London",
    "livingEur": 1755,
@@ -8733,7 +8858,8 @@
    "requirements": "Bằng cử nhân hạng nhất/2:1 CNTT hoặc ngành liên quan, có nền tảng lập trình mạnh (Python) và toán (đại số tuyến tính, xác suất thống kê)",
    "notes": "QS CS&IS 2026 (xuanxiao.org); mức học phí tham khảo từ nhiều nguồn có chênh lệch nhẹ",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 196,
@@ -8811,7 +8937,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Quốc tế 2026-27: khoảng GBP 45.410/năm (toàn thời gian); cần đặt cọc GBP 1.500",
-   "tuitionEur": 1755,
+   "tuitionEur": 53130,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 1.200 - 1.700/tháng tại Edinburgh",
    "livingEur": 1404,
@@ -8837,14 +8963,29 @@
    "desc": "Chương trình AI tại thành phố công nghiệp lớn thứ hai nước Anh, chi phí sinh hoạt hợp lý hơn London, cộng đồng sinh viên quốc tế đông đảo.",
    "duration": "1 năm (toàn thời gian)",
    "months": 12,
-   "deadlineRaw": "Xét tuyển theo giai đoạn (stage), giai đoạn 1 cho kỳ 2026 kết thúc 7/11/2025",
+   "deadlineRaw": "Xét theo giai đoạn cho kỳ 2027: 6/11/2026, 1/1/2027, 26/2/2027, 21/5/2027 (sau đó chỉ xét nếu còn chỗ)",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 7,
+      "d": 6,
       "m": 11,
-      "y": 2025
+      "y": 2026
+     },
+     {
+      "d": 1,
+      "m": 1,
+      "y": 2027
+     },
+     {
+      "d": 26,
+      "m": 2,
+      "y": 2027
+     },
+     {
+      "d": 21,
+      "m": 5,
+      "y": 2027
      }
     ],
     "recurring": false
@@ -8865,7 +9006,8 @@
    "requirements": "Bằng cử nhân 2:1 ngành CNTT/Toán/Kỹ thuật liên quan, có nền tảng lập trình",
    "notes": "QS CS&IS 2026 (xuanxiao.org)",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 199,
@@ -8904,7 +9046,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng CHF 730/học kỳ cho mọi sinh viên (~CHF 1.460/năm), không phân biệt EU/ngoài EU; phí hồ sơ CHF 150",
-   "tuitionEur": 159,
+   "tuitionEur": 1548,
    "tuitionCur": "CHF",
    "livingRaw": "Khoảng CHF 1.500 - 2.200/tháng tại Zurich (thành phố đắt đỏ)",
    "livingEur": 1590,
@@ -8953,7 +9095,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng CHF 2.240/học kỳ từ mùa Thu 2025 cho sinh viên nước ngoài (~CHF 4.480/năm, tổng ~CHF 8.960 cho 2 năm); phí hồ sơ CHF 150",
-   "tuitionEur": 159,
+   "tuitionEur": 4749,
    "tuitionCur": "CHF",
    "livingRaw": "Khoảng CHF 1.500 - 2.200/tháng tại Lausanne",
    "livingEur": 1590,
@@ -8997,7 +9139,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên ngoài EU/EEA: khoảng EUR 22.290/năm; sinh viên EU/EEA: phí luật định ~EUR 2.601/năm",
-   "tuitionEur": 2601,
+   "tuitionEur": 22290,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.000 - 1.400/tháng tại Delft",
    "livingEur": 1000,
@@ -9041,7 +9183,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 26.000/năm cho sinh viên ngoài EU/EEA; sinh viên EU/EEA khoảng EUR 19.910/năm (số liệu có thể thay đổi theo năm)",
-   "tuitionEur": 19910,
+   "tuitionEur": 26000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.100 - 1.500/tháng tại Amsterdam",
    "livingEur": 1100,
@@ -9134,7 +9276,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên ngoài EU: khoảng EUR 6.000/học kỳ (chỉ áp dụng theo quy định từng bang, cần kiểm tra thêm); sinh viên EU miễn học phí, chỉ đóng phí học kỳ",
-   "tuitionEur": 6000,
+   "tuitionEur": 12000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.200 - 1.600/tháng tại Munich (thành phố đắt đỏ nhất nước Đức)",
    "livingEur": 1200,
@@ -9221,7 +9363,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn học phí, chỉ đóng phí học kỳ khoảng EUR 97/học kỳ",
-   "tuitionEur": 97,
+   "tuitionEur": 0,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.200 - 1.600/tháng tại Munich",
    "livingEur": 1200,
@@ -9402,7 +9544,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 900 - 3.900/năm tùy theo ISEE (chỉ số kinh tế gia đình); sinh viên ngoài khối EEA đóng mức tối đa ~EUR 3.900/năm",
-   "tuitionEur": 900,
+   "tuitionEur": 3900,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900 - 1.300/tháng tại Milano",
    "livingEur": 900,
@@ -9549,8 +9691,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng SEK 360.000/năm cho sinh viên ngoài EU/EEA/Thụy Sĩ; miễn phí cho công dân EU/EEA/Thụy Sĩ",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 31680,
+   "tuitionCur": "SEK",
    "livingRaw": "Khoảng SEK 9.000 - 13.000 (~EUR 800-1.200)/tháng tại Stockholm",
    "livingEur": 792,
    "scholarshipSchool": "KTH Scholarship for global students",
@@ -9593,8 +9735,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng SEK 160.000 - 210.000/năm cho sinh viên ngoài EU/EEA; miễn phí cho công dân EU/EEA/Thụy Sĩ",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 14080,
+   "tuitionCur": "SEK",
    "livingRaw": "Khoảng SEK 8.000 - 11.000 (~EUR 700-1.000)/tháng tại Gothenburg",
    "livingEur": 700,
    "scholarshipSchool": "Học bổng Chalmers cho sinh viên quốc tế xuất sắc (giảm một phần học phí)",
@@ -9642,7 +9784,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 9.494/năm (mức chuẩn); mức giảm ~EUR 5.613/năm cho một số đối tượng đủ điều kiện",
-   "tuitionEur": 5613,
+   "tuitionEur": 9494,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900 - 1.200/tháng tại Leuven",
    "livingEur": 900,
@@ -9691,7 +9833,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 1.480/năm cho sinh viên ngoài EU (mức phí ưu đãi công lập Áo); miễn phí phần lớn cho công dân EU/EEA (chỉ đóng phí học kỳ)",
-   "tuitionEur": 0,
+   "tuitionEur": 1480,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900 - 1.300/tháng tại Vienna",
    "livingEur": 900,
@@ -9740,7 +9882,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 17.000/năm cho sinh viên ngoài EU/EEA/Thụy Sĩ; miễn phí cho công dân EU/EEA/Thụy Sĩ",
-   "tuitionEur": 0,
+   "tuitionEur": 17000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900 - 1.300/tháng tại khu vực Helsinki",
    "livingEur": 900,
@@ -9789,7 +9931,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 15.000/năm (tổng ~EUR 30.000 cho 2 năm) cho sinh viên ngoài EU/EEA; miễn phí cho công dân EU/EEA",
-   "tuitionEur": 0,
+   "tuitionEur": 15000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.000 - 1.400/tháng tại khu vực Copenhagen",
    "livingEur": 1000,
@@ -9871,7 +10013,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 2.324/năm cho sinh viên EU; khoảng EUR 5.400/năm cho sinh viên ngoài EU",
-   "tuitionEur": 2324,
+   "tuitionEur": 5400,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900 - 1.200/tháng tại Barcelona",
    "livingEur": 900,
@@ -9920,7 +10062,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 7.200/năm cho sinh viên ngoài EU/EEA; miễn phí cho công dân EU/EEA",
-   "tuitionEur": 0,
+   "tuitionEur": 7200,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 500 - 800/tháng tại Tartu (một trong những thành phố đại học rẻ nhất châu Âu)",
    "livingEur": 500,
@@ -10062,7 +10204,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên ngoài EU/EEA: khoảng EUR 22,290-25,633/năm (tăng dần theo năm); sinh viên EU/EEA: EUR 2,601/năm (mức phí luật định 2024-25, cần kiểm tra thêm mức mới nhất)",
-   "tuitionEur": 2601,
+   "tuitionEur": 22290,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1,000-1,300/tháng",
    "livingEur": 1000,
@@ -10106,7 +10248,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên quốc tế: khoảng GBP 37,500/năm (2025-26, cần kiểm tra thêm mức mới nhất); phí xử lý hồ sơ GBP 90",
-   "tuitionEur": 105,
+   "tuitionEur": 43875,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 1,300-1,600/tháng (London rất đắt đỏ)",
    "livingEur": 1521,
@@ -10194,7 +10336,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EUR 900-3,900/năm tùy thu nhập gia đình (ISEE), sinh viên ngoài EU thường ở mức tối đa khoảng EUR 3,900/năm - học phí rất thấp so với mặt bằng châu Âu",
-   "tuitionEur": 900,
+   "tuitionEur": 3900,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1,100/tháng",
    "livingEur": 900,
@@ -10248,7 +10390,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 15,000/năm (EUR 7,500/học kỳ), tổng khoảng EUR 30,000 cho 2 năm, sinh viên EU/EEA được miễn học phí",
-   "tuitionEur": 7500,
+   "tuitionEur": 15000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1,000-1,300/tháng (Copenhagen khá đắt đỏ)",
    "livingEur": 1000,
@@ -10318,17 +10460,17 @@
    "desc": "UPC là trường kỹ thuật hàng đầu Tây Ban Nha, Barcelona School of Civil Engineering có bề dày lịch sử đào tạo kỹ sư xây dựng, học phí thấp hơn đáng kể so với UK/CH.",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Theo lịch tuyển sinh riêng của từng khoa (Camins UPC), thường đóng vào khoảng tháng 6-7 cho kỳ nhập học mùa thu - cần kiểm tra thêm",
+   "deadlineRaw": "Đợt tuyển hiện tại dự kiến đóng 11/11/2026 (có 2 kỳ nhập học: tháng 9 và tháng 2; xem lịch trên camins.upc.edu)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 30,
-      "m": 6,
-      "y": null
+      "d": 11,
+      "m": 11,
+      "y": 2026
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.upc.edu/en/masters/civil-engineering",
@@ -10346,7 +10488,8 @@
    "requirements": "Bằng Cử nhân Kỹ thuật Xây dựng/liên quan; trình độ tiếng Anh IELTS 6.0-6.5 (một số môn cần tiếng Tây Ban Nha cơ bản)",
    "notes": "QS 2026; UPC thuộc nhóm 51-100 thế giới Civil, học phí thuộc nhóm phải chăng nhất châu Âu",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 231,
@@ -10362,17 +10505,27 @@
    "desc": "Imperial là một trong những trường kỹ thuật danh giá nhất thế giới, chương trình Advanced Mechanical Engineering tập trung vào thiết kế tiên tiến, cơ khí chính xác và liên kết chặt với ngành công nghiệp Anh.",
    "duration": "1 năm",
    "months": 12,
-   "deadlineRaw": "Nộp càng sớm càng tốt (rolling admission, thường đóng khi đủ chỉ tiêu, khoảng tháng 3-6)",
+   "deadlineRaw": "Xét theo vòng cho kỳ 2027: vòng 2 hạn 6/1/2027, vòng 3 hạn 10/3/2027, vòng 4 hạn 28/4/2027 (nên nộp sớm)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 6,
+      "m": 1,
+      "y": 2027
+     },
+     {
+      "d": 10,
       "m": 3,
-      "y": null
+      "y": 2027
+     },
+     {
+      "d": 28,
+      "m": 4,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/advanced-mechanical-engineering/",
@@ -10390,7 +10543,8 @@
    "requirements": "Bằng Cử nhân hạng 1 hoặc 2:1 ngành Cơ khí/liên quan; IELTS 6.5 tổng, không kỹ năng nào dưới 6.0",
    "notes": "QS 2026 (nguồn Smapse xếp theo vị trí châu Âu); Imperial là một trong các trường Anh phổ biến nhất với du học sinh Việt Nam ngành kỹ thuật",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 232,
@@ -10429,7 +10583,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên ngoài EU/EEA: khoảng EUR 22,290/năm; sinh viên EU/EEA: khoảng EUR 2,601/năm",
-   "tuitionEur": 2601,
+   "tuitionEur": 22290,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1,000-1,300/tháng",
    "livingEur": 1000,
@@ -10473,7 +10627,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SEK 360,000 cho toàn chương trình 2 năm (sinh viên ngoài EU/EEA/Thụy Sĩ); sinh viên EU/EEA được miễn học phí",
-   "tuitionEur": 31680,
+   "tuitionEur": 15840,
    "tuitionCur": "SEK",
    "livingRaw": "Khoảng SEK 10,000-12,000/tháng (~EUR 900-1,100/tháng)",
    "livingEur": 880,
@@ -10566,8 +10720,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "SEK 320,000 cho toàn chương trình 2 năm (sinh viên ngoài EU/EEA/Thụy Sĩ); miễn phí với sinh viên EU/EEA",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 14080,
+   "tuitionCur": "SEK",
    "livingRaw": "Khoảng SEK 9,000-11,000/tháng",
    "livingEur": 792,
    "scholarshipSchool": "Chalmers IPOET Scholarship / Chalmers Tuition Fee Waiver Scholarships cho sinh viên xuất sắc ngoài EU",
@@ -10610,7 +10764,7 @@
    "language": "Tiếng Anh/Tiếng Đức (tùy chương trình cụ thể)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU: khoảng EUR 363/học kỳ; ngoài EU: khoảng EUR 727/học kỳ (~EUR 1,450/năm) - rất thấp so với mặt bằng chung",
-   "tuitionEur": 363,
+   "tuitionEur": 1450,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1,100/tháng",
    "livingEur": 900,
@@ -10888,13 +11042,18 @@
    "desc": "Aalborg University nổi tiếng với mô hình đào tạo PBL (Problem-Based Learning) theo dự án thực tế, đặc biệt mạnh về xử lý tín hiệu, âm thanh và điện tử công suất.",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Thường khoảng 15/03-01/04 cho ứng viên ngoài EU/EEA - cần kiểm tra thêm theo năm",
+   "deadlineRaw": "15/1 hàng năm cho SV phải đóng học phí (ngoài EU); 1/3 cho SV EU/EEA",
    "deadline": {
-    "type": "window",
+    "type": "fixed",
     "dates": [
      {
+      "d": 15,
+      "m": 1,
+      "y": null
+     },
+     {
       "d": 1,
-      "m": 4,
+      "m": 3,
       "y": null
      }
     ],
@@ -10916,7 +11075,8 @@
    "requirements": "Bằng Cử nhân Kỹ thuật Điện/Điện tử/liên quan; IELTS 6.5",
    "notes": "QS 2026",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 244,
@@ -10951,7 +11111,7 @@
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng CZK 55,000/học kỳ (~EUR 2,200), tương đương khoảng EUR 4,400/năm",
    "tuitionEur": 2200,
-   "tuitionCur": "CZK",
+   "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 600-800/tháng (Prague là một trong những thủ đô rẻ nhất Tây/Trung Âu)",
    "livingEur": 600,
    "scholarshipSchool": "Cần kiểm tra thêm (một số học bổng nội bộ theo thành tích của CTU)",
@@ -10994,7 +11154,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên quốc tế (bao gồm EU): khoảng GBP 39,400/năm (nhập học 2026); sinh viên UK: khoảng GBP 15,800/năm",
-   "tuitionEur": 18486,
+   "tuitionEur": 46098,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 900-1,100/tháng (Manchester rẻ hơn London)",
    "livingEur": 1053,
@@ -11081,7 +11241,7 @@
    "language": "Tiếng Anh/Tiếng Đức (tùy chương trình)",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên ngoài EU (chương trình thạc sĩ liên tiếp - consecutive Master's): khoảng EUR 1,500/học kỳ + phí sinh viên khoảng EUR 151/học kỳ",
-   "tuitionEur": 151,
+   "tuitionEur": 3000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 900-1,100/tháng",
    "livingEur": 900,
@@ -11169,8 +11329,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên ngoài EU/EEA: học phí công bố theo từng chương trình trên trang Lund University, ước tính khoảng SEK 140,000-150,000/năm; sinh viên EU/EEA được miễn phí",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 12320,
+   "tuitionCur": "SEK",
    "livingRaw": "Khoảng SEK 9,000-11,000/tháng",
    "livingEur": 792,
    "scholarshipSchool": "Lund University Global Scholarship (giảm 25-100% học phí cho sinh viên ngoài EU xuất sắc)",
@@ -11262,7 +11422,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Sinh viên EU: khoảng EUR 8,217/năm; sinh viên ngoài EU: khoảng EUR 24,669/năm",
-   "tuitionEur": 8217,
+   "tuitionEur": 24669,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1,300-1,600/tháng (Dublin là một trong những thủ đô đắt đỏ nhất châu Âu)",
    "livingEur": 1300,
@@ -11370,12 +11530,12 @@
    "desc": "LLM Cambridge là một trong những chương trình luật sau đại học danh tiếng nhất thế giới, cho phép sinh viên lựa chọn học phần đa dạng từ luật thương mại quốc tế đến luật nhân quyền.",
    "duration": "9 tháng (tháng 10 đến tháng 6)",
    "months": 9,
-   "deadlineRaw": "Khoảng đầu tháng 12 hàng năm (ví dụ 3/12) cho nhập học tháng 10 năm sau",
+   "deadlineRaw": "Khoảng 8 tháng 12 hàng năm (gồm cả kết quả thi tiếng Anh), nhập học tháng 10 năm sau",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 3,
+      "d": 8,
       "m": 12,
       "y": null
      }
@@ -11398,7 +11558,8 @@
    "requirements": "Bằng cử nhân Luật hạng ưu (tương đương 2:1 trở lên), IELTS tối thiểu 7.5 tổng, không kỹ năng nào dưới 7.0",
    "notes": "Xếp hạng theo QS Law 2025; Cambridge và Oxford thường xuyên nằm trong top 5 thế giới ngành Luật",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 255,
@@ -11414,17 +11575,17 @@
    "desc": "LLM tại LSE nổi tiếng với thế mạnh luật kinh tế, luật quốc tế và luật tài chính, gắn liền với môi trường học thuật xã hội học hàng đầu thế giới của LSE.",
    "duration": "1 năm toàn thời gian",
    "months": 12,
-   "deadlineRaw": "Tuyển sinh cuốn chiếu (rolling), nên nộp sớm; hạn học bổng thường khoảng cuối tháng 4",
+   "deadlineRaw": "13/1/2027 để được xét đầy đủ và công bằng (nộp sau vẫn được xét nếu còn chỗ)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 30,
-      "m": 4,
-      "y": null
+      "d": 13,
+      "m": 1,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.lse.ac.uk/law/study/llm",
@@ -11432,7 +11593,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "GBP 39.900/năm (sinh viên quốc tế), GBP 24.500/năm (sinh viên Anh) - năm học tham khảo",
-   "tuitionEur": 28665,
+   "tuitionEur": 46683,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 1.500-1.800/tháng tại London",
    "livingEur": 1755,
@@ -11442,7 +11603,8 @@
    "requirements": "Bằng cử nhân Luật loại giỏi (2:1 trở lên), IELTS tối thiểu 7.0",
    "notes": "Số liệu QS Law 2025; LSE nằm trong nhóm 5 đại học Anh có mặt trong top 20 thế giới ngành Luật",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 256,
@@ -11545,13 +11707,23 @@
    "desc": "Chương trình liên ngành kết hợp phân tích kinh tế với lý luận pháp lý, đào tạo sinh viên làm việc tại các tập đoàn, công ty luật và cơ quan quản lý.",
    "duration": "1 năm toàn thời gian",
    "months": 12,
-   "deadlineRaw": "Cần kiểm tra thêm (Utrecht thường có hạn khoảng tháng 4-5 cho sinh viên ngoài EU)",
+   "deadlineRaw": "1/4 hàng năm cho SV ngoài EU (1/2 nếu xin học bổng; SV EU hạn 1/6)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 30,
+      "d": 1,
       "m": 4,
+      "y": null
+     },
+     {
+      "d": 1,
+      "m": 2,
+      "y": null
+     },
+     {
+      "d": 1,
+      "m": 6,
       "y": null
      }
     ],
@@ -11563,7 +11735,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/EEA: khoảng EUR 2.694/năm (statutory fee); Ngoài EU: khoảng EUR 21.342/năm (2026-2027)",
-   "tuitionEur": 2694,
+   "tuitionEur": 21342,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.000-1.200/tháng tại Utrecht",
    "livingEur": 1000,
@@ -11573,7 +11745,8 @@
    "requirements": "Bằng cử nhân Luật, Kinh tế hoặc ngành liên quan, IELTS tối thiểu 6.5-7.0",
    "notes": "Xếp hạng QS Law cụ thể của Utrecht chưa xác nhận được qua tìm kiếm - cần kiểm tra thêm trên topuniversities.com",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 259,
@@ -11687,17 +11860,17 @@
    "desc": "Chương trình do Nuffield Department of Population Health giảng dạy, kết hợp dịch tễ học, thống kê y sinh và chính sách y tế toàn cầu, gắn với hệ sinh thái nghiên cứu y khoa hàng đầu thế giới của Oxford.",
    "duration": "1 năm toàn thời gian",
    "months": 12,
-   "deadlineRaw": "Khoảng đầu tháng 12 hàng năm (ví dụ 2/12) cho nhập học tháng 10 năm sau",
+   "deadlineRaw": "1/12/2026 (12h trưa) cho kỳ nhập học tháng 10/2027",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 2,
+      "d": 1,
       "m": 12,
-      "y": null
+      "y": 2026
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.ndph.ox.ac.uk/study-with-us/MSc-GHSE",
@@ -11715,7 +11888,8 @@
    "requirements": "Bằng cử nhân Y, Điều dưỡng, Khoa học sự sống hoặc liên quan loại giỏi, IELTS tối thiểu 7.0",
    "notes": "Số liệu QS Medicine 2025",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 262,
@@ -11775,17 +11949,22 @@
    "desc": "Karolinska Institutet là một trong những viện y khoa hàng đầu thế giới (nơi trao giải Nobel Y học), chương trình đào tạo chuyên sâu về dịch tễ học, thống kê sức khỏe và chính sách y tế toàn cầu.",
    "duration": "2 năm toàn thời gian",
    "months": 24,
-   "deadlineRaw": "Khoảng giữa tháng 1 hàng năm (hồ sơ bổ sung hạn đầu tháng 2)",
+   "deadlineRaw": "Hạn nộp 15/1/2027; giấy tờ bổ sung trước 1/2/2027 (nộp qua universityadmissions.se), nhập học mùa thu 2027",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 15,
       "m": 1,
-      "y": null
+      "y": 2027
+     },
+     {
+      "d": 1,
+      "m": 2,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-public-health-sciences",
@@ -11793,8 +11972,8 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng SEK 360.000 (~EUR 32.000) cho toàn khóa (sinh viên ngoài EU/EEA/Thụy Sĩ); miễn phí cho công dân EU/EEA",
-   "tuitionEur": 0,
-   "tuitionCur": "EUR",
+   "tuitionEur": 15840,
+   "tuitionCur": "SEK",
    "livingRaw": "Khoảng SEK 9.000-11.000/tháng (~EUR 800-1.000) tại Stockholm",
    "livingEur": 792,
    "scholarshipSchool": "Karolinska Institutet Global Master's Scholarships",
@@ -11803,7 +11982,8 @@
    "requirements": "Bằng cử nhân Y tế công cộng, Y, Điều dưỡng hoặc liên quan, IELTS tối thiểu 6.5",
    "notes": "Số liệu QS Medicine 2025",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 264,
@@ -11842,7 +12022,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng EUR 10.000-17.000/năm (sinh viên ngoài EU/EEA/Thụy Sĩ); miễn phí cho công dân EU/EEA",
-   "tuitionEur": 0,
+   "tuitionEur": 10000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.000-1.400/tháng tại Copenhagen (chi phí sinh hoạt Đan Mạch khá cao)",
    "livingEur": 1000,
@@ -11912,17 +12092,27 @@
    "desc": "Trường Y Imperial College London nằm trong nhóm đầu thế giới về nghiên cứu y sinh; chương trình MPH đào tạo kỹ năng dịch tễ học, thống kê và quản lý hệ thống y tế thực tiễn.",
    "duration": "1 năm toàn thời gian",
    "months": 12,
-   "deadlineRaw": "Học bổng School of Public Health hạn 30/4; tuyển sinh chung theo đợt cuốn chiếu",
+   "deadlineRaw": "Xét theo vòng cho kỳ 2027: vòng 2 hạn 6/1/2027, vòng 3 hạn 10/3/2027, vòng 4 hạn 28/4/2027; học bổng của trường hạn riêng",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 30,
+      "d": 6,
+      "m": 1,
+      "y": 2027
+     },
+     {
+      "d": 10,
+      "m": 3,
+      "y": 2027
+     },
+     {
+      "d": 28,
       "m": 4,
-      "y": null
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/public-health-masters/",
@@ -11940,7 +12130,8 @@
    "requirements": "Bằng cử nhân Y, Y tế công cộng hoặc khoa học sự sống liên quan, IELTS tối thiểu 6.5-7.0",
    "notes": "Số liệu QS Medicine 2025",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 267,
@@ -12100,7 +12291,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "EU/EEA: khoảng EUR 2.694/năm (statutory) hoặc EUR 14.800 (institutional); Ngoài EEA: khoảng EUR 25.800/năm (2026-2027)",
-   "tuitionEur": 2694,
+   "tuitionEur": 25800,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.100-1.300/tháng tại Rotterdam",
    "livingEur": 1100,
@@ -12144,7 +12335,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Miễn phí cho sinh viên EU/EEA; khoảng EUR 12.500/năm cho sinh viên ngoài EU/EEA",
-   "tuitionEur": 0,
+   "tuitionEur": 12500,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng EUR 1.000-1.300/tháng tại Copenhagen",
    "livingEur": 1000,
@@ -12182,7 +12373,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "GBP 33.100/năm (sinh viên quốc tế, nhập học 2026); GBP 18.400/năm (sinh viên Anh)",
-   "tuitionEur": 21528,
+   "tuitionEur": 38727,
    "tuitionCur": "GBP",
    "livingRaw": "Khoảng GBP 1.000-1.300/tháng tại Manchester",
    "livingEur": 1170,
@@ -12345,12 +12536,12 @@
    "desc": "Chương trình đặt tại cơ sở The Hague - thành phố hòa bình và công lý quốc tế (Tòa án Công lý Quốc tế, Tòa án Hình sự Quốc tế), kết hợp lý thuyết và thực hành ngoại giao.",
    "duration": "1 năm toàn thời gian (Advanced Master)",
    "months": 12,
-   "deadlineRaw": "Cần kiểm tra thêm (thường khoảng tháng 4-5 cho sinh viên ngoài EU)",
+   "deadlineRaw": "1/4 hàng năm",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 30,
+      "d": 1,
       "m": 4,
       "y": null
      }
@@ -12373,7 +12564,8 @@
    "requirements": "Bằng cử nhân Khoa học chính trị, QHQT hoặc liên quan, IELTS tối thiểu 7.0",
    "notes": "Số liệu QS Politics 2025",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 277,
@@ -12427,17 +12619,17 @@
    "desc": "CEU là đại học sau đại học quốc tế nổi tiếng (cấp bằng kép Áo-Mỹ), có thế mạnh nghiên cứu về Trung và Đông Âu, dân chủ hóa và quan hệ quốc tế.",
    "duration": "1 năm hoặc 2 năm (tùy lộ trình)",
    "months": 12,
-   "deadlineRaw": "16/2 hàng năm (hạn xét học bổng và hạn cuối đợt hiện tại)",
+   "deadlineRaw": "Vòng hiện tại đóng 2/2/2027 (cũng là hạn xét học bổng)",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 16,
+      "d": 2,
       "m": 2,
-      "y": null
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.ceu.edu/academics/degrees/ma-international-relations-1-year",
@@ -12455,7 +12647,8 @@
    "requirements": "Bằng cử nhân liên quan, IELTS tối thiểu 6.5-7.0",
    "notes": "Số hạng QS Politics cụ thể của CEU chưa xác nhận qua tìm kiếm - cần kiểm tra thêm",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 279,
@@ -12471,17 +12664,22 @@
    "desc": "EHL (thành lập 1893) là trường quản trị khách sạn lâu đời và danh giá nhất thế giới, xếp hạng #1 toàn cầu ngành Hospitality & Leisure Management theo QS 2025.",
    "duration": "18 tháng (bao gồm thực tập)",
    "months": 18,
-   "deadlineRaw": "Khoảng 1/5 hàng năm (cần kiểm tra cập nhật theo năm)",
+   "deadlineRaw": "31/5/2027 cho ứng viên cần visa; 15/6/2027 cho ứng viên khác",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 1,
+      "d": 31,
       "m": 5,
-      "y": null
+      "y": 2027
+     },
+     {
+      "d": 15,
+      "m": 6,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://gs.ehl.edu/degree-programs/master-in-hospitality-management",
@@ -12489,7 +12687,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng CHF 39.500 cho toàn khóa 18 tháng",
-   "tuitionEur": 41870,
+   "tuitionEur": 27913,
    "tuitionCur": "CHF",
    "livingRaw": "Khoảng CHF 1.800-2.200/tháng tại Lausanne",
    "livingEur": 1908,
@@ -12499,7 +12697,8 @@
    "requirements": "Bằng cử nhân (ưu tiên ngành liên quan Khách sạn - Du lịch - Kinh doanh), IELTS tối thiểu 6.5-7.0",
    "notes": "Số liệu QS Hospitality & Leisure Management 2025; Thụy Sĩ chiếm cả 3 vị trí đầu bảng xếp hạng này",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 280,
@@ -12591,10 +12790,21 @@
    "desc": "Surrey có School of Hospitality and Tourism Management lâu đời và uy tín hàng đầu nước Anh, chương trình đào tạo chuyên sâu về quản lý điểm đến, chính sách du lịch và phát triển bền vững.",
    "duration": "1 năm toàn thời gian",
    "months": 12,
-   "deadlineRaw": "Có thể đóng sớm hơn hạn công bố nếu đủ chỉ tiêu - nên nộp sớm",
+   "deadlineRaw": "SV quốc tế: 11/12/2026 (kỳ tháng 1/2027) và 23/7/2027 (kỳ tháng 9/2027); có thể đóng sớm khi đủ chỗ",
    "deadline": {
-    "type": "unknown",
-    "dates": [],
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 11,
+      "m": 12,
+      "y": 2026
+     },
+     {
+      "d": 23,
+      "m": 7,
+      "y": 2027
+     }
+    ],
     "recurring": false
    },
    "scholarshipDeadline": null,
@@ -12613,7 +12823,8 @@
    "requirements": "Bằng cử nhân liên quan Du lịch - Khách sạn - Kinh doanh, IELTS tối thiểu 6.5",
    "notes": "Chưa xác nhận số hạng QS Hospitality 2025 riêng của Surrey - cần kiểm tra thêm",
    "level": "master",
-   "online": false
+   "online": false,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 283,
@@ -12854,17 +13065,17 @@
    "desc": "Chương trình cử nhân Psychological Science tại Università di Padova, Padova, giảng dạy bằng tiếng Anh.",
    "duration": "3 năm",
    "months": 36,
-   "deadlineRaw": "Pre-evaluation non-EU khoảng tháng 2 đến tháng 4 hằng năm",
+   "deadlineRaw": "Đợt 1 cho SV có bằng nước ngoài đóng 15/11/2026 (các đợt sau xem trang trường)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 28,
-      "m": 2,
-      "y": null
+      "d": 15,
+      "m": 11,
+      "y": 2026
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.unipd.it/en/educational-offer",
@@ -12883,7 +13094,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "bachelor",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 289,
@@ -13232,7 +13444,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Non-EU khoảng €2.000–3.000/kỳ (từ 2024 TUM thu học phí ngoài EU)",
-   "tuitionEur": 2000,
+   "tuitionEur": 4000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €950-1100/tháng (tài khoản phong toả khoảng €992/tháng)",
    "livingEur": 950,
@@ -13287,7 +13499,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €10.000/kỳ (trường tư), có học bổng giảm mạnh",
-   "tuitionEur": 10000,
+   "tuitionEur": 20000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €950-1100/tháng (tài khoản phong toả khoảng €992/tháng)",
    "livingEur": 950,
@@ -13640,7 +13852,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Non-EU khoảng €1.500/kỳ",
-   "tuitionEur": 1500,
+   "tuitionEur": 3000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €900-1200/tháng",
    "livingEur": 900,
@@ -13947,17 +14159,17 @@
    "desc": "Chương trình cử nhân BSc Economics tại London School of Economics (LSE), London, giảng dạy bằng tiếng Anh.",
    "duration": "3 năm",
    "months": 36,
-   "deadlineRaw": "Qua UCAS, hạn đợt chính giữa tháng 1 hằng năm",
+   "deadlineRaw": "13/1/2027 qua UCAS để được xét đầy đủ và công bằng",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 13,
       "m": 1,
-      "y": null
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.lse.ac.uk/study-at-lse/undergraduate",
@@ -13976,7 +14188,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "bachelor",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 313,
@@ -14037,17 +14250,22 @@
    "desc": "Chương trình cử nhân BA Architecture tại University of Sheffield, Sheffield, giảng dạy bằng tiếng Anh.",
    "duration": "3 năm",
    "months": 36,
-   "deadlineRaw": "Qua UCAS, hạn đợt chính giữa tháng 1 hằng năm",
+   "deadlineRaw": "13/1/2027 qua UCAS để được xét công bằng (nộp đến 30/6/2027 nếu còn chỗ)",
    "deadline": {
-    "type": "month",
+    "type": "window",
     "dates": [
      {
-      "d": 31,
+      "d": 13,
       "m": 1,
-      "y": null
+      "y": 2027
+     },
+     {
+      "d": 30,
+      "m": 6,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.sheffield.ac.uk/undergraduate/courses",
@@ -14066,7 +14284,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "bachelor",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 315,
@@ -14145,7 +14364,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €4.000–6.000/năm, có suất miễn học phí",
-   "tuitionEur": 0,
+   "tuitionEur": 4000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €600-800/tháng",
    "livingEur": 600,
@@ -14575,17 +14794,17 @@
    "desc": "Chương trình tiến sĩ PhD Programme (4 khoa) tại European University Institute (EUI), Firenze, giảng dạy bằng tiếng Anh.",
    "duration": "4 năm",
    "months": 48,
-   "deadlineRaw": "Khoảng 31/1 hằng năm",
+   "deadlineRaw": "15/1/2027 (23:59 CET), nhập học tháng 9/2027",
    "deadline": {
     "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 15,
       "m": 1,
-      "y": null
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.eui.eu/apply",
@@ -14604,7 +14823,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "phd",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 327,
@@ -15627,12 +15847,12 @@
    "desc": "Chương trình tiến sĩ EMBL International PhD Programme tại EMBL, Heidelberg, giảng dạy bằng tiếng Anh.",
    "duration": "4 năm",
    "months": 48,
-   "deadlineRaw": "Hai đợt, khoảng tháng 10 và tháng 4 hằng năm",
+   "deadlineRaw": "Khoảng giữa tháng 10 hàng năm (đợt 2026 đóng ngày 12 tháng 10)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 12,
       "m": 10,
       "y": null
      }
@@ -15656,7 +15876,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "phd",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 351,
@@ -15774,7 +15995,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 35.000 toàn khoá",
-   "tuitionEur": 40950,
+   "tuitionEur": 20475,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -15813,7 +16034,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 12.000 toàn khoá",
-   "tuitionEur": 14040,
+   "tuitionEur": 2808,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -15852,7 +16073,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 18.000–20.000 toàn khoá (tuỳ nước cư trú)",
-   "tuitionEur": 21060,
+   "tuitionEur": 10530,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -15891,7 +16112,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 15.000 toàn khoá",
-   "tuitionEur": 17550,
+   "tuitionEur": 5850,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -15930,7 +16151,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 16.000 toàn khoá",
-   "tuitionEur": 18720,
+   "tuitionEur": 6240,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -15957,10 +16178,16 @@
    "desc": "Chương trình thạc sĩ Global Online MBA (học online) tại Imperial College Business School, Học online, giảng dạy bằng tiếng Anh.",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Xét cuốn chiếu, nhiều kỳ nhập học mỗi năm",
+   "deadlineRaw": "13/1/2027 (18:00 giờ Anh)",
    "deadline": {
-    "type": "rolling",
-    "dates": [],
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 13,
+      "m": 1,
+      "y": 2027
+     }
+    ],
     "recurring": false
    },
    "scholarshipDeadline": null,
@@ -15969,7 +16196,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 59.000 toàn khoá",
-   "tuitionEur": 69030,
+   "tuitionEur": 34515,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -15980,7 +16207,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "master",
    "online": true,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 359,
@@ -15996,11 +16224,17 @@
    "desc": "Chương trình thạc sĩ Global Online MBA (học online) tại IE Business School, Học online, giảng dạy bằng tiếng Anh.",
    "duration": "15–18 tháng",
    "months": 18,
-   "deadlineRaw": "Xét cuốn chiếu, nhiều kỳ nhập học mỗi năm",
+   "deadlineRaw": "Xét cuốn chiếu; nên nộp hồ sơ và đơn học bổng trước 15/4 hàng năm",
    "deadline": {
-    "type": "rolling",
-    "dates": [],
-    "recurring": false
+    "type": "fixed",
+    "dates": [
+     {
+      "d": 15,
+      "m": 4,
+      "y": null
+     }
+    ],
+    "recurring": true
    },
    "scholarshipDeadline": null,
    "link": "https://www.ie.edu/business-school/programs/mba/global-online-mba/",
@@ -16008,7 +16242,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €60.000 toàn khoá",
-   "tuitionEur": 60000,
+   "tuitionEur": 40000,
    "tuitionCur": "EUR",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16019,7 +16253,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "master",
    "online": true,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 360,
@@ -16047,7 +16282,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €40.000 toàn khoá",
-   "tuitionEur": 40000,
+   "tuitionEur": 20000,
    "tuitionCur": "EUR",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16086,7 +16321,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 27.000 toàn khoá",
-   "tuitionEur": 31590,
+   "tuitionEur": 10530,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16125,7 +16360,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 23.000 toàn khoá",
-   "tuitionEur": 26910,
+   "tuitionEur": 10764,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16164,7 +16399,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €8.000–12.000 toàn khoá (thường có giảm giá)",
-   "tuitionEur": 8000,
+   "tuitionEur": 4000,
    "tuitionCur": "EUR",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16203,7 +16438,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €10.000–15.000 toàn khoá",
-   "tuitionEur": 10000,
+   "tuitionEur": 3333,
    "tuitionCur": "EUR",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16242,7 +16477,7 @@
    "language": "Tiếng Tây Ban Nha",
    "mainLanguage": "Tiếng Tây Ban Nha",
    "tuitionRaw": "Khoảng €5.000–7.000 toàn khoá",
-   "tuitionEur": 5000,
+   "tuitionEur": 2500,
    "tuitionCur": "EUR",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16281,7 +16516,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €12.000 toàn khoá",
-   "tuitionEur": 12000,
+   "tuitionEur": 6000,
    "tuitionCur": "EUR",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16320,7 +16555,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 15.000 toàn khoá",
-   "tuitionEur": 17550,
+   "tuitionEur": 5850,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16359,7 +16594,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 20.000–25.000 toàn khoá (MBA)",
-   "tuitionEur": 23400,
+   "tuitionEur": 7800,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16398,7 +16633,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 10.000 toàn khoá",
-   "tuitionEur": 11700,
+   "tuitionEur": 5850,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16437,7 +16672,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 12.000 toàn khoá",
-   "tuitionEur": 14040,
+   "tuitionEur": 4680,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16482,7 +16717,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 14.000 toàn khoá",
-   "tuitionEur": 16380,
+   "tuitionEur": 3276,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16521,7 +16756,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 12.000 toàn khoá",
-   "tuitionEur": 14040,
+   "tuitionEur": 2808,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16560,7 +16795,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 12.000–17.000 toàn khoá",
-   "tuitionEur": 14040,
+   "tuitionEur": 7020,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16644,7 +16879,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €13.000 toàn khoá",
-   "tuitionEur": 13000,
+   "tuitionEur": 6500,
    "tuitionCur": "EUR",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16683,7 +16918,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng CHF 25.000–30.000 toàn khoá",
-   "tuitionEur": 26500,
+   "tuitionEur": 13250,
    "tuitionCur": "CHF",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16722,7 +16957,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 37.000 toàn khoá",
-   "tuitionEur": 43290,
+   "tuitionEur": 10822,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16761,7 +16996,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng GBP 18.000–22.000 toàn khoá",
-   "tuitionEur": 21060,
+   "tuitionEur": 10530,
    "tuitionCur": "GBP",
    "livingRaw": "Học online, không phát sinh sinh hoạt phí ở nước ngoài",
    "livingEur": null,
@@ -16941,7 +17176,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €4.000–5.000/năm, có suất miễn học phí",
-   "tuitionEur": 0,
+   "tuitionEur": 4000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €600-800/tháng",
    "livingEur": 600,
@@ -16986,7 +17221,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €400–800/kỳ",
-   "tuitionEur": 400,
+   "tuitionEur": 800,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €1200-1500/tháng",
    "livingEur": 1200,
@@ -17013,17 +17248,22 @@
    "desc": "Chương trình thạc sĩ Master of Architecture (Faculty for the Built Environment) tại University of Malta, Msida, giảng dạy bằng tiếng Anh.",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Khoảng tháng 6 hằng năm",
+   "deadlineRaw": "Kỳ tháng 2/2027: hạn 29/1/2027; kỳ tháng 10/2027: hạn 21/7/2027",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 30,
-      "m": 6,
-      "y": null
+      "d": 29,
+      "m": 1,
+      "y": 2027
+     },
+     {
+      "d": 21,
+      "m": 7,
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.um.edu.mt/",
@@ -17042,7 +17282,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "master",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 385,
@@ -17796,7 +18037,7 @@
    "language": "Khác",
    "mainLanguage": "Khác",
    "tuitionRaw": "Khoảng €1.500–4.000 toàn khoá",
-   "tuitionEur": 1500,
+   "tuitionEur": 750,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €600-800/tháng",
    "livingEur": 600,
@@ -17823,17 +18064,17 @@
    "desc": "Chương trình thạc sĩ Master Data Science tại Università di Padova, Padova, giảng dạy bằng tiếng Anh.",
    "duration": "2 năm",
    "months": 24,
-   "deadlineRaw": "Pre-evaluation non-EU khoảng tháng 1 đến tháng 3",
+   "deadlineRaw": "Đợt 1 cho SV có bằng nước ngoài đóng 15/11/2026 (các đợt sau xem trang trường)",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
-      "m": 1,
-      "y": null
+      "d": 15,
+      "m": 11,
+      "y": 2026
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.unipd.it/en/educational-offer",
@@ -17852,7 +18093,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "master",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 403,
@@ -18021,7 +18263,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Non-EU khoảng €1.500/kỳ (bang Baden-Württemberg)",
-   "tuitionEur": 1500,
+   "tuitionEur": 3000,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €950-1100/tháng (tài khoản phong toả khoảng €992/tháng)",
    "livingEur": 950,
@@ -18126,7 +18368,7 @@
    "language": "Tiếng Anh",
    "mainLanguage": "Tiếng Anh",
    "tuitionRaw": "Khoảng €400–800/kỳ",
-   "tuitionEur": 400,
+   "tuitionEur": 800,
    "tuitionCur": "EUR",
    "livingRaw": "Khoảng €1200-1500/tháng",
    "livingEur": 1200,
@@ -18198,17 +18440,17 @@
    "desc": "Chương trình thạc sĩ Master in European Political and Governance Studies / EU International Relations tại College of Europe, Bruges / Natolin (Warszawa), giảng dạy bằng tiếng Anh.",
    "duration": "1 năm",
    "months": 12,
-   "deadlineRaw": "Khoảng giữa tháng 1 hằng năm",
+   "deadlineRaw": "13/1/2027 (23:59), mở nhận hồ sơ từ giữa tháng 10/2026",
    "deadline": {
-    "type": "month",
+    "type": "fixed",
     "dates": [
      {
-      "d": 31,
+      "d": 13,
       "m": 1,
-      "y": null
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.coleurope.eu/",
@@ -18227,7 +18469,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "master",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   },
   {
    "id": 411,
@@ -18288,17 +18531,17 @@
    "desc": "Chương trình thạc sĩ Advanced Masters in Structural Analysis of Monuments and Historical Constructions (SAHC) tại Erasmus Mundus (ARCHMAT / SAHC), Padova, Barcelona, Minho, Praha, giảng dạy bằng tiếng Anh.",
    "duration": "1 năm",
    "months": 12,
-   "deadlineRaw": "Hạn xét học bổng khoảng tháng 1 hằng năm",
+   "deadlineRaw": "Đợt 1 (xét học bổng) đến 20/1/2027 cho khoá bắt đầu tháng 9/2027",
    "deadline": {
-    "type": "month",
+    "type": "window",
     "dates": [
      {
-      "d": 31,
+      "d": 20,
       "m": 1,
-      "y": null
+      "y": 2027
      }
     ],
-    "recurring": true
+    "recurring": false
    },
    "scholarshipDeadline": null,
    "link": "https://www.msc-sahc.org/",
@@ -18317,7 +18560,8 @@
    "notes": "Số liệu bổ sung 10/2026, tham khảo cho năm học 2027/28. Kiểm tra lại hạn nộp và học phí trên trang trường.",
    "level": "master",
    "online": false,
-   "extra": true
+   "extra": true,
+   "verifiedAt": "2026-10-29"
   }
  ]
 }

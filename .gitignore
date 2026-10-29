@@ -11,3 +11,4 @@ keys-*.txt
 .linkcheck-report.json
 shots/
 tools/__pycache__/
+.verify/

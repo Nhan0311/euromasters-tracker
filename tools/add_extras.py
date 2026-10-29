@@ -14,10 +14,12 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_data import (parse_money, strip_accents, parse_deadlines, parse_months, has_scholarship,  # noqa: E402
+from build_data import (parse_money, parse_tuition, strip_accents, parse_deadlines, parse_months, has_scholarship,  # noqa: E402
                         load_link_status, OUT)
 
 EXTRA = OUT.parent / "extra-programs.json"
+# Mục đã đối chiếu với trang chính thức của trường (tools/verify_set.py), thắng dữ liệu gốc.
+OVERRIDES = OUT.parent / "data-overrides.json"
 
 LEVEL_SHEET = {"bachelor": "Cử nhân", "master": "Thạc sĩ", "phd": "Tiến sĩ"}
 
@@ -90,10 +92,10 @@ def build_record(x, pid, link_status):
         x.get("ci") or country, lang.replace("Tiếng", "tiếng"))
     dl = parse_deadlines(x["dl"])
     sch = parse_deadlines(ss + " " + so)
-    tui_eur, tui_cur, _ = parse_money(x.get("tu", ""))
+    tui_eur, tui_cur, _ = parse_tuition(x.get("tu", ""), parse_months(x.get("du", "")))
     # Học phí tiến sĩ thường ghi kèm lương hoặc học bổng: con số đó không phải học phí
     low = strip_accents(x.get("tu", "")).lower()
-    if "mien hoc phi" in low:
+    if "mien hoc phi" in low and not tui_eur:
         tui_eur, tui_cur = 0, "EUR"
     elif lv == "phd" and ("luong" in low or "hoc bong" in low or "hop dong" in low):
         tui_eur, tui_cur = None, None
@@ -135,12 +137,46 @@ def build_record(x, pid, link_status):
     }
 
 
+def apply_overrides(rows):
+    """dl = hạn nộp mới (phân tích lại), link = URL mới, tu = học phí mới, note = thêm vào ghi chú; khoá "trường | chương trình"."""
+    if not OVERRIDES.exists():
+        return 0
+    items = json.loads(OVERRIDES.read_text(encoding="utf-8"))["items"]
+    used = 0
+    for r in rows:
+        o = items.get(r["school"] + " | " + r["program"])
+        if not o:
+            continue
+        used += 1
+        if "dl" in o:
+            r["deadlineRaw"] = o["dl"]
+            r["deadline"] = parse_deadlines(o["dl"])
+        if "link" in o:
+            r["link"] = o["link"]
+            r["linkStatus"] = "ok"
+        if "tu" in o:
+            r["tuitionRaw"] = o["tu"]
+            r["tuitionEur"], r["tuitionCur"], _ = parse_tuition(o["tu"], r.get("months"))
+        if "tuEur" in o:
+            r["tuitionEur"] = o["tuEur"]
+        if "note" in o:
+            r["notes"] = (r.get("notes") or "").rstrip(". ") + (". " if r.get("notes") else "") + o["note"]
+        r["verifiedAt"] = o.get("checked")
+    missing = set(items) - {r["school"] + " | " + r["program"] for r in rows}
+    if missing:
+        print("override không khớp chương trình nào:", sorted(missing))
+    return used
+
+
 def merge():
     payload = json.loads(OUT.read_text(encoding="utf-8"))
     base = [p for p in payload["programs"] if not p.get("extra")]
     for p in base:
         p.setdefault("level", "master")
         p.setdefault("online", False)
+        # tính lại từ chữ gốc để mọi bản sửa của bộ đọc số áp cho cả dữ liệu từ Excel
+        p["tuitionEur"], p["tuitionCur"], _ = parse_tuition(p.get("tuitionRaw", ""), p.get("months"))
+        p["livingEur"], _, _ = parse_money(p.get("livingRaw", ""))
     extra = json.loads(EXTRA.read_text(encoding="utf-8"))["items"]
     link_status, _ = load_link_status()
     pid = max(p["id"] for p in base)
@@ -148,6 +184,8 @@ def merge():
     for x in extra:
         pid += 1
         rows.append(build_record(x, pid, link_status))
+
+    used = apply_overrides(rows)
 
     meta = payload["meta"]
     meta["count"] = len(rows)
@@ -165,7 +203,7 @@ def merge():
         "window.EMT_DATA = " + json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + ";\n",
         encoding="utf-8")
     print("programs:", len(rows), "| extra:", len(extra), "| levels:", meta["levels"],
-          "| online:", meta["online"], "| countries:", len(meta["countries"]))
+          "| online:", meta["online"], "| countries:", len(meta["countries"]), "| overrides:", used)
 
 
 if __name__ == "__main__":

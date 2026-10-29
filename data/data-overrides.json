@@ -1,0 +1,328 @@
+{
+ "_readme": [
+  "Sửa dữ liệu từng chương trình sau khi đối chiếu với trang chính thức của trường (29/10/2026).",
+  "Khoá là 'trường | chương trình'. dl = hạn nộp (phân tích lại như cột Excel), link = URL mới,",
+  "tu = chữ học phí mới, tuEur = học phí/năm cho SV ngoài EU (null = chưa rõ), note = thêm vào ghi chú.",
+  "src = trang đã đối chiếu, checked = ngày kiểm. Ghi mục mới bằng tools/verify_set.py; add_extras.merge() áp file này."
+ ],
+ "items": {
+  "University of Sheffield | Architecture MArch": {
+   "dl": "20/8/2027 cho kỳ nhập học tháng 9/2027 (nên nộp sớm)",
+   "src": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/architecture-march",
+   "checked": "2026-10-29"
+  },
+  "Loughborough University | MArch Architecture (Professional)": {
+   "dl": "31/7 hàng năm cho kỳ nhập học tháng 9",
+   "src": "https://www.lboro.ac.uk/study/postgraduate/masters-degrees/architecture/",
+   "checked": "2026-10-29"
+  },
+  "University of Edinburgh | Architecture Master of (ARB/RIBA Part 2) - MArch ARB Pt 2": {
+   "dl": "Vòng 1: 30/6/2027 (xét theo vòng, có thể đóng sớm nếu nhiều hồ sơ)",
+   "src": "https://study.ed.ac.uk/programmes/postgraduate-taught/420-architecture-master-of-arbriba-part-2",
+   "checked": "2026-10-29"
+  },
+  "Courtauld Institute of Art | MA History of Art": {
+   "dl": "11/1/2027 cho kỳ nhập học tháng 9/2027",
+   "src": "https://courtauld.ac.uk/explore-our-courses/postgraduate/ma-history-of-art/",
+   "checked": "2026-10-29"
+  },
+  "Goldsmiths, University of London | MFA Fine Art": {
+   "dl": "31/1/2027 cho kỳ nhập học tháng 9/2027 (hạn học bổng có thể sớm hơn)",
+   "src": "https://www.gold.ac.uk/pg/mfa-fine-art/",
+   "checked": "2026-10-29"
+  },
+  "Konstfack (University of Arts, Crafts and Design) | Master's Programme in Fine Art": {
+   "dl": "15/1/2027 (nộp qua universityadmissions.se + bài dự tuyển trên konstfack.se), nhập học tháng 8/2027",
+   "src": "https://www.konstfack.se/en/Education/Masters-Degree-Programmes/Fine-Art/",
+   "checked": "2026-10-29"
+  },
+  "Aarhus School of Architecture | Master's Programme in Architecture (Kandidatuddannelsen i arkitektur)": {
+   "dl": "1/2 hàng năm cho kỳ nhập học tháng 9",
+   "src": "https://aarch.dk/en/full-degree-student-admission/",
+   "checked": "2026-10-29"
+  },
+  "Oslo School of Architecture and Design (AHO) | Master of Architecture (Sivilarkitekt)": {
+   "dl": "2/2 hàng năm (mở nhận hồ sơ từ đầu tháng 12), nhập học tháng 8",
+   "src": "https://www.aho.no/english/studies/programmes/master-of-architecture/",
+   "checked": "2026-10-29"
+  },
+  "Queen's University Belfast | Master of Architecture (MArch Architecture)": {
+   "dl": "30/6/2027 cho kỳ nhập học cuối tháng 9/2027 (có thể đóng sớm nếu nhiều hồ sơ)",
+   "src": "https://www.qub.ac.uk/courses/postgraduate-taught/architecture-march/",
+   "checked": "2026-10-29"
+  },
+  "University of Leeds | Architecture MArch": {
+   "dl": "30/7/2027 cho SV quốc tế; 10/9/2027 cho SV Anh",
+   "src": "https://courses.leeds.ac.uk/j929/architecture-march",
+   "checked": "2026-10-29"
+  },
+  "Università Iuav di Venezia | Laurea Magistrale in Architettura (Master's Degree in Architecture, giảng dạy bằng tiếng Anh)": {
+   "dl": "Khoảng 23/2 hàng năm (đợt 2026/27 đã đóng; đăng ký nhận thông báo đợt mới trên trang trường)",
+   "src": "https://www.iuav.it/en/didattica/lauree-magistrali/architecture",
+   "checked": "2026-10-29"
+  },
+  "Berlin University of the Arts (UdK Berlin) | Master of Fine Arts (Bildende Kunst - Fine Art)": {
+   "dl": "5/2 - 5/3 hàng năm cho kỳ mùa đông (tháng 10)",
+   "src": "https://www.udk-berlin.de/en/application/applicationguide/fine-arts/",
+   "checked": "2026-10-29"
+  },
+  "University of Liverpool | Master of Architecture (MArch)": {
+   "dl": "13/1/2027 cho kỳ nhập học tháng 9/2027",
+   "src": "https://www.liverpool.ac.uk/courses/master-of-architecture-march",
+   "checked": "2026-10-29"
+  },
+  "University of Glasgow | MSc City Planning": {
+   "dl": "Xét theo 6 vòng cho kỳ 9/2027: vòng đầu hạn 5/11/2026, vòng 3 hạn 4/2/2027, vòng cuối hạn 8/7/2027",
+   "src": "https://www.gla.ac.uk/postgraduate/taught/city-planning/",
+   "checked": "2026-10-29"
+  },
+  "University of Southampton (Winchester School of Art) | MA Fashion Design": {
+   "dl": "4/8/2027 cho SV quốc tế; 18/8/2027 cho SV Anh (có thể đóng sớm khi đủ chỗ)",
+   "src": "https://www.southampton.ac.uk/courses/fashion-design-masters-ma",
+   "checked": "2026-10-29"
+  },
+  "Imperial College Business School | MSc Business Analytics & AI": {
+   "dl": "Xét theo vòng; vòng kế tiếp 6/1/2027 cho kỳ nhập học 2027",
+   "src": "https://www.imperial.ac.uk/business-school/masters/business-analytics/",
+   "checked": "2026-10-29"
+  },
+  "Imperial College London | MSc Computing (Artificial Intelligence and Machine Learning)": {
+   "dl": "Xét theo vòng cho kỳ 2027: vòng 2 hạn 6/1/2027, vòng 3 hạn 10/3/2027, vòng 4 hạn 28/4/2027 (nên nộp sớm)",
+   "src": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/computing-artificial-intelligence-msc/",
+   "checked": "2026-10-29"
+  },
+  "Universitat Politècnica de Catalunya · BarcelonaTech (UPC) | Master's degree in Civil Engineering (Barcelona School of Civil Engineering - ETSECCPB)": {
+   "dl": "Đợt tuyển hiện tại dự kiến đóng 11/11/2026 (có 2 kỳ nhập học: tháng 9 và tháng 2; xem lịch trên camins.upc.edu)",
+   "src": "https://www.upc.edu/en/masters/civil-engineering",
+   "checked": "2026-10-29"
+  },
+  "Karolinska Institutet | Master's Programme in Public Health Sciences": {
+   "dl": "Hạn nộp 15/1/2027; giấy tờ bổ sung trước 1/2/2027 (nộp qua universityadmissions.se), nhập học mùa thu 2027",
+   "src": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-public-health-sciences",
+   "checked": "2026-10-29"
+  },
+  "University of Surrey | MSc International Tourism Management": {
+   "dl": "SV quốc tế: 11/12/2026 (kỳ tháng 1/2027) và 23/7/2027 (kỳ tháng 9/2027); có thể đóng sớm khi đủ chỗ",
+   "src": "https://www.surrey.ac.uk/postgraduate/international-tourism-management-msc",
+   "checked": "2026-10-29"
+  },
+  "University of Amsterdam (UvA) | Research Master's Urban Studies": {
+   "dl": "SV ngoài EEA: đăng ký Studielink trước 5/2/2027 và nộp hồ sơ SIS trước 15/2/2027 (SV EEA: 15/3/2027), nhập học 9/2027",
+   "src": "https://www.uva.nl/en/programmes/research-masters/urban-studies-research/urban-studies-research-msc.html",
+   "checked": "2026-10-29"
+  },
+  "Imperial College London / Royal College of Art | Global Innovation Design MA/MSc": {
+   "dl": "Vòng 1: 8/1/2027; vòng 2: 23/3/2027 (theo lịch tuyển sinh RCA, nộp trước 12h trưa giờ Anh)",
+   "src": "https://www.rca.ac.uk/study/programme-finder/",
+   "checked": "2026-10-29"
+  },
+  "Royal Academy of Art, The Hague (KABK) | Master Photography & Society": {
+   "dl": "2/3 hàng năm (sau 2/3 chỉ xét nếu còn chỗ)",
+   "src": "https://www.kabk.nl/en/programmes",
+   "checked": "2026-10-29"
+  },
+  "Design Academy Eindhoven (DAE) | Master of Arts in Fine Arts and Design": {
+   "dl": "Vòng 1: 29/1/2027; vòng 2: 29/3/2027 (nộp trước 23:59)",
+   "src": "https://www.designacademy.nl/page/398/master-programme",
+   "checked": "2026-10-29"
+  },
+  "Hasselt University (qua PXL-MAD School of Arts) | Master of Arts in Visual Arts - Fine Arts": {
+   "dl": "31/1/2027 (đợt nộp mở từ đầu tháng 12/2026; muốn xin học bổng Master Mind cũng nộp trước 31/1)",
+   "src": "https://www.pxl-mad.be/en/english-master-programme",
+   "checked": "2026-10-29"
+  },
+  "Cracow University of Technology | MSc in Architecture (Faculty of Architecture)": {
+   "dl": "Kỳ mùa đông: nộp từ đầu tháng 5 đến 17/7 hàng năm; kỳ mùa hè: đến 5/2/2027",
+   "src": "https://iro.pk.edu.pl/masters-degree-program/msc-in-architecture-faculty-of-architecture/",
+   "checked": "2026-10-29"
+  },
+  "IMD Business School | MBA (1-Year Full-time)": {
+   "dl": "Lớp 2028 có 6 hạn nộp, gần nhất 26/1/2027 và 16/3/2027 (xem đủ lịch trên trang IMD)",
+   "src": "https://www.imd.org/degree/mba/",
+   "checked": "2026-10-29"
+  },
+  "London School of Economics and Political Science (LSE) | LLM, Master of Laws": {
+   "dl": "13/1/2027 để được xét đầy đủ và công bằng (nộp sau vẫn được xét nếu còn chỗ)",
+   "src": "https://www.lse.ac.uk/law/study/llm",
+   "checked": "2026-10-29"
+  },
+  "Utrecht University | LLM Law and Economics": {
+   "dl": "1/4 hàng năm cho SV ngoài EU (1/2 nếu xin học bổng; SV EU hạn 1/6)",
+   "src": "https://www.uu.nl/en/masters/law-and-economics",
+   "checked": "2026-10-29"
+  },
+  "EHL Hospitality Business School | Master's in Hospitality Management (MiHM)": {
+   "dl": "31/5/2027 cho ứng viên cần visa; 15/6/2027 cho ứng viên khác",
+   "src": "https://gs.ehl.edu/degree-programs/master-in-hospitality-management",
+   "checked": "2026-10-29"
+  },
+  "London School of Economics (LSE) | BSc Economics": {
+   "dl": "13/1/2027 qua UCAS để được xét đầy đủ và công bằng",
+   "src": "https://www.lse.ac.uk/study-at-lse/undergraduate",
+   "checked": "2026-10-29"
+  },
+  "University of Sheffield | BA Architecture": {
+   "dl": "13/1/2027 qua UCAS để được xét công bằng (nộp đến 30/6/2027 nếu còn chỗ)",
+   "src": "https://sheffield.ac.uk/undergraduate/courses",
+   "checked": "2026-10-29"
+  },
+  "European University Institute (EUI) | PhD Programme (4 khoa)": {
+   "dl": "15/1/2027 (23:59 CET), nhập học tháng 9/2027",
+   "src": "https://www.eui.eu/apply",
+   "checked": "2026-10-29"
+  },
+  "EMBL | EMBL International PhD Programme": {
+   "dl": "Khoảng giữa tháng 10 hàng năm (đợt 2026 đóng ngày 12 tháng 10)",
+   "src": "https://www.embl.org/about/info/embl-international-phd-programme/",
+   "checked": "2026-10-29"
+  },
+  "Imperial College Business School | Global Online MBA": {
+   "dl": "13/1/2027 (18:00 giờ Anh)",
+   "src": "https://www.imperial.ac.uk/business-school/",
+   "checked": "2026-10-29"
+  },
+  "University of Malta | Master of Architecture (Faculty for the Built Environment)": {
+   "dl": "Kỳ tháng 2/2027: hạn 29/1/2027; kỳ tháng 10/2027: hạn 21/7/2027",
+   "src": "https://www.um.edu.mt/",
+   "checked": "2026-10-29"
+  },
+  "TU Wien (Vienna University of Technology) | Masterstudium Architektur": {
+   "link": "https://www.tuwien.at/en/studies/studies/master-programmes/architecture-and-planning/architecture",
+   "src": "https://www.tuwien.at/en/studies/studies/master-programmes/architecture",
+   "checked": "2026-10-29"
+  },
+  "Bauhaus-Universität Weimar | Architektur (M.Sc.)": {
+   "link": "https://www.uni-weimar.de/en/studies/degree-programmes/architecture-msc/",
+   "src": "https://www.uni-weimar.de/en/architecture-and-urbanism/studies/master/architecture/master-architecture/",
+   "checked": "2026-10-29"
+  },
+  "Norwegian University of Science and Technology (NTNU) | Sustainable Architecture - Master's Programme": {
+   "note": "Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
+   "src": "https://www.ntnu.edu/studies/mssusarc",
+   "checked": "2026-10-29",
+   "tuEur": null
+  },
+  "Athens School of Fine Arts (ASFA) | Master in Visual Arts": {
+   "note": "Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
+   "src": "https://www.asfa.gr/en/department-of-visual-arts/",
+   "checked": "2026-10-29",
+   "tuEur": null
+  },
+  "Oslo National Academy of the Arts (KHiO) | Master's Programme in Fine Art (MABK)": {
+   "tuEur": null,
+   "note": "Học phí cho SV ngoài EU chưa có số cụ thể, xem trang trường.",
+   "checked": "2026-10-29",
+   "src": "https://khio.no/en/study-programmes/mabk"
+  },
+  "La Cambre (École Nationale Supérieure des Arts Visuels) | Master en Design industriel": {
+   "tuEur": 4629,
+   "checked": "2026-10-29",
+   "src": "https://www.lacambre.be/fr/formations/design-industriel"
+  },
+  "Aalto University | Master's Programme in Architecture (Architecture major, MSc Architecture)": {
+   "dl": "5/1/2027 (đợt nộp mở đầu tháng 12/2026) cho kỳ nhập học mùa thu 2027",
+   "src": "https://www.aalto.fi/en/study-options/architecture-master-of-science-in-architecture",
+   "checked": "2026-10-29"
+  },
+  "Aalto University School of Business | Master's Programme in Marketing": {
+   "dl": "5/1/2027 (đợt nộp mở đầu tháng 12/2026) cho kỳ nhập học mùa thu 2027",
+   "src": "https://www.aalto.fi/en/study-options/marketing-master-of-science-economics-and-business-administration",
+   "checked": "2026-10-29"
+  },
+  "Malmö University (K3 - School of Arts and Communication) | Interaction Design, Master's Programme (Two-Year) - TAIND": {
+   "dl": "15/1 hàng năm (vòng 1, qua universityadmissions.se); vòng 2 khoảng giữa tháng 4",
+   "src": "https://mau.se/en/study-education/programme/taind/",
+   "checked": "2026-10-29"
+  },
+  "Royal College of Art (RCA) | MA Fine Art (Painting)": {
+   "dl": "Vòng 1: 8/1/2027; vòng 2: 23/3/2027 (theo lịch tuyển sinh RCA)",
+   "src": "https://www.rca.ac.uk/study/programme-finder/painting-ma/",
+   "checked": "2026-10-29"
+  },
+  "University of Manchester | MSc Artificial Intelligence": {
+   "dl": "Xét theo giai đoạn cho kỳ 2027: 6/11/2026, 1/1/2027, 26/2/2027, 21/5/2027 (sau đó chỉ xét nếu còn chỗ)",
+   "src": "https://www.manchester.ac.uk/study/masters/courses/list/21574/msc-artificial-intelligence/",
+   "checked": "2026-10-29"
+  },
+  "Imperial College London | MSc Advanced Mechanical Engineering": {
+   "dl": "Xét theo vòng cho kỳ 2027: vòng 2 hạn 6/1/2027, vòng 3 hạn 10/3/2027, vòng 4 hạn 28/4/2027 (nên nộp sớm)",
+   "src": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/advanced-mechanical-engineering/",
+   "checked": "2026-10-29"
+  },
+  "Imperial College London | Master of Public Health (MPH)": {
+   "dl": "Xét theo vòng cho kỳ 2027: vòng 2 hạn 6/1/2027, vòng 3 hạn 10/3/2027, vòng 4 hạn 28/4/2027; học bổng của trường hạn riêng",
+   "src": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/public-health-masters/",
+   "checked": "2026-10-29"
+  },
+  "Central European University (CEU) | MA in International Relations": {
+   "dl": "Vòng hiện tại đóng 2/2/2027 (cũng là hạn xét học bổng)",
+   "src": "https://www.ceu.edu/academics/degrees/ma-international-relations-1-year",
+   "checked": "2026-10-29"
+  },
+  "Erasmus Mundus (ARCHMAT / SAHC) | Advanced Masters in Structural Analysis of Monuments and Historical Constructions (SAHC)": {
+   "dl": "Đợt 1 (xét học bổng) đến 20/1/2027 cho khoá bắt đầu tháng 9/2027",
+   "src": "https://msc-sahc.org/",
+   "checked": "2026-10-29"
+  },
+  "University of Cambridge | Master of Law (LLM)": {
+   "dl": "Khoảng 8 tháng 12 hàng năm (gồm cả kết quả thi tiếng Anh), nhập học tháng 10 năm sau",
+   "src": "https://llm.law.cam.ac.uk/",
+   "checked": "2026-10-29"
+  },
+  "Cardiff University | Master of Architecture (MArch)": {
+   "dl": "Khoảng cuối tháng 8 hàng năm (xét theo thứ tự nộp, có thể đóng sớm), nhập học cuối tháng 9",
+   "src": "https://www.cardiff.ac.uk/study/postgraduate/taught/courses/course/master-of-architecture-march",
+   "checked": "2026-10-29"
+  },
+  "University of Applied Arts Vienna | Master's programme in Design/Fine Arts (die Angewandte)": {
+   "dl": "21/1/2027 (13h CET), nộp hồ sơ online từ đầu tháng 1/2027",
+   "src": "https://www.dieangewandte.at/programmes",
+   "checked": "2026-10-29"
+  },
+  "University of the Arts London (UAL) | MA Fine Art (Central Saint Martins)": {
+   "dl": "Vòng 1: 1/12/2026; vòng 2: 17/2/2027 (13h giờ Anh)",
+   "src": "https://www.arts.ac.uk/subjects/fine-art/postgraduate/ma-fine-art-csm",
+   "checked": "2026-10-29"
+  },
+  "Trinity College Dublin - Trinity Business School | MSc in Finance": {
+   "dl": "Đóng 31/7/2027 cho kỳ tháng 9/2027 (nên nộp sớm)",
+   "src": "https://www.tcd.ie/business/programmes/masters-programmes/msc-in-finance/",
+   "checked": "2026-10-29"
+  },
+  "Aalborg University (AAU) | MSc in Signal Processing and Computing": {
+   "dl": "15/1 hàng năm cho SV phải đóng học phí (ngoài EU); 1/3 cho SV EU/EEA",
+   "src": "https://www.en.aau.dk/education/master/electronic-systems",
+   "checked": "2026-10-29"
+  },
+  "University of Oxford | MSc in Global Health Science and Epidemiology": {
+   "dl": "1/12/2026 (12h trưa) cho kỳ nhập học tháng 10/2027",
+   "src": "https://www.ndph.ox.ac.uk/study-with-us/MSc-GHSE",
+   "checked": "2026-10-29"
+  },
+  "Leiden University | MSc International Relations and Diplomacy (Advanced Master)": {
+   "dl": "1/4 hàng năm",
+   "src": "https://www.universiteitleiden.nl/en/education/study-programmes/master/international-relations-and-diplomacy",
+   "checked": "2026-10-29"
+  },
+  "Università di Padova | Psychological Science": {
+   "dl": "Đợt 1 cho SV có bằng nước ngoài đóng 15/11/2026 (các đợt sau xem trang trường)",
+   "src": "https://www.unipd.it/en",
+   "checked": "2026-10-29"
+  },
+  "Università di Padova | Master Data Science": {
+   "dl": "Đợt 1 cho SV có bằng nước ngoài đóng 15/11/2026 (các đợt sau xem trang trường)",
+   "src": "https://www.unipd.it/en",
+   "checked": "2026-10-29"
+  },
+  "College of Europe | Master in European Political and Governance Studies / EU International Relations": {
+   "dl": "13/1/2027 (23:59), mở nhận hồ sơ từ giữa tháng 10/2026",
+   "src": "https://www.coleurope.eu/",
+   "checked": "2026-10-29"
+  },
+  "IE Business School | Global Online MBA": {
+   "dl": "Xét cuốn chiếu; nên nộp hồ sơ và đơn học bổng trước 15/4 hàng năm",
+   "src": "https://www.ie.edu/business-school/programs/executive-part-time-mbas/global-mba/",
+   "checked": "2026-10-29"
+  }
+ }
+}
