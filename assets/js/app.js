@@ -1428,6 +1428,8 @@
 
     /* tài liệu miễn phí */
     $("#freeFab").addEventListener("click", function () { show("#freeModal"); });
+    $("#freeFoot").addEventListener("click", function (e) { e.preventDefault(); show("#freeModal"); });
+    initFreeDock();
     $("#freeClose").addEventListener("click", function () { hide("#freeModal"); });
     $("#freeModal").addEventListener("click", function (e) { if (e.target.id === "freeModal") hide("#freeModal"); });
 
@@ -1504,6 +1506,29 @@
         '<a class="btn sm gold" href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(t("free.get")) + ic("i-external") + "</a></div></li>";
     }).join("");
     syncTrialBar();
+  }
+
+  /* Nút tài liệu miễn phí: tắt là nhớ luôn (mở lại ở chân trang). Nút lớn chỉ hiện vài giây,
+     khi cuộn xuống hoặc hết giờ thì thu thành dải sát mép phải cho khỏi che nội dung; cuộn lên thì mở lại. */
+  function initFreeDock() {
+    var dock = $("#freeDock"), KEY = "emt.freeDock.off.v1", lastY = window.scrollY || 0, timer;
+    function expand() {
+      dock.classList.remove("away");
+      clearTimeout(timer);
+      timer = setTimeout(function () { dock.classList.add("away"); }, 8000);
+    }
+    expand();
+    try { if (localStorage.getItem(KEY)) dock.hidden = true; } catch (e) {}
+    $("#freeOff").addEventListener("click", function () {
+      dock.hidden = true;
+      try { localStorage.setItem(KEY, "1"); } catch (e) {}
+    });
+    window.addEventListener("scroll", function () {
+      var y = window.scrollY || 0, d = y - lastY;
+      if (Math.abs(d) < 8) return;
+      if (d > 0) { clearTimeout(timer); dock.classList.add("away"); } else if (dock.classList.contains("away")) { expand(); }
+      lastY = y;
+    }, { passive: true });
   }
 
   function mmss(ms) {

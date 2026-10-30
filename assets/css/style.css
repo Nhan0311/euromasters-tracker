@@ -1148,7 +1148,7 @@ body.embed .studio-strip { display: none; }
 @media print {
   body { background: #fff; color: #000; padding: 0; }
   main, .topbar, .controls, .hero, footer.site, .compare-bar, .toast,
-  .grain, .drawer, .scrim, .modal, .nav, .skip, .free-fab { display: none !important; }
+  .grain, .drawer, .scrim, .modal, .nav, .skip, .free-dock { display: none !important; }
   #printroot { display: block !important; }
 }
 #printroot { display: none; }
@@ -1383,9 +1383,25 @@ footer.site { border-top: 1px solid var(--line); }
 html { scroll-behavior: smooth; }
 
 /* ==================================================== TÀI LIỆU MIỄN PHÍ == */
-.free-fab {
-  position: fixed; right: 18px; z-index: 75;
+.free-dock {
+  position: fixed; right: calc(18px + env(safe-area-inset-right, 0px)); z-index: 75;
   bottom: calc(18px + var(--navbar-h) + var(--safe-b));
+  transition: transform .3s var(--ease-out), visibility .3s;
+}
+.free-dock[hidden] { display: none; }
+.free-dock.away { right: 0; }
+.free-dock.away .free-off, .free-dock.away .free-fab-covers, .free-dock.away .free-fab-txt span { display: none; }
+.free-dock.away .free-fab { padding: 12px 5px; border-radius: 10px 0 0 10px; border-right: 0; animation: none; }
+.free-dock.away .free-fab-txt { writing-mode: vertical-rl; }
+.free-dock.away .free-fab-txt b { font-size: 11px; }
+.free-off {
+  position: absolute; top: -12px; right: -10px;
+  width: 30px; height: 30px; padding: 0; display: grid; place-items: center; cursor: pointer;
+  color: var(--text); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+}
+.free-off .i { width: 15px; height: 15px; }
+.free-fab {
   display: flex; align-items: center; gap: 15px;
   padding: 11px 21px 11px 14px; cursor: pointer; color: var(--buy-ink); font: inherit; text-align: left;
   background: var(--buy); border: 2px solid var(--bg); border-radius: 20px;
@@ -1417,6 +1433,19 @@ html { scroll-behavior: smooth; }
 .free-new { display: inline-block; vertical-align: 1px; padding: 1px 6px; border-radius: 999px; background: var(--buy); color: var(--buy-ink); font-size: 10.5px; font-weight: 700; }
 /* trên điện thoại: chừa chỗ cho thanh So sánh nằm giữa đáy màn hình */
 @media (max-width: 900px) {
-  .free-fab { right: 10px; bottom: calc(66px + var(--navbar-h) + var(--safe-b)); padding: 9px 12px; gap: 10px; }
+  .free-dock { right: calc(12px + env(safe-area-inset-right, 0px)); bottom: calc(66px + var(--navbar-h) + var(--safe-b)); }
+  .free-off { right: -6px; }
+  .free-fab { padding: 9px 12px; gap: 10px; }
   .free-fab-txt span { display: none; }
 }
+/* màn hình thấp (điện thoại xoay ngang) và điện thoại nhỏ: thu gọn */
+@media (max-height: 500px), (max-width: 360px) {
+  .free-fab { padding: 6px 9px; gap: 7px; border-radius: 14px; }
+  .free-fab-covers img { width: 28px; height: 40px; }
+  .free-fab-covers img + img { margin-left: -16px; }
+  .free-fab-txt b { font-size: 11px; }
+  .free-fab-txt span { display: none; }
+}
+/* đặt sau các quy tắc thu gọn: dải sát mép luôn nhỏ, trên mọi màn hình */
+.free-dock.away, .free-dock.away.away { right: 0; }
+.free-dock.away .free-fab, .free-dock.away.away .free-fab { padding: 12px 5px; gap: 0; }
