@@ -1426,6 +1426,11 @@
     $("#trialModalContinue").addEventListener("click", function () { hide("#trialModal"); });
     $("#trialModal").addEventListener("click", function (e) { if (e.target.id === "trialModal") hide("#trialModal"); });
 
+    /* tài liệu miễn phí */
+    $("#freeFab").addEventListener("click", function () { show("#freeModal"); });
+    $("#freeClose").addEventListener("click", function () { hide("#freeModal"); });
+    $("#freeModal").addEventListener("click", function (e) { if (e.target.id === "freeModal") hide("#freeModal"); });
+
     /* phím tắt */
     $("#helpBtn").addEventListener("click", function () { show("#helpModal"); });
     $("#helpClose").addEventListener("click", function () { hide("#helpModal"); });
@@ -1492,6 +1497,12 @@
     $("#trialModalBuy").href = CFG.GUMROAD_URL;
     $("#trialBuyBtn").href = CFG.GUMROAD_URL;
     $("#trialModalContinue").textContent = t("trial.continue", { n: n });
+    $("#freeList").innerHTML = CFG.FREE_RESOURCES.map(function (r) {
+      return '<li class="free-item"><img src="' + esc(r.img) + '" alt="" width="72" height="102" loading="lazy">' +
+        '<div class="free-body"><h3>' + esc(L(r.title)) + (r.isNew ? ' <span class="free-new">' + esc(t("free.new")) + "</span>" : "") + "</h3>" +
+        "<p>" + esc(L(r.desc)) + "</p>" +
+        '<a class="btn sm gold" href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(t("free.get")) + ic("i-external") + "</a></div></li>";
+    }).join("");
     syncTrialBar();
   }
 

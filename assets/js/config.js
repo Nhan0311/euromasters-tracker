@@ -42,6 +42,29 @@ window.EMT_CONFIG = {
   TRIAL_MINUTES: 5,
   FREE_VISIBLE: 50,
 
+  /* Ô "Tài liệu miễn phí" ở góc màn hình: mỗi tài liệu dẫn thẳng tới Gumroad để lấy email */
+  FREE_RESOURCES: [
+    {
+      img: "assets/img/free/bi-kip.jpg",
+      url: "https://haiktsduoihiennha.gumroad.com/l/BiKipDuHocY",
+      isNew: true,
+      title: { vi: "Bí kíp du học Ý", en: "The Italy Study Handbook" },
+      desc: { vi: "PDF 137 trang, từ chọn trường đến ngày nhận bằng. Bản 2027/28.", en: "137-page PDF, from choosing a school to graduation day. 2027/28 edition, in Vietnamese." }
+    },
+    {
+      img: "assets/img/free/cam-nang.jpg",
+      url: "https://haiktsduoihiennha.gumroad.com/l/CAMNANGCHUYENSAUDUHOCYCHOKTS2026",
+      title: { vi: "Cẩm nang chuyên sâu du học Ý cho KTS 2026", en: "In-depth Italy guide for architects 2026" },
+      desc: { vi: "Dành cho kiến trúc sư muốn học thạc sĩ Kiến trúc tại Ý.", en: "For architects planning a master's in Architecture in Italy. In Vietnamese." }
+    },
+    {
+      img: "assets/img/free/cheat-code.jpg",
+      url: "https://haiktsduoihiennha.gumroad.com/l/CheatCodeDuHocY",
+      title: { vi: "Hé lộ Cheat Code du học Ý", en: "Italy Study Cheat Code" },
+      desc: { vi: "Ebook 0đ cho người sắp đi học ngành Kiến trúc ở Ý.", en: "A free ebook for anyone about to study Architecture in Italy. In Vietnamese." }
+    }
+  ],
+
   /* Giá hiển thị trên nút mua (khớp với giá trên Gumroad) */
   PRICE: { vi: "1,99 USD", en: "US$1.99" },
 
